@@ -28,7 +28,8 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Place it behind everything */
-            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+            /* FIX: Changed to a local path. Pastikan Anda mengunggah gambar dengan nama 'background.jpg' ke repositori Anda. */
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -158,7 +159,8 @@
             width: 100%;
             height: 100%;
             background: inherit;
-            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+            /* FIX: Changed to a local path. */
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center center;
             opacity: 0.5;
@@ -265,7 +267,6 @@
             border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 10px;
             background: rgba(10, 10, 10, 0.6);
-            /* TWEAK: Removed backdrop-filter and idle animation */
             transition: all 0.4s ease;
             position: relative; 
             overflow: hidden; 
@@ -279,7 +280,6 @@
             z-index: 2;
         }
 
-        /* TWEAK: Restored hover effect */
         .menu-item:hover {
             color: #ffffff;
             border-color: #ffffff;
