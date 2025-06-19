@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps & Tools - Glickko Archives</title>
+    <style>
+        /* --- Base Styles and Animations (Copied from index.html for consistency) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+            background-size: cover; background-position: center center; background-repeat: no-repeat;
+            opacity: 0.3;
+            animation: ringRotation 30s ease-in-out infinite;
+        }
+        
+        .pulse-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+        .pulse {
+            position: absolute; width: 50vw; height: 50vw; border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: pulse-corner 6s ease-in-out infinite alternate;
+        }
+        .pulse.top-left { top: -25vw; left: -25vw; }
+        .pulse.top-right { top: -25vw; right: -25vw; animation-delay: 1.5s; }
+        .pulse.bottom-left { bottom: -25vw; left: -25vw; animation-delay: 2.5s; }
+        .pulse.bottom-right { bottom: -25vw; right: -25vw; animation-delay: 4s; }
+
+        .dimensional-bg::after {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 500px; height: 500px; border: 2px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 50%; transform: translate(-50%, -50%) scale(0);
+            animation: dimensionalRing 4s ease-in-out infinite 0.5s;
+        }
+
+        .glitch-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+        }
+        .glitch-overlay::before, .glitch-overlay::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: inherit;
+            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+            background-size: cover; background-position: center center; opacity: 0.5;
+        }
+        .glitch-overlay::before { animation: glitch-anim-1 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
+        .glitch-overlay::after { animation: glitch-anim-2 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
+
+        @keyframes ringRotation { 0%{transform:scale(1.1) translate(-20px,0);opacity:.3}25%{transform:scale(1.2) translate(0,20px);opacity:.4}50%{transform:scale(1.15) translate(20px,0);opacity:.3}75%{transform:scale(1.2) translate(0,-20px);opacity:.4}100%{transform:scale(1.1) translate(-20px,0);opacity:.3} }
+        @keyframes pulse-corner { from{transform:scale(.8);opacity:.3}to{transform:scale(1.2);opacity:.8} }
+        @keyframes dimensionalRing { 0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(5);opacity:0} }
+        @keyframes logoGlow { from{text-shadow:0 0 10px rgba(255,255,255,.4),0 0 5px #000}to{text-shadow:0 0 20px rgba(255,255,255,.7),0 0 10px #000} }
+        @keyframes glitch-anim-1{0%{clip-path:polygon(0 2%,100% 2%,100% 5%,0 5%);transform:translate(-10px,0)}10%{clip-path:polygon(0 75%,100% 75%,100% 75%,0 75%);transform:translate(5px,0)}20%{clip-path:polygon(0 40%,100% 40%,100% 45%,0 45%);transform:translate(-8px,0)}30%,100%{clip-path:inset(50%)}}
+        @keyframes glitch-anim-2{0%{clip-path:polygon(0 60%,100% 60%,100% 62%,0 62%);transform:translate(10px,0)}15%{clip-path:polygon(0 15%,100% 15%,100% 20%,0 20%);transform:translate(-5px,0)}25%{clip-path:polygon(0 90%,100% 90%,100% 95%,0 95%);transform:translate(8px,0)}35%,100%{clip-path:inset(50%)}}
+        @keyframes text-glitch-1{0%{clip-path:inset(40% 0 61% 0);transform:translate(-2px,-1px)}20%{clip-path:inset(10% 0 86% 0);transform:translate(1px,1px)}40%{clip-path:inset(90% 0 1% 0);transform:translate(-2px,2px)}60%{clip-path:inset(50% 0 45% 0);transform:translate(2px,-1px)}80%{clip-path:inset(25% 0 70% 0);transform:translate(-1px,1px)}100%{clip-path:inset(40% 0 61% 0);transform:translate(2px,-1px)}}
+        @keyframes text-glitch-2{0%{clip-path:inset(80% 0 3% 0);transform:translate(2px,1px)}20%{clip-path:inset(20% 0 76% 0);transform:translate(-2px,-1px)}40%{clip-path:inset(50% 0 46% 0);transform:translate(2px,-2px)}60%{clip-path:inset(90% 0 5% 0);transform:translate(-2px,1px)}80%{clip-path:inset(45% 0 50% 0);transform:translate(2px,-1px)}100%{clip-path:inset(80% 0 3% 0);transform:translate(-2px,1px)}}
+        
+        /* --- Header Styles --- */
+        header {
+            position: fixed; top: 0; width: 100%; background: transparent;
+            z-index: 1000; padding-top: 1.5rem; text-align: center;
+        }
+        nav {
+            display: inline-flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 1rem 2rem; max-width: 1200px;
+        }
+        .logo {
+            font-size: clamp(1.3rem, 1.1rem + 1.5vw, 2rem);
+            font-weight: bold; letter-spacing: 3px; color: #ffffff;
+            animation: logoGlow 3s ease-in-out infinite alternate; position: relative;
+        }
+        .logo::before, .logo::after {
+            /* Change content for the new title */
+            content: 'APPS & TOOLS'; 
+            position: absolute; top: 0; left: 0; width: 100%;
+            color: #fff; overflow: hidden; clip-path: inset(0 0 0 0); background: transparent;
+        }
+        .logo::before {
+            text-shadow: -2px 0 #00aaff;
+            animation: text-glitch-1 3.2s infinite linear alternate-reverse;
+        }
+        .logo::after {
+            text-shadow: 2px 0 #ff00ff;
+            animation: text-glitch-2 2.8s infinite linear alternate-reverse;
+        }
+
+        /* NEW: Unclickable subheader text */
+        .subheader-text {
+            margin-top: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.8rem, 0.7rem + 0.5vw, 1rem);
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        /* --- Main Content Area for Tools --- */
+        main { 
+            position: relative; 
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 8rem 2rem 2rem; /* Add padding top to avoid header */
+        }
+
+        .tools-container {
+            width: 100%;
+            max-width: 800px;
+            height: 70vh;
+            max-height: 600px;
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 1rem;
+            overflow-y: auto; /* This makes the container scrollable */
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .tool-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #ccc;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .tool-item .tool-name {
+            font-size: clamp(1rem, 0.9rem + 0.5vw, 1.2rem);
+            font-weight: bold;
+        }
+
+        .tool-tag {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            flex-shrink: 0; /* Prevent tag from shrinking */
+        }
+
+        /* Custom Scrollbar Styling */
+        .tools-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .tools-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .tools-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        .tools-container::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                padding: 6rem 1rem 1rem;
+            }
+            .tools-container {
+                height: 80vh;
+            }
+            /* TWEAK: Removed flex-direction: column to keep items in one line */
+            .tool-item {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="glitch-overlay"></div>
+    <div class="pulse-container">
+        <div class="pulse top-left"></div>
+        <div class="pulse top-right"></div>
+        <div class="pulse bottom-left"></div>
+        <div class="pulse bottom-right"></div>
+        <div class="dimensional-bg"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">APPS & TOOLS</div>
+            <div class="subheader-text">IF YOU KNOW - YOU KNOW</div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="tools-container">
+            <div class="tools-list">
+                <!-- Tool Items - Sorted Alphabetically -->
+                <a href="https://drive.google.com/file/d/1QVmMsY-4jsIYEMIU3oD-Y7aGitiGgZrY/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">Adobe Photoshop 2020</span>
+                    <span class="tool-tag">GRAPHIC</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1jo0x53Vp37zc1B-LQrJJRJMaWBFoJc2B/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">CapCut 5.7</span>
+                    <span class="tool-tag">VIDEO EDITING</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1ciJmdyz_Io4aXk-RGjEzab50vlZbFIhh" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">ControlNet</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1OShjyAwrwyzX4o9NkucalTpDXdm40WDa" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">ControlNetPreprocessor</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1MdfHM6yHNGWSpM6vnsPJxHd1sFzWjffd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">Internet Download Manager</span>
+                    <span class="tool-tag">DOWNLOADER</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1jhKyt1vG3oiR6sOs4ip8R90mC-c4MHLM?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">Lora</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1kCPNRVm3aYvVCdAl5x-XS0GqWoql7Mro/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">Pot Player</span>
+                    <span class="tool-tag">MEDIA</span>
+                </a>
+                <a href="https://drive.google.com/file/d/16G5p7pj6_7MLXfZGbfwggigc8dqvgOL6/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="tool-item">
+                    <span class="tool-name">Revo Uninstaller</span>
+                    <span class="tool-tag">TOOLS</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
