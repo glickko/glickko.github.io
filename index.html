@@ -28,8 +28,7 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Place it behind everything */
-            /* FIX: Changed to a local path. Pastikan Anda mengunggah gambar dengan nama 'background.jpg' ke repositori Anda. */
-            background-image: url('background.jpg');
+            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -37,7 +36,6 @@
             animation: ringRotation 30s ease-in-out infinite;
         }
         
-        /* Reworked the dimensional pulse effect */
         .pulse-container {
             position: fixed;
             top: 0;
@@ -62,7 +60,6 @@
         .pulse.bottom-left { bottom: -25vw; left: -25vw; animation-delay: 2.5s; }
         .pulse.bottom-right { bottom: -25vw; right: -25vw; animation-delay: 4s; }
 
-        /* Re-added the dimensional-bg for the expanding ring */
         .dimensional-bg::after {
             content: '';
             position: absolute;
@@ -76,105 +73,50 @@
             animation: dimensionalRing 4s ease-in-out infinite 0.5s;
         }
 
-        /* TWEAK: New "ring rotation" animation for the background image */
         @keyframes ringRotation {
-            0% {
-                transform: scale(1.1) translate(-20px, 0px);
-                opacity: 0.3;
-            }
-            25% {
-                transform: scale(1.2) translate(0px, 20px);
-                opacity: 0.4;
-            }
-            50% {
-                transform: scale(1.15) translate(20px, 0px);
-                opacity: 0.3;
-            }
-            75% {
-                transform: scale(1.2) translate(0px, -20px);
-                opacity: 0.4;
-            }
-            100% {
-                transform: scale(1.1) translate(-20px, 0px);
-                opacity: 0.3;
-            }
+            0% { transform: scale(1.1) translate(-20px, 0px); opacity: 0.3; }
+            25% { transform: scale(1.2) translate(0px, 20px); opacity: 0.4; }
+            50% { transform: scale(1.15) translate(20px, 0px); opacity: 0.3; }
+            75% { transform: scale(1.2) translate(0px, -20px); opacity: 0.4; }
+            100% { transform: scale(1.1) translate(-20px, 0px); opacity: 0.3; }
         }
-        
         @keyframes pulse-corner {
-            from {
-                transform: scale(0.8);
-                opacity: 0.3;
-            }
-            to {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
+            from { transform: scale(0.8); opacity: 0.3; }
+            to { transform: scale(1.2); opacity: 0.8; }
         }
-        
         @keyframes dimensionalRing {
             0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
             100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
         }
-        
         @keyframes logoGlow {
-             from {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0, 0, 0, 1);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 0, 0, 1);
-            }
+             from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0, 0, 0, 1); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 0, 0, 1); }
         }
-        
-        /* Keyframes for the background glitch effect */
         @keyframes glitch-anim-1 {
             0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); transform: translate(-10px, 0); }
             10% { clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%); transform: translate(5px, 0); }
             20% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(-8px, 0); }
             30%, 100% { clip-path: inset(50%); }
         }
-        
         @keyframes glitch-anim-2 {
             0% { clip-path: polygon(0 60%, 100% 60%, 100% 62%, 0 62%); transform: translate(10px, 0); }
             15% { clip-path: polygon(0 15%, 100% 15%, 100% 20%, 0 20%); transform: translate(-5px, 0); }
             25% { clip-path: polygon(0 90%, 100% 90%, 100% 95%, 0 95%); transform: translate(8px, 0); }
             35%, 100% { clip-path: inset(50%); }
         }
-        
-        /* Glitch overlay container and pseudo-elements */
         .glitch-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
-
         .glitch-overlay::before, .glitch-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: inherit;
-            /* FIX: Changed to a local path. */
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center center;
-            opacity: 0.5;
+            background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+            background-size: cover; background-position: center center; opacity: 0.5;
         }
-
-        .glitch-overlay::before {
-            animation: glitch-anim-1 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        }
-
-        .glitch-overlay::after {
-            animation: glitch-anim-2 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        }
-        
-        /* Keyframes for the text glitch effect */
+        .glitch-overlay::before { animation: glitch-anim-1 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
+        .glitch-overlay::after { animation: glitch-anim-2 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
         @keyframes text-glitch-1 {
             0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, -1px); }
             20% { clip-path: inset(10% 0 86% 0); transform: translate(1px, 1px); }
@@ -194,42 +136,23 @@
 
         /* Header */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: transparent;
-            z-index: 1000;
-            padding-top: 1rem; 
+            position: fixed; top: 0; width: 100%; background: transparent;
+            z-index: 1000; padding-top: 1.5rem;
         }
-        
         nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 1rem 2rem; max-width: 1200px; margin: 0 auto;
         }
 
-        /* Re-implementing text glitch effect on logo */
+        /* TWEAK: Fluid Font Size for Logo */
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #ffffff;
-            animation: logoGlow 3s ease-in-out infinite alternate;
-            position: relative;
+            font-size: clamp(1.3rem, 1.1rem + 1.5vw, 2rem);
+            font-weight: bold; letter-spacing: 3px; color: #ffffff;
+            animation: logoGlow 3s ease-in-out infinite alternate; position: relative;
         }
-        
         .logo::before, .logo::after {
-            content: 'GLICKKO ARCHIVES';
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: #fff;
-            overflow: hidden;
-            clip-path: inset(0 0 0 0);
-            background: transparent;
+            content: 'GLICKKO ARCHIVES'; position: absolute; top: 0; left: 0;
+            color: #fff; overflow: hidden; clip-path: inset(0 0 0 0); background: transparent;
         }
         .logo::before {
             text-shadow: -2px 0 #00aaff;
@@ -239,65 +162,64 @@
             text-shadow: 2px 0 #ff00ff;
             animation: text-glitch-2 2.8s infinite linear alternate-reverse;
         }
-        
-        /* Main content area */
-        main {
-            position: relative;
-            z-index: 10;
-        }
 
-        /* Main Menu Section - This is the only content now */
-        #home {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            height: 100vh; /* Takes full viewport height */
-            text-align: center;
+        /* TWEAK: Fluid Font Size for Social Links */
+        .social-links {
+            margin-top: 0.75rem;
         }
-
-        .menu-item {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ccc;
-            text-decoration: none;
-            padding: 1.2rem 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            background: rgba(10, 10, 10, 0.6);
-            transition: all 0.4s ease;
-            position: relative; 
-            overflow: hidden; 
-            cursor: pointer;
-            min-width: 280px;
-            text-align: center;
+        .social-links a {
+            font-size: clamp(0.8rem, 0.7rem + 0.5vw, 1rem);
+            color: #ccc; text-decoration: none; letter-spacing: 2px;
+            font-weight: bold; transition: all 0.3s ease;
         }
-        
-        .menu-item .text {
-            position: relative;
-            z-index: 2;
+        .social-links a:not(:last-child)::after {
+            content: '|'; margin: 0 15px; color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
         }
-
-        .menu-item:hover {
+        .social-links a:hover {
             color: #ffffff;
-            border-color: #ffffff;
-            background: rgba(20, 20, 20, 0.7);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        main { position: relative; z-index: 10; }
+
+        /* TWEAK: Fluid Spacing (gap) for Menu */
+        #home {
+            display: flex; flex-direction: column;
+            gap: clamp(1.5rem, 1rem + 2vh, 2.5rem);
+            align-items: center; justify-content: center;
+            padding: 2rem; height: 100vh; text-align: center;
+        }
+
+        /* TWEAK: Fluid Font Size for Menu Item */
+        .menu-item {
+            font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+            font-weight: bold; color: #ccc; text-decoration: none;
+            padding: 1.2rem 2.5rem; border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px; background: rgba(10, 10, 10, 0.6);
+            transition: all 0.4s ease; position: relative; overflow: hidden;
+            cursor: pointer; min-width: 280px; text-align: center;
+        }
+        .menu-item .text { position: relative; z-index: 2; }
+        .menu-item:hover {
+            color: #ffffff; border-color: #ffffff; background: rgba(20, 20, 20, 0.7);
             transform: translateY(-8px) scale(1.05);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
+        .menu-item:active { transform: translateY(-4px) scale(1.02); }
 
-        .menu-item:active {
-            transform: translateY(-4px) scale(1.02);
-        }
-
-        /* Responsive */
+        /* TWEAK: Simplified Media Query */
         @media (max-width: 768px) {
-            .logo { font-size: 1.3rem; }
+            /* Font sizes are now fluid, no need to declare them here again. */
+
+            /* Tweak for compact mobile remains to tighten separator distance */
+            .social-links a:not(:last-child)::after {
+                margin: 0 8px; /* Mengurangi jarak pemisah secara signifikan */
+            }
+
             .menu-item {
-                font-size: 1.5rem;
+                /* min-width and padding can be adjusted if needed, but they are quite robust */
                 min-width: 250px;
                 padding: 1rem 2rem;
             }
@@ -321,6 +243,11 @@
     <header>
         <nav>
             <div class="logo">GLICKKO ARCHIVES</div>
+            <div class="social-links">
+                <a href="https://discord.com/users/433936580701454347" target="_blank" rel="noopener noreferrer">DISCORD</a>
+                <a href="https://github.com/glickko" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                <a href="https://huggingface.co/glickko" target="_blank" rel="noopener noreferrer">HUGGING FACE</a>
+            </div>
         </nav>
     </header>
 
@@ -337,8 +264,5 @@
             </a>
         </section>
     </main>
-
-    <!-- No Footer or Script is needed for this simple layout -->
-
 </body>
 </html>
