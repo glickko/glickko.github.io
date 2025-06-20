@@ -85,27 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const updateVisitorCount = () => {
-        const countSpan = document.getElementById('visitor-count');
-        if (!countSpan) return; // Only run if the element exists
-
-        const apiUrl = 'https://api.countapi.xyz/hit/glickko.github.io/visits';
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.value) {
-                    countSpan.textContent = data.value;
-                    countSpan.classList.add('visible');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching visitor count:', error);
-                countSpan.textContent = 'N/A'; // Show an error state
-                countSpan.classList.add('visible');
-            });
-    };
-
     const loadContent = async (url, pushState = true) => {
         try {
             mainContainer.classList.add('fade-out');
@@ -180,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIAL PAGE LOAD ---
     attachNavListeners();
-    updateVisitorCount(); // Fetch visitor count once on initial load
 
     const initialPath = window.location.pathname.split("/").pop();
     if (initialPath.includes('portfolio.html')) {
