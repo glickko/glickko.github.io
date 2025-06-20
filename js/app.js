@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchBar = document.getElementById('tool-search-bar');
         if (!searchBar) return;
         const toolItems = document.querySelectorAll('.tool-item');
+        const toolsList = document.querySelector('.tools-list'); // Get reference to the list
 
         searchBar.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
@@ -23,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     item.style.order = 1;
                 }
             });
+
+            // After filtering, scroll the list to the top
+            if (toolsList) {
+                toolsList.scrollTop = 0;
+            }
         });
     };
 
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadContent = async (url, pushState = true) => {
         try {
-            mainContainer.classList.add('fade-out'); // 1. Start fade out
+            mainContainer.classList.add('fade-out');
 
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok.');
@@ -95,28 +101,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const newTitle = doc.title;
             const newNavContent = doc.querySelector('nav').innerHTML;
 
-            // 2. Wait for fade-out to finish
             setTimeout(() => {
-                // 3. Change layout while invisible
                 if (url.includes('portfolio.html')) {
                     mainContainer.classList.add('main-portfolio-layout');
                 } else {
                     mainContainer.classList.remove('main-portfolio-layout');
                 }
 
-                // 4. Inject new content
                 mainContainer.innerHTML = newMainContent;
                 document.title = newTitle;
                 navContainer.innerHTML = newNavContent;
                 
-                // 5. Fade back in
                 mainContainer.classList.remove('fade-out');
                 mainContainer.classList.add('fade-in');
 
                 setTimeout(() => mainContainer.classList.remove('fade-in'), 500);
                 attachNavListeners();
 
-                // 6. Initialize scripts for the new page
                 if (url.includes('tools.html')) initializeToolsPage();
                 if (url.includes('portfolio.html')) initializePortfolioPage();
 
