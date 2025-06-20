@@ -20,23 +20,23 @@
 
         /* --- Background & Effects --- */
         .bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        .bg-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'); background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0.3; animation: ringRotation 30s ease-in-out infinite; }
+        .bg-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/glickko/glickko.github.io/main/background.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0.3; animation: ringRotation 30s ease-in-out infinite; }
         .pulse-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
         .pulse { position: absolute; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%); animation: pulse-corner 6s ease-in-out infinite alternate; }
         .pulse.top-left { top: -25vw; left: -25vw; } .pulse.top-right { top: -25vw; right: -25vw; animation-delay: 1.5s; } .pulse.bottom-left { bottom: -25vw; left: -25vw; animation-delay: 2.5s; } .pulse.bottom-right { bottom: -25vw; right: -25vw; animation-delay: 4s; }
         .dimensional-bg::after { content: ''; position: absolute; top: 50%; left: 50%; width: 500px; height: 500px; border: 2px solid rgba(255, 255, 255, 0.15); border-radius: 50%; transform: translate(-50%, -50%) scale(0); animation: dimensionalRing 4s ease-in-out infinite 0.5s; }
         .glitch-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .glitch-overlay::before, .glitch-overlay::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: inherit; background-image: url('https://images.steamusercontent.com/ugc/1777256672041541743/B0102C36689376A0ED1A990BDE8A0E17993D9777/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'); background-size: cover; background-position: center center; opacity: 0.5; }
+        .glitch-overlay::before, .glitch-overlay::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: inherit; background-image: url('https://raw.githubusercontent.com/glickko/glickko.github.io/main/background.jpg'); background-size: cover; background-position: center center; opacity: 0.5; }
         .glitch-overlay::before { animation: glitch-anim-1 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
         .glitch-overlay::after { animation: glitch-anim-2 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
         
-        /* --- ENHANCED Floating Asset Styles --- */
+        /* --- Floating Asset Styles --- */
         .floating-asset-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
         .floating-asset { position: absolute; opacity: 0; width: clamp(60px, 8vw, 120px); height: auto; animation-name: float-and-fade, glow-color-cycle; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
         @keyframes float-and-fade {
-            0%, 100% { opacity: 0; transform: translateY(10vh) rotate(0deg) scale(0.9); }
-            10% { opacity: 0.6; }
-            50% { opacity: 0.8; transform: translateY(-10vh) rotate(20deg) scale(1); }
+            0%, 100% { opacity: 0; transform: translateY(5vh) rotate(0deg) scale(0.9); }
+            10% { opacity: 0.7; }
+            50% { opacity: 0.8; transform: translateY(-5vh) rotate(15deg) scale(1); }
             90% { opacity: 0; }
         }
         @keyframes glow-color-cycle {
@@ -97,14 +97,14 @@
         .content-box { color: #ccc; text-align: center; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; padding: clamp(2rem, 5vw, 3rem); width: 100%; max-width: 600px; margin: auto; display: flex; flex-direction: column; align-items: center; }
         .content-box h1 { margin-bottom: 1rem; }
         
-        /* --- Tools Page Styles (STABLE CENTERED BOX) --- */
-        .tools-container { width: 100%; max-width: 700px; height: 70vh; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(5px); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin: auto; }
+        /* --- Tools Page Styles (FIXED CONTAINER SIZE & BUG FIX) --- */
+        .tools-container { width: 100%; max-width: 700px; height: 70vh; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(5px); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; margin: auto; }
         .tool-controls { flex-shrink: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #tool-search-bar { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.8rem; }
         #tool-search-bar::placeholder { color: #aaa; }
         .tools-list { display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; flex-grow: 1; padding-right: 0.5rem; }
         .tool-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; background-color: rgba(255, 255, 255, 0.05); border-radius: 8px; text-decoration: none; color: #ccc; transition: all 0.3s ease; }
-        .tool-item.hidden { transform: scale(0.8); opacity: 0; font-size: 0; padding: 0; margin: 0; border-width: 0; }
+        .tool-item.hidden { transform: scale(0.8); opacity: 0; font-size: 0; padding: 0; margin: 0; border-width: 0; pointer-events: none; }
         .tool-item:active { transform: translateY(1px); }
         .tool-item .tool-name { font-size: clamp(0.8rem, 0.7rem + 0.5vw, 0.9rem); font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 1rem; }
         .tool-tag { background-color: rgba(255, 255, 255, 0.15); color: #fff; padding: 0.15rem 0.4rem; border-radius: 5px; font-size: 0.55rem; font-weight: bold; letter-spacing: 0.5px; flex-shrink: 0; }
