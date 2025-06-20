@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glickko Archives</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="e5e06a90-e70b-4872-86d5-ecebb3f0253b"></script>
     <style>
         /* --- Global Styles & New Layout --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -142,10 +143,7 @@
 
         /* --- Footer --- */
         footer { flex-shrink: 0; z-index: 10; text-align: center; padding: 1rem; background: rgba(10,10,10,0.4); border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #888; }
-        .visitor-counter { margin-bottom: 0.5rem; font-size: 0.8rem; color: #aaa; }
-        #visitor-count { font-weight: bold; color: #fff; opacity: 0; transform: translateY(5px); transition: opacity 0.4s ease, transform 0.4s ease; display: inline-block; }
-        #visitor-count.visible { opacity: 1; transform: translateY(0); }
-
+        
         /* --- Hover-Specific Styles for Mouse Users --- */
         @media (hover: hover) {
             .social-links a:hover { transform: scale(1.2); }
@@ -194,7 +192,6 @@
         </section>
     </main>
     <footer>
-        <div class="visitor-counter">VISITORS: <span id="visitor-count">...</span></div>
         &copy; 2025 Glickko Archives
     </footer>
     <script src="js/app.js" defer></script>
