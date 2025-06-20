@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchBar = document.getElementById('tool-search-bar');
         if (!searchBar) return;
         const toolItems = document.querySelectorAll('.tool-item');
-        const toolsList = document.querySelector('.tools-list'); // Get reference to the list
+        const toolsList = document.querySelector('.tools-list');
 
         searchBar.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // After filtering, scroll the list to the top
             if (toolsList) {
                 toolsList.scrollTop = 0;
             }
@@ -84,6 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    };
+
+    const updateVisitorCount = () => {
+        const countSpan = document.getElementById('visitor-count');
+        if (!countSpan) return; // Only run if the element exists
+
+        const apiUrl = 'https://api.countapi.xyz/hit/glickko.github.io/visits';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.value) {
+                    countSpan.textContent = data.value;
+                    countSpan.classList.add('visible');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching visitor count:', error);
+                countSpan.textContent = 'N/A'; // Show an error state
+                countSpan.classList.add('visible');
+            });
     };
 
     const loadContent = async (url, pushState = true) => {
@@ -158,7 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- INITIAL PAGE LOAD ---
     attachNavListeners();
+    updateVisitorCount(); // Fetch visitor count once on initial load
+
     const initialPath = window.location.pathname.split("/").pop();
     if (initialPath.includes('portfolio.html')) {
          mainContainer.classList.add('main-portfolio-layout');
