@@ -97,14 +97,14 @@
         .content-box { color: #ccc; text-align: center; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; padding: clamp(2rem, 5vw, 3rem); width: 100%; max-width: 600px; margin: auto; display: flex; flex-direction: column; align-items: center; }
         .content-box h1 { margin-bottom: 1rem; }
         
-        /* --- Tools Page Styles (FIXED CONTAINER SIZE & BUG FIX) --- */
-        .tools-container { width: 100%; max-width: 700px; height: 70vh; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(5px); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; margin: auto; }
+        /* --- Tools Page Styles (STABLE CENTERED BOX) --- */
+        .tools-container { width: 100%; max-width: 700px; height: 70vh; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(5px); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin: auto; }
         .tool-controls { flex-shrink: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #tool-search-bar { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.8rem; }
         #tool-search-bar::placeholder { color: #aaa; }
         .tools-list { display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; flex-grow: 1; padding-right: 0.5rem; }
         .tool-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; background-color: rgba(255, 255, 255, 0.05); border-radius: 8px; text-decoration: none; color: #ccc; transition: all 0.3s ease; }
-        .tool-item.hidden { transform: scale(0.8); opacity: 0; font-size: 0; padding: 0; margin: 0; border-width: 0; pointer-events: none; }
+        .tool-item.hidden { display: none; }
         .tool-item:active { transform: translateY(1px); }
         .tool-item .tool-name { font-size: clamp(0.8rem, 0.7rem + 0.5vw, 0.9rem); font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 1rem; }
         .tool-tag { background-color: rgba(255, 255, 255, 0.15); color: #fff; padding: 0.15rem 0.4rem; border-radius: 5px; font-size: 0.55rem; font-weight: bold; letter-spacing: 0.5px; flex-shrink: 0; }
@@ -142,6 +142,9 @@
 
         /* --- Footer --- */
         footer { flex-shrink: 0; z-index: 10; text-align: center; padding: 1rem; background: rgba(10,10,10,0.4); border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #888; }
+        .visitor-counter { margin-bottom: 0.5rem; font-size: 0.8rem; color: #aaa; }
+        #visitor-count { font-weight: bold; color: #fff; opacity: 0; transform: translateY(5px); transition: opacity 0.4s ease, transform 0.4s ease; display: inline-block; }
+        #visitor-count.visible { opacity: 1; transform: translateY(0); }
 
         /* --- Hover-Specific Styles for Mouse Users --- */
         @media (hover: hover) {
@@ -191,6 +194,7 @@
         </section>
     </main>
     <footer>
+        <div class="visitor-counter">VISITORS: <span id="visitor-count">...</span></div>
         &copy; 2025 Glickko Archives
     </footer>
     <script src="js/app.js" defer></script>
