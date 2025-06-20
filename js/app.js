@@ -5,30 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const initializeToolsPage = () => {
         const searchBar = document.getElementById('tool-search-bar');
-        if (!searchBar) return;
-        const toolItems = document.querySelectorAll('.tool-item');
         const toolsList = document.querySelector('.tools-list');
 
-        searchBar.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            toolItems.forEach(item => {
-                const name = item.querySelector('.tool-name').textContent.toLowerCase();
-                const tag = item.querySelector('.tool-tag')?.textContent.toLowerCase() || '';
-                const isMatch = searchTerm === '' || name.includes(searchTerm) || tag.includes(searchTerm);
+        if (!toolsList) return;
 
-                if (isMatch) {
-                    item.classList.remove('hidden');
-                    item.style.order = -1; 
-                } else {
-                    item.classList.add('hidden');
-                    item.style.order = 1;
+        // --- NEW: Auto-sorting logic ---
+        const toolItems = Array.from(toolsList.querySelectorAll('.tool-item'));
+        toolItems.sort((a, b) => {
+            const nameA = a.querySelector('.tool-name').textContent.toLowerCase();
+            const nameB = b.querySelector('.tool-name').textContent.toLowerCase();
+            return nameA.localeCompare(nameB); // Use localeCompare for proper string sorting
+        });
+        // Re-append sorted items
+        toolItems.forEach(item => toolsList.appendChild(item));
+
+        // --- Search bar logic ---
+        if (searchBar) {
+            searchBar.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                toolItems.forEach(item => {
+                    const name = item.querySelector('.tool-name').textContent.toLowerCase();
+                    const tag = item.querySelector('.tool-tag')?.textContent.toLowerCase() || '';
+                    const isMatch = searchTerm === '' || name.includes(searchTerm) || tag.includes(searchTerm);
+
+                    if (isMatch) {
+                        item.classList.remove('hidden');
+                        item.style.order = -1; 
+                    } else {
+                        item.classList.add('hidden');
+                        item.style.order = 1;
+                    }
+                });
+
+                if (toolsList) {
+                    toolsList.scrollTop = 0;
                 }
             });
-
-            if (toolsList) {
-                toolsList.scrollTop = 0;
-            }
-        });
+        }
     };
 
     const initializePortfolioPage = () => {
