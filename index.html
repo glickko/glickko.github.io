@@ -36,9 +36,8 @@
         .floating-asset { position: absolute; opacity: 0; width: clamp(60px, 8vw, 120px); height: auto; animation-name: float-and-fade, glow-color-cycle; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
         @keyframes float-and-fade {
             0%, 100% { opacity: 0; transform: translateY(5vh) rotate(0deg) scale(0.9); }
-            10% { opacity: 0.7; }
+            10%, 90% { opacity: 0.7; }
             50% { opacity: 0.8; transform: translateY(-5vh) rotate(15deg) scale(1); }
-            90% { opacity: 0; }
         }
         @keyframes glow-color-cycle {
             0%   { filter: drop-shadow(0 0 10px hsl(0, 80%, 60%)); }
@@ -54,10 +53,6 @@
         .floating-asset.asset-6 { top: 5%; left: 45%; animation-duration: 16s, 9s; animation-delay: 10s, 0.5s; }
         .floating-asset.asset-7 { top: 85%; left: 25%; animation-duration: 24s, 13s; animation-delay: 6s, 2.5s; }
         .floating-asset.asset-8 { top: 40%; left: 5%; animation-duration: 19s, 16s; animation-delay: 12s, 1.5s; }
-        .floating-asset.asset-9 { top: 55%; left: 20%; animation-duration: 23s, 10s; animation-delay: 14s, 0s; }
-        .floating-asset.asset-10 { top: 15%; left: 65%; animation-duration: 26s, 14s; animation-delay: 9s, 3s; }
-        .floating-asset.asset-11 { top: 75%; left: 75%; animation-duration: 21s, 17s; animation-delay: 2s, 0.2s; }
-        .floating-asset.asset-12 { top: 30%; left: 30%; animation-duration: 17s, 12s; animation-delay: 7s, 1.8s; }
 
         @keyframes ringRotation { 0%{transform:scale(1.1) translate(-20px,0);opacity:.3}25%{transform:scale(1.2) translate(0,20px);opacity:.4}50%{transform:scale(1.15) translate(20px,0);opacity:.3}75%{transform:scale(1.2) translate(0,-20px);opacity:.4}100%{transform:scale(1.1) translate(-20px,0);opacity:.3} } @keyframes pulse-corner { from{transform:scale(.8);opacity:.3}to{transform:scale(1.2);opacity:.8} } @keyframes dimensionalRing { 0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(5);opacity:0} } @keyframes logoGlow { from{text-shadow:0 0 10px rgba(255,255,255,.4),0 0 5px #000}to{text-shadow:0 0 20px rgba(255,255,255,.7),0 0 10px #000} } @keyframes glitch-anim-1{0%{clip-path:polygon(0 2%,100% 2%,100% 5%,0 5%);transform:translate(-10px,0)}10%{clip-path:polygon(0 75%,100% 75%,100% 75%,0 75%);transform:translate(5px,0)}20%{clip-path:polygon(0 40%,100% 40%,100% 45%,0 45%);transform:translate(-8px,0)}30%,100%{clip-path:inset(50%)}} @keyframes glitch-anim-2{0%{clip-path:polygon(0 60%,100% 60%,100% 62%,0 62%);transform:translate(10px,0)}15%{clip-path:polygon(0 15%,100% 15%,100% 20%,0 20%);transform:translate(-5px,0)}25%{clip-path:polygon(0 90%,100% 90%,100% 95%,0 95%);transform:translate(8px,0)}35%,100%{clip-path:inset(50%)}} @keyframes text-glitch-1{0%{clip-path:inset(40% 0 61% 0);transform:translate(-2px,-1px)}20%{clip-path:inset(10% 0 86% 0);transform:translate(1px,1px)}40%{clip-path:inset(90% 0 1% 0);transform:translate(-2px,2px)}60%{clip-path:inset(50% 0 45% 0);transform:translate(2px,-1px)}80%{clip-path:inset(25% 0 70% 0);transform:translate(-1px,1px)}100%{clip-path:inset(40% 0 61% 0);transform:translate(2px,-1px)}} @keyframes text-glitch-2{0%{clip-path:inset(80% 0 3% 0);transform:translate(2px,1px)}20%{clip-path:inset(20% 0 76% 0);transform:translate(-2px,-1px)}40%{clip-path:inset(50% 0 46% 0);transform:translate(2px,-2px)}60%{clip-path:inset(90% 0 5% 0);transform:translate(-2px,1px)}80%{clip-path:inset(45% 0 50% 0);transform:translate(2px,-1px)}100%{clip-path:inset(80% 0 3% 0);transform:translate(-2px,1px)}}
         @keyframes sorted-flicker { 0%, 8%, 16% { box-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff; border-color: rgba(255, 255, 255, 0.8); } 4%, 12%, 20% { box-shadow: none; border-color: rgba(255, 255, 255, 0.25); } 25%, 100% { box-shadow: none; border-color: rgba(255, 255, 255, 0.25); } }
@@ -98,7 +93,7 @@
         .content-box { color: #ccc; text-align: center; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; padding: clamp(2rem, 5vw, 3rem); width: 100%; max-width: 600px; margin: auto; display: flex; flex-direction: column; align-items: center; }
         .content-box h1 { margin-bottom: 1rem; }
         
-        /* --- Tools Page Styles (STABLE & RESPONSIVE) --- */
+        /* --- Tools Page Styles (STABLE CENTERED BOX) --- */
         .tools-container { width: 100%; max-width: 700px; height: 70vh; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(5px); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin: auto; }
         .tool-controls { flex-shrink: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #tool-search-bar { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.8rem; }
@@ -169,10 +164,6 @@
         <img src="https://media.discordapp.net/attachments/1385347163143409937/1385348500585316352/omega_0006_00015-3821749543.png.png?ex=6855bdd5&is=68546c55&hm=8c729e3a727da52e2d5f8f180d2139915649866572140f5ce2743e5a97dbfaa6&=&format=webp&quality=lossless" class="floating-asset asset-6" alt="Floating Asset">
         <img src="https://media.discordapp.net/attachments/1385347163143409937/1385348990610182235/FIX22.png?ex=6855be49&is=68546cc9&hm=d37234a1b176b6ef7771701b5a6a8575bcd49c55f470ff67de10d115809fe238&=&format=webp&quality=lossless" class="floating-asset asset-7" alt="Floating Asset">
         <img src="https://media.discordapp.net/attachments/1385347163143409937/1385348990886739968/FIX111.png?ex=6855be49&is=68546cc9&hm=ea73c949e6e613322a69d379a4a5b000ef4ee55f9d858cf04b365e25035ab3e0&=&format=webp&quality=lossless" class="floating-asset asset-8" alt="Floating Asset">
-        <img src="https://media.discordapp.net/attachments/1385347163143409937/1385347583588962445/Alpha_Thia_-_crop.png?ex=6855bcfa&is=68546b7a&hm=09dbfcfb565db7234106047fcc505451b9f58093f83a72a6aae064f0c35dfd72&=&format=webp&quality=lossless" class="floating-asset asset-9" alt="Floating Asset">
-        <img src="https://media.discordapp.net/attachments/1385347163143409937/1385347494380048446/Delta_Rosa_-_crop.png?ex=6855bce5&is=68546b65&hm=26a18cb7b62171cb27c07ece30ed76a27acab46add1a9e0ea709404f418de2cd&=&format=webp&quality=lossless" class="floating-asset asset-10" alt="Floating Asset">
-        <img src="https://media.discordapp.net/attachments/1385347163143409937/1385347494736691392/Beta_Enfa_-_crop.png?ex=6855bce5&is=68546b65&hm=54354dffb9165327539a043b0b2db47a0bfcd6db01e74bd2f09435d6d6a592a9&=&format=webp&quality=lossless" class="floating-asset asset-11" alt="Floating Asset">
-        <img src="https://media.discordapp.net/attachments/1385347163143409937/1385348990610182235/FIX22.png?ex=6855be49&is=68546cc9&hm=d37234a1b176b6ef7771701b5a6a8575bcd49c55f470ff67de10d115809fe238&=&format=webp&quality=lossless" class="floating-asset asset-12" alt="Floating Asset">
     </div>
     <header>
         <nav>
