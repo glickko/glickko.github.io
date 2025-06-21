@@ -24,20 +24,41 @@ body {
 
 /* --- Floating Asset Styles --- */
 .floating-asset-container { position: fixed; top: 20vh; left: 0; width: 100%; height: 80vh; z-index: 1; pointer-events: none; }
-.floating-asset {
+
+.floating-asset-wrapper {
     position: absolute;
     opacity: 0;
-    /* This is the default, larger size for mobile */
-    width: clamp(60px, 8vw, 120px);
+    animation-name: ambient-bobbing;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.floating-asset-image {
+    width: 100%;
     height: auto;
-    --glow-color: #fff; /* A default fallback color */
+    --glow-color: #fff;
+    animation: pulse-glow 5s ease-in-out infinite;
+}
+.asset-label {
+    position: absolute;
+    bottom: -15px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    opacity: 0.9;
+    white-space: nowrap; 
 }
 
 @keyframes ambient-bobbing {
     0%   { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
-    10%  { opacity: 0.7; }
+    10%  { opacity: 0.9; }
     25%  { transform: translate(2vw, 2vh) rotate(5deg); }
-    50%  { transform: translate(-2vw, -2vh) rotate(-8deg); opacity: 0.8; }
+    50%  { transform: translate(-2vw, -2vh) rotate(-8deg); opacity: 0.9; }
     75%  { transform: translate(1vw, -1vh) rotate(3deg); }
     90%  { opacity: 0; }
     100% { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
@@ -48,14 +69,18 @@ body {
     50%      { filter: drop-shadow(0 0 20px var(--glow-color)); }
 }
 
-.floating-asset.asset-1 { top: 10%; left: 15%; animation: ambient-bobbing 20s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 0s, 0s; }
-.floating-asset.asset-2 { top: 20%; left: 80%; animation: ambient-bobbing 25s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 3s, 0.4s; }
-.floating-asset.asset-3 { top: 70%; left: 5%; animation: ambient-bobbing 18s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 5s, 0.8s; }
-.floating-asset.asset-4 { top: 80%; left: 90%; animation: ambient-bobbing 22s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 8s, 1.2s; }
-.floating-asset.asset-5 { top: 50%; left: 50%; animation: ambient-bobbing 28s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 1s, 1.6s; }
-.floating-asset.asset-6 { top: 5%; left: 45%; animation: ambient-bobbing 16s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 10s, 2.0s; }
-.floating-asset.asset-7 { top: 85%; left: 25%; animation: ambient-bobbing 24s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 6s, 2.4s; }
-.floating-asset.asset-8 { top: 40%; left: 5%; animation: ambient-bobbing 19s ease-in-out infinite, pulse-glow 5s ease-in-out infinite; animation-delay: 12s, 2.8s; }
+.floating-asset-wrapper { width: clamp(60px, 8vw, 120px); }
+.floating-asset-wrapper.asset-1 { top: 10%; left: 15%; animation-duration: 20s; animation-delay: 0s; }
+.floating-asset-wrapper.asset-2 { top: 20%; left: 80%; animation-duration: 25s; animation-delay: 3s; }
+.floating-asset-wrapper.asset-3 { top: 70%; left: 5%; animation-duration: 18s; animation-delay: 5s; }
+.floating-asset-wrapper.asset-4 { top: 80%; left: 90%; animation-duration: 22s; animation-delay: 8s; }
+.floating-asset-wrapper.asset-5 { top: 50%; left: 50%; animation-duration: 28s; animation-delay: 1s; }
+.floating-asset-wrapper.asset-6 { top: 5%; left: 45%; animation-duration: 16s; animation-delay: 10s; }
+.floating-asset-wrapper.asset-7 { top: 85%; left: 25%; animation-duration: 24s; animation-delay: 6s; }
+.floating-asset-wrapper.asset-8 { top: 60%; left: 75%; animation-duration: 21s; animation-delay: 4s; }
+
+.floating-asset-image { animation-delay: inherit; }
+
 
 @keyframes ringRotation { 0%{transform:scale(1.1) translate(-20px,0);opacity:.3}25%{transform:scale(1.2) translate(0,20px);opacity:.4}50%{transform:scale(1.15) translate(20px,0);opacity:.3}75%{transform:scale(1.2) translate(0,-20px);opacity:.4}100%{transform:scale(1.1) translate(-20px,0);opacity:.3} } @keyframes pulse-corner { from{transform:scale(.8);opacity:.3}to{transform:scale(1.2);opacity:.8} } @keyframes dimensionalRing { 0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(5);opacity:0} } @keyframes logoGlow { from{text-shadow:0 0 10px rgba(255,255,255,.4),0 0 5px #000}to{text-shadow:0 0 20px rgba(255,255,255,.7),0 0 10px #000} } @keyframes glitch-anim-1{0%{clip-path:polygon(0 2%,100% 2%,100% 5%,0 5%);transform:translate(-10px,0)}10%{clip-path:polygon(0 75%,100% 75%,100% 75%,0 75%);transform:translate(5px,0)}20%{clip-path:polygon(0 40%,100% 40%,100% 45%,0 45%);transform:translate(-8px,0)}30%,100%{clip-path:inset(50%)}} @keyframes glitch-anim-2{0%{clip-path:polygon(0 60%,100% 60%,100% 62%,0 62%);transform:translate(10px,0)}15%{clip-path:polygon(0 15%,100% 15%,100% 20%,0 20%);transform:translate(-5px,0)}25%{clip-path:polygon(0 90%,100% 90%,100% 95%,0 95%);transform:translate(8px,0)}35%,100%{clip-path:inset(50%)}} @keyframes text-glitch-1{0%{clip-path:inset(40% 0 61% 0);transform:translate(-2px,-1px)}20%{clip-path:inset(10% 0 86% 0);transform:translate(1px,1px)}40%{clip-path:inset(90% 0 1% 0);transform:translate(-2px,2px)}60%{clip-path:inset(50% 0 45% 0);transform:translate(2px,-1px)}80%{clip-path:inset(25% 0 70% 0);transform:translate(-1px,1px)}100%{clip-path:inset(40% 0 61% 0);transform:translate(2px,-1px)}} @keyframes text-glitch-2{0%{clip-path:inset(80% 0 3% 0);transform:translate(2px,1px)}20%{clip-path:inset(20% 0 76% 0);transform:translate(-2px,-1px)}40%{clip-path:inset(50% 0 46% 0);transform:translate(2px,-2px)}60%{clip-path:inset(90% 0 5% 0);transform:translate(-2px,1px)}80%{clip-path:inset(45% 0 50% 0);transform:translate(2px,-1px)}100%{clip-path:inset(80% 0 3% 0);transform:translate(-2px,1px)}}
 @keyframes sorted-flicker { 0%, 8%, 16% { box-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff; border-color: rgba(255, 255, 255, 0.8); } 4%, 12%, 20% { box-shadow: none; border-color: rgba(255, 255, 255, 0.25); } 25%, 100% { box-shadow: none; border-color: rgba(255, 255, 255, 0.25); } }
@@ -110,9 +135,33 @@ main.fade-in { opacity: 1; }
 .tool-tags-container { display: flex; gap: 0.5rem; background: none; padding: 0; }
 .tools-list::-webkit-scrollbar { width: 8px; } .tools-list::-webkit-scrollbar-track { background: transparent; } .tools-list::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.2); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; } .tools-list::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.4); }
 
-/* --- Portfolio Page Styles (LOCKED HEADER LAYOUT) --- */
-.portfolio-page-container { width: 100%; height: 100%; text-align: center; display: flex; flex-direction: column; gap: 1rem; }
-.portfolio-filters { flex-shrink: 0; padding: 1rem; background: rgba(15, 15, 15, 0.75); z-index: 10; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; }
+/* --- Portfolio Page Styles --- */
+.portfolio-page-container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.portfolio-filters {
+    flex-shrink: 0;
+    padding: 1rem;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+}
 .filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ccc; padding: 0.4rem 0.9rem; border-radius: 20px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 0.7rem; }
 .filter-btn.active { background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; transform: scale(1.05); }
 .filter-btn:not(.active):hover { transform: scale(1.05); border-color: rgba(255,255,255,0.7); }
@@ -121,39 +170,107 @@ main.fade-in { opacity: 1; }
 .portfolio-item { position: relative; cursor: pointer; overflow: hidden; border-radius: 10px; background: #111; aspect-ratio: 4 / 3; border: 1px solid rgba(255, 255, 255, 0.15); flex: 0 1 320px; z-index: 1; animation: item-fade-in 0.5s ease forwards; }
 .portfolio-item.hidden { display: none; }
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
-.portfolio-item .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0) 0%, transparent 60%); transition: background 0.5s ease, transform 0.4s ease; display: flex; align-items: flex-end; justify-content: center; padding: 1.5rem; }
-.portfolio-item:hover { transform: scale(1.05); z-index: 10; border-color: rgba(255, 255, 255, 0.4); }
-.portfolio-item:hover .overlay { background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); }
-.overlay-text { text-align: center; opacity: 0; transform: translateY(15px); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s; }
-.portfolio-item:hover .overlay-text { opacity: 1; transform: translateY(0); }
+.portfolio-item .overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 70%);
+    transition: background 0.5s ease;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 1.5rem;
+} 
+.portfolio-item:hover .overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+}
+.overlay-text { 
+    text-align: center;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+} 
 .overlay-text h3 { margin: 0; font-size: 1.2rem; }
 .overlay-text span { font-size: 0.9rem; color: #aaa; }
 
-/* --- Modal Styles --- */
+/* --- NEW / UPDATED Modal Styles --- */
 .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); animation: modal-fade-in 0.3s ease; align-items: center; justify-content: center; padding: 1rem;}
-.modal-content { position: relative; background: #111; margin: auto; padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; max-width: 900px; width: 90%; animation: modal-content-appear 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-.modal-content img, .modal-content video { max-width: 100%; border-radius: 8px; margin-bottom: 1.5rem; }
-.modal-content h2 { margin-bottom: 1rem; font-size: clamp(1.5rem, 5vw, 2rem); }
-.modal-details p { color: #ccc; line-height: 1.7; margin-bottom: 1.2rem; font-size: clamp(0.9rem, 2.5vw, 1rem); }
-.modal-details p:last-child { margin-bottom: 0; }
-.modal-details strong { color: #fff; }
-.modal-close { color: #aaa; position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; font-weight: bold; cursor: pointer; transition: color 0.3s ease; }
-.modal-close:hover { color: #fff; }
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #181818;
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    max-width: 90vw;
+    width: 900px;
+    max-height: 90vh;
+    animation: modal-content-appear 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.modal-image-container { flex-shrink: 0; margin-bottom: 1.5rem; }
+.modal-image-container img { max-width: 100%; height: auto; border-radius: 8px; }
+.modal-text-container { display: flex; flex-direction: column; text-align: left; }
+.modal-text-container h2 { margin-bottom: 0.5rem; font-size: clamp(1.8rem, 5vw, 2.2rem); }
+.modal-category { font-size: 1rem; color: #aaa; margin-bottom: 1.5rem; }
+.modal-details { overflow-y: auto; margin-bottom: 1.5rem; }
+.modal-details p { color: #ccc; line-height: 1.7; font-size: clamp(0.9rem, 2.5vw, 1rem); }
+.project-link-btn {
+    display: inline-block;
+    margin-top: auto; /* Pushes button to the bottom */
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.project-link-btn:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.modal-close:hover { color: #fff; transform: scale(1.1); }
+
 
 /* --- Footer --- */
 footer { flex-shrink: 0; z-index: 10; text-align: center; padding: 1rem; background: rgba(10,10,10,0.4); border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #888; }
 
 /* --- Hover-Specific Styles for Mouse Users --- */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     .social-links a:hover { transform: scale(1.2); }
     .menu-item:hover { transform: translateY(-8px) scale(1.05); color: #fff; }
     .tool-item:hover { background-color: rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+
+    .overlay-text {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    .portfolio-item:hover .overlay-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }
 
 /* --- Responsive Design for Desktop --- */
 @media (min-width: 768px) {
-    .floating-asset {
-        /* Apply the smaller size for desktop view */
+    .floating-asset-wrapper {
         width: clamp(30px, 5vw, 80px);
+    }
+    .modal-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .modal-image-container {
+        flex: 1 1 55%; /* Allow image to take up more space */
+        margin-bottom: 0;
+    }
+    .modal-text-container {
+        flex: 1 1 45%;
     }
 }

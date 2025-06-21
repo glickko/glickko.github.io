@@ -5,7 +5,8 @@
       "categoryLabel": "Art & Manipulation",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Art Project Brewing",
-      "description": "My digital art is currently in the oven. Please be patient for the final masterpiece! I'm still working on it."
+      "description": "My digital art is currently in the oven. Please be patient for the final masterpiece! I'm still working on it.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-2",
@@ -13,7 +14,8 @@
       "categoryLabel": "Video & Motion",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Video Rendering...",
-      "description": "Editing furiously! This video project is rendering and will be available for viewing soon. Please be patient!"
+      "description": "Editing furiously! This video project is rendering and will be available for viewing soon. Please be patient!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-3",
@@ -21,7 +23,8 @@
       "categoryLabel": "Websites",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Website Compiling",
-      "description": "My latest web project is compiling. Check back soon to see it live! I'm working on it, so please be patient."
+      "description": "My latest web project is compiling. Check back soon to see it live! I'm working on it, so please be patient.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-4",
@@ -29,7 +32,8 @@
       "categoryLabel": "Art & Manipulation",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Sketching Ideas",
-      "description": "Working hard on a new illustration. The final version is coming soon, your patience is appreciated!"
+      "description": "Working hard on a new illustration. The final version is coming soon, your patience is appreciated!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-5",
@@ -37,7 +41,8 @@
       "categoryLabel": "Video & Motion",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Motion Graphics in Motion",
-      "description": "Animating some cool stuff! The final motion graphics piece will be here before you know it. Thanks for waiting!"
+      "description": "Animating some cool stuff! The final motion graphics piece will be here before you know it. Thanks for waiting!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-6",
@@ -45,7 +50,8 @@
       "categoryLabel": "Websites",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Deploying to Server",
-      "description": "Just putting the final touches on this website. It's a work in progress, so please be patient!"
+      "description": "Just putting the final touches on this website. It's a work in progress, so please be patient!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-7",
@@ -53,7 +59,8 @@
       "categoryLabel": "Art & Manipulation",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Pixel Pushing",
-      "description": "Currently pushing pixels around until it looks like art. Please stand by."
+      "description": "Currently pushing pixels around until it looks like art. Please stand by.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-8",
@@ -61,7 +68,8 @@
       "categoryLabel": "Video & Motion",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Syncing Audio (Maybe)",
-      "description": "The audio and video are having a slight disagreement. Mediating the conflict now. Be patient!"
+      "description": "The audio and video are having a slight disagreement. Mediating the conflict now. Be patient!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-9",
@@ -69,7 +77,8 @@
       "categoryLabel": "Websites",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Chasing a Bug",
-      "description": "There's a bug in the code, and it's faster than I am. I'll get it eventually. Still working on it!"
+      "description": "There's a bug in the code, and it's faster than I am. I'll get it eventually. Still working on it!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-10",
@@ -77,7 +86,8 @@
       "categoryLabel": "Art & Manipulation",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Choosing a Color Palette",
-      "description": "It's either this shade of beige or that shade of beige. A critical decision is being made. Please be patient."
+      "description": "It's either this shade of beige or that shade of beige. A critical decision is being made. Please be patient.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-11",
@@ -85,7 +95,8 @@
       "categoryLabel": "Video & Motion",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Searching for B-Roll",
-      "description": "Looking for that one perfect clip of a cat... I mean, a client-appropriate asset. Still working on it!"
+      "description": "Looking for that one perfect clip of a cat... I mean, a client-appropriate asset. Still working on it!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-12",
@@ -93,7 +104,8 @@
       "categoryLabel": "Websites",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Is It Centered Yet?",
-      "description": "Trying to center a div. This might take a while. Your patience is appreciated."
+      "description": "Trying to center a div. This might take a while. Your patience is appreciated.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-13",
@@ -101,7 +113,8 @@
       "categoryLabel": "Art & Manipulation",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Creative Block",
-      "description": "Staring at a blank canvas is part of the process, right? Working on it. Be patient."
+      "description": "Staring at a blank canvas is part of the process, right? Working on it. Be patient.",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-14",
@@ -109,7 +122,8 @@
       "categoryLabel": "Video & Motion",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Exporting... 1%",
-      "description": "The progress bar is moving, I think. This could take some time. Thanks for waiting!"
+      "description": "The progress bar is moving, I think. This could take some time. Thanks for waiting!",
+      "projectUrl": "#"
     },
     {
       "id": "placeholder-15",
@@ -117,6 +131,7 @@
       "categoryLabel": "Websites",
       "imageSrc": "https://i.pinimg.com/736x/38/74/76/3874767c77058ddda1b1328d4fb71ac7.jpg",
       "title": "Responsive Design Fun",
-      "description": "It looks great on my monitor. Now to check the other 300 screen sizes. Please be patient."
+      "description": "It looks great on my monitor. Now to check the other 300 screen sizes. Please be patient.",
+      "projectUrl": "#"
     }
   ]

@@ -80,10 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div id="${item.id}" class="modal">
                         <div class="modal-content">
                             <span class="modal-close">&times;</span>
-                            <img src="${item.imageSrc}" alt="${item.title}">
-                            <h2>${item.title}</h2>
-                            <div class="modal-details">
-                                <p>${item.description}</p>
+                            <div class="modal-image-container">
+                                <img src="${item.imageSrc}" alt="${item.title}">
+                            </div>
+                            <div class="modal-text-container">
+                                <h2>${item.title}</h2>
+                                <p class="modal-category">${item.categoryLabel}</p>
+                                <div class="modal-details">
+                                    <p>${item.description}</p>
+                                </div>
+                                <a href="${item.projectUrl}" class="project-link-btn" target="_blank" rel="noopener noreferrer">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -91,10 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             portfolioGrid.innerHTML = portfolioItemsHTML;
-            // FIXED: Inject modals directly into the body for stability.
             body.insertAdjacentHTML('beforeend', modalsHTML);
 
-            // Re-select all elements now that they are in the DOM
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const modals = document.querySelectorAll('.modal');
@@ -128,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body.style.overflow = 'auto';
                 });
                 modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
+                    if (e.target === modal && !e.target.closest('.modal-content')) {
                         modal.style.display = 'none';
                         body.style.overflow = 'auto';
                     }
@@ -157,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const newNavContent = doc.querySelector('nav').innerHTML;
 
             setTimeout(() => {
-                // Clean up any modals from the previous page before loading new content
                 document.querySelectorAll('.modal').forEach(modal => modal.remove());
 
                 if (url.includes('portfolio.html')) {
