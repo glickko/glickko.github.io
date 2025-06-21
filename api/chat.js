@@ -8,7 +8,7 @@ const openai = new OpenAI({
 // This function sets the required CORS headers
 const allowCors = (fn) => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Or specify your domain: 'https://glickko.github.io'
+  res.setHeader('Access-Control-Allow-Origin', 'https://glickko.github.io'); 
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
   res.setHeader(
     'Access-Control-Allow-Headers',
