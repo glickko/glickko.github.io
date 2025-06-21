@@ -1,4 +1,165 @@
 // js/app.js
+
+const manageFloatingAssets = async (path) => {
+    const existingContainer = document.querySelector('.floating-asset-container');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    const isIndexPage = path.endsWith('/') || path.endsWith('index.html');
+    if (isIndexPage) {
+        try {
+            const response = await fetch('dialog.json');
+            if (!response.ok) throw new Error('Failed to fetch dialog.json');
+            const dialogsByFile = await response.json();
+            const assetSources = [
+                'float/pink.png', 'float/blue.png', 'float/red.png',
+                'float/yellow.png', 'float/green.png', 'float/purple.png', 'float/orange.png',
+                'float/gray.png'
+            ];
+            const colorMap = {
+                'pink.png': 'hsl(330, 90%, 70%)', 'blue.png': 'hsl(210, 90%, 70%)',
+                'red.png': 'hsl(0, 90%, 70%)', 'yellow.png': 'hsl(50, 90%, 70%)',
+                'green.png': 'hsl(120, 90%, 70%)', 'purple.png': 'hsl(270, 90%, 70%)',
+                'orange.png': 'hsl(30, 90%, 70%)',
+                'gray.png': 'hsl(0, 0%, 70%)'
+            };
+            const gridCells = [
+                { top: [5, 20], left: [5, 20] },   { top: [5, 20], left: [40, 55] },  { top: [5, 20], left: [75, 90] },
+                { top: [35, 50], left: [15, 30] }, { top: [35, 50], left: [65, 80] },
+                { top: [65, 80], left: [5, 20] },   { top: [65, 80], left: [40, 55] },  { top: [65, 80], left: [75, 90] },
+            ];
+            for (let i = gridCells.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [gridCells[i], gridCells[j]] = [gridCells[j], gridCells[i]];
+            }
+            const floatingAssetsHTML = assetSources.map((src, index) => {
+                const filename = src.split('/').pop();
+                const glowColor = colorMap[filename] || '#fff';
+                const cell = gridCells[index % gridCells.length];
+                const randomTop = Math.random() * (cell.top[1] - cell.top[0]) + cell.top[0];
+                const randomLeft = Math.random() * (cell.left[1] - cell.left[0]) + cell.left[0];
+                const randomDuration = Math.random() * 15 + 15;
+                const randomDelay = Math.random() * 5;
+                return `
+                    <div class="floating-asset-wrapper" 
+                         data-filename="${filename}" 
+                         style="top: ${randomTop}%; left: ${randomLeft}%; animation-duration: ${randomDuration}s; animation-delay: ${randomDelay}s;">
+                        <img src="${src}" class="floating-asset-image" alt="Floating Asset" style="--glow-color: ${glowColor};">
+                        <span class="asset-label"></span>
+                    </div>
+                `;
+            }).join('');
+            const floatingAssetContainerHTML = `<div class="floating-asset-container">${floatingAssetsHTML}</div>`;
+            document.body.insertAdjacentHTML('afterbegin', floatingAssetContainerHTML);
+            const assetWrappers = document.querySelectorAll('.floating-asset-wrapper');
+            const dialogTrackers = {};
+            assetWrappers.forEach(wrapper => {
+                const label = wrapper.querySelector('.asset-label');
+                const filename = wrapper.dataset.filename;
+                const dialogList = dialogsByFile[filename];
+                if (!label || !dialogList || dialogList.length === 0) return;
+                dialogTrackers[filename] = { currentIndex: 0 };
+                const updateLabelSequentially = () => {
+                    const tracker = dialogTrackers[filename];
+                    const dialogText = dialogList[tracker.currentIndex];
+                    label.textContent = dialogText;
+                    tracker.currentIndex = (tracker.currentIndex + 1) % dialogList.length;
+                };
+                updateLabelSequentially();
+                setInterval(updateLabelSequentially, Math.random() * 2000 + 3000);
+            });
+        } catch (error) {
+            console.error("Error setting up floating assets:", error);
+        }
+    }
+};
+
+const loadGuideStylesheet = () => {
+    if (!document.head.querySelector('link[href="css/guide.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'css/guide.css';
+        document.head.appendChild(link);
+    }
+};
+
+const manageToolsGuide = async (path) => {
+    const existingGuide = document.querySelector('.ai-guide-container');
+    if (existingGuide) {
+        existingGuide.remove();
+    }
+
+    if (path.includes('tools.html')) {
+        loadGuideStylesheet();
+
+        try {
+            const response = await fetch('js/guide_dialog.json');
+            if (!response.ok) throw new Error('Could not fetch guide dialog.');
+            const dialogData = await response.json();
+            const steps = dialogData.steps;
+            let currentStep = 0;
+
+            const guideHTML = `
+                <div class="ai-guide-container">
+                    <div class="guide-character-container">
+                        <img src="float/pink.png" alt="Guide Character" class="guide-character">
+                    </div>
+                    <div class="guide-dialog-box">
+                        <button class="guide-close-btn" title="Close Guide">&times;</button>
+                        <p class="guide-dialog-text"></p>
+                        <div class="guide-nav">
+                            <span class="guide-step-counter"></span>
+                            <div class="guide-nav-buttons">
+                                <button id="guide-prev-btn">&lt; Prev</button>
+                                <button id="guide-next-btn">Next &gt;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', guideHTML);
+            
+            const guideContainer = document.querySelector('.ai-guide-container');
+            const textElement = guideContainer.querySelector('.guide-dialog-text');
+            const counterElement = guideContainer.querySelector('.guide-step-counter');
+            const prevBtn = document.getElementById('guide-prev-btn');
+            const nextBtn = document.getElementById('guide-next-btn');
+            const closeBtn = guideContainer.querySelector('.guide-close-btn');
+
+            const updateGuideView = () => {
+                textElement.textContent = steps[currentStep];
+                counterElement.textContent = `Step ${currentStep + 1} of ${steps.length}`;
+                prevBtn.disabled = currentStep === 0;
+                nextBtn.disabled = currentStep === steps.length - 1;
+            };
+
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateGuideView();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateGuideView();
+                }
+            });
+
+            // This is the corrected close logic
+            closeBtn.addEventListener('click', () => {
+                guideContainer.remove(); // Simply remove the guide from the page
+            });
+
+            updateGuideView();
+
+        } catch (error) {
+            console.error("Error setting up AI guide:", error);
+        }
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
@@ -6,16 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
-
         if (!toolsList) return;
-
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
             const toolsData = await response.json();
-
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
-
             toolsList.innerHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 return `
@@ -25,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 `;
             }).join('');
-
             const toolItems = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
@@ -34,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         const name = item.querySelector('.tool-name').textContent.toLowerCase();
                         const tags = Array.from(item.querySelectorAll('.tool-tag')).map(t => t.textContent.toLowerCase());
                         const isMatch = searchTerm === '' || name.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
-
                         if (isMatch) {
                             item.classList.remove('hidden');
                         } else {
@@ -44,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     toolsList.scrollTop = 0;
                 });
             }
-
         } catch (error) {
             console.error('Failed to load tools data:', error);
             toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load tools list.</p>`;
@@ -55,15 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
         if (!portfolioGrid) return;
-
         try {
             const response = await fetch('portfolio.json');
             if (!response.ok) throw new Error('Network response was not ok for portfolio.json');
             const portfolioData = await response.json();
-
             let portfolioItemsHTML = '';
             let modalsHTML = '';
-
             portfolioData.forEach(item => {
                 portfolioItemsHTML += `
                     <div class="portfolio-item" data-category="${item.category}" data-modal-id="${item.id}">
@@ -95,14 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             });
-
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
-
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const modals = document.querySelectorAll('.modal');
-
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => b.classList.remove('active'));
@@ -113,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
             });
-
             portfolioItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const modalId = item.dataset.modalId;
@@ -124,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
-
             modals.forEach(modal => {
                 const closeBtn = modal.querySelector('.modal-close');
                 closeBtn.addEventListener('click', () => {
@@ -138,7 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
-
         } catch (error) {
             console.error('Failed to load portfolio data:', error);
             portfolioGrid.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load portfolio.</p>`;
@@ -148,42 +293,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadContent = async (url, pushState = true) => {
         try {
             mainContainer.classList.add('fade-out');
-
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok.');
-            
             const text = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
-
             const newMainContent = doc.getElementById('main-container').innerHTML;
             const newTitle = doc.title;
             const newNavContent = doc.querySelector('nav').innerHTML;
-
             setTimeout(() => {
                 document.querySelectorAll('.modal').forEach(modal => modal.remove());
-
-                if (url.includes('portfolio.html')) {
-                    mainContainer.classList.add('main-portfolio-layout');
-                } else {
-                    mainContainer.classList.remove('main-portfolio-layout');
-                }
-
+                mainContainer.classList.toggle('main-portfolio-layout', url.includes('portfolio.html'));
                 mainContainer.innerHTML = newMainContent;
                 document.title = newTitle;
                 navContainer.innerHTML = newNavContent;
-                
                 mainContainer.classList.remove('fade-out');
                 mainContainer.classList.add('fade-in');
-
                 setTimeout(() => mainContainer.classList.remove('fade-in'), 500);
                 attachNavListeners();
-
                 if (url.includes('tools.html')) initializeToolsPage();
                 if (url.includes('portfolio.html')) initializePortfolioPage();
-
+                manageFloatingAssets(url);
+                manageToolsGuide(url);
             }, 400);
-
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
             }
@@ -210,22 +342,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('popstate', (e) => {
-        if (e.state && e.state.path) {
-            loadContent(e.state.path, false);
-        } else {
-            const currentPath = window.location.pathname.split("/").pop();
-            if (currentPath.includes('portfolio.html')) initializePortfolioPage();
-            if (currentPath.includes('tools.html')) initializeToolsPage();
-        }
+        const path = e.state?.path || window.location.pathname;
+        loadContent(path, false);
     });
 
-    // --- INITIAL PAGE LOAD ---
     attachNavListeners();
-
-    const initialPath = window.location.pathname.split("/").pop();
+    const initialPath = window.location.pathname;
     if (initialPath.includes('portfolio.html')) {
          mainContainer.classList.add('main-portfolio-layout');
          initializePortfolioPage();
     }
     if (initialPath.includes('tools.html')) initializeToolsPage();
+    manageFloatingAssets(initialPath);
+    manageToolsGuide(initialPath);
 });
