@@ -3,44 +3,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
     
-    const initializeToolsPage = () => {
-        const searchBar = document.getElementById('tool-search-bar');
+    const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
+        const searchBar = document.getElementById('tool-search-bar');
 
         if (!toolsList) return;
 
-        // --- NEW: Auto-sorting logic ---
-        const toolItems = Array.from(toolsList.querySelectorAll('.tool-item'));
-        toolItems.sort((a, b) => {
-            const nameA = a.querySelector('.tool-name').textContent.toLowerCase();
-            const nameB = b.querySelector('.tool-name').textContent.toLowerCase();
-            return nameA.localeCompare(nameB); // Use localeCompare for proper string sorting
-        });
-        // Re-append sorted items
-        toolItems.forEach(item => toolsList.appendChild(item));
+        // --- NEW: Fetch data from JSON and populate the list ---
+        try {
+            const response = await fetch('tools.json');
+            if (!response.ok) throw new Error('Network response was not ok.');
+            const toolsData = await response.json();
 
-        // --- Search bar logic ---
-        if (searchBar) {
-            searchBar.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                toolItems.forEach(item => {
-                    const name = item.querySelector('.tool-name').textContent.toLowerCase();
-                    const tag = item.querySelector('.tool-tag')?.textContent.toLowerCase() || '';
-                    const isMatch = searchTerm === '' || name.includes(searchTerm) || tag.includes(searchTerm);
+            // Sort data alphabetically by name
+            toolsData.sort((a, b) => a.name.localeCompare(b.name));
 
-                    if (isMatch) {
-                        item.classList.remove('hidden');
-                        item.style.order = -1; 
-                    } else {
-                        item.classList.add('hidden');
-                        item.style.order = 1;
-                    }
-                });
+            // Generate HTML for each tool
+            toolsList.innerHTML = toolsData.map(tool => {
+                const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+                return `
+                    <a href="${tool.href}" target="_blank" rel="noopener noreferrer" class="tool-item">
+                        <span class="tool-name">${tool.name}</span>
+                        <div class="tool-tags-container">${tagsHTML}</div>
+                    </a>
+                `;
+            }).join('');
 
-                if (toolsList) {
+            // --- Search bar logic (now runs AFTER list is populated) ---
+            const toolItems = toolsList.querySelectorAll('.tool-item');
+            if (searchBar) {
+                searchBar.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    toolItems.forEach(item => {
+                        const name = item.querySelector('.tool-name').textContent.toLowerCase();
+                        // Search in all tags
+                        const tags = Array.from(item.querySelectorAll('.tool-tag')).map(t => t.textContent.toLowerCase());
+                        const isMatch = searchTerm === '' || name.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
+
+                        if (isMatch) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
                     toolsList.scrollTop = 0;
-                }
-            });
+                });
+            }
+
+        } catch (error) {
+            console.error('Failed to load tools data:', error);
+            toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load tools list.</p>`;
         }
     };
 
