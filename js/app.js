@@ -183,7 +183,9 @@ const managePortfolioConvo = async (path) => {
 
             const widgetHTML = `
                 <div id="convo-widget">
-                    <img src="" alt="Character" class="convo-character">
+                    <div class="convo-character-container">
+                        <img src="" alt="Character" class="convo-character">
+                    </div>
                     <div class="convo-bubble"><p class="convo-text"></p></div>
                 </div>
             `;
@@ -192,10 +194,14 @@ const managePortfolioConvo = async (path) => {
             const widget = document.getElementById('convo-widget');
             const charImg = widget.querySelector('.convo-character');
             const textEl = widget.querySelector('.convo-text');
+            const bubbleEl = widget.querySelector('.convo-bubble'); // Get bubble element
             
             let currentTurn = -1;
             const showTurn = () => {
+                // Fade out both elements
                 charImg.classList.remove('active');
+                bubbleEl.classList.remove('active');
+
                 setTimeout(() => {
                     currentTurn = (currentTurn + 1) % conversation.length;
                     const turnData = conversation[currentTurn];
@@ -204,7 +210,9 @@ const managePortfolioConvo = async (path) => {
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
                     
+                    // Fade in both elements together
                     charImg.classList.add('active');
+                    bubbleEl.classList.add('active');
                 }, 400);
             };
             
@@ -330,16 +338,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+
             modals.forEach(modal => {
-                const closeBtn = modal.querySelector('.modal-close');
-                closeBtn.addEventListener('click', () => {
+                const handleClose = () => {
                     modal.style.display = 'none';
                     body.style.overflow = 'auto';
-                });
+                    managePortfolioConvo(window.location.pathname);
+                };
+
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', handleClose);
+                }
+
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal && !e.target.closest('.modal-content')) {
-                        modal.style.display = 'none';
-                        body.style.overflow = 'auto';
+                        handleClose();
                     }
                 });
             });

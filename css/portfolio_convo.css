@@ -7,11 +7,13 @@
     display: flex;
     align-items: flex-end;
     gap: 12px;
-    pointer-events: none; /* Allow clicks to pass through */
-    animation: convo-fade-in 0.5s ease-out, convo-bobbing 4s ease-in-out infinite; /* Added floating animation */
- }
- 
- @keyframes convo-fade-in {
+    width: 320px;
+    max-width: 90vw;
+    pointer-events: none;
+    animation: convo-fade-in 0.5s ease-out, convo-bobbing 4s ease-in-out infinite;
+}
+
+@keyframes convo-fade-in {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -20,54 +22,60 @@
         opacity: 1;
         transform: translateY(0);
     }
- }
- 
- @keyframes convo-bobbing {
+}
+
+@keyframes convo-bobbing {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
- }
- 
- .convo-character {
+}
+
+.convo-character-container {
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.convo-character {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
     transform: scale(0.9);
     opacity: 0;
-    /* The glow is applied via JS */
     animation: convo-pulse-glow 4s ease-in-out infinite;
-    height: auto; /* Remove fixed height */
-    width: auto;  /* Remove fixed width */
-    max-width: 80px; /* Set a maximum width if needed */
-    max-height: 80px; /* Set a maximum height if needed */
- }
- 
- .convo-character.active {
+}
+
+.convo-character.active {
     transform: scale(1);
     opacity: 1;
- }
- 
- .convo-bubble {
+}
+
+.convo-bubble {
     position: relative;
-    background: rgba(20, 20, 25, 0.75); /* Added transparency (0.75) */
+    flex-grow: 1;
+    background: rgba(20, 20, 25, 0.85);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Slightly reduced shadow for transparency */
-    /* Dynamic sizing */
-    width: auto;
-    max-width: 250px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transform: scale(0.95);
     transform-origin: bottom left;
     transition: opacity 0.3s ease, transform 0.3s ease;
- }
- 
- .convo-character.active + .convo-bubble {
+}
+
+/* MODIFIED: This selector is now simpler and targets the bubble directly. */
+.convo-bubble.active {
     opacity: 1;
     transform: scale(1);
- }
- 
- .convo-bubble::after {
+}
+
+.convo-bubble::after {
     content: '';
     position: absolute;
     left: -10px;
@@ -76,21 +84,44 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 10px solid rgba(20, 20, 25, 0.75); /* Match bubble transparency */
- }
- 
- .convo-text {
+    border-right: 10px solid rgba(20, 20, 25, 0.85);
+}
+
+.convo-text {
     font-size: 13px;
     line-height: 1.5;
     color: #eee;
     margin: 0;
- }
- 
- @keyframes convo-pulse-glow {
+}
+
+@keyframes convo-pulse-glow {
     0%, 100% {
         filter: drop-shadow(0 0 10px var(--glow-color, #fff));
     }
     50% {
         filter: drop-shadow(0 0 20px var(--glow-color, #fff));
     }
- }
+}
+
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 600px) {
+    #convo-widget {
+        max-width: calc(100vw - 30px);
+        left: 15px;
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .convo-character-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    .convo-bubble {
+        padding: 10px;
+    }
+
+    .convo-text {
+        font-size: 12px;
+    }
+}
