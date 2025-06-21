@@ -17,7 +17,7 @@ const initializeAIAssistant = () => {
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-chat-btn');
-    const MAX_MESSAGES = 6; // Show 3 user messages and 3 bot replies
+    const MAX_MESSAGES = 6; // Shows 3 user messages and 3 bot replies
 
     const sendMessage = async () => {
         const input = chatInput.value.trim();
