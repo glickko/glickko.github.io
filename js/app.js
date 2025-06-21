@@ -119,22 +119,25 @@ const manageToolsGuide = async (path) => {
 
             const widget = document.querySelector('.ai-guide-container');
             const textEl = widget.querySelector('.guide-dialog-text');
-            const charImg = widget.querySelector('.guide-character');
-            
-            charImg.classList.add('active');
             
             let currentStep = -1;
             const showNextStep = () => {
-                currentStep = (currentStep + 1) % steps.length;
-                textEl.style.opacity = 0;
+                // Add class to fade out the widget
+                widget.classList.add('fading-out');
+
+                // Wait for the fade-out transition to complete
                 setTimeout(() => {
+                    // Change the text content
+                    currentStep = (currentStep + 1) % steps.length;
                     textEl.textContent = steps[currentStep];
-                    textEl.style.opacity = 1;
-                }, 300);
+                    
+                    // Remove the class to fade the widget back in
+                    widget.classList.remove('fading-out');
+                }, 400); // Duration should match the CSS transition
             };
 
-            showNextStep();
-            const intervalId = setInterval(showNextStep, 6000);
+            showNextStep(); // Initial call
+            const intervalId = setInterval(showNextStep, 6000); // Cycle every 6 seconds
             widget.dataset.intervalId = intervalId;
 
         } catch (error) {
@@ -194,11 +197,10 @@ const managePortfolioConvo = async (path) => {
             const widget = document.getElementById('convo-widget');
             const charImg = widget.querySelector('.convo-character');
             const textEl = widget.querySelector('.convo-text');
-            const bubbleEl = widget.querySelector('.convo-bubble'); // Get bubble element
+            const bubbleEl = widget.querySelector('.convo-bubble');
             
             let currentTurn = -1;
             const showTurn = () => {
-                // Fade out both elements
                 charImg.classList.remove('active');
                 bubbleEl.classList.remove('active');
 
@@ -210,7 +212,6 @@ const managePortfolioConvo = async (path) => {
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
                     
-                    // Fade in both elements together
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);

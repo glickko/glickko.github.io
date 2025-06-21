@@ -9,6 +9,7 @@
     align-items: flex-end;
     gap: 12px;
     max-width: 350px;
+    /* MODIFIED: Added the guide-bobbing animation to make the widget float */
     animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite;
 }
 
@@ -29,18 +30,19 @@
 }
 
 .guide-character {
+    display: block;
+    width: 90px;
     height: auto;
-    width: auto;
-    max-width: 90px;
-    max-height: 90px;
+    max-width: 100%;
     --glow-color: hsl(330, 90%, 70%);
     filter: drop-shadow(0 0 12px var(--glow-color));
     animation: pulse-glow-guide 4s ease-in-out infinite;
 }
 
+/* NEW: This is the floating animation */
 @keyframes guide-bobbing {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-10px); }
 }
 
 .guide-dialog-box {
@@ -80,25 +82,24 @@
     50%      { filter: drop-shadow(0 0 20px var(--glow-color)); }
 }
 
-/* --- NEW: Mobile Responsive Styles --- */
+/* --- Mobile Responsive Styles --- */
 @media (max-width: 600px) {
     .ai-guide-container {
         max-width: calc(100vw - 30px);
         bottom: 15px;
         right: 15px;
-        gap: 8px;
+        gap: 10px;
     }
 
     .guide-character {
-        max-width: 60px; /* Smaller character on mobile */
-        max-height: 60px;
+        width: 70px;
     }
 
     .guide-dialog-box {
-        padding: 10px; /* Tighter padding */
+        padding: 12px;
     }
 
     .guide-dialog-text {
-        font-size: 12px; /* Slightly smaller text */
+        font-size: 12px;
     }
 }
