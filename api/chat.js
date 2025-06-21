@@ -5,11 +5,25 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
+// This function sets the required CORS headers
+const allowCors = (fn) => async (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Or specify your domain: 'https://glickko.github.io'
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
 
+  // Handle pre-flight requests for CORS
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+  return await fn(req, res);
+};
+
+const handler = async (req, res) => {
   try {
     const userMessage = req.body.message;
 
@@ -33,3 +47,6 @@ module.exports = async (req, res) => {
     res.status(500).json({ error: 'Failed to get response from AI.' });
   }
 };
+
+// Wrap the handler with the CORS function
+module.exports = allowCors(handler);
