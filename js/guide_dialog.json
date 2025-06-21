@@ -2,11 +2,11 @@
     "conversation": [
       {
         "char": "pink.png",
-        "text": "Hello again! I'm Alpha. Let me and my friends show you around the Tools archive."
+        "text": "I'm Alpha with my friends. (if you know, you know) mean in indo is (YTTA)"
       },
       {
         "char": "blue.png",
-        "text": "You can use the search bar at the top to instantly filter all the tools by name or by their tags!"
+        "text": "Glickko say we need to help you here."
       },
       {
         "char": "red.png",
@@ -22,15 +22,15 @@
       },
       {
         "char": "purple.png",
-        "text": "This archive holds many secrets... and tools. All for helping Glickko get back up to speed quickly."
+        "text": "'.ahk' files need AHK to run that scripts"
       },
       {
         "char": "orange.png",
-        "text": "Just click on any tool in the list. It will open in a new tab for you. No fuss."
+        "text": "'.apk' files is android app just install it."
       },
       {
         "char": "gray.png",
-        "text": "Don't break anything. Or do. What do I care?"
+        "text": "This archive holds many secrets... and tools. All for helping Glickko get back up to speed quickly."
       }
     ]
   }
