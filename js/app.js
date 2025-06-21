@@ -83,11 +83,19 @@ const loadGuideStylesheet = () => {
     }
 };
 
-const manageToolsGuide = async (path) => {
-    const existingGuide = document.querySelector('.ai-guide-container');
-    if (existingGuide) {
-        existingGuide.remove();
+const cleanupToolsGuide = () => {
+    const widget = document.querySelector('.ai-guide-container');
+    if (widget) {
+        const intervalId = parseInt(widget.dataset.intervalId, 10);
+        if (!isNaN(intervalId)) {
+            clearInterval(intervalId);
+        }
+        widget.remove();
     }
+};
+
+const manageToolsGuide = async (path) => {
+    cleanupToolsGuide();
     if (path.includes('tools.html')) {
         loadGuideStylesheet();
         try {
@@ -95,55 +103,40 @@ const manageToolsGuide = async (path) => {
             if (!response.ok) throw new Error('Could not fetch guide dialog.');
             const dialogData = await response.json();
             const steps = dialogData.steps;
-            let currentStep = 0;
-            // The order of the dialog box and character container is swapped here
+            if (!steps || steps.length === 0) return;
+
             const guideHTML = `
                 <div class="ai-guide-container">
                     <div class="guide-dialog-box">
-                        <button class="guide-close-btn" title="Close Guide">&times;</button>
                         <p class="guide-dialog-text"></p>
-                        <div class="guide-nav">
-                            <span class="guide-step-counter"></span>
-                            <div class="guide-nav-buttons">
-                                <button id="guide-prev-btn">&lt; Prev</button>
-                                <button id="guide-next-btn">Next &gt;</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="guide-character-container">
-                        <img src="float/pink.png" alt="Guide Character" class="guide-character">
+                         <img src="float/pink.png" alt="Guide Character" class="guide-character">
                     </div>
                 </div>
             `;
             document.body.insertAdjacentHTML('beforeend', guideHTML);
-            const guideContainer = document.querySelector('.ai-guide-container');
-            const textElement = guideContainer.querySelector('.guide-dialog-text');
-            const counterElement = guideContainer.querySelector('.guide-step-counter');
-            const prevBtn = document.getElementById('guide-prev-btn');
-            const nextBtn = document.getElementById('guide-next-btn');
-            const closeBtn = guideContainer.querySelector('.guide-close-btn');
-            const updateGuideView = () => {
-                textElement.textContent = steps[currentStep];
-                counterElement.textContent = `Step ${currentStep + 1} of ${steps.length}`;
-                prevBtn.disabled = currentStep === 0;
-                nextBtn.disabled = currentStep === steps.length - 1;
+
+            const widget = document.querySelector('.ai-guide-container');
+            const textEl = widget.querySelector('.guide-dialog-text');
+            const charImg = widget.querySelector('.guide-character');
+            
+            charImg.classList.add('active');
+            
+            let currentStep = -1;
+            const showNextStep = () => {
+                currentStep = (currentStep + 1) % steps.length;
+                textEl.style.opacity = 0;
+                setTimeout(() => {
+                    textEl.textContent = steps[currentStep];
+                    textEl.style.opacity = 1;
+                }, 300);
             };
-            nextBtn.addEventListener('click', () => {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    updateGuideView();
-                }
-            });
-            prevBtn.addEventListener('click', () => {
-                if (currentStep > 0) {
-                    currentStep--;
-                    updateGuideView();
-                }
-            });
-            closeBtn.addEventListener('click', () => {
-                guideContainer.remove();
-            });
-            updateGuideView();
+
+            showNextStep();
+            const intervalId = setInterval(showNextStep, 6000);
+            widget.dataset.intervalId = intervalId;
+
         } catch (error) {
             console.error("Error setting up AI guide:", error);
         }
@@ -358,6 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadContent = async (url, pushState = true) => {
         try {
+            cleanupToolsGuide();
+            cleanupPortfolioConvo();
             mainContainer.classList.add('fade-out');
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok.');

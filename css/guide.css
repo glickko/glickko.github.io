@@ -7,7 +7,9 @@
     z-index: 1001;
     display: flex;
     align-items: flex-end;
-    gap: 8px;
+    gap: 12px;
+    max-width: 340px;
+    /* MODIFIED: This animation makes the entire widget float together */
     animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite;
 }
 
@@ -29,11 +31,13 @@
 .guide-character {
     width: 90px;
     height: auto;
-    --glow-color: hsl(330, 90%, 70%);
-    animation: pulse-glow 3s ease-in-out infinite;
+    --glow-color: hsl(330, 90%, 70%); /* Default pink glow for Alpha */
     filter: drop-shadow(0 0 12px var(--glow-color));
+    animation: pulse-glow-guide 4s ease-in-out infinite;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
+/* This is the floating animation */
 @keyframes guide-bobbing {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
@@ -41,19 +45,16 @@
 
 .guide-dialog-box {
     position: relative;
-    background: rgba(20, 20, 25, 0.85);
+    /* MODIFIED: Added transparency */
+    background: rgba(20, 20, 25, 0.8);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 12px;
-    width: 210px;
+    border-radius: 12px;
+    padding: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-grow: 1;
 }
 
-/* This rule creates the little triangle/tail pointing to the character on the right */
 .guide-dialog-box::after {
     content: '';
     position: absolute;
@@ -63,65 +64,20 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 10px solid rgba(20, 20, 25, 0.85);
+    /* MODIFIED: Match new transparent background */
+    border-left: 10px solid rgba(20, 20, 25, 0.8);
 }
 
 .guide-dialog-text {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
     color: #eee;
-    flex-grow: 1;
-    padding-right: 15px; /* Space for close button */
+    margin: 0;
+    /* REMOVED: min-height is gone, so the box fits the text perfectly */
+    transition: opacity 0.3s ease-in-out;
 }
 
-.guide-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.guide-step-counter {
-    font-size: 10px;
-    color: #888;
-}
-
-.guide-nav-buttons button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-size: 11px;
-}
-
-.guide-nav-buttons button:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.guide-nav-buttons button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.guide-close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    color: #888;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.guide-close-btn:hover {
-    color: #fff;
-    transform: scale(1.1);
+@keyframes pulse-glow-guide {
+    0%, 100% { filter: drop-shadow(0 0 10px var(--glow-color)); }
+    50%      { filter: drop-shadow(0 0 20px var(--glow-color)); }
 }
