@@ -96,6 +96,7 @@ const manageToolsGuide = async (path) => {
             const dialogData = await response.json();
             const steps = dialogData.steps;
             let currentStep = 0;
+            // The order of the dialog box and character container is swapped here
             const guideHTML = `
                 <div class="ai-guide-container">
                     <div class="guide-dialog-box">
@@ -109,7 +110,7 @@ const manageToolsGuide = async (path) => {
                             </div>
                         </div>
                     </div>
-                     <div class="guide-character-container">
+                    <div class="guide-character-container">
                         <img src="float/pink.png" alt="Guide Character" class="guide-character">
                     </div>
                 </div>
@@ -211,11 +212,11 @@ const managePortfolioConvo = async (path) => {
                     textEl.textContent = turnData.text;
                     
                     charImg.classList.add('active');
-                }, 400); // Wait for fade-out before changing content
+                }, 400);
             };
             
-            showTurn(); // Initial turn
-            const intervalId = setInterval(showTurn, 5000); // Change turn every 5 seconds
+            showTurn();
+            const intervalId = setInterval(showTurn, 5000);
             widget.dataset.intervalId = intervalId;
 
         } catch (error) {
@@ -348,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         body.style.overflow = 'auto';
                     }
                 });
-});
+            });
         } catch (error) {
             console.error('Failed to load portfolio data:', error);
             portfolioGrid.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load portfolio.</p>`;

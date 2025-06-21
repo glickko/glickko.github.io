@@ -8,8 +8,7 @@
     display: flex;
     align-items: flex-end;
     gap: 8px;
-    flex-direction: row-reverse; /* This places the image on the right */
-    animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite; /* Moved bobbing here to affect both elements */
+    animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite;
 }
 
 @keyframes guide-fade-in {
@@ -31,7 +30,7 @@
     width: 90px;
     height: auto;
     --glow-color: hsl(330, 90%, 70%);
-    animation: pulse-glow 3s ease-in-out infinite; /* Bobbing animation is now on the parent */
+    animation: pulse-glow 3s ease-in-out infinite;
     filter: drop-shadow(0 0 12px var(--glow-color));
 }
 
@@ -54,7 +53,7 @@
     gap: 8px;
 }
 
-/* This new rule creates the little triangle/tail pointing to the character on the right */
+/* This rule creates the little triangle/tail pointing to the character on the right */
 .guide-dialog-box::after {
     content: '';
     position: absolute;
@@ -64,7 +63,7 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 10px solid rgba(20, 20, 25, 0.85); /* Points right */
+    border-left: 10px solid rgba(20, 20, 25, 0.85);
 }
 
 .guide-dialog-text {
