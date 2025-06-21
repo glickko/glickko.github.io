@@ -1,78 +1,92 @@
 // js/app.js
 
-const manageFloatingAssets = async (path) => {
-    const existingContainer = document.querySelector('.floating-asset-container');
-    if (existingContainer) {
-        existingContainer.remove();
-    }
-    const isIndexPage = path.endsWith('/') || path.endsWith('index.html');
-    if (isIndexPage) {
+const initializeAIAssistant = () => {
+    const assistantWidget = document.getElementById('ai-assistant-widget');
+    if (!assistantWidget) return;
+
+    // --- Floating Animation ---
+    gsap.to(assistantWidget, {
+        y: -10,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        duration: 5
+    });
+
+    // --- Chat Logic ---
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-chat-btn');
+    const MAX_MESSAGES = 6; // Show 3 user messages and 3 bot replies
+
+    const sendMessage = async () => {
+        const input = chatInput.value.trim();
+        if (input === "") return;
+
+        // Display user message
+        const userMessageEl = document.createElement('div');
+        userMessageEl.className = 'chat-message user-message';
+        userMessageEl.textContent = input;
+        chatMessages.appendChild(userMessageEl);
+        chatInput.value = "";
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Manage message history
+        while (chatMessages.children.length > MAX_MESSAGES) {
+            chatMessages.firstChild.remove();
+        }
+
+        // Get AI response
         try {
-            const response = await fetch('dialog.json');
-            if (!response.ok) throw new Error('Failed to fetch dialog.json');
-            const dialogsByFile = await response.json();
-            const assetSources = [
-                'float/pink.png', 'float/blue.png', 'float/red.png',
-                'float/yellow.png', 'float/green.png', 'float/purple.png', 'float/orange.png',
-                'float/gray.png'
-            ];
-            const colorMap = {
-                'pink.png': 'hsl(330, 90%, 70%)', 'blue.png': 'hsl(210, 90%, 70%)',
-                'red.png': 'hsl(0, 90%, 70%)', 'yellow.png': 'hsl(50, 90%, 70%)',
-                'green.png': 'hsl(120, 90%, 70%)', 'purple.png': 'hsl(270, 90%, 70%)',
-                'orange.png': 'hsl(30, 90%, 70%)',
-                'gray.png': 'hsl(0, 0%, 70%)'
-            };
-            const gridCells = [
-                { top: [5, 20], left: [5, 20] },   { top: [5, 20], left: [40, 55] },  { top: [5, 20], left: [75, 90] },
-                { top: [35, 50], left: [15, 30] }, { top: [35, 50], left: [65, 80] },
-                { top: [65, 80], left: [5, 20] },   { top: [65, 80], left: [40, 55] },  { top: [65, 80], left: [75, 90] },
-            ];
-            for (let i = gridCells.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [gridCells[i], gridCells[j]] = [gridCells[j], gridCells[i]];
-            }
-            const floatingAssetsHTML = assetSources.map((src, index) => {
-                const filename = src.split('/').pop();
-                const glowColor = colorMap[filename] || '#fff';
-                const cell = gridCells[index % gridCells.length];
-                const randomTop = Math.random() * (cell.top[1] - cell.top[0]) + cell.top[0];
-                const randomLeft = Math.random() * (cell.left[1] - cell.left[0]) + cell.left[0];
-                const randomDuration = Math.random() * 15 + 15;
-                const randomDelay = Math.random() * 5;
-                return `
-                    <div class="floating-asset-wrapper" 
-                         data-filename="${filename}" 
-                         style="top: ${randomTop}%; left: ${randomLeft}%; animation-duration: ${randomDuration}s; animation-delay: ${randomDelay}s;">
-                        <img src="${src}" class="floating-asset-image" alt="Floating Asset" style="--glow-color: ${glowColor};">
-                        <span class="asset-label"></span>
-                    </div>
-                `;
-            }).join('');
-            const floatingAssetContainerHTML = `<div class="floating-asset-container">${floatingAssetsHTML}</div>`;
-            document.body.insertAdjacentHTML('afterbegin', floatingAssetContainerHTML);
-            const assetWrappers = document.querySelectorAll('.floating-asset-wrapper');
-            const dialogTrackers = {};
-            assetWrappers.forEach(wrapper => {
-                const label = wrapper.querySelector('.asset-label');
-                const filename = wrapper.dataset.filename;
-                const dialogList = dialogsByFile[filename];
-                if (!label || !dialogList || dialogList.length === 0) return;
-                dialogTrackers[filename] = { currentIndex: 0 };
-                const updateLabelSequentially = () => {
-                    const tracker = dialogTrackers[filename];
-                    const dialogText = dialogList[tracker.currentIndex];
-                    label.textContent = dialogText;
-                    tracker.currentIndex = (tracker.currentIndex + 1) % dialogList.length;
-                };
-                updateLabelSequentially();
-                setInterval(updateLabelSequentially, Math.random() * 2000 + 3000);
+            const response = await fetch('https://glickko-github-io.vercel.app/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: input })
             });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            const botMessageEl = document.createElement('div');
+            botMessageEl.className = 'chat-message bot-message';
+            botMessageEl.textContent = data.reply;
+            chatMessages.appendChild(botMessageEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Manage message history again after bot reply
+            while (chatMessages.children.length > MAX_MESSAGES) {
+                chatMessages.firstChild.remove();
+            }
+
         } catch (error) {
-            console.error("Error setting up floating assets:", error);
+            console.error('Error with chatbot:', error);
+            const errorEl = document.createElement('div');
+            errorEl.className = 'chat-message bot-message';
+            errorEl.textContent = "Sorry, I'm having trouble connecting.";
+            chatMessages.appendChild(errorEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    };
+    
+    sendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keyup', (e) => {
+        if (e.key === "Enter") sendMessage();
+    });
+};
+
+const manageAIAssistantVisibility = (path) => {
+    const isIndexPage = path.endsWith('/') || path.endsWith('index.html');
+    const assistantWidget = document.getElementById('ai-assistant-widget');
+
+    if (assistantWidget) {
+        if (isIndexPage) {
+            assistantWidget.classList.remove('hidden');
+        } else {
+            assistantWidget.classList.add('hidden');
         }
     }
 };
+
 
 const loadGuideStylesheet = () => {
     if (!document.head.querySelector('link[href="css/guide.css"]')) {
@@ -242,12 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
     
+    initializeAIAssistant();
+
     const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         if (!toolsList) return;
 
-        // Add loading message
         toolsList.innerHTML = `<p class="loading-text">Loading Tools...</p>`;
 
         try {
@@ -257,7 +272,10 @@ document.addEventListener('DOMContentLoaded', () => {
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
 
             const toolItemsHTML = toolsData.map(tool => {
-                const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+                const tagsHTML = tool.tags.map(tag => {
+                    const tagClass = `tool-tag--${tag.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                    return `<span class="tool-tag ${tagClass}">${tag}</span>`;
+                }).join('');
                 return `
                     <a href="${tool.href}" target="_blank" rel="noopener noreferrer" class="tool-item">
                         <span class="tool-name">${tool.name}</span>
@@ -266,7 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             }).join('');
             
-            // Replace loading message with content
             toolsList.innerHTML = toolItemsHTML;
 
             const toolItems = toolsList.querySelectorAll('.tool-item');
@@ -277,11 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const name = item.querySelector('.tool-name').textContent.toLowerCase();
                         const tags = Array.from(item.querySelectorAll('.tool-tag')).map(t => t.textContent.toLowerCase());
                         const isMatch = searchTerm === '' || name.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
-                        if (isMatch) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
+                        item.classList.toggle('hidden', !isMatch);
                     });
                     toolsList.scrollTop = 0;
                 });
@@ -297,7 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const body = document.body;
         if (!portfolioGrid) return;
 
-        // Add loading message
         portfolioGrid.innerHTML = `<p class="loading-text">Loading Portfolio...</p>`;
 
         try {
@@ -338,7 +350,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             });
 
-            // Replace loading message with content
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
             
@@ -406,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const newNavContent = doc.querySelector('nav').innerHTML;
             setTimeout(() => {
                 document.querySelectorAll('.modal').forEach(modal => modal.remove());
-                mainContainer.classList.toggle('main-portfolio-layout', url.includes('portfolio.html'));
+                mainContainer.className = doc.getElementById('main-container').className;
                 mainContainer.innerHTML = newMainContent;
                 document.title = newTitle;
                 navContainer.innerHTML = newNavContent;
@@ -416,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 attachNavListeners();
                 if (url.includes('tools.html')) initializeToolsPage();
                 if (url.includes('portfolio.html')) initializePortfolioPage();
-                manageFloatingAssets(url);
+                manageAIAssistantVisibility(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
             }, 400);
@@ -452,12 +463,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     attachNavListeners();
     const initialPath = window.location.pathname;
-    if (initialPath.includes('portfolio.html')) {
-         mainContainer.classList.add('main-portfolio-layout');
-         initializePortfolioPage();
-    }
+    mainContainer.className = document.getElementById('main-container').className;
     if (initialPath.includes('tools.html')) initializeToolsPage();
-    manageFloatingAssets(initialPath);
+    if (initialPath.includes('portfolio.html')) initializePortfolioPage();
+    manageAIAssistantVisibility(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
 });

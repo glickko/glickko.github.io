@@ -69,7 +69,6 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* MODIFIED: This selector is now simpler and targets the bubble directly. */
 .guide-dialog-box.active {
     opacity: 1;
     transform: scale(1);
