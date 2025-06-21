@@ -1,14 +1,36 @@
 {
-    "steps": [
-      "Hello! I'm Alpha. will help u here",
-      "Glickko say if you don't know, just go back now. Hehe JK",
-      "`If you know - You know` mean in indonesia is. YTTA!",
-      "Files ending in '.reg' are registry files. just double-click them to apply the changes.",
-      ".apk files is android app",
-      "Files like '.cmd' or '.exe' are scripts or programs you can run directly.",
-      ".ahk need AHK to run it",
-      ".torrent files need uTorrent or FDM and open it to download.",
-      "this page just for easing Glickko after reseting his device",
-      "any broken link, just dm glickko"
+    "conversation": [
+      {
+        "char": "pink.png",
+        "text": "Hello again! I'm Alpha. Let me and my friends show you around the Tools archive."
+      },
+      {
+        "char": "blue.png",
+        "text": "You can use the search bar at the top to instantly filter all the tools by name or by their tags!"
+      },
+      {
+        "char": "red.png",
+        "text": "See a '.reg' file? That's a registry script. Just double-click it after downloading to apply the tweak."
+      },
+      {
+        "char": "green.png",
+        "text": "Logically, files ending in '.cmd' or '.exe' are executable programs or scripts that you can run directly."
+      },
+      {
+        "char": "yellow.png",
+        "text": "And if you see a '.torrent' file, you'll need a special program like uTorrent or FDM to download it. So fun!"
+      },
+      {
+        "char": "purple.png",
+        "text": "This archive holds many secrets... and tools. All for helping Glickko get back up to speed quickly."
+      },
+      {
+        "char": "orange.png",
+        "text": "Just click on any tool in the list. It will open in a new tab for you. No fuss."
+      },
+      {
+        "char": "gray.png",
+        "text": "Don't break anything. Or do. What do I care?"
+      }
     ]
   }

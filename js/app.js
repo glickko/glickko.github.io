@@ -101,9 +101,16 @@ const manageToolsGuide = async (path) => {
         try {
             const response = await fetch('js/guide_dialog.json');
             if (!response.ok) throw new Error('Could not fetch guide dialog.');
-            const dialogData = await response.json();
-            const steps = dialogData.steps;
-            if (!steps || steps.length === 0) return;
+            const data = await response.json();
+            const conversation = data.conversation;
+            if (!conversation || conversation.length === 0) return;
+
+            const glowColorMap = {
+                'pink.png': 'hsl(330, 90%, 70%)', 'blue.png': 'hsl(210, 90%, 70%)',
+                'red.png': 'hsl(0, 90%, 70%)', 'yellow.png': 'hsl(50, 90%, 70%)',
+                'green.png': 'hsl(120, 90%, 70%)', 'purple.png': 'hsl(270, 90%, 70%)',
+                'orange.png': 'hsl(30, 90%, 70%)', 'gray.png': 'hsl(0, 0%, 70%)'
+            };
 
             const guideHTML = `
                 <div class="ai-guide-container">
@@ -111,33 +118,39 @@ const manageToolsGuide = async (path) => {
                         <p class="guide-dialog-text"></p>
                     </div>
                     <div class="guide-character-container">
-                         <img src="float/pink.png" alt="Guide Character" class="guide-character">
+                         <img src="" alt="Guide Character" class="guide-character">
                     </div>
                 </div>
             `;
             document.body.insertAdjacentHTML('beforeend', guideHTML);
 
             const widget = document.querySelector('.ai-guide-container');
+            const charImg = widget.querySelector('.guide-character');
             const textEl = widget.querySelector('.guide-dialog-text');
+            const bubbleEl = widget.querySelector('.guide-dialog-box'); // Get bubble element
             
-            let currentStep = -1;
-            const showNextStep = () => {
-                // Add class to fade out the widget
-                widget.classList.add('fading-out');
+            let currentTurn = -1;
+            const showTurn = () => {
+                // Fade out
+                charImg.classList.remove('active');
+                bubbleEl.classList.remove('active');
 
-                // Wait for the fade-out transition to complete
                 setTimeout(() => {
-                    // Change the text content
-                    currentStep = (currentStep + 1) % steps.length;
-                    textEl.textContent = steps[currentStep];
+                    currentTurn = (currentTurn + 1) % conversation.length;
+                    const turnData = conversation[currentTurn];
                     
-                    // Remove the class to fade the widget back in
-                    widget.classList.remove('fading-out');
-                }, 400); // Duration should match the CSS transition
+                    charImg.src = `float/${turnData.char}`;
+                    charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
+                    textEl.textContent = turnData.text;
+                    
+                    // Fade in
+                    charImg.classList.add('active');
+                    bubbleEl.classList.add('active');
+                }, 400);
             };
 
-            showNextStep(); // Initial call
-            const intervalId = setInterval(showNextStep, 6000); // Cycle every 6 seconds
+            showTurn();
+            const intervalId = setInterval(showTurn, 5000);
             widget.dataset.intervalId = intervalId;
 
         } catch (error) {

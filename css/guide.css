@@ -1,5 +1,4 @@
 /* css/guide.css */
-
 .ai-guide-container {
     position: fixed;
     bottom: 20px;
@@ -8,8 +7,9 @@
     display: flex;
     align-items: flex-end;
     gap: 12px;
-    max-width: 350px;
-    /* MODIFIED: Added the guide-bobbing animation to make the widget float */
+    width: 320px;
+    max-width: 90vw;
+    pointer-events: none;
     animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite;
 }
 
@@ -24,37 +24,55 @@
     }
 }
 
-.guide-character-container {
-    position: relative;
-    flex-shrink: 0;
-}
-
-.guide-character {
-    display: block;
-    width: 90px;
-    height: auto;
-    max-width: 100%;
-    --glow-color: hsl(330, 90%, 70%);
-    filter: drop-shadow(0 0 12px var(--glow-color));
-    animation: pulse-glow-guide 4s ease-in-out infinite;
-}
-
-/* NEW: This is the floating animation */
 @keyframes guide-bobbing {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
+.guide-character-container {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guide-character {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: pulse-glow-guide 4s ease-in-out infinite;
+}
+
+.guide-character.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
 .guide-dialog-box {
     position: relative;
+    flex-grow: 1;
     background: rgba(20, 20, 25, 0.85);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    flex-grow: 1;
-    width: auto;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: bottom right;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* MODIFIED: This selector is now simpler and targets the bubble directly. */
+.guide-dialog-box.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .guide-dialog-box::after {
@@ -74,29 +92,28 @@
     line-height: 1.5;
     color: #eee;
     margin: 0;
-    transition: opacity 0.3s ease-in-out;
 }
 
 @keyframes pulse-glow-guide {
-    0%, 100% { filter: drop-shadow(0 0 10px var(--glow-color)); }
-    50%      { filter: drop-shadow(0 0 20px var(--glow-color)); }
+    0%, 100% { filter: drop-shadow(0 0 10px var(--glow-color, #fff)); }
+    50%      { filter: drop-shadow(0 0 20px var(--glow-color, #fff)); }
 }
 
-/* --- Mobile Responsive Styles --- */
 @media (max-width: 600px) {
     .ai-guide-container {
         max-width: calc(100vw - 30px);
-        bottom: 15px;
         right: 15px;
-        gap: 10px;
+        bottom: 15px;
+        gap: 8px;
     }
 
-    .guide-character {
-        width: 70px;
+    .guide-character-container {
+        width: 60px;
+        height: 60px;
     }
 
     .guide-dialog-box {
-        padding: 12px;
+        padding: 10px;
     }
 
     .guide-dialog-text {
