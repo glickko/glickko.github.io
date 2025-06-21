@@ -127,11 +127,10 @@ const manageToolsGuide = async (path) => {
             const widget = document.querySelector('.ai-guide-container');
             const charImg = widget.querySelector('.guide-character');
             const textEl = widget.querySelector('.guide-dialog-text');
-            const bubbleEl = widget.querySelector('.guide-dialog-box'); // Get bubble element
+            const bubbleEl = widget.querySelector('.guide-dialog-box');
             
             let currentTurn = -1;
             const showTurn = () => {
-                // Fade out
                 charImg.classList.remove('active');
                 bubbleEl.classList.remove('active');
 
@@ -143,7 +142,6 @@ const manageToolsGuide = async (path) => {
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
                     
-                    // Fade in
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);
@@ -248,12 +246,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         if (!toolsList) return;
+
+        // Add loading message
+        toolsList.innerHTML = `<p class="loading-text">Loading Tools...</p>`;
+
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
             const toolsData = await response.json();
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
-            toolsList.innerHTML = toolsData.map(tool => {
+
+            const toolItemsHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 return `
                     <a href="${tool.href}" target="_blank" rel="noopener noreferrer" class="tool-item">
@@ -262,6 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 `;
             }).join('');
+            
+            // Replace loading message with content
+            toolsList.innerHTML = toolItemsHTML;
+
             const toolItems = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
@@ -289,6 +296,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
         if (!portfolioGrid) return;
+
+        // Add loading message
+        portfolioGrid.innerHTML = `<p class="loading-text">Loading Portfolio...</p>`;
+
         try {
             const response = await fetch('portfolio.json');
             if (!response.ok) throw new Error('Network response was not ok for portfolio.json');
@@ -326,8 +337,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             });
+
+            // Replace loading message with content
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
+            
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const modals = document.querySelectorAll('.modal');

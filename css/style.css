@@ -274,3 +274,22 @@ footer { flex-shrink: 0; z-index: 10; text-align: center; padding: 1rem; backgro
         flex: 1 1 45%;
     }
 }
+
+/* --- NEW: Loading State Styles --- */
+.loading-text {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #888;
+    font-size: 1rem;
+    font-style: italic;
+    animation: flicker-loading 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker-loading {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}

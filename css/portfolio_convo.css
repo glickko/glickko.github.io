@@ -69,7 +69,6 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* MODIFIED: This selector is now simpler and targets the bubble directly. */
 .convo-bubble.active {
     opacity: 1;
     transform: scale(1);
@@ -92,6 +91,7 @@
     line-height: 1.5;
     color: #eee;
     margin: 0;
+    /* MODIFIED: min-height removed to eliminate gaps */
 }
 
 @keyframes convo-pulse-glow {
@@ -123,5 +123,6 @@
 
     .convo-text {
         font-size: 12px;
+        /* MODIFIED: min-height removed here as well */
     }
 }
