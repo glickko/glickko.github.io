@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const filename = src.split('/').pop(); // Extracts 'pink.png' from 'float/pink.png'
         const glowColor = colorMap[filename] || '#fff'; // Get color from map or use white as default
         
-        // Create the image tag and set its style property for the CSS variable.
         const img = document.createElement('img');
         img.src = src;
         img.alt = "Floating Asset";

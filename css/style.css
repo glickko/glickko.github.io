@@ -27,7 +27,7 @@ body {
 .floating-asset {
     position: absolute;
     opacity: 0;
-    /* This is now the default, larger size for mobile */
+    /* This is the default, larger size for mobile */
     width: clamp(60px, 8vw, 120px);
     height: auto;
     --glow-color: #fff; /* A default fallback color */

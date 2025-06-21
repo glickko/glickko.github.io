@@ -9,16 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!toolsList) return;
 
-        // --- NEW: Fetch data from JSON and populate the list ---
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
             const toolsData = await response.json();
 
-            // Sort data alphabetically by name
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
 
-            // Generate HTML for each tool
             toolsList.innerHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 return `
@@ -29,14 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             }).join('');
 
-            // --- Search bar logic (now runs AFTER list is populated) ---
             const toolItems = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
                     const searchTerm = e.target.value.toLowerCase();
                     toolItems.forEach(item => {
                         const name = item.querySelector('.tool-name').textContent.toLowerCase();
-                        // Search in all tags
                         const tags = Array.from(item.querySelectorAll('.tool-tag')).map(t => t.textContent.toLowerCase());
                         const isMatch = searchTerm === '' || name.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
 
@@ -56,58 +51,94 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const initializePortfolioPage = () => {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const modals = document.querySelectorAll('.modal');
+    const initializePortfolioPage = async () => {
+        const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
+        if (!portfolioGrid) return;
 
-        if (!filterBtns.length) return;
+        try {
+            const response = await fetch('portfolio.json');
+            if (!response.ok) throw new Error('Network response was not ok for portfolio.json');
+            const portfolioData = await response.json();
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const newFilter = btn.dataset.filter;
+            let portfolioItemsHTML = '';
+            let modalsHTML = '';
 
-                portfolioItems.forEach(item => {
-                    const shouldBeVisible = (newFilter === 'all' || item.dataset.category === newFilter);
-                    
-                    if (shouldBeVisible) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
+            portfolioData.forEach(item => {
+                portfolioItemsHTML += `
+                    <div class="portfolio-item" data-category="${item.category}" data-modal-id="${item.id}">
+                        <img src="${item.imageSrc}" alt="${item.title}">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <h3>${item.title}</h3>
+                                <span>${item.categoryLabel}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modalsHTML += `
+                    <div id="${item.id}" class="modal">
+                        <div class="modal-content">
+                            <span class="modal-close">&times;</span>
+                            <img src="${item.imageSrc}" alt="${item.title}">
+                            <h2>${item.title}</h2>
+                            <div class="modal-details">
+                                <p>${item.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            portfolioGrid.innerHTML = portfolioItemsHTML;
+            // FIXED: Inject modals directly into the body for stability.
+            body.insertAdjacentHTML('beforeend', modalsHTML);
+
+            // Re-select all elements now that they are in the DOM
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const modals = document.querySelectorAll('.modal');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const newFilter = btn.dataset.filter;
+                    portfolioItems.forEach(item => {
+                        item.classList.toggle('hidden', newFilter !== 'all' && item.dataset.category !== newFilter);
+                    });
+                });
+            });
+
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const modalId = item.dataset.modalId;
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = 'flex';
+                        body.style.overflow = 'hidden';
                     }
                 });
             });
-        });
 
-        portfolioItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const modalId = item.dataset.modalId;
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = 'flex';
-                    body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        modals.forEach(modal => {
-            const closeBtn = modal.querySelector('.modal-close');
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-                body.style.overflow = 'auto';
-            });
-
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
+            modals.forEach(modal => {
+                const closeBtn = modal.querySelector('.modal-close');
+                closeBtn.addEventListener('click', () => {
                     modal.style.display = 'none';
                     body.style.overflow = 'auto';
-                }
+                });
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        body.style.overflow = 'auto';
+                    }
+                });
             });
-        });
+
+        } catch (error) {
+            console.error('Failed to load portfolio data:', error);
+            portfolioGrid.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load portfolio.</p>`;
+        }
     };
 
     const loadContent = async (url, pushState = true) => {
@@ -126,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const newNavContent = doc.querySelector('nav').innerHTML;
 
             setTimeout(() => {
+                // Clean up any modals from the previous page before loading new content
+                document.querySelectorAll('.modal').forEach(modal => modal.remove());
+
                 if (url.includes('portfolio.html')) {
                     mainContainer.classList.add('main-portfolio-layout');
                 } else {
