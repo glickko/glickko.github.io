@@ -8,8 +8,8 @@
     display: flex;
     align-items: flex-end;
     gap: 12px;
-    max-width: 340px;
-    /* MODIFIED: This animation makes the entire widget float together */
+    max-width: 350px;
+    /* This animation makes the entire widget float together */
     animation: guide-fade-in 0.5s ease-out, guide-bobbing 4s ease-in-out infinite;
 }
 
@@ -26,15 +26,18 @@
 
 .guide-character-container {
     position: relative;
+    flex-shrink: 0;
 }
 
 .guide-character {
-    width: 90px;
+    /* MODIFIED: Ensures conditional resizing and preserves aspect ratio */
     height: auto;
-    --glow-color: hsl(330, 90%, 70%); /* Default pink glow for Alpha */
+    width: auto;
+    max-width: 90px;
+    max-height: 90px;
+    --glow-color: hsl(330, 90%, 70%);
     filter: drop-shadow(0 0 12px var(--glow-color));
     animation: pulse-glow-guide 4s ease-in-out infinite;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
 /* This is the floating animation */
@@ -45,14 +48,15 @@
 
 .guide-dialog-box {
     position: relative;
-    /* MODIFIED: Added transparency */
-    background: rgba(20, 20, 25, 0.8);
+    /* MODIFIED: Added transparency and flex-grow for better resizing */
+    background: rgba(20, 20, 25, 0.85);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     flex-grow: 1;
+    width: auto;
 }
 
 .guide-dialog-box::after {
@@ -64,8 +68,8 @@
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    /* MODIFIED: Match new transparent background */
-    border-left: 10px solid rgba(20, 20, 25, 0.8);
+    /* Match new transparent background */
+    border-left: 10px solid rgba(20, 20, 25, 0.85);
 }
 
 .guide-dialog-text {
@@ -73,7 +77,6 @@
     line-height: 1.5;
     color: #eee;
     margin: 0;
-    /* REMOVED: min-height is gone, so the box fits the text perfectly */
     transition: opacity 0.3s ease-in-out;
 }
 
