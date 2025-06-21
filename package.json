@@ -1,0 +1,15 @@
+{
+    "name": "glickko-archives-backend",
+    "version": "1.0.0",
+    "description": "Backend for glickko.github.io chatbot",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Glickko",
+    "license": "ISC",
+    "dependencies": {
+      "openai": "^4.0.0"
+    }
+  }
