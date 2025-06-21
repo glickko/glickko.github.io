@@ -1,31 +1,36 @@
 // api/chat.js
 const { OpenAI } = require('openai');
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// This is the main function Vercel will run
+export default async function handler(request, response) {
+  
+  // --- Step 1: Set CORS headers to allow your website to make requests ---
+  response.setHeader('Access-Control-Allow-Origin', 'https://glickko.github.io');
+  response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-// This function sets the required CORS headers
-const allowCors = (fn) => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', 'https://glickko.github.io'); 
-  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
-  // Handle pre-flight requests for CORS
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+  // --- Step 2: Handle the browser's pre-flight "OPTIONS" request ---
+  if (request.method === 'OPTIONS') {
+    return response.status(200).end();
   }
-  return await fn(req, res);
-};
 
-const handler = async (req, res) => {
+  // --- Step 3: Ensure the request is a POST request ---
+  if (request.method !== 'POST') {
+    return response.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  // --- Step 4: Check if the API key is set on the server ---
+  if (!process.env.OPENAI_API_KEY) {
+    return response.status(500).json({ error: "Server configuration error." });
+  }
+
+  // --- Step 5: Process the chat message ---
   try {
-    const userMessage = req.body.message;
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+    
+    const userMessage = request.body.message;
 
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
@@ -41,12 +46,10 @@ const handler = async (req, res) => {
       ],
     });
 
-    res.status(200).json({ reply: completion.choices[0].message.content });
+    response.status(200).json({ reply: completion.choices[0].message.content });
+
   } catch (error) {
     console.error('Error with OpenAI API:', error);
-    res.status(500).json({ error: 'Failed to get response from AI.' });
+    response.status(500).json({ error: 'Failed to get response from AI.' });
   }
-};
-
-// Wrap the handler with the CORS function
-module.exports = allowCors(handler);
+}
