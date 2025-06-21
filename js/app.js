@@ -88,22 +88,16 @@ const manageToolsGuide = async (path) => {
     if (existingGuide) {
         existingGuide.remove();
     }
-
     if (path.includes('tools.html')) {
         loadGuideStylesheet();
-
         try {
             const response = await fetch('js/guide_dialog.json');
             if (!response.ok) throw new Error('Could not fetch guide dialog.');
             const dialogData = await response.json();
             const steps = dialogData.steps;
             let currentStep = 0;
-
             const guideHTML = `
                 <div class="ai-guide-container">
-                    <div class="guide-character-container">
-                        <img src="float/pink.png" alt="Guide Character" class="guide-character">
-                    </div>
                     <div class="guide-dialog-box">
                         <button class="guide-close-btn" title="Close Guide">&times;</button>
                         <p class="guide-dialog-text"></p>
@@ -115,47 +109,117 @@ const manageToolsGuide = async (path) => {
                             </div>
                         </div>
                     </div>
+                     <div class="guide-character-container">
+                        <img src="float/pink.png" alt="Guide Character" class="guide-character">
+                    </div>
                 </div>
             `;
             document.body.insertAdjacentHTML('beforeend', guideHTML);
-            
             const guideContainer = document.querySelector('.ai-guide-container');
             const textElement = guideContainer.querySelector('.guide-dialog-text');
             const counterElement = guideContainer.querySelector('.guide-step-counter');
             const prevBtn = document.getElementById('guide-prev-btn');
             const nextBtn = document.getElementById('guide-next-btn');
             const closeBtn = guideContainer.querySelector('.guide-close-btn');
-
             const updateGuideView = () => {
                 textElement.textContent = steps[currentStep];
                 counterElement.textContent = `Step ${currentStep + 1} of ${steps.length}`;
                 prevBtn.disabled = currentStep === 0;
                 nextBtn.disabled = currentStep === steps.length - 1;
             };
-
             nextBtn.addEventListener('click', () => {
                 if (currentStep < steps.length - 1) {
                     currentStep++;
                     updateGuideView();
                 }
             });
-
             prevBtn.addEventListener('click', () => {
                 if (currentStep > 0) {
                     currentStep--;
                     updateGuideView();
                 }
             });
-
-            // This is the corrected close logic
             closeBtn.addEventListener('click', () => {
-                guideContainer.remove(); // Simply remove the guide from the page
+                guideContainer.remove();
             });
-
             updateGuideView();
-
         } catch (error) {
             console.error("Error setting up AI guide:", error);
+        }
+    }
+};
+
+const loadPortfolioConvoStylesheet = () => {
+    if (!document.head.querySelector('link[href="css/portfolio_convo.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'css/portfolio_convo.css';
+        document.head.appendChild(link);
+    }
+};
+
+const cleanupPortfolioConvo = () => {
+    const widget = document.getElementById('convo-widget');
+    if (widget) {
+        const intervalId = parseInt(widget.dataset.intervalId, 10);
+        if (!isNaN(intervalId)) {
+            clearInterval(intervalId);
+        }
+        widget.remove();
+    }
+};
+
+const managePortfolioConvo = async (path) => {
+    cleanupPortfolioConvo();
+    if (path.includes('portfolio.html')) {
+        loadPortfolioConvoStylesheet();
+        try {
+            const response = await fetch('js/portfolio_dialog.json');
+            if (!response.ok) throw new Error('Could not fetch portfolio dialog.');
+            const data = await response.json();
+            const conversation = data.conversation;
+            if (!conversation || conversation.length === 0) return;
+
+            const glowColorMap = {
+                'pink.png': 'hsl(330, 90%, 70%)', 'blue.png': 'hsl(210, 90%, 70%)',
+                'red.png': 'hsl(0, 90%, 70%)', 'yellow.png': 'hsl(50, 90%, 70%)',
+                'green.png': 'hsl(120, 90%, 70%)', 'purple.png': 'hsl(270, 90%, 70%)',
+                'orange.png': 'hsl(30, 90%, 70%)', 'gray.png': 'hsl(0, 0%, 70%)'
+            };
+
+            const widgetHTML = `
+                <div id="convo-widget">
+                    <img src="" alt="Character" class="convo-character">
+                    <div class="convo-bubble"><p class="convo-text"></p></div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', widgetHTML);
+
+            const widget = document.getElementById('convo-widget');
+            const charImg = widget.querySelector('.convo-character');
+            const textEl = widget.querySelector('.convo-text');
+            
+            let currentTurn = -1;
+            const showTurn = () => {
+                charImg.classList.remove('active');
+                setTimeout(() => {
+                    currentTurn = (currentTurn + 1) % conversation.length;
+                    const turnData = conversation[currentTurn];
+                    
+                    charImg.src = `float/${turnData.char}`;
+                    charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
+                    textEl.textContent = turnData.text;
+                    
+                    charImg.classList.add('active');
+                }, 400); // Wait for fade-out before changing content
+            };
+            
+            showTurn(); // Initial turn
+            const intervalId = setInterval(showTurn, 5000); // Change turn every 5 seconds
+            widget.dataset.intervalId = intervalId;
+
+        } catch (error) {
+            console.error("Failed to start portfolio conversation:", error);
         }
     }
 };
@@ -263,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             portfolioItems.forEach(item => {
                 item.addEventListener('click', () => {
+                    cleanupPortfolioConvo();
                     const modalId = item.dataset.modalId;
                     const modal = document.getElementById(modalId);
                     if (modal) {
@@ -283,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         body.style.overflow = 'auto';
                     }
                 });
-            });
+});
         } catch (error) {
             console.error('Failed to load portfolio data:', error);
             portfolioGrid.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load portfolio.</p>`;
@@ -315,6 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (url.includes('portfolio.html')) initializePortfolioPage();
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
+                managePortfolioConvo(url);
             }, 400);
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
@@ -355,4 +421,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialPath.includes('tools.html')) initializeToolsPage();
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
+    managePortfolioConvo(initialPath);
 });

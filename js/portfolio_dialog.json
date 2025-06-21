@@ -1,0 +1,36 @@
+{
+    "conversation": [
+      {
+        "char": "blue.png",
+        "text": "Psst. Is Glickko still sleeping?"
+      },
+      {
+        "char": "pink.png",
+        "text": "I believe so. The portfolio remains... a work in progress."
+      },
+      {
+        "char": "red.png",
+        "text": "Unacceptable! He's probably just gaming again!"
+      },
+      {
+        "char": "yellow.png",
+        "text": "A new game?! I wanna play! I bet it's fun! Whee!"
+      },
+      {
+        "char": "green.png",
+        "text": "My analysis indicates a 97.3% probability that he is procrastinating."
+      },
+      {
+        "char": "purple.png",
+        "text": "He whispers secrets to his code, but not to his timeline. A mystery."
+      },
+      {
+        "char": "orange.png",
+        "text": "Relax, everyone. I'm sure he's just compiling. It takes time."
+      },
+      {
+        "char": "gray.png",
+        "text": "Compiling excuses, maybe. Just tell the nice viewer it's 'coming soon'."
+      }
+    ]
+  }

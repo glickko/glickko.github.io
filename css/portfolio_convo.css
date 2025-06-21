@@ -1,0 +1,96 @@
+/* /css/portfolio_convo.css */
+#convo-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    pointer-events: none; /* Allow clicks to pass through */
+    animation: convo-fade-in 0.5s ease-out, convo-bobbing 4s ease-in-out infinite; /* Added floating animation */
+ }
+ 
+ @keyframes convo-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
+ 
+ @keyframes convo-bobbing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+ }
+ 
+ .convo-character {
+    flex-shrink: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: scale(0.9);
+    opacity: 0;
+    /* The glow is applied via JS */
+    animation: convo-pulse-glow 4s ease-in-out infinite;
+    height: auto; /* Remove fixed height */
+    width: auto;  /* Remove fixed width */
+    max-width: 80px; /* Set a maximum width if needed */
+    max-height: 80px; /* Set a maximum height if needed */
+ }
+ 
+ .convo-character.active {
+    transform: scale(1);
+    opacity: 1;
+ }
+ 
+ .convo-bubble {
+    position: relative;
+    background: rgba(20, 20, 25, 0.75); /* Added transparency (0.75) */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Slightly reduced shadow for transparency */
+    /* Dynamic sizing */
+    width: auto;
+    max-width: 250px;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: bottom left;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+ 
+ .convo-character.active + .convo-bubble {
+    opacity: 1;
+    transform: scale(1);
+ }
+ 
+ .convo-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: calc(50% - 10px);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(20, 20, 25, 0.75); /* Match bubble transparency */
+ }
+ 
+ .convo-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #eee;
+    margin: 0;
+ }
+ 
+ @keyframes convo-pulse-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px var(--glow-color, #fff));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--glow-color, #fff));
+    }
+ }
