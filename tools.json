@@ -1,1043 +1,1126 @@
 [
-  {
-      "name": ".NET 10.0",
-      "href": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET 9.0",
-      "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET Desktop Runtime 6.0.31",
-      "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET Desktop Runtime 7.0.2",
-      "href": "https://www.mediafire.com/file/q9wv88iymxcohlh/dotnet-windowsdesktop-runtime-7.0.2-win-x64.exe/file",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET Desktop Runtime 8.0.6",
-      "href": "https://www.mediafire.com/file/9qlqw4jmu6mi0xf/dotnet-windowsdesktop-runtime-8.0.6-win-x64.exe/file",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET Reactor 6.8.0.0",
-      "href": "https://krakenfiles.com/view/YwBwkPMO6i/file.html",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": ".NET SDK 5.0.408",
-      "href": "https://www.mediafire.com/file/3aqifzzjathixke/dotnet-sdk-5.0.408-win-x64.exe/file",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": "7-Zip",
-      "href": "https://www.7-zip.org/",
-      "tags": [
-          "ARCHIVER"
-      ]
-  },
-  {
-      "name": "Activate Office",
-      "href": "https://www.mediafire.com/file/jz6qs50cdob8x17/Activate_Office.cmd/file",
-      "tags": [
-          "ACTIVATOR"
-      ]
-  },
-  {
-      "name": "Activate Windows",
-      "href": "https://www.mediafire.com/file/jxy0r9mj3m6eet7/Activate_Windows.cmd/file",
-      "tags": [
-          "ACTIVATOR"
-      ]
-  },
-  {
-      "name": "Add \"New .bat\" to Context Menu",
-      "href": "https://www.mediafire.com/file/a1amnw9vwhndwqp/add_new_bat_context.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Add \"New .txt\" to Context Menu",
-      "href": "https://www.mediafire.com/file/dnv7mnrl3j7x3ix/add_new_txt_file.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Add End Task to Taskbar",
-      "href": "https://www.mediafire.com/file/6mtrsj1znv364vp/add_end_task_taskbar.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Adobe After Effects 2025 25.2.2.2",
-      "href": "https://www.mediafire.com/file/nqoe6novvjj4p0u/Adobe_After_Effects_2025_25.2.2.2_RePack_by_KpoJIuK.exe.torrent/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Adobe Fireworks",
-      "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273067463088541766/Adobe_Fireworks_Portable__PhotoshopIllustrator_rutracker-6291748.torrent?ex=68554c37&is=6853fab7&hm=bd774200bf581df6b64a4a3d82601dcb9c793f10eeca998fdb23e91027d25478&",
-      "tags": [
-          "GRAPHICS"
-      ]
-  },
-  {
-      "name": "Adobe Photoshop 2020 21.2.0.225",
-      "href": "https://www.mediafire.com/file/c2yjxot9etv2b15/Adobe_Photoshop_2020_21.2.0.225_Portable_by_XpucT_%255B2020%252C_Ru_En%255D.torrent/file",
-      "tags": [
-          "GRAPHICS"
-      ]
-  },
-  {
-      "name": "Adobe Premiere Pro 2025 25.2.3.4",
-      "href": "https://www.mediafire.com/file/vc70og3w4j9qer0/Adobe_Premiere_Pro_2025_25.2.3.4_RePack_by_KpoJIuK.exe.torrent/file",
-      "tags": [
-          "VIDEO"
-      ]
-  },
-  {
-      "name": "AHKdel Discord Script",
-      "href": "https://www.mediafire.com/file/p83qizz58yxjl74/AHK%252Bdel_discord_script.zip/file",
-      "tags": [
-          "SCRIPT"
-      ]
-  },
-  {
-      "name": "AIDA64 Extreme 7.30.7900",
-      "href": "https://www.mediafire.com/file/r8xd57nos8a356m/AIDA64_Extreme_7.30.7900_x86_x64_%255B2024%252C_Multi_%252B_RUS%255D_Portable_by_vesh2.torrent/file",
-      "tags": [
-          "UTILITY",
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "Alight Motion 5.0.272",
-      "href": "https://www.mediafire.com/file/9czj57yo7nhull2/Alight_Motion_5.0.272.1028383_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Aliucord 1.2.0",
-      "href": "https://github.com/Aliucord/Aliucord/releases/tag/1.2.0",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "AndroGoat",
-      "href": "https://www.mediafire.com/file/ycdz4bmslkglrxm/AndroGoat.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Audacity",
-      "href": "https://www.audacityteam.org/download/",
-      "tags": [
-          "AUDIO"
-      ]
-  },
-  {
-      "name": "AutoHotkey 2.0.19",
-      "href": "https://www.mediafire.com/file/vc8k21ep30fvxgw/AutoHotkey_2.0.19_setup.exe/file",
-      "tags": [
-          "SCRIPT",
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Autokroma Bundle 2024.10",
-      "href": "https://www.mediafire.com/file/cx5og8v3qws58zm/Autokroma_bundle_2024.10_CE_Maxeffect.iR.exe/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Autosway (AE Script)",
-      "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Continuum 2025 (AE+Premiere)",
-      "href": "https://seyarabata.com/67c4b8eaad7ec",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Continuum 2025 (OFX)",
-      "href": "https://seyarabata.com/67c4b8f63d2ef",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Mocha Pro 2025 (AE+Premiere)",
-      "href": "https://www.mediafire.com/file/csnsurqi7frohf5/BorisFXMochaPro2025v12.5.0Adobex64.7z/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Mocha Pro 2025 (OFX)",
-      "href": "https://www.mediafire.com/file/5x22c9vyg5k9h6s/BorisFXMochaPro2025v12.5.0OFXx64.7z/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Particle Illusion 2024.5",
-      "href": "https://www.mediafire.com/file/5idlshqp0u889re/BorisFXParticleIllusionPro2024.5v17.5.1.698x64.7z/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Boris FX Sapphire (Photoshop)",
-      "href": "https://ranoz.gg/file/frjCg8fj",
-      "tags": [
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "Boris FX Sapphire 2025.51 (AE+Premiere)",
-      "href": "https://ranoz.gg/file/y1KWlU8w",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "CapCut 14.5.0",
-      "href": "https://www.mediafire.com/file/xh1ice2mk5imieq/CapCut_14.5.0_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Captioneer v1.3.0",
-      "href": "https://www.mediafire.com/file/d5c1w2slbke0wkk/Captioneer_v1.3.0.rar/file",
-      "tags": [
-          "VIDEO",
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Chromatic Aberration (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273264374689038407/ChromaticAberration.zip?ex=68555adb&is=6854095b&hm=949c5f1b4a6945674184118eac79b956bbdbca33dffe9fa9ec420d08d86b3a1c&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "CompactGUI v4.0.0-beta.5",
-      "href": "https://github.com/IridiumIO/CompactGUI/releases/tag/v4.0.0-beta.5",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "DaVinci Resolve Studio 20.0",
-      "href": "https://www.mediafire.com/file/ugmg95mgxs9ubc8/DaVinci_Resolve_Studio_20.0_Build_49_RePack_by_KpoJIuK.torrent/file",
-      "tags": [
-          "VIDEO",
-          "AUDIO",
-          "VFX"
-      ]
-  },
-  {
-      "name": "DesignDoll 5.7.0.1",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1274580382624382977/DesignDoll_5.7.0.1.zip?ex=6855873b&is=685435bb&hm=bc8ea885302b5f49fa0dc4427654863d97d4a96fbc4a8d47dd9d8f2cfc8902f6&",
-      "tags": [
-          "3D"
-      ]
-  },
-  {
-      "name": "DirectX 11",
-      "href": "https://www.mediafire.com/file/e37jxog409ymb2v/DirectX_11.7z/file",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "DirectX 9.0c",
-      "href": "https://www.mediafire.com/file/olkemket1no76an/DirectX_9c.7z/file",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "Disable Background Apps",
-      "href": "https://www.mediafire.com/file/ilyqq5q25xmod6o/W10-11_Disable_Background_Apps.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Disable Power Throttling",
-      "href": "https://www.mediafire.com/file/mgb0db6oicyssf7/disablepowerthrottle.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Disable Win+Shift+S",
-      "href": "https://www.mediafire.com/file/9squceka5ytwlt6/disable_win_shift_s.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "DiscordBotClient",
-      "href": "https://github.com/aiko-chan-ai/DiscordBotClient/releases/tag/v3.7.2",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Drawpile 2.2.2",
-      "href": "https://github.com/drawpile/Drawpile/releases/tag/2.2.2",
-      "tags": [
-          "APK",
-          "GRAPHICS"
-      ]
-  },
-  {
-      "name": "Enable Background Apps",
-      "href": "https://www.mediafire.com/file/gzk61k97tyub8q6/W10-11_Enable_Background_Apps.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Extreme Injector v3",
-      "href": "https://www.mediafire.com/file/jqz02z8gw66smzz/Extreme_Injector_v3_pass-11111.rar/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "FDM Add-On (Elephant)",
-      "href": "https://www.mediafire.com/file/2l3vyfst714sseb/elephant.fda/file",
-      "tags": [
-          "ADD-ON"
-      ]
-  },
-  {
-      "name": "FFmpeg (Full)",
-      "href": "https://www.mediafire.com/file/dtfj8rzf2rpfffd/FFmpeg_Full.msi/file",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "FFmpeg for Audacity 5.0.0",
-      "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
-      "tags": [
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "Film Impact Effects v25.0.6",
-      "href": "https://www.mediafire.com/file/mq4jiilo72q5gku/Film_Impact_Premium_Video_Effects_v25.0.6_CE_maxeffect.ir.exe/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "FlexASIO",
-      "href": "https://www.mediafire.com/file/g9fa7fsmsr7mbsw/FlexASIO.rar/file",
-      "tags": [
-          "VIRTUAL MIC"
-      ]
-  },
-  {
-      "name": "Floorp Browser",
-      "href": "https://floorp.app/en-US/download",
-      "tags": [
-          "BROWSER"
-      ]
-  },
-  {
-      "name": "Free Download Manager (FDM)",
-      "href": "https://files2.freedownloadmanager.org/6/latest/fdm_x64_setup.exe",
-      "tags": [
-          "DOWNLOADER"
-      ]
-  },
-  {
-      "name": "FsPlugins Pack (2024-04-14)",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270198907640479837/FsPlugins20240414.rar?ex=685568aa&is=6854172a&hm=a3db1b005550e1f82c63c5488a28b28391931ef81ce5b75605ca773961795a8c&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "FXConsole 1.0.5",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273853504888242326/FXConsole_1.0.5_Installer_x64_2022.exe?ex=68558546&is=685433c6&hm=9c891a58796edc934b334ae6b08d34c04c833678cb80c298de6529c52f16d838&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "G'MIC",
-      "href": "https://gmic.eu/download.html",
-      "tags": [
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "Genarts Sapphire AE 11.0",
-      "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273046975092359250/Genarts_sapphire_AE_11.0_CE_RePack_by_Team_V.R_x642017_ENG_rutracker-5473981.torrent?ex=68553922&is=6853e7a2&hm=612f4e1b3a858a2ba67c4d95c5a1b0469bdbbf9d912a60b0b2b2258e9f4d54d4&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "HiTV 3.5.3",
-      "href": "https://www.mediafire.com/file/hq59cd59oipwajs/HiTV_3.5.3_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Hitomi Downloader",
-      "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
-      "tags": [
-          "DOWNLOADER"
-      ]
-  },
-  {
-      "name": "Ibis Paint",
-      "href": "https://www.mediafire.com/file/qb1uj11hf9i6xe8/ibis.msixbundle/file",
-      "tags": [
-          "GRAPHICS",
-          "APPX"
-      ]
-  },
-  {
-      "name": "Image Paster (AE Clipboard)",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273993153342341180/imgpaster.rar?ex=68555e95&is=68540d15&hm=b67b236ffb484d3f897158bcece9bab6b87f8e79a2e5469615e6e15f61089f96&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Instant Temp Mail 7.0.4",
-      "href": "https://www.mediafire.com/file/zomwjco3pxd6a75/Instant_Mail_7.0.4_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Internet Download Manager 6.42",
-      "href": "https://www.mediafire.com/file/18lczj22lzg2oyj/InternetDownloadManager6.42B41Auto.7z/file",
-      "tags": [
-          "DOWNLOADER"
-      ]
-  },
-  {
-      "name": "ISOCreator",
-      "href": "https://www.mediafire.com/file/qqgo6aie9cmkyua/isocreator_setup.exe/file",
-      "tags": [
-          "UTILITY",
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "KineMaster 7.6.17",
-      "href": "https://www.mediafire.com/file/xly4plsm0hjqu3d/KineMaster_7.6.17.34693.GP_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Krita",
-      "href": "https://krita.org/en/download/",
-      "tags": [
-          "GRAPHICS"
-      ]
-  },
-  {
-      "name": "Laplink PCmover 11.0",
-      "href": "https://www.mediafire.com/file/czz9mrt2t43pzo7/Laplink_PCmover_Professional_11.0_1004.0_x86_%255B2017%252C_Multi_%252B_RUS%255D.torrent/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "LibreWolf",
-      "href": "https://librewolf.net/",
-      "tags": [
-          "BROWSER"
-      ]
-  },
-  {
-      "name": "Lightroom 10.4.1",
-      "href": "https://www.mediafire.com/file/7atpk184yvyud5p/Lightroom_10.4.1_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Live2D Cubism Editor 5.0",
-      "href": "https://www.mediafire.com/file/0wbdxll95nok1hw/Live2D_Cubism_Editor_5.0.0.rar/file",
-      "tags": [
-          "ANIMATION"
-      ]
-  },
-  {
-      "name": "MacroGamer 2.7.5",
-      "href": "https://www.mediafire.com/file/fmprex1f05iyom3/MacroGamer_v275_Setup.msi/file",
-      "tags": [
-          "UTILITY",
-          "GAMING"
-      ]
-  },
-  {
-      "name": "Magic Eraser 2.21.9",
-      "href": "https://www.mediafire.com/file/abttzwf4vdjpion/Magic_Eraser_2.21.9_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "MAGIX Vegas Pro 22.0.0.239",
-      "href": "https://www.mediafire.com/file/j5f6xlcitz9v3lb/MAGIX_Vegas_Pro_22.0.0.239_%2528x64%2529_%255B03.2025%252C_Multi%252C_NO_RUS%255D_%2528R2R%2529_%255Brutracker-6667346%255D.torrent/file",
-      "tags": [
-          "VIDEO",
-          "VFX"
-      ]
-  },
-  {
-      "name": "Magisk Kitsune",
-      "href": "https://www.mediafire.com/file/qs5qpwehmjsybim/MagiskKitsune.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Mailbird 3.0.39.0",
-      "href": "https://www.mediafire.com/file/c7ym5cdmly5z8lt/mailbird_3.0.39.0.zip/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Mica Effect (Win11)",
-      "href": "https://www.mediafire.com/file/eu5jcvu4tz30j6e/Mica_Effect-win11.rar/file",
-      "tags": [
-          "THEME"
-      ]
-  },
-  {
-      "name": "Microsoft Store",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258832645572399155/Microsoft_Store.msix?ex=68559642&is=685444c2&hm=32a6a25c0761dedc6771187b18e52264dafbccdbd4bfd2cd956926b6898e620b&",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "MyPublicWiFi",
-      "href": "https://www.mediafire.com/file/1t4vbz2x6l4vc90/MyPublicWiFi.exe/file",
-      "tags": [
-          "NETWORK"
-      ]
-  },
-  {
-      "name": "NetStalker",
-      "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
-      "tags": [
-          "NETWORK",
-          "SECURITY"
-      ]
-  },
-  {
-      "name": "Node.js 22.16.0",
-      "href": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-x64.msi",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": "Nomacs Image Viewer",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258831220985434132/nomacs-best_img_viewer-setup-x64.msi?ex=685594ef&is=6854436f&hm=6c0379be1befaca9be9abff14aec3ba13098aaaf05c1a3eb05a72e03b7a8c14b&",
-      "tags": [
-          "MEDIA"
-      ]
-  },
-  {
-      "name": "OLM (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270654612361187328/OLM.rar?ex=685516d3&is=6853c553&hm=1d43028bc2feab7ef5bdc01717f0c39c12d6278a144bc141d02af4d68df2958b&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Old Alt-Tab",
-      "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Optical Flares 1.3.8",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1271236909351309414/Optical_Flares_1.3.8_170.zip?ex=68553ae1&is=6853e961&hm=8ce30fa90543ccad0ff2c9d28b4605f828513aca3c1e7e03881359984a4eb1f5&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "PdaNetA5232b",
-      "href": "https://www.mediafire.com/file/qfbxf3xd24v9kl0/PdaNetA5232b.exe/file",
-      "tags": [
-          "NETWORK",
-          "MOBILE"
-      ]
-  },
-  {
-      "name": "PotPlayer",
-      "href": "https://www.mediafire.com/file/bblw4vo6tiz5n3h/potPLAYER%252BSVP%252BYTDLP_1.7.21595.x64_13.01.22.exe/file",
-      "tags": [
-          "MEDIA"
-      ]
-  },
-  {
-      "name": "Process Hacker 2.39",
-      "href": "https://www.mediafire.com/file/e1e3cabh9266a0c/processhacker-2.39-setup.exe/file",
-      "tags": [
-          "UTILITY",
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "Psoft Anime (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1274326341814194256/Psoft-anime.rar?ex=68554363&is=6853f1e3&hm=2345c6f66a8c60c88bbe117927f4b0a3f556d0dc26c456f545b93f6a69a527e5&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Python 3.10.11",
-      "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": "rclone v1.70.1",
-      "href": "https://github.com/rclone/rclone/releases/tag/v1.70.1",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "RE:VisionFX Effections 23.08",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273145658731401216/RE-VisionFX_Effections_Plus_23.08_CE.exe?ex=6855950a&is=6854438a&hm=43631227537fd1ce9c8e1150419a559199260187eeb0be0e13d6548e7f91ff8d&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Reactor Installer",
-      "href": "https://www.mediafire.com/file/yzdhm9zvrplnywh/Reactor-Installer.lua/file",
-      "tags": [
-          "DRV PLUGIN",
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "Red Giant Magic Bullet Suite 2025.0",
-      "href": "https://seyarabata.com/6727b867ba43c",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Red Giant Trapcode Suite 2025.0",
-      "href": "https://seyarabata.com/67179e90b46b4",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Red Giant Universe 2025.3",
-      "href": "https://pixeldrain.com/u/k6uKK6Yd",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Red Giant VFX Suite 2025.0",
-      "href": "https://seyarabata.com/6798ebae9eb0f",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Remini 3.7.977",
-      "href": "https://www.mediafire.com/file/5ujm1azecan9eqb/Remini_3.7.977_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Resolve Script 2.6.0",
-      "href": "https://github.com/nakano000/Resolve_Script/releases/tag/2.6.0",
-      "tags": [
-          "DRV PLUGIN",
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "Revo Uninstaller 5.3.0",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833673768276090/Revo_Uninstaller_Pro_5.3.0.kuyhAa.rar?ex=68559737&is=685445b7&hm=98b252ab0a375563ba929c8a664f0539297337ac7a7044062c57d4cf69fcabbc&",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "RootBeer Sample 0.9",
-      "href": "https://www.mediafire.com/file/2zgr86sewbx5dbt/RootBeer_Sample_0.9_APKPure.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "SSTap-beta 1.0.9.7",
-      "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
-      "tags": [
-          "NETWORK",
-          "VPN"
-      ]
-  },
-  {
-      "name": "Shutter Encoder",
-      "href": "https://www.shutterencoder.com/",
-      "tags": [
-          "ENCODER"
-      ]
-  },
-  {
-      "name": "Snap Bar OFF",
-      "href": "https://www.mediafire.com/file/le2hmy8nb0m5641/Snap_Bar_OFF.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Snap Bar ON",
-      "href": "https://www.mediafire.com/file/23pvwqx2hyz9sp2/Snap_Bar_ON.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Snap Layouts OFF",
-      "href": "https://www.mediafire.com/file/15w67qztfkcuvlo/Snap_Layouts_OFF.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Snap Layouts ON",
-      "href": "https://www.mediafire.com/file/nqp4uukw5j4oeb0/Snap_Layouts_ON.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Snap! v1.0 (AE Script)",
-      "href": "https://www.mediafire.com/file/qt4437pkcafm9oe/Snap%2521_v1.0.jsx/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "SnapEdit 7.3.5",
-      "href": "https://www.mediafire.com/file/idkqr6k7btazwis/SnapEdit_7.3.5_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Snipping Tool (W10)",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833455454879772/SnippingTool_W10.appx?ex=68559703&is=68544583&hm=a92aac793ed43b68d65d025eea8f2e55524efa9a41a41ed165a24542746b3383&",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "SoftEther VPN Gate Client",
-      "href": "https://www.mediafire.com/file/1x02ru4lj276o57/Soft_Ether_vpngate-client-2025.05.30-build-9807.161906.rar/file",
-      "tags": [
-          "NETWORK"
-      ]
-  },
-  {
-      "name": "StartAllBack 3.9.0.5220",
-      "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Stardock Fences 5.5.3.2",
-      "href": "https://www.mediafire.com/file/ninmiqcatphmuxp/Stardock_Fences_v5.5.3.2_RePack.zip/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Subtitle Pro v2.9.7",
-      "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
-      "tags": [
-          "VIDEO",
-          "PLUGIN"
-      ]
-  },
-  {
-      "name": "SuperVPN 3.0.1",
-      "href": "https://www.mediafire.com/file/qp40hv1yszsfv6f/SuperVPN_3.0.1_%255BMod%255D.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "Termux v0.118.3",
-      "href": "https://www.mediafire.com/file/a6e4tn48p4sk35n/termux-app_v0.118.3%252Bgithub-debug_universal.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "TextEvo 2 (AE Script)",
-      "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Thorium Browser",
-      "href": "https://thorium.rocks/",
-      "tags": [
-          "BROWSER"
-      ]
-  },
-  {
-      "name": "Total Commander 3.42beta5",
-      "href": "https://www.mediafire.com/file/noihb2iifbfrsxh/TotalCommander_3.42beta5-1183_.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "TrafficMonitor v1.85.1",
-      "href": "https://github.com/zhongyang219/TrafficMonitor/releases/tag/V1.85.1",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "UAC OFF",
-      "href": "https://www.mediafire.com/file/17dyjxo4etmicx4/UAC_OFF.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "UAC ON (Fix Xbox Sign-In)",
-      "href": "https://www.mediafire.com/file/r6db1bont1dzbrf/UAC_ON_%2528Fix_Xbox_Sign_In%2529.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "Ubuntu IconPack V2",
-      "href": "https://www.mediafire.com/file/v33dmwuhr8wbhrq/IconPack_Ubuntu_V2.exe/file",
-      "tags": [
-          "THEME"
-      ]
-  },
-  {
-      "name": "UnMult 64",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273264522953752576/UnMult_64.aex?ex=68555afe&is=6854097e&hm=5cce8153eb4314eebcde6b3be7408f2d0da7a0817cea5ac18c2be0b86e074a71&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "Upscayl",
-      "href": "https://upscayl.org/download",
-      "tags": [
-          "AI"
-      ]
-  },
-  {
-      "name": "uTorrent",
-      "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273046591976116307/uTorrent.rar?ex=685538c7&is=6853e747&hm=4a6d60e21124d91dce79f94dd6cf12bb32475614faefbe9b6d030641843bff1d&",
-      "tags": [
-          "DOWNLOADER"
-      ]
-  },
-  {
-      "name": "VAC Tool",
-      "href": "https://www.mediafire.com/file/15u798ajzqq8zy6/vac470full.rar/file",
-      "tags": [
-          "VIRTUAL MIC"
-      ]
-  },
-  {
-      "name": "VB-CABLE Driver",
-      "href": "https://www.mediafire.com/file/7qxbpbfubdfjws7/VBCABLE_Driver_Pack45_2.zip/file",
-      "tags": [
-          "VIRTUAL MIC"
-      ]
-  },
-  {
-      "name": "Vencord",
-      "href": "https://vencord.dev/",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "Visual C++ Redistributable AIO",
-      "href": "https://www.mediafire.com/file/kbca83zy9eivhxh/VisualCppRedist_AIO_x86_x64.zip/file",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "Visual Studio Code",
-      "href": "https://code.visualstudio.com/docs/setup/windows",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": "VMware Workstation 17.6.3",
-      "href": "https://www.mediafire.com/file/u3m84gmipaqsacg/VMwareWorkstationPro17.6.3Build24583834x64.exe/file",
-      "tags": [
-          "VIRTUALIZATION"
-      ]
-  },
-  {
-      "name": "Voicemeeter",
-      "href": "https://www.mediafire.com/file/oym8hzerq5d785b/Voicemeeter8Setup_v3119.zip/file",
-      "tags": [
-          "VIRTUAL MIC",
-          "AUDIO"
-      ]
-  },
-  {
-      "name": "VSCodium (Portable)",
-      "href": "https://portapps.io/app/vscodium-portable/",
-      "tags": [
-          "DEVELOPMENT"
-      ]
-  },
-  {
-      "name": "VSCodium Context Menu",
-      "href": "https://www.mediafire.com/file/h9kl2a0bbtawh9t/VSCodium.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "VSCodium Context Menu (Disable)",
-      "href": "https://www.mediafire.com/file/sspk8acg8duqjui/VSCodium-Disable.reg/file",
-      "tags": [
-          "REGISTRY"
-      ]
-  },
-  {
-      "name": "WhatsApp Desktop 2.2518.3.0",
-      "href": "https://www.mediafire.com/file/gxm39rk8ohcttec/5319275A.WhatsAppDesktop_2.2518.3.0_neutral_%257E_cv1g1gvanyjgm.Msixbundle/file",
-      "tags": [
-          "MESSAGING"
-      ]
-  },
-  {
-      "name": "Win11 Rounded Corners Toggle",
-      "href": "https://www.mediafire.com/file/4t6w6lz0mr9sydt/Win11DisableOrRestoreRoundedCorners.exe/file",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
-      "name": "WinRAR 7.01",
-      "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
-      "tags": [
-          "ARCHIVER"
-      ]
-  },
-  {
-      "name": "Windows 11 X-Lite (25231.1000)",
-      "href": "https://www.mediafire.com/file/mp301fm47orfz3p/Windows_11_X-Lite_%252825231.1000%2529_%2527Quantum_Leap%2527_By_FBConan_%255BTeamOS%255D.torrent/file",
-      "tags": [
-          "OS",
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "Windows Alarms",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833075396280353/Alarms.msix?ex=685596a9&is=68544529&hm=09e233bc83af6d9a6ea8ea2bc6fc2ed0ebe2439b83dc6a4b3d2a4a65c9e3324c&",
-      "tags": [
-          "SYSTEM"
-      ]
-  },
-  {
-      "name": "X-plore File Manager 4.35.15",
-      "href": "https://www.mediafire.com/file/z56y37lxy8lnayu/X-plore-Donate-v4.35.15_build_43515-Mod.apk/file",
-      "tags": [
-          "APK"
-      ]
-  },
-  {
-      "name": "YY_Ramp",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1271219197250375770/YY_Ramp.aex?ex=68552a62&is=6853d8e2&hm=26bcf97072c2a7bd077139671254b98775715bf14b8ba655ba7d565cdb47a9ca&",
-      "tags": [
-          "VFX"
-      ]
-  },
-  {
-      "name": "yt-dlp-gui Installer",
-      "href": "https://www.mediafire.com/file/o1k42g10e4dfz1i/yt-dlp-gui-installer.ps1/file",
-      "tags": [
-          "DOWNLOADER"
-      ]
-  },
-  {
-      "name": "YouTube Music Desktop v3.9.0",
-      "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
-      "tags": [
-          "MEDIA"
-      ]
-  }
+    {
+        "name": ".NET 10.0",
+        "href": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET 9.0",
+        "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 6.0.31",
+        "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 7.0.2",
+        "href": "https://www.mediafire.com/file/q9wv88iymxcohlh/dotnet-windowsdesktop-runtime-7.0.2-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 8.0.6",
+        "href": "https://www.mediafire.com/file/9qlqw4jmu6mi0xf/dotnet-windowsdesktop-runtime-8.0.6-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Framework 4.8",
+        "href": "https://krakenfiles.com/view/54bde13d34/file.html",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Reactor 6.8.0.0",
+        "href": "https://krakenfiles.com/view/YwBwkPMO6i/file.html",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET SDK 5.0.408",
+        "href": "https://www.mediafire.com/file/3aqifzzjathixke/dotnet-sdk-5.0.408-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": "7-Zip",
+        "href": "https://www.7-zip.org/",
+        "tags": [
+            "ARCHIVER"
+        ]
+    },
+    {
+        "name": "Activate Office",
+        "href": "https://www.mediafire.com/file/jz6qs50cdob8x17/Activate_Office.cmd/file",
+        "tags": [
+            "ACTIVATOR"
+        ]
+    },
+    {
+        "name": "Activate Windows",
+        "href": "https://www.mediafire.com/file/jxy0r9mj3m6eet7/Activate_Windows.cmd/file",
+        "tags": [
+            "ACTIVATOR"
+        ]
+    },
+    {
+        "name": "Add \"New .bat\" to Context Menu",
+        "href": "https://www.mediafire.com/file/a1amnw9vwhndwqp/add_new_bat_context.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Add \"New .txt\" to Context Menu",
+        "href": "https://www.mediafire.com/file/dnv7mnrl3j7x3ix/add_new_txt_file.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Add End Task to Taskbar",
+        "href": "https://www.mediafire.com/file/6mtrsj1znv364vp/add_end_task_taskbar.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Adobe After Effects 2025 25.2.2.2",
+        "href": "https://www.mediafire.com/file/nqoe6novvjj4p0u/Adobe_After_Effects_2025_25.2.2.2_RePack_by_KpoJIuK.exe.torrent/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Adobe Fireworks 2016",
+        "href": "https://www.mediafire.com/file/i6dhx6tz4bs8njf/Adobe_Fireworks_2016_Portable.torrent/file",
+        "tags": [
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Adobe Illustrator 2025 29.6.0.207",
+        "href": "https://www.mediafire.com/file/g7cdwp6qw6imz6g/Adobe_Illustrator_2025_29.6.0.207_RePack_by_KpoJIuK.exe%25281%2529.torrent/file",
+        "tags": [
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Adobe Photoshop 2020 21.2.0.225",
+        "href": "https://www.mediafire.com/file/c2yjxot9etv2b15/Adobe_Photoshop_2020_21.2.0.225_Portable_by_XpucT_%255B2020%252C_Ru_En%255D.torrent/file",
+        "tags": [
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Adobe Premiere Pro 2025 25.2.3.4",
+        "href": "https://www.mediafire.com/file/vc70og3w4j9qer0/Adobe_Premiere_Pro_2025_25.2.3.4_RePack_by_KpoJIuK.exe.torrent/file",
+        "tags": [
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "AHKdel Discord Script",
+        "href": "https://www.mediafire.com/file/p83qizz58yxjl74/AHK%252Bdel_discord_script.zip/file",
+        "tags": [
+            "SCRIPT"
+        ]
+    },
+    {
+        "name": "AIDA64 Extreme 7.30.7900",
+        "href": "https://www.mediafire.com/file/r8xd57nos8a356m/AIDA64_Extreme_7.30.7900_x86_x64_%255B2024%252C_Multi_%252B_RUS%255D_Portable_by_vesh2.torrent/file",
+        "tags": [
+            "UTILITY",
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "Alight Motion 5.0.272",
+        "href": "https://www.mediafire.com/file/9czj57yo7nhull2/Alight_Motion_5.0.272.1028383_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Aliucord 1.2.0",
+        "href": "https://github.com/Aliucord/Aliucord/releases/tag/1.2.0",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "AndroGoat",
+        "href": "https://www.mediafire.com/file/ycdz4bmslkglrxm/AndroGoat.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Audacity",
+        "href": "https://www.audacityteam.org/download/",
+        "tags": [
+            "AUDIO"
+        ]
+    },
+    {
+        "name": "AutoHotkey 2.0.19",
+        "href": "https://www.mediafire.com/file/vc8k21ep30fvxgw/AutoHotkey_2.0.19_setup.exe/file",
+        "tags": [
+            "SCRIPT",
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Autokroma Bundle 2024.10",
+        "href": "https://www.mediafire.com/file/cx5og8v3qws58zm/Autokroma_bundle_2024.10_CE_Maxeffect.iR.exe/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Autosway (AE Script)",
+        "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Continuum 2025 (AE+Premiere)",
+        "href": "https://seyarabata.com/67c4b8eaad7ec",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Continuum 2025 (OFX)",
+        "href": "https://seyarabata.com/67c4b8f63d2ef",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Mocha Pro 2025 (AE+Premiere)",
+        "href": "https://www.mediafire.com/file/csnsurqi7frohf5/BorisFXMochaPro2025v12.5.0Adobex64.7z/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Mocha Pro 2025 (OFX)",
+        "href": "https://www.mediafire.com/file/5x22c9vyg5k9h6s/BorisFXMochaPro2025v12.5.0OFXx64.7z/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Particle Illusion 2024.5",
+        "href": "https://www.mediafire.com/file/5idlshqp0u889re/BorisFXParticleIllusionPro2024.5v17.5.1.698x64.7z/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Boris FX Sapphire (Photoshop)",
+        "href": "https://ranoz.gg/file/frjCg8fj",
+        "tags": [
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "Boris FX Sapphire 2025.51 (AE+Premiere)",
+        "href": "https://ranoz.gg/file/y1KWlU8w",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "CapCut 14.5.0",
+        "href": "https://www.mediafire.com/file/xh1ice2mk5imieq/CapCut_14.5.0_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "CapCut Desktop 5.7",
+        "href": "https://drive.google.com/file/d/1jo0x53Vp37zc1B-LQrJJRJMaWBFoJc2B/view?usp=sharing",
+        "tags": [
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "Captioneer v1.3.0",
+        "href": "https://www.mediafire.com/file/d5c1w2slbke0wkk/Captioneer_v1.3.0.rar/file",
+        "tags": [
+            "VIDEO",
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Chromatic Aberration Fast (AE)",
+        "href": "https://www.mediafire.com/file/zcha6cjqfkh2dx7/ChromaticAberration_Fast_%2528AE%2529.zip/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Clip Studio Paint EX 4.0.2",
+        "href": "https://www.mediafire.com/file/nctqzkmp7guxcuz/Clip_Studio_Paint_EX_4.0.2_x64_%255B2025%252C_Multi%252C_NO_RUS%255D_%255Brutracker-6669479%255D.torrent/file",
+        "tags": [
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "CompactGUI v4.0.0-beta.5",
+        "href": "https://github.com/IridiumIO/CompactGUI/releases/tag/v4.0.0-beta.5",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "CyberLink PowerDirector 23.5.1811.0",
+        "href": "https://www.mediafire.com/file/d3ejezidcyhonwb/CyberLinkPowerDirector2025v23.5.1811.0Ultimatex64.7z/file",
+        "tags": [
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "DaVinci Resolve Studio 20.0",
+        "href": "https://www.mediafire.com/file/ugmg95mgxs9ubc8/DaVinci_Resolve_Studio_20.0_Build_49_RePack_by_KpoJIuK.torrent/file",
+        "tags": [
+            "VIDEO",
+            "AUDIO",
+            "VFX"
+        ]
+    },
+    {
+        "name": "Deep Glow (AE)",
+        "href": "https://www.mediafire.com/file/jmb1vibzfyzrd8l/Deep_Glow.aex/file",
+        "tags": [
+            "VFX",
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "DesignDoll 5.7.0.1",
+        "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1274580382624382977/DesignDoll_5.7.0.1.zip?ex=6855873b&is=685435bb&hm=bc8ea885302b5f49fa0dc4427654863d97d4a96fbc4a8d47dd9d8f2cfc8902f6&",
+        "tags": [
+            "3D"
+        ]
+    },
+    {
+        "name": "DirectX 11",
+        "href": "https://www.mediafire.com/file/e37jxog409ymb2v/DirectX_11.7z/file",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "DirectX 9.0c",
+        "href": "https://www.mediafire.com/file/olkemket1no76an/DirectX_9c.7z/file",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "Disable Background Apps",
+        "href": "https://www.mediafire.com/file/ilyqq5q25xmod6o/W10-11_Disable_Background_Apps.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Disable Power Throttling",
+        "href": "https://www.mediafire.com/file/mgb0db6oicyssf7/disablepowerthrottle.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Disable Win+Shift+S",
+        "href": "https://www.mediafire.com/file/9squceka5ytwlt6/disable_win_shift_s.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "DiscordBotClient",
+        "href": "https://github.com/aiko-chan-ai/DiscordBotClient/releases/tag/v3.7.2",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Drawpile 2.2.2",
+        "href": "https://github.com/drawpile/Drawpile/releases/tag/2.2.2",
+        "tags": [
+            "APK",
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Enable Background Apps",
+        "href": "https://www.mediafire.com/file/gzk61k97tyub8q6/W10-11_Enable_Background_Apps.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Extreme Injector v3",
+        "href": "https://www.mediafire.com/file/jqz02z8gw66smzz/Extreme_Injector_v3_pass-11111.rar/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "FDM Add-On (Elephant)",
+        "href": "https://www.mediafire.com/file/2l3vyfst714sseb/elephant.fda/file",
+        "tags": [
+            "ADD-ON"
+        ]
+    },
+    {
+        "name": "FFmpeg (Full)",
+        "href": "https://www.mediafire.com/file/dtfj8rzf2rpfffd/FFmpeg_Full.msi/file",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "FFmpeg for Audacity 5.0.0",
+        "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
+        "tags": [
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "Film Impact Effects v25.0.6",
+        "href": "https://www.mediafire.com/file/mq4jiilo72q5gku/Film_Impact_Premium_Video_Effects_v25.0.6_CE_maxeffect.ir.exe/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "FlexASIO",
+        "href": "https://www.mediafire.com/file/g9fa7fsmsr7mbsw/FlexASIO.rar/file",
+        "tags": [
+            "VIRTUAL MIC"
+        ]
+    },
+    {
+        "name": "Floorp Browser",
+        "href": "https://floorp.app/en-US/download",
+        "tags": [
+            "BROWSER"
+        ]
+    },
+    {
+        "name": "Free Download Manager (FDM)",
+        "href": "https://files2.freedownloadmanager.org/6/latest/fdm_x64_setup.exe",
+        "tags": [
+            "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "FsPlugins Pack (2024-04-14)",
+        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270198907640479837/FsPlugins20240414.rar?ex=685568aa&is=6854172a&hm=a3db1b005550e1f82c63c5488a28b28391931ef81ce5b75605ca773961795a8c&",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "FXConsole 1.0.5",
+        "href": "https://drive.google.com/file/d/1lCD_jEN8yrcUvNtipWA_eLNRn4F1vZ-r/view?usp=drive_link",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "G'MIC",
+        "href": "https://gmic.eu/download.html",
+        "tags": [
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "Genarts Sapphire AE 11.0",
+        "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273046975092359250/Genarts_sapphire_AE_11.0_CE_RePack_by_Team_V.R_x642017_ENG_rutracker-5473981.torrent?ex=68553922&is=6853e7a2&hm=612f4e1b3a858a2ba67c4d95c5a1b0469bdbbf9d912a60b0b2b2258e9f4d54d4&",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "HiTV 3.5.3",
+        "href": "https://www.mediafire.com/file/hq59cd59oipwajs/HiTV_3.5.3_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Hitomi Downloader",
+        "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
+        "tags": [
+            "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "Ibis Paint",
+        "href": "https://www.mediafire.com/file/qb1uj11hf9i6xe8/ibis.msixbundle/file",
+        "tags": [
+            "GRAPHICS",
+            "APPX"
+        ]
+    },
+    {
+        "name": "Image Paster Outside (AE)",
+        "href": "https://www.mediafire.com/file/22g1rbnxxe4dzj8/imgpasteroutside_%2528AE%2529.rar/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Instant Temp Mail 7.0.4",
+        "href": "https://www.mediafire.com/file/zomwjco3pxd6a75/Instant_Mail_7.0.4_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Internet Download Manager 6.42",
+        "href": "https://www.mediafire.com/file/18lczj22lzg2oyj/InternetDownloadManager6.42B41Auto.7z/file",
+        "tags": [
+            "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "ISOCreator",
+        "href": "https://www.mediafire.com/file/qqgo6aie9cmkyua/isocreator_setup.exe/file",
+        "tags": [
+            "UTILITY",
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "KineMaster 7.6.17",
+        "href": "https://www.mediafire.com/file/xly4plsm0hjqu3d/KineMaster_7.6.17.34693.GP_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Krita",
+        "href": "https://krita.org/en/download/",
+        "tags": [
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Laplink PCmover 11.0",
+        "href": "https://www.mediafire.com/file/czz9mrt2t43pzo7/Laplink_PCmover_Professional_11.0_1004.0_x86_%255B2017%252C_Multi_%252B_RUS%255D.torrent/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "LibreWolf",
+        "href": "https://librewolf.net/",
+        "tags": [
+            "BROWSER"
+        ]
+    },
+    {
+        "name": "Lightroom 10.4.1",
+        "href": "https://www.mediafire.com/file/7atpk184yvyud5p/Lightroom_10.4.1_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Live2D Cubism Editor 5.0",
+        "href": "https://www.mediafire.com/file/0wbdxll95nok1hw/Live2D_Cubism_Editor_5.0.0.rar/file",
+        "tags": [
+            "ANIMATION"
+        ]
+    },
+    {
+        "name": "MacroGamer 2.7.5",
+        "href": "https://www.mediafire.com/file/fmprex1f05iyom3/MacroGamer_v275_Setup.msi/file",
+        "tags": [
+            "UTILITY",
+            "GAMING"
+        ]
+    },
+    {
+        "name": "Magic Eraser 2.21.9",
+        "href": "https://www.mediafire.com/file/abttzwf4vdjpion/Magic_Eraser_2.21.9_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "MAGIX Vegas Pro 22.0.0.239",
+        "href": "https://www.mediafire.com/file/j5f6xlcitz9v3lb/MAGIX_Vegas_Pro_22.0.0.239_%2528x64%2529_%255B03.2025%252C_Multi%252C_NO_RUS%255D_%2528R2R%2529_%255Brutracker-6667346%255D.torrent/file",
+        "tags": [
+            "VIDEO",
+            "VFX"
+        ]
+    },
+    {
+        "name": "Magisk Kitsune",
+        "href": "https://www.mediafire.com/file/qs5qpwehmjsybim/MagiskKitsune.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Mailbird 3.0.39.0",
+        "href": "https://www.mediafire.com/file/c7ym5cdmly5z8lt/mailbird_3.0.39.0.zip/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Mica Effect (Win11)",
+        "href": "https://www.mediafire.com/file/eu5jcvu4tz30j6e/Mica_Effect-win11.rar/file",
+        "tags": [
+            "THEME"
+        ]
+    },
+    {
+        "name": "Microsoft Store",
+        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258832645572399155/Microsoft_Store.msix?ex=68559642&is=685444c2&hm=32a6a25c0761dedc6771187b18e52264dafbccdbd4bfd2cd956926b6898e620b&",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "MyPublicWiFi",
+        "href": "https://www.mediafire.com/file/1t4vbz2x6l4vc90/MyPublicWiFi.exe/file",
+        "tags": [
+            "NETWORK"
+        ]
+    },
+    {
+        "name": "NetStalker",
+        "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
+        "tags": [
+            "NETWORK",
+            "SECURITY"
+        ]
+    },
+    {
+        "name": "Node.js 22.16.0",
+        "href": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-x64.msi",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": "Nomacs Image Viewer",
+        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258831220985434132/nomacs-best_img_viewer-setup-x64.msi?ex=685594ef&is=6854436f&hm=6c0379be1befaca9be9abff14aec3ba13098aaaf05c1a3eb05a72e03b7a8c14b&",
+        "tags": [
+            "MEDIA"
+        ]
+    },
+    {
+        "name": "OLM (AE Script)",
+        "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Old Alt-Tab",
+        "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Optical Flares 1.3.8",
+        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1271236909351309414/Optical_Flares_1.3.8_170.zip?ex=68553ae1&is=6853e961&hm=8ce30fa90543ccad0ff2c9d28b4605f828513aca3c1e7e03881359984a4eb1f5&",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "PdaNetA5232b",
+        "href": "https://www.mediafire.com/file/qfbxf3xd24v9kl0/PdaNetA5232b.exe/file",
+        "tags": [
+            "NETWORK",
+            "MOBILE"
+        ]
+    },
+    {
+        "name": "PotPlayer",
+        "href": "https://www.mediafire.com/file/bblw4vo6tiz5n3h/potPLAYER%252BSVP%252BYTDLP_1.7.21595.x64_13.01.22.exe/file",
+        "tags": [
+            "MEDIA"
+        ]
+    },
+    {
+        "name": "Process Hacker 2.39",
+        "href": "https://www.mediafire.com/file/e1e3cabh9266a0c/processhacker-2.39-setup.exe/file",
+        "tags": [
+            "UTILITY",
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "Psoft Anime (AE Script)",
+        "href": "https://www.mediafire.com/file/dslkf1vle1l2sgg/Psoft-anime_%2528AE%2529.rar/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Python 3.10.11",
+        "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": "RIFE-App 3.33",
+        "href": "https://drive.google.com/file/d/1xLiZiJk5yMXEZm3cVjLgMsGPvjYbOPCF/view?usp=drive_link",
+        "tags": [
+            "AI",
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "rclone v1.70.1",
+        "href": "https://github.com/rclone/rclone/releases/tag/v1.70.1",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "RE:VisionFX Effections 23.08",
+        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273145658731401216/RE-VisionFX_Effections_Plus_23.08_CE.exe?ex=6855950a&is=6854438a&hm=43631227537fd1ce9c8e1150419a559199260187eeb0be0e13d6548e7f91ff8d&",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Reactor Installer",
+        "href": "https://www.mediafire.com/file/yzdhm9zvrplnywh/Reactor-Installer.lua/file",
+        "tags": [
+            "DRV PLUGIN",
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "Red Giant Magic Bullet Suite 2025.0",
+        "href": "https://seyarabata.com/6727b867ba43c",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Red Giant Trapcode Suite 2025.0",
+        "href": "https://seyarabata.com/67179e90b46b4",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Red Giant Universe 2025.3",
+        "href": "https://pixeldrain.com/u/k6uKK6Yd",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Red Giant VFX Suite 2025.0",
+        "href": "https://seyarabata.com/6798ebae9eb0f",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Remini 3.7.977",
+        "href": "https://www.mediafire.com/file/5ujm1azecan9eqb/Remini_3.7.977_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Resolve Script 2.6.0",
+        "href": "https://github.com/nakano000/Resolve_Script/releases/tag/2.6.0",
+        "tags": [
+            "DRV PLUGIN",
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "Revo Uninstaller Pro 5.4.0",
+        "href": "https://www.mediafire.com/file/mjamylbeewy1q9o/RevoUninstallerPro5.4.0.7z/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "RootBeer Sample 0.9",
+        "href": "https://www.mediafire.com/file/2zgr86sewbx5dbt/RootBeer_Sample_0.9_APKPure.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "SSTap-beta 1.0.9.7",
+        "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
+        "tags": [
+            "NETWORK",
+            "VPN"
+        ]
+    },
+    {
+        "name": "Shutter Encoder",
+        "href": "https://www.shutterencoder.com/",
+        "tags": [
+            "ENCODER"
+        ]
+    },
+    {
+        "name": "Snap Bar OFF",
+        "href": "https://www.mediafire.com/file/le2hmy8nb0m5641/Snap_Bar_OFF.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Snap Bar ON",
+        "href": "https://www.mediafire.com/file/23pvwqx2hyz9sp2/Snap_Bar_ON.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Snap Layouts OFF",
+        "href": "https://www.mediafire.com/file/15w67qztfkcuvlo/Snap_Layouts_OFF.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Snap Layouts ON",
+        "href": "https://www.mediafire.com/file/nqp4uukw5j4oeb0/Snap_Layouts_ON.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Snap! v1.0 (AE Script)",
+        "href": "https://www.mediafire.com/file/qt4437pkcafm9oe/Snap%2521_v1.0.jsx/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "SnapEdit 7.3.5",
+        "href": "https://www.mediafire.com/file/idkqr6k7btazwis/SnapEdit_7.3.5_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Snipping Tool (W10)",
+        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833455454879772/SnippingTool_W10.appx?ex=68559703&is=68544583&hm=a92aac793ed43b68d65d025eea8f2e55524efa9a41a41ed165a24542746b3383&",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "SoftEther VPN Gate Client",
+        "href": "https://www.mediafire.com/file/1x02ru4lj276o57/Soft_Ether_vpngate-client-2025.05.30-build-9807.161906.rar/file",
+        "tags": [
+            "NETWORK"
+        ]
+    },
+    {
+        "name": "StartAllBack 3.9.0.5220",
+        "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Stardock Fences 5.5.3.2",
+        "href": "https://www.mediafire.com/file/ninmiqcatphmuxp/Stardock_Fences_v5.5.3.2_RePack.zip/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Subtitle Pro v2.9.7",
+        "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
+        "tags": [
+            "VIDEO",
+            "PLUGIN"
+        ]
+    },
+    {
+        "name": "SumatraPDF",
+        "href": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+        "tags": [
+            "UTILITY",
+            "READER"
+        ]
+    },
+    {
+        "name": "SuperVPN 3.0.1",
+        "href": "https://www.mediafire.com/file/qp40hv1yszsfv6f/SuperVPN_3.0.1_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Termux v0.118.3",
+        "href": "https://www.mediafire.com/file/a6e4tn48p4sk35n/termux-app_v0.118.3%252Bgithub-debug_universal.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "TextEvo 2 (AE Script)",
+        "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Thorium Browser",
+        "href": "https://thorium.rocks/",
+        "tags": [
+            "BROWSER"
+        ]
+    },
+    {
+        "name": "Topaz Gigapixel AI 8.4.2",
+        "href": "https://www.mediafire.com/file/vshbik02i4valvj/TopazGigapixelAI8.4.2x64.exe/file",
+        "tags": [
+            "AI",
+            "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Topaz Video AI 7.0.2",
+        "href": "https://www.mediafire.com/file/9uqs91epab0tjv4/TopazVideoAI7.0.2x64.exe/file",
+        "tags": [
+            "AI",
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "Total Commander 3.42beta5",
+        "href": "https://www.mediafire.com/file/noihb2iifbfrsxh/TotalCommander_3.42beta5-1183_.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "TrafficMonitor v1.85.1",
+        "href": "https://github.com/zhongyang219/TrafficMonitor/releases/tag/V1.85.1",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "UAC OFF",
+        "href": "https://www.mediafire.com/file/17dyjxo4etmicx4/UAC_OFF.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "UAC ON (Fix Xbox Sign-In)",
+        "href": "https://www.mediafire.com/file/r6db1bont1dzbrf/UAC_ON_%2528Fix_Xbox_Sign_In%2529.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "Ubuntu IconPack V2",
+        "href": "https://www.mediafire.com/file/v33dmwuhr8wbhrq/IconPack_Ubuntu_V2.exe/file",
+        "tags": [
+            "THEME"
+        ]
+    },
+    {
+        "name": "UnMult 64",
+        "href": "https://www.mediafire.com/file/uuk7glrj2uldlu2/UnMult_64.aex/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "Upscayl",
+        "href": "https://upscayl.org/download",
+        "tags": [
+            "AI"
+        ]
+    },
+    {
+        "name": "uTorrent",
+        "href": "https://www.mediafire.com/file/fitzhk3ujph0l64/utorrent_HE_edition_with_universal_very_usable_settings.7z/file",
+        "tags": [
+            "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "VAC Tool",
+        "href": "https://www.mediafire.com/file/15u798ajzqq8zy6/vac470full.rar/file",
+        "tags": [
+            "VIRTUAL MIC"
+        ]
+    },
+    {
+        "name": "VB-CABLE Driver",
+        "href": "https://www.mediafire.com/file/7qxbpbfubdfjws7/VBCABLE_Driver_Pack45_2.zip/file",
+        "tags": [
+            "VIRTUAL MIC"
+        ]
+    },
+    {
+        "name": "Vencord",
+        "href": "https://vencord.dev/",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "Visual C++ Redistributable AIO",
+        "href": "https://www.mediafire.com/file/kbca83zy9eivhxh/VisualCppRedist_AIO_x86_x64.zip/file",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "Visual Studio Code",
+        "href": "https://code.visualstudio.com/docs/setup/windows",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": "VMware Workstation 17.6.3",
+        "href": "https://www.mediafire.com/file/u3m84gmipaqsacg/VMwareWorkstationPro17.6.3Build24583834x64.exe/file",
+        "tags": [
+            "VIRTUALIZATION"
+        ]
+    },
+    {
+        "name": "Voicemeeter",
+        "href": "https://www.mediafire.com/file/oym8hzerq5d785b/Voicemeeter8Setup_v3119.zip/file",
+        "tags": [
+            "VIRTUAL MIC",
+            "AUDIO"
+        ]
+    },
+    {
+        "name": "VSCodium (Portable)",
+        "href": "https://portapps.io/app/vscodium-portable/",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": "VSCodium Context Menu",
+        "href": "https://www.mediafire.com/file/h9kl2a0bbtawh9t/VSCodium.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "VSCodium Context Menu (Disable)",
+        "href": "https://www.mediafire.com/file/sspk8acg8duqjui/VSCodium-Disable.reg/file",
+        "tags": [
+            "REGISTRY"
+        ]
+    },
+    {
+        "name": "WPS Office Premium 18.18.2",
+        "href": "https://www.mediafire.com/file/fzk79stz9zq5vk4/WPS+Office-Premium-v18.18.2_build_1537-Mod.apk/file",
+        "tags": [
+            "APK",
+            "OFFICE"
+        ]
+    },
+    {
+        "name": "WhatsApp Desktop 2.2518.3.0",
+        "href": "https://www.mediafire.com/file/gxm39rk8ohcttec/5319275A.WhatsAppDesktop_2.2518.3.0_neutral_%257E_cv1g1gvanyjgm.Msixbundle/file",
+        "tags": [
+            "MESSAGING"
+        ]
+    },
+    {
+        "name": "Win11 Rounded Corners Toggle",
+        "href": "https://www.mediafire.com/file/4t6w6lz0mr9sydt/Win11DisableOrRestoreRoundedCorners.exe/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "WinRAR 7.01",
+        "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
+        "tags": [
+            "ARCHIVER"
+        ]
+    },
+    {
+        "name": "Windows 11 X-Lite (25231.1000)",
+        "href": "https://www.mediafire.com/file/mp301fm47orfz3p/Windows_11_X-Lite_%252825231.1000%2529_%2527Quantum_Leap%2527_By_FBConan_%255BTeamOS%255D.torrent/file",
+        "tags": [
+            "OS",
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "Windows Alarms",
+        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833075396280353/Alarms.msix?ex=685596a9&is=68544529&hm=09e233bc83af6d9a6ea8ea2bc6fc2ed0ebe2439b83dc6a4b3d2a4a65c9e3324c&",
+        "tags": [
+            "SYSTEM"
+        ]
+    },
+    {
+        "name": "X-plore File Manager 4.35.15",
+        "href": "https://www.mediafire.com/file/z56y37lxy8lnayu/X-plore-Donate-v4.35.15_build_43515-Mod.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "YY_Ramp+",
+        "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
+        "tags": [
+            "VFX"
+        ]
+    },
+    {
+        "name": "yt-dlp-gui Installer",
+        "href": "https://www.mediafire.com/file/o1k42g10e4dfz1i/yt-dlp-gui-installer.ps1/file",
+        "tags": [
+            "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "YouTube Music Desktop",
+        "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
+        "tags": [
+            "MEDIA"
+        ]
+    }
 ]
