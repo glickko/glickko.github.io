@@ -162,6 +162,14 @@
       ]
   },
   {
+      "name": "AutoHotkey 2.0.19",
+      "href": "https://www.mediafire.com/file/vc8k21ep30fvxgw/AutoHotkey_2.0.19_setup.exe/file",
+      "tags": [
+          "SCRIPT",
+          "UTILITY"
+      ]
+  },
+  {
       "name": "Autokroma Bundle 2024.10",
       "href": "https://www.mediafire.com/file/cx5og8v3qws58zm/Autokroma_bundle_2024.10_CE_Maxeffect.iR.exe/file",
       "tags": [
@@ -363,7 +371,7 @@
   },
   {
       "name": "FlexASIO",
-      "href": "https://cdn.discordapp.com/attachments/1258829699652653076/1385489950383931514/FlexASIO.rar?ex=68564191&is=6854f011&hm=f20bd2a5690715e1c1cd3027a5c3e812298cab29fa4379093d9f8c66de1c9d2b&",
+      "href": "https://www.mediafire.com/file/g9fa7fsmsr7mbsw/FlexASIO.rar/file",
       "tags": [
           "VIRTUAL MIC"
       ]
@@ -454,6 +462,14 @@
       ]
   },
   {
+      "name": "ISOCreator",
+      "href": "https://www.mediafire.com/file/qqgo6aie9cmkyua/isocreator_setup.exe/file",
+      "tags": [
+          "UTILITY",
+          "SYSTEM"
+      ]
+  },
+  {
       "name": "KineMaster 7.6.17",
       "href": "https://www.mediafire.com/file/xly4plsm0hjqu3d/KineMaster_7.6.17.34693.GP_%255BMod%255D.apk/file",
       "tags": [
@@ -493,6 +509,14 @@
       "href": "https://www.mediafire.com/file/0wbdxll95nok1hw/Live2D_Cubism_Editor_5.0.0.rar/file",
       "tags": [
           "ANIMATION"
+      ]
+  },
+  {
+      "name": "MacroGamer 2.7.5",
+      "href": "https://www.mediafire.com/file/fmprex1f05iyom3/MacroGamer_v275_Setup.msi/file",
+      "tags": [
+          "UTILITY",
+          "GAMING"
       ]
   },
   {
@@ -540,9 +564,17 @@
   },
   {
       "name": "MyPublicWiFi",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1385464244841222184/MyPublicWiFi.exe?ex=685629a0&is=6854d820&hm=b9a29552f21ee42a20698bb2834604ec69e8f9520d6cda446b3834eb20e5212b&",
+      "href": "https://www.mediafire.com/file/1t4vbz2x6l4vc90/MyPublicWiFi.exe/file",
       "tags": [
           "NETWORK"
+      ]
+  },
+  {
+      "name": "NetStalker",
+      "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
+      "tags": [
+          "NETWORK",
+          "SECURITY"
       ]
   },
   {
@@ -581,10 +613,26 @@
       ]
   },
   {
+      "name": "PdaNetA5232b",
+      "href": "https://www.mediafire.com/file/qfbxf3xd24v9kl0/PdaNetA5232b.exe/file",
+      "tags": [
+          "NETWORK",
+          "MOBILE"
+      ]
+  },
+  {
       "name": "PotPlayer",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258834564340645909/potPLAYER_MOD_MUSICVIDEOSUPER_FEATURES_1.7.21595.x64_13.01.22.exe?ex=6855980c&is=6854468c&hm=f59657b899e6d34099fb9ff61857276ccb53b596c2d7796b35539760fe499a80&",
+      "href": "https://www.mediafire.com/file/bblw4vo6tiz5n3h/potPLAYER%252BSVP%252BYTDLP_1.7.21595.x64_13.01.22.exe/file",
       "tags": [
           "MEDIA"
+      ]
+  },
+  {
+      "name": "Process Hacker 2.39",
+      "href": "https://www.mediafire.com/file/e1e3cabh9266a0c/processhacker-2.39-setup.exe/file",
+      "tags": [
+          "UTILITY",
+          "SYSTEM"
       ]
   },
   {
@@ -596,9 +644,16 @@
   },
   {
       "name": "Python 3.10.11",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258831122549182514/python-3.10.11-amd64.exe?ex=685594d7&is=68544357&hm=f1b203d5af78a86062f8d2b1ac8bf279ed78abb40513bb4df6258985214f2529&",
+      "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
       "tags": [
           "DEVELOPMENT"
+      ]
+  },
+  {
+      "name": "rclone v1.70.1",
+      "href": "https://github.com/rclone/rclone/releases/tag/v1.70.1",
+      "tags": [
+          "UTILITY"
       ]
   },
   {
@@ -667,17 +722,18 @@
       ]
   },
   {
-      "name": "rclone v1.67.0",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833758988144742/rclone-v1.67.0-windows-amd64.zip?ex=6855974c&is=685445cc&hm=841d22b25f231be6494681dd1f870a713b55802490c9d698e67f78ddb9ff4743&",
-      "tags": [
-          "UTILITY"
-      ]
-  },
-  {
       "name": "RootBeer Sample 0.9",
       "href": "https://www.mediafire.com/file/2zgr86sewbx5dbt/RootBeer_Sample_0.9_APKPure.apk/file",
       "tags": [
           "APK"
+      ]
+  },
+  {
+      "name": "SSTap-beta 1.0.9.7",
+      "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
+      "tags": [
+          "NETWORK",
+          "VPN"
       ]
   },
   {
