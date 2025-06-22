@@ -385,6 +385,14 @@
         ]
     },
     {
+        "name": "F-Droid",
+        "href": "https://f-droid.org/F-Droid.apk",
+        "tags": [
+            "APK",
+            "STORE"
+        ]
+    },
+    {
         "name": "FDM Add-On (Elephant)",
         "href": "https://www.mediafire.com/file/2l3vyfst714sseb/elephant.fda/file",
         "tags": [
@@ -403,6 +411,14 @@
         "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
         "tags": [
             "PLUGIN"
+        ]
+    },
+    {
+        "name": "Fennec F-Droid",
+        "href": "https://f-droid.org/repo/org.mozilla.fennec_fdroid_1390410.apk",
+        "tags": [
+            "APK",
+            "BROWSER"
         ]
     },
     {
@@ -517,6 +533,14 @@
         "href": "https://www.mediafire.com/file/xly4plsm0hjqu3d/KineMaster_7.6.17.34693.GP_%255BMod%255D.apk/file",
         "tags": [
             "APK"
+        ]
+    },
+    {
+        "name": "Kreate",
+        "href": "https://f-droid.org/repo/me.knighthat.kreate_102.apk",
+        "tags": [
+            "APK",
+            "GRAPHICS"
         ]
     },
     {
@@ -1117,7 +1141,7 @@
         ]
     },
     {
-        "name": "YouTube Music Desktop",
+        "name": "YouTube Music Desktop v3.9.0",
         "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
         "tags": [
             "MEDIA"
