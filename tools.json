@@ -1,5 +1,19 @@
 [
   {
+      "name": ".NET 10.0",
+      "href": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
+      "tags": [
+          "DEVELOPMENT"
+      ]
+  },
+  {
+      "name": ".NET 9.0",
+      "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
+      "tags": [
+          "DEVELOPMENT"
+      ]
+  },
+  {
       "name": ".NET Desktop Runtime 6.0.31",
       "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
       "tags": [
@@ -106,7 +120,7 @@
   },
   {
       "name": "AHKdel Discord Script",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1270197055863914580/AHKdel_discord_script.zip?ex=685566f1&is=68541571&hm=b8f80dbb7ea9199de5ef9a1241b4b3e9c023c7754c82dcd842f2d143f13c8b5b&",
+      "href": "https://www.mediafire.com/file/p83qizz58yxjl74/AHK%252Bdel_discord_script.zip/file",
       "tags": [
           "SCRIPT"
       ]
@@ -148,15 +162,15 @@
       ]
   },
   {
-      "name": "Autokroma",
-      "href": "https://cdn.discordapp.com/attachments/1273620053744418816/1273620458557673613/autokroma_2024.rar?ex=685554fc&is=6854037c&hm=154a5282f05a71dd860f3416ea72da852956053d198c407519b952b569872a69&",
+      "name": "Autokroma Bundle 2024.10",
+      "href": "https://www.mediafire.com/file/cx5og8v3qws58zm/Autokroma_bundle_2024.10_CE_Maxeffect.iR.exe/file",
       "tags": [
           "VFX"
       ]
   },
   {
       "name": "Autosway (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1273619320408379554/1273911067940225108/autosway.rar?ex=68551222&is=6853c0a2&hm=daaa7d01b299e98631df23c044c6c65b776cd2faa64f860e0e7510da54eaed4f&",
+      "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
       "tags": [
           "VFX"
       ]
@@ -215,6 +229,14 @@
       "href": "https://www.mediafire.com/file/xh1ice2mk5imieq/CapCut_14.5.0_%255BMod%255D.apk/file",
       "tags": [
           "APK"
+      ]
+  },
+  {
+      "name": "Captioneer v1.3.0",
+      "href": "https://www.mediafire.com/file/d5c1w2slbke0wkk/Captioneer_v1.3.0.rar/file",
+      "tags": [
+          "VIDEO",
+          "UTILITY"
       ]
   },
   {
@@ -284,9 +306,17 @@
   },
   {
       "name": "DiscordBotClient",
-      "href": "https://cdn.discordapp.com/attachments/1258838954233565215/DiscordBotClient-win-x64.exe?ex=68559c22&is=68544aa2&hm=57063e057c6c4df1f87a2c0edd36aa3114c688e4596498aaf2473070f614b7b8&",
+      "href": "https://github.com/aiko-chan-ai/DiscordBotClient/releases/tag/v3.7.2",
       "tags": [
           "UTILITY"
+      ]
+  },
+  {
+      "name": "Drawpile 2.2.2",
+      "href": "https://github.com/drawpile/Drawpile/releases/tag/2.2.2",
+      "tags": [
+          "APK",
+          "GRAPHICS"
       ]
   },
   {
@@ -297,29 +327,36 @@
       ]
   },
   {
+      "name": "Extreme Injector v3",
+      "href": "https://www.mediafire.com/file/jqz02z8gw66smzz/Extreme_Injector_v3_pass-11111.rar/file",
+      "tags": [
+          "UTILITY"
+      ]
+  },
+  {
       "name": "FDM Add-On (Elephant)",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1385460412308394006/elephant.fda?ex=6856260e&is=6854d48e&hm=2891428f1dabaaba64959f06001849fdd8e323a6196ec0a7efd352013cb8ec60&",
+      "href": "https://www.mediafire.com/file/2l3vyfst714sseb/elephant.fda/file",
       "tags": [
           "ADD-ON"
       ]
   },
   {
       "name": "FFmpeg (Full)",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1385466982492799006/FFmpeg_Full.msi?ex=68562c2d&is=6854daad&hm=ca94761d7431b84d5fc966eae4282f2635a910dbf23444939b495d7fa7dd43ac&",
+      "href": "https://www.mediafire.com/file/dtfj8rzf2rpfffd/FFmpeg_Full.msi/file",
       "tags": [
           "SYSTEM"
       ]
   },
   {
       "name": "FFmpeg for Audacity 5.0.0",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1385466981939155024/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe?ex=68562c2d&is=6854daad&hm=02ecf9c843ad73084be075e421de77f739151105b33822130fa63a5abf021792&",
+      "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
       "tags": [
           "PLUGIN"
       ]
   },
   {
       "name": "Film Impact Effects v25.0.6",
-      "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1344457546433429649/Film_Impact_Premium_Video_Effects_v25.0.6_CE_maxeffect.ir.exe?ex=68554be9&is=6853fa69&hm=65bba6916776f0fb66bc36832a2f6049208e4e3fc8d53a613063edf8eb28f957&",
+      "href": "https://www.mediafire.com/file/mq4jiilo72q5gku/Film_Impact_Premium_Video_Effects_v25.0.6_CE_maxeffect.ir.exe/file",
       "tags": [
           "VFX"
       ]
@@ -382,9 +419,17 @@
   },
   {
       "name": "Hitomi Downloader",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1273619548137852928/hitomi_downloader_GUI.exe?ex=68555422&is=685402a2&hm=279c58a3f1f2bc67c5f919769744c52ba2720c030e2623e29ad208ed1cf24c7d&",
+      "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
       "tags": [
           "DOWNLOADER"
+      ]
+  },
+  {
+      "name": "Ibis Paint",
+      "href": "https://www.mediafire.com/file/qb1uj11hf9i6xe8/ibis.msixbundle/file",
+      "tags": [
+          "GRAPHICS",
+          "APPX"
       ]
   },
   {
@@ -416,6 +461,13 @@
       ]
   },
   {
+      "name": "Krita",
+      "href": "https://krita.org/en/download/",
+      "tags": [
+          "GRAPHICS"
+      ]
+  },
+  {
       "name": "Laplink PCmover 11.0",
       "href": "https://www.mediafire.com/file/czz9mrt2t43pzo7/Laplink_PCmover_Professional_11.0_1004.0_x86_%255B2017%252C_Multi_%252B_RUS%255D.torrent/file",
       "tags": [
@@ -438,7 +490,7 @@
   },
   {
       "name": "Live2D Cubism Editor 5.0",
-      "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273047948229345361/Live2D_Cubism_Editor_5.0.00_x64_2023_ENG_rutracker-6054527.torrent?ex=68553a0a&is=6853e88a&hm=069df6e64b5cad2620a599143d423a6c90c6abe87ea913a2e784c67f2c0cf6d8&",
+      "href": "https://www.mediafire.com/file/0wbdxll95nok1hw/Live2D_Cubism_Editor_5.0.0.rar/file",
       "tags": [
           "ANIMATION"
       ]
@@ -474,7 +526,7 @@
   },
   {
       "name": "Mica Effect (Win11)",
-      "href": "https://cdn.discordapp.com/attachments/1258832015298527252/1385457569715454073/Mica_Effect-win11.rar?ex=68562369&is=6854d1e9&hm=d03d889caa80cb52fcb7a2e25575bea0637bed457b40bb33613c6b82fe839e93&",
+      "href": "https://www.mediafire.com/file/eu5jcvu4tz30j6e/Mica_Effect-win11.rar/file",
       "tags": [
           "THEME"
       ]
@@ -557,6 +609,14 @@
       ]
   },
   {
+      "name": "Reactor Installer",
+      "href": "https://www.mediafire.com/file/yzdhm9zvrplnywh/Reactor-Installer.lua/file",
+      "tags": [
+          "DRV PLUGIN",
+          "PLUGIN"
+      ]
+  },
+  {
       "name": "Red Giant Magic Bullet Suite 2025.0",
       "href": "https://seyarabata.com/6727b867ba43c",
       "tags": [
@@ -592,9 +652,10 @@
       ]
   },
   {
-      "name": "Resolve Script 2.5.12",
-      "href": "https://cdn.discordapp.com/attachments/1344457202928193647/1344458234987282474/Resolve_Script2.5.12_win.zip?ex=68554c8e&is=6853fb0e&hm=7e862aed17de4979b315be934f2c1baacdbc8228e2eed92cf3d2d09c871ae7f4&",
+      "name": "Resolve Script 2.6.0",
+      "href": "https://github.com/nakano000/Resolve_Script/releases/tag/2.6.0",
       "tags": [
+          "DRV PLUGIN",
           "PLUGIN"
       ]
   },
@@ -656,7 +717,7 @@
   },
   {
       "name": "Snap! v1.0 (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1273619320408379554/1273619422132572191/Snap_v1.0.jsx?ex=68555404&is=68540284&hm=82d1cbefb272abb735546dcc985c7d5128fa0a4b976c49b92645e10dc922041c&",
+      "href": "https://www.mediafire.com/file/qt4437pkcafm9oe/Snap%2521_v1.0.jsx/file",
       "tags": [
           "VFX"
       ]
@@ -676,24 +737,32 @@
       ]
   },
   {
-      "name": "SoftEther VPN Gate",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1385467556336242708/SoftEther_VPN_Gate.zip?ex=68562cb6&is=6854db36&hm=91a5d96a1e93c478bf2cf1d0da3154027afffdc490c5c4b72b068ca5a668adee&",
+      "name": "SoftEther VPN Gate Client",
+      "href": "https://www.mediafire.com/file/1x02ru4lj276o57/Soft_Ether_vpngate-client-2025.05.30-build-9807.161906.rar/file",
       "tags": [
           "NETWORK"
       ]
   },
   {
       "name": "StartAllBack 3.9.0.5220",
-      "href": "https://cdn.discordapp.com/attachments/1258832015298527252/1385457055757762721/StartAllBack_3.9.0.5220.rar?ex=685622ee&is=6854d16e&hm=817cff34252fdc8ed716f31babd2d36c74b4b3dc52d6df67093e26066cb3a182&",
+      "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
       "tags": [
           "UTILITY"
       ]
   },
   {
       "name": "Stardock Fences 5.5.3.2",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258834179320188991/Stardock_Fences_v5.5.3.2_RePack.zip?ex=685597b0&is=68544630&hm=e243e64ad9942b26d911982c4d563ddfef7f738273b923307bafaff396863a15&",
+      "href": "https://www.mediafire.com/file/ninmiqcatphmuxp/Stardock_Fences_v5.5.3.2_RePack.zip/file",
       "tags": [
           "UTILITY"
+      ]
+  },
+  {
+      "name": "Subtitle Pro v2.9.7",
+      "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
+      "tags": [
+          "VIDEO",
+          "PLUGIN"
       ]
   },
   {
@@ -712,7 +781,7 @@
   },
   {
       "name": "TextEvo 2 (AE Script)",
-      "href": "https://cdn.discordapp.com/attachments/1273619320408379554/1274106526289887353/TextEvo2.rar?ex=68551f6b&is=6853cdeb&hm=ab3cc15772b3840807c55bed761e869cb1a1e7919baa2364871ac18a33ac40a6&",
+      "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
       "tags": [
           "VFX"
       ]
@@ -754,7 +823,7 @@
   },
   {
       "name": "Ubuntu IconPack V2",
-      "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258834468832018543/IconPack_Ubuntu_V2.exe?ex=685597f5&is=68544675&hm=156b6dfbca4aff52843e9dcb2acb827bd760e92530639ed477888197a77dda70&",
+      "href": "https://www.mediafire.com/file/v33dmwuhr8wbhrq/IconPack_Ubuntu_V2.exe/file",
       "tags": [
           "THEME"
       ]
@@ -782,14 +851,14 @@
   },
   {
       "name": "VAC Tool",
-      "href": "https://cdn.discordapp.com/attachments/1258829699652653076/1258829782863315035/vac470full.rar?ex=68559398&is=68544218&hm=0f7319b6a5cdbf182e3794543d8887693d79422cb83c005d0f431af0bf23ec45&",
+      "href": "https://www.mediafire.com/file/15u798ajzqq8zy6/vac470full.rar/file",
       "tags": [
           "VIRTUAL MIC"
       ]
   },
   {
-      "name": "VB Component",
-      "href": "https://cdn.discordapp.com/attachments/1258829699652653076/1258829833668923472/VB.rar?ex=685593a4&is=68544224&hm=4fee6ca1e376b53ee06e503608145c4b0b21007f021940f396b2b8c341d7c7ab&",
+      "name": "VB-CABLE Driver",
+      "href": "https://www.mediafire.com/file/7qxbpbfubdfjws7/VBCABLE_Driver_Pack45_2.zip/file",
       "tags": [
           "VIRTUAL MIC"
       ]
@@ -803,7 +872,7 @@
   },
   {
       "name": "Visual C++ Redistributable AIO",
-      "href": "https://cdn.discordapp.com/attachments/1258831349742047273/1258834424162816152/VisualCppRedist_AIO_x86_x64.zip?ex=685597ea&is=6854466a&hm=caadb0825cd5ebf026ae821155ff980b83dc7dc05aa093e7b0a86c7d45b9bd7f&",
+      "href": "https://www.mediafire.com/file/kbca83zy9eivhxh/VisualCppRedist_AIO_x86_x64.zip/file",
       "tags": [
           "SYSTEM"
       ]
@@ -820,6 +889,14 @@
       "href": "https://www.mediafire.com/file/u3m84gmipaqsacg/VMwareWorkstationPro17.6.3Build24583834x64.exe/file",
       "tags": [
           "VIRTUALIZATION"
+      ]
+  },
+  {
+      "name": "Voicemeeter",
+      "href": "https://www.mediafire.com/file/oym8hzerq5d785b/Voicemeeter8Setup_v3119.zip/file",
+      "tags": [
+          "VIRTUAL MIC",
+          "AUDIO"
       ]
   },
   {
@@ -852,7 +929,7 @@
   },
   {
       "name": "Win11 Rounded Corners Toggle",
-      "href": "https://cdn.discordapp.com/attachments/1258832015298527252/1258833769629093928/Win11DisableOrRestoreRoundedCorners.exe?ex=6855974e&is=685445ce&hm=249b140b775c05cb5d6072d255f09a264ae6e90d4d71cd6a7752fcd765779358&",
+      "href": "https://www.mediafire.com/file/4t6w6lz0mr9sydt/Win11DisableOrRestoreRoundedCorners.exe/file",
       "tags": [
           "UTILITY"
       ]
@@ -895,7 +972,7 @@
   },
   {
       "name": "yt-dlp-gui Installer",
-      "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1270197538569584660/yt-dlp-gui-installer.ps1?ex=68556764&is=685415e4&hm=127fff12c86a36dddc3edc129601372e22fec5b1db82f290ac59e28223568ed9&",
+      "href": "https://www.mediafire.com/file/o1k42g10e4dfz1i/yt-dlp-gui-installer.ps1/file",
       "tags": [
           "DOWNLOADER"
       ]
