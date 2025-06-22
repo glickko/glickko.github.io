@@ -42,13 +42,6 @@
         ]
     },
     {
-        "name": ".NET Reactor 6.8.0.0",
-        "href": "https://krakenfiles.com/view/YwBwkPMO6i/file.html",
-        "tags": [
-            "DEVELOPMENT"
-        ]
-    },
-    {
         "name": ".NET SDK 5.0.408",
         "href": "https://www.mediafire.com/file/3aqifzzjathixke/dotnet-sdk-5.0.408-win-x64.exe/file",
         "tags": [
@@ -112,10 +105,26 @@
         ]
     },
     {
+        "name": "Adobe Illustrator (Low-End PC)",
+        "href": "https://www.mediafire.com/file/a2ikqgafj51ki2x",
+        "tags": [
+            "GRAPHICS",
+            "LOW-END"
+        ]
+    },
+    {
         "name": "Adobe Illustrator 2025 29.6.0.207",
         "href": "https://www.mediafire.com/file/g7cdwp6qw6imz6g/Adobe_Illustrator_2025_29.6.0.207_RePack_by_KpoJIuK.exe%25281%2529.torrent/file",
         "tags": [
             "GRAPHICS"
+        ]
+    },
+    {
+        "name": "Adobe Photoshop (Low-End PC)",
+        "href": "https://www.mediafire.com/file/wpysvclp68cq6p3",
+        "tags": [
+            "GRAPHICS",
+            "LOW-END"
         ]
     },
     {
@@ -126,10 +135,26 @@
         ]
     },
     {
+        "name": "Adobe Premiere (Low-End PC)",
+        "href": "https://www.mediafire.com/file/g2typnpiw3il2a8",
+        "tags": [
+            "VIDEO",
+            "LOW-END"
+        ]
+    },
+    {
         "name": "Adobe Premiere Pro 2025 25.2.3.4",
         "href": "https://www.mediafire.com/file/vc70og3w4j9qer0/Adobe_Premiere_Pro_2025_25.2.3.4_RePack_by_KpoJIuK.exe.torrent/file",
         "tags": [
             "VIDEO"
+        ]
+    },
+    {
+        "name": "After Effects (Low-End PC)",
+        "href": "https://www.mediafire.com/file/p7n701q8p70balk",
+        "tags": [
+            "VFX",
+            "LOW-END"
         ]
     },
     {
@@ -254,10 +279,11 @@
         ]
     },
     {
-        "name": "CapCut Desktop 5.7",
-        "href": "https://drive.google.com/file/d/1jo0x53Vp37zc1B-LQrJJRJMaWBFoJc2B/view?usp=sharing",
+        "name": "CapCut Desktop 3.8 (Low-End PC)",
+        "href": "https://www.mediafire.com/file/0pp24qoq30lcerr/CapCut_3.8.7z/file",
         "tags": [
-            "VIDEO"
+            "VIDEO",
+            "LOW-END"
         ]
     },
     {
@@ -315,7 +341,7 @@
     },
     {
         "name": "DesignDoll 5.7.0.1",
-        "href": "https://cdn.discordapp.com/attachments/1258834627154546770/1274580382624382977/DesignDoll_5.7.0.1.zip?ex=6855873b&is=685435bb&hm=bc8ea885302b5f49fa0dc4427654863d97d4a96fbc4a8d47dd9d8f2cfc8902f6&",
+        "href": "https://www.mediafire.com/file/oweh8i0zg1meql4/DesignDoll_5.7.0.1.zip/file",
         "tags": [
             "3D"
         ]
@@ -579,6 +605,14 @@
         ]
     },
     {
+        "name": "LosslessCut 3.64.0",
+        "href": "https://github.com/mifi/lossless-cut/releases/download/v3.64.0/LosslessCut-win-x64.7z",
+        "tags": [
+            "VIDEO",
+            "UTILITY"
+        ]
+    },
+    {
         "name": "MacroGamer 2.7.5",
         "href": "https://www.mediafire.com/file/fmprex1f05iyom3/MacroGamer_v275_Setup.msi/file",
         "tags": [
@@ -637,6 +671,22 @@
         ]
     },
     {
+        "name": "NVIDIA Broadcast 1.4.0.39",
+        "href": "https://international.download.nvidia.com/Windows/broadcast/1.4.0.39/NVIDIA_Broadcast_v1.4.0.39.exe",
+        "tags": [
+            "STREAMING",
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "NVIDIA Profile Inspector",
+        "href": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases",
+        "tags": [
+            "UTILITY",
+            "GPU"
+        ]
+    },
+    {
         "name": "NetStalker",
         "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
         "tags": [
@@ -652,10 +702,26 @@
         ]
     },
     {
-        "name": "Nomacs Image Viewer",
-        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258831220985434132/nomacs-best_img_viewer-setup-x64.msi?ex=685594ef&is=6854436f&hm=6c0379be1befaca9be9abff14aec3ba13098aaaf05c1a3eb05a72e03b7a8c14b&",
+        "name": "Nomacs Image Viewer 3.16.224",
+        "href": "https://github.com/nomacs/nomacs/releases/tag/3.16.224",
         "tags": [
             "MEDIA"
+        ]
+    },
+    {
+        "name": "OBS (Low-End PC)",
+        "href": "https://www.mediafire.com/file/q5e3fh2rhsfp5de",
+        "tags": [
+            "STREAMING",
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "OBS Studio",
+        "href": "https://obsproject.com/download",
+        "tags": [
+            "STREAMING",
+            "UTILITY"
         ]
     },
     {
@@ -674,7 +740,7 @@
     },
     {
         "name": "Optical Flares 1.3.8",
-        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1271236909351309414/Optical_Flares_1.3.8_170.zip?ex=68553ae1&is=6853e961&hm=8ce30fa90543ccad0ff2c9d28b4605f828513aca3c1e7e03881359984a4eb1f5&",
+        "href": "https://www.mediafire.com/file/3a7ksx9buqd3f56/Optical_Flares_1.3.8_%2528170%2529.zip/file",
         "tags": [
             "VFX"
         ]
@@ -733,7 +799,7 @@
     },
     {
         "name": "RE:VisionFX Effections 23.08",
-        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1273145658731401216/RE-VisionFX_Effections_Plus_23.08_CE.exe?ex=6855950a&is=6854438a&hm=43631227537fd1ce9c8e1150419a559199260187eeb0be0e13d6548e7f91ff8d&",
+        "href": "https://www.mediafire.com/file/xu9dv5swh8zbm39/RE-VisionFX_Effections_Plus_23.08_CE.exe/file",
         "tags": [
             "VFX"
         ]
@@ -861,8 +927,8 @@
         ]
     },
     {
-        "name": "Snipping Tool (W10)",
-        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833455454879772/SnippingTool_W10.appx?ex=68559703&is=68544583&hm=a92aac793ed43b68d65d025eea8f2e55524efa9a41a41ed165a24542746b3383&",
+        "name": "Snipping Tool (W10/W11)",
+        "href": "https://pixeldrain.com/u/D4Tg6nZh",
         "tags": [
             "SYSTEM"
         ]
@@ -1026,6 +1092,14 @@
         ]
     },
     {
+        "name": "Vendroid 1.0.6",
+        "href": "https://github.com/Vencord/Vendroid/releases/download/v1.0.6/Vencord-v1.0.6.apk",
+        "tags": [
+            "APK",
+            "UTILITY"
+        ]
+    },
+    {
         "name": "Visual C++ Redistributable AIO",
         "href": "https://www.mediafire.com/file/kbca83zy9eivhxh/VisualCppRedist_AIO_x86_x64.zip/file",
         "tags": [
@@ -1098,6 +1172,14 @@
         ]
     },
     {
+        "name": "WinAero Tweaker",
+        "href": "https://www.mediafire.com/file/e328z5y38nmoaqp",
+        "tags": [
+            "UTILITY",
+            "SYSTEM"
+        ]
+    },
+    {
         "name": "WinRAR 7.01",
         "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
         "tags": [
@@ -1114,7 +1196,7 @@
     },
     {
         "name": "Windows Alarms",
-        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258833075396280353/Alarms.msix?ex=685596a9&is=68544529&hm=09e233bc83af6d9a6ea8ea2bc6fc2ed0ebe2439b83dc6a4b3d2a4a65c9e3324c&",
+        "href": "https://pixeldrain.com/u/j8jAxroy",
         "tags": [
             "SYSTEM"
         ]
