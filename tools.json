@@ -279,11 +279,11 @@
         ]
     },
     {
-        "name": "CapCut Desktop 3.8 (Low-End PC)",
-        "href": "https://www.mediafire.com/file/0pp24qoq30lcerr/CapCut_3.8.7z/file",
+        "name": "CapCut Desktop 3.8 + GK_Launcher",
+        "href": "https://drive.google.com/file/d/1VT0ptykUpWs2LH4ATgS8GKPyIlNPGjNm/view?usp=drive_link",
         "tags": [
-            "VIDEO",
-            "LOW-END"
+            "LOW-END",
+            "VIDEO"
         ]
     },
     {
@@ -426,6 +426,14 @@
         ]
     },
     {
+        "name": "Fennec F-Droid",
+        "href": "https://f-droid.org/repo/org.mozilla.fennec_fdroid_1390410.apk",
+        "tags": [
+            "APK",
+            "BROWSER"
+        ]
+    },
+    {
         "name": "FFmpeg (Full)",
         "href": "https://www.mediafire.com/file/dtfj8rzf2rpfffd/FFmpeg_Full.msi/file",
         "tags": [
@@ -437,14 +445,6 @@
         "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
         "tags": [
             "PLUGIN"
-        ]
-    },
-    {
-        "name": "Fennec F-Droid",
-        "href": "https://f-droid.org/repo/org.mozilla.fennec_fdroid_1390410.apk",
-        "tags": [
-            "APK",
-            "BROWSER"
         ]
     },
     {
@@ -504,17 +504,17 @@
         ]
     },
     {
-        "name": "HiTV 3.5.3",
-        "href": "https://www.mediafire.com/file/hq59cd59oipwajs/HiTV_3.5.3_%255BMod%255D.apk/file",
-        "tags": [
-            "APK"
-        ]
-    },
-    {
         "name": "Hitomi Downloader",
         "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
         "tags": [
             "DOWNLOADER"
+        ]
+    },
+    {
+        "name": "HiTV 3.5.3",
+        "href": "https://www.mediafire.com/file/hq59cd59oipwajs/HiTV_3.5.3_%255BMod%255D.apk/file",
+        "tags": [
+            "APK"
         ]
     },
     {
@@ -628,18 +628,18 @@
         ]
     },
     {
+        "name": "Magisk Kitsune",
+        "href": "https://www.mediafire.com/file/qs5qpwehmjsybim/MagiskKitsune.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
         "name": "MAGIX Vegas Pro 22.0.0.239",
         "href": "https://www.mediafire.com/file/j5f6xlcitz9v3lb/MAGIX_Vegas_Pro_22.0.0.239_%2528x64%2529_%255B03.2025%252C_Multi%252C_NO_RUS%255D_%2528R2R%2529_%255Brutracker-6667346%255D.torrent/file",
         "tags": [
             "VIDEO",
             "VFX"
-        ]
-    },
-    {
-        "name": "Magisk Kitsune",
-        "href": "https://www.mediafire.com/file/qs5qpwehmjsybim/MagiskKitsune.apk/file",
-        "tags": [
-            "APK"
         ]
     },
     {
@@ -671,22 +671,6 @@
         ]
     },
     {
-        "name": "NVIDIA Broadcast 1.4.0.39",
-        "href": "https://international.download.nvidia.com/Windows/broadcast/1.4.0.39/NVIDIA_Broadcast_v1.4.0.39.exe",
-        "tags": [
-            "STREAMING",
-            "UTILITY"
-        ]
-    },
-    {
-        "name": "NVIDIA Profile Inspector",
-        "href": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases",
-        "tags": [
-            "UTILITY",
-            "GPU"
-        ]
-    },
-    {
         "name": "NetStalker",
         "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
         "tags": [
@@ -709,6 +693,22 @@
         ]
     },
     {
+        "name": "NVIDIA Broadcast 1.4.0.39",
+        "href": "https://international.download.nvidia.com/Windows/broadcast/1.4.0.39/NVIDIA_Broadcast_v1.4.0.39.exe",
+        "tags": [
+            "STREAMING",
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "NVIDIA Profile Inspector",
+        "href": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases",
+        "tags": [
+            "UTILITY",
+            "GPU"
+        ]
+    },
+    {
         "name": "OBS (Low-End PC)",
         "href": "https://www.mediafire.com/file/q5e3fh2rhsfp5de",
         "tags": [
@@ -725,17 +725,17 @@
         ]
     },
     {
-        "name": "OLM (AE Script)",
-        "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
-        "tags": [
-            "VFX"
-        ]
-    },
-    {
         "name": "Old Alt-Tab",
         "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
         "tags": [
             "REGISTRY"
+        ]
+    },
+    {
+        "name": "OLM (AE Script)",
+        "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
+        "tags": [
+            "VFX"
         ]
     },
     {
@@ -780,14 +780,6 @@
         "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
         "tags": [
             "DEVELOPMENT"
-        ]
-    },
-    {
-        "name": "RIFE-App 3.33",
-        "href": "https://drive.google.com/file/d/1xLiZiJk5yMXEZm3cVjLgMsGPvjYbOPCF/view?usp=drive_link",
-        "tags": [
-            "AI",
-            "VIDEO"
         ]
     },
     {
@@ -863,18 +855,18 @@
         ]
     },
     {
+        "name": "RIFE-App 3.33",
+        "href": "https://drive.google.com/file/d/1xLiZiJk5yMXEZm3cVjLgMsGPvjYbOPCF/view?usp=drive_link",
+        "tags": [
+            "AI",
+            "VIDEO"
+        ]
+    },
+    {
         "name": "RootBeer Sample 0.9",
         "href": "https://www.mediafire.com/file/2zgr86sewbx5dbt/RootBeer_Sample_0.9_APKPure.apk/file",
         "tags": [
             "APK"
-        ]
-    },
-    {
-        "name": "SSTap-beta 1.0.9.7",
-        "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
-        "tags": [
-            "NETWORK",
-            "VPN"
         ]
     },
     {
@@ -941,15 +933,23 @@
         ]
     },
     {
-        "name": "StartAllBack 3.9.0.5220",
-        "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
+        "name": "SSTap-beta 1.0.9.7",
+        "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
         "tags": [
-            "UTILITY"
+            "NETWORK",
+            "VPN"
         ]
     },
     {
         "name": "Stardock Fences 5.5.3.2",
         "href": "https://www.mediafire.com/file/ninmiqcatphmuxp/Stardock_Fences_v5.5.3.2_RePack.zip/file",
+        "tags": [
+            "UTILITY"
+        ]
+    },
+    {
+        "name": "StartAllBack 3.9.0.5220",
+        "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
         "tags": [
             "UTILITY"
         ]
@@ -1150,14 +1150,6 @@
         ]
     },
     {
-        "name": "WPS Office Premium 18.18.2",
-        "href": "https://www.mediafire.com/file/fzk79stz9zq5vk4/WPS+Office-Premium-v18.18.2_build_1537-Mod.apk/file",
-        "tags": [
-            "APK",
-            "OFFICE"
-        ]
-    },
-    {
         "name": "WhatsApp Desktop 2.2518.3.0",
         "href": "https://www.mediafire.com/file/gxm39rk8ohcttec/5319275A.WhatsAppDesktop_2.2518.3.0_neutral_%257E_cv1g1gvanyjgm.Msixbundle/file",
         "tags": [
@@ -1180,13 +1172,6 @@
         ]
     },
     {
-        "name": "WinRAR 7.01",
-        "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
-        "tags": [
-            "ARCHIVER"
-        ]
-    },
-    {
         "name": "Windows 11 X-Lite (25231.1000)",
         "href": "https://www.mediafire.com/file/mp301fm47orfz3p/Windows_11_X-Lite_%252825231.1000%2529_%2527Quantum_Leap%2527_By_FBConan_%255BTeamOS%255D.torrent/file",
         "tags": [
@@ -1202,6 +1187,21 @@
         ]
     },
     {
+        "name": "WinRAR 7.01",
+        "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
+        "tags": [
+            "ARCHIVER"
+        ]
+    },
+    {
+        "name": "WPS Office Premium 18.18.2",
+        "href": "https://www.mediafire.com/file/fzk79stz9zq5vk4/WPS+Office-Premium-v18.18.2_build_1537-Mod.apk/file",
+        "tags": [
+            "APK",
+            "OFFICE"
+        ]
+    },
+    {
         "name": "X-plore File Manager 4.35.15",
         "href": "https://www.mediafire.com/file/z56y37lxy8lnayu/X-plore-Donate-v4.35.15_build_43515-Mod.apk/file",
         "tags": [
@@ -1209,10 +1209,10 @@
         ]
     },
     {
-        "name": "YY_Ramp+",
-        "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
+        "name": "YouTube Music Desktop v3.9.0",
+        "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
         "tags": [
-            "VFX"
+            "MEDIA"
         ]
     },
     {
@@ -1223,10 +1223,10 @@
         ]
     },
     {
-        "name": "YouTube Music Desktop v3.9.0",
-        "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
+        "name": "YY_Ramp+",
+        "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
         "tags": [
-            "MEDIA"
+            "VFX"
         ]
     }
 ]
