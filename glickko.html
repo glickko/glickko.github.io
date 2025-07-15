@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glickko - Admin Panel</title>
+    <style>
+        /* --- Glickko Admin Panel - Definitive Professional Stylesheet --- */
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --text-base: clamp(12px, 3.5vw, 14px);
+            --h2-size: clamp(1.0rem, 4vw, 1.25rem);
+            --btn-size: clamp(0.75rem, 3vw, 0.9rem);
+            --item-padding: clamp(0.5rem, 2vw, 0.75rem);
+            --container-padding: clamp(0.75rem, 3vw, 1.5rem);
+            --gap-size: clamp(0.75rem, 3vw, 1.5rem);
+        }
+        html, body { height: 100%; overflow: hidden; }
+        body { min-height: 100%; background: #000; font-family: 'Arial', sans-serif; color: #fff; display: flex; flex-direction: column; font-size: var(--text-base); }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/glickko/glickko.github.io/main/background.jpg'); background-size: cover; background-position: center; opacity: 0.3; z-index: -1; }
+
+        header, footer { flex-shrink: 0; z-index: 10; text-align: center; }
+        header { padding: 1.5rem 1rem; }
+        .logo { font-size: clamp(1.3rem, 5vw, 2rem); font-weight: bold; letter-spacing: 3px; }
+        .subheader-text { margin-top: 0.5rem; color: rgba(255, 255, 255, 0.6); font-weight: bold; text-transform: uppercase; font-size: clamp(0.7rem, 2.5vw, 0.8rem); }
+        footer { padding: 1rem; background: rgba(10,10,10,0.4); border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #888; }
+
+        main { flex-grow: 1; display: none; gap: var(--gap-size); padding: 0 var(--gap-size) var(--gap-size); overflow: hidden; min-height: 0; }
+
+        #login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 2000; transition: opacity 0.5s ease; }
+        #login-overlay.hidden { opacity: 0; pointer-events: none; }
+        .login-box { background: rgba(20, 20, 25, 0.85); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); text-align: center; width: 90%; max-width: 320px; }
+        #password-input { width: 100%; padding: 10px; margin: 1rem 0; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.3); color: #fff; text-align: center; font-size: 1rem; }
+        .login-error { color: #ff5555; min-height: 1.2em; font-size: 0.9em; }
+
+        .manager-container { background: rgba(10, 10, 10, 0.8); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; backdrop-filter: blur(12px); padding: var(--container-padding); display: flex; flex-direction: column; overflow: hidden; }
+        #tools-container { flex: 2; min-width: 0; }
+        #tags-container { flex: 1; min-width: 0; }
+        
+        .manager-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-shrink: 0; flex-wrap: wrap; gap: 0.5rem; }
+        .manager-header h2 { margin: 0; font-size: var(--h2-size); }
+        
+        .nav-tabs { display: flex; gap: 0.5rem; }
+        .nav-tab { background: rgba(255,255,255,0.05); color: #aaa; padding: 6px 14px; border-radius: 6px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); font-size: var(--btn-size); font-weight: bold; transition: all 0.3s ease; }
+        .nav-tab.active { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3); }
+
+        .toolbar { margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.75rem; flex-shrink: 0; }
+        .admin-btn { padding: 8px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; cursor: pointer; font-size: var(--btn-size); font-weight: bold; background: rgba(255,255,255,0.1); color: #fff; }
+        .admin-btn.save { background: rgba(46, 204, 113, 0.2); border-color: rgba(46, 204, 113, 0.5); }
+        .admin-btn.danger { background: rgba(231, 76, 60, 0.2); border-color: rgba(231, 76, 60, 0.5); }
+        .admin-btn.secondary { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); }
+
+        .list-container { flex-grow: 1; overflow-y: auto; padding-right: 10px; min-height: 0; }
+        .list-container::-webkit-scrollbar { width: 8px; }
+        .list-container::-webkit-scrollbar-track { background: transparent; }
+        .list-container::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.2); border-radius: 10px; }
+        
+        #search-bar { width: 100%; padding: 10px; margin-bottom: 1rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff; font-size: var(--btn-size); }
+
+        .admin-tool-item { display: flex; align-items: center; justify-content: space-between; padding: var(--item-padding); background-color: rgba(255,255,255,0.05); border-radius: 6px; }
+        .admin-tool-item:not(:last-child) { margin-bottom: 0.5rem; }
+        .tool-info { flex-grow: 1; min-width: 0; }
+        .tool-info .tool-name { font-size: clamp(0.85rem, 2.5vw, 1rem); font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .tool-tags-and-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; margin-left: 1rem; }
+        .tool-tags { display: flex; gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; }
+        .action-btn { padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; border: none; color: #fff; cursor: pointer; }
+        .edit-btn { background-color: rgba(241, 196, 15, 0.6); }
+        .delete-btn { background-color: rgba(231, 76, 60, 0.6); }
+
+        .tag { padding: 2px 6px; border-radius: 4px; font-size: clamp(0.65rem, 1.8vw, 0.7rem); white-space: nowrap; background-color: rgba(255,255,255,0.15); }
+        #tag-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        #tag-list li { background: rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 6px; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+        .tag-action-btn { background: none; border: none; color: #aaa; cursor: pointer; padding: 2px; font-size: 0.9rem; }
+        .inline-form { display: flex; gap: 8px; margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+        .inline-form input { flex-grow: 1; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: rgba(0,0,0,0.2); color: #fff; }
+        
+        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .modal-content { background: #1a1a1a; margin: 10% auto; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2); width: 90%; max-width: 500px; border-radius: 8px; }
+        .modal-close { position: absolute; top: 8px; right: 16px; font-size: 24px; font-weight: bold; cursor: pointer; color: #aaa; }
+        .form-group { margin-bottom: 1rem; }
+        #modal-tags-container { display: flex; flex-wrap: wrap; gap: 8px; max-height: 120px; overflow-y: auto; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; }
+        .tag-checkbox-label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
+        
+        .empty-state, .loading-state { text-align: center; padding: 2rem; color: #888; font-style: italic; }
+        #toast-notification { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); background-color: #2ecc71; color: white; padding: 12px 24px; border-radius: 8px; z-index: 3000; opacity: 0; transition: all 0.5s ease; }
+        #toast-notification.show { bottom: 40px; opacity: 1; }
+        #delete-confirm-modal .affected-list { list-style-type: none; padding-left: 0; max-height: 150px; overflow-y: auto; background: rgba(0,0,0,0.2); border-radius: 4px; padding: 10px; margin: 1rem 0; }
+        
+        @media (max-width: 768px) {
+            main { flex-direction: column; }
+            .manager-container { flex-basis: 50%; }
+        }
+        
+        @media (max-width: 400px) {
+            :root {
+                --container-padding: 0.75rem;
+                --gap-size: 0.75rem;
+            }
+            .toolbar { flex-direction: column; align-items: stretch; }
+            .admin-btn { width: 100%; text-align: center; }
+            .tool-tags-and-actions { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin: 0.5rem 0 0 0; }
+            .tool-tags { justify-content: flex-start; }
+            .admin-tool-item { align-items: flex-start; flex-direction: column; }
+            .manager-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Admin Access</h2>
+            <p id="login-error" class="login-error"></p>
+            <input type="password" id="password-input" placeholder="Password" autofocus>
+            <button id="login-button" class="admin-btn">Enter</button>
+        </div>
+    </div>
+
+    <header style="display: none;"></header>
+    <main id="main-content"></main>
+    <footer style="display: none;"></footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginOverlay = document.getElementById('login-overlay');
+            const passwordInput = document.getElementById('password-input');
+            const loginButton = document.getElementById('login-button');
+            const loginError = document.getElementById('login-error');
+            const mainContent = document.getElementById('main-content');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            const checkPassword = () => {
+                if (passwordInput.value === '14121412') {
+                    loginOverlay.classList.add('hidden');
+                    header.style.display = 'block';
+                    mainContent.style.display = 'flex';
+                    footer.style.display = 'block';
+                    buildAndinitializeApp();
+                } else {
+                    loginError.textContent = 'Incorrect password.';
+                    passwordInput.value = '';
+                }
+            };
+            loginButton.addEventListener('click', checkPassword);
+            passwordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') checkPassword();
+            });
+
+            const buildAndinitializeApp = () => {
+                header.innerHTML = `<nav><div class="logo">ADMIN PANEL</div></nav>`;
+                footer.innerHTML = `&copy; 2025 Glickko`;
+
+                mainContent.innerHTML = `
+                    <div id="tools-container" class="manager-container">
+                        <div class="manager-header">
+                            <h2>Tools Manager</h2>
+                            <div class="nav-tabs">
+                                <button class="nav-tab active" data-view="tools">Tools</button>
+                                <button class="nav-tab" data-view="tags">Tags</button>
+                            </div>
+                        </div>
+                        <input type="search" id="search-bar" placeholder="Search by name or tag...">
+                        <div class="toolbar"><button id="add-tool-btn" class="admin-btn">Add New Tool</button><button id="save-json-btn" class="admin-btn save">Save & Download JSON</button></div>
+                        <div id="tools-list-container" class="list-container"><div class="loading-state">Loading...</div></div>
+                    </div>
+                    <div id="tags-container" class="manager-container" style="display: none;">
+                        <div class="manager-header">
+                            <h2>Tag Manager</h2>
+                            <div class="nav-tabs">
+                                <button class="nav-tab" data-view="tools">Tools</button>
+                                <button class="nav-tab active" data-view="tags">Tags</button>
+                            </div>
+                        </div>
+                        <div id="tag-manager-container" class="list-container"><ul id="tag-list"></ul></div>
+                        <form id="add-tag-form" class="inline-form"><input type="text" id="new-tag-name" placeholder="New tag name..." required><button type="submit" class="admin-btn">Add Tag</button></form>
+                    </div>`;
+
+                document.body.insertAdjacentHTML('beforeend', `
+                    <div id="tool-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="modal-close">&times;</span><h2 id="modal-title">Edit Tool</h2>
+                            <form id="tool-form">
+                                <input type="hidden" id="tool-id">
+                                <div class="form-group"><label for="tool-name">Name</label><input type="text" id="tool-name" required></div>
+                                <div class="form-group"><label for="tool-href">URL (href)</label><input type="url" id="tool-href" required></div>
+                                <div class="form-group"><label>Tags</label><div id="modal-tags-container"></div></div>
+                                <div class="modal-actions">
+                                    <button type="button" id="cancel-edit-btn" class="admin-btn secondary">Cancel</button>
+                                    <button type="submit" id="save-tool-btn" class="admin-btn">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="delete-confirm-modal" class="modal">
+                        <div class="modal-content">
+                            <h2 id="delete-confirm-title">Confirm Deletion</h2>
+                            <p>The following tools use this tag. Deleting the tag will remove it from them. Are you sure?</p>
+                            <ul id="delete-affected-list" class="affected-list"></ul>
+                            <div class="modal-actions">
+                                <button id="cancel-delete-btn" class="admin-btn secondary">Cancel</button>
+                                <button id="confirm-delete-btn" class="admin-btn danger">Confirm Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="toast-notification"></div>
+                `);
+
+                const navTabs = document.querySelectorAll('.nav-tab');
+                const toolsContainer = document.getElementById('tools-container');
+                const tagsContainer = document.getElementById('tags-container');
+                const searchBar = document.getElementById('search-bar');
+                const toolsListContainer = document.getElementById('tools-list-container');
+                const saveJsonBtn = document.getElementById('save-json-btn');
+                const addToolBtn = document.getElementById('add-tool-btn');
+                const modal = document.getElementById('tool-modal');
+                const closeModalBtn = document.querySelector('#tool-modal .modal-close');
+                const cancelEditBtn = document.getElementById('cancel-edit-btn');
+                const toolForm = document.getElementById('tool-form');
+                const modalTitle = document.getElementById('modal-title');
+                const toolIdInput = document.getElementById('tool-id');
+                const toolNameInput = document.getElementById('tool-name');
+                const toolHrefInput = document.getElementById('tool-href');
+                const modalTagsContainer = document.getElementById('modal-tags-container');
+                const tagList = document.getElementById('tag-list');
+                const addTagForm = document.getElementById('add-tag-form');
+                const toast = document.getElementById('toast-notification');
+                const deleteConfirmModal = document.getElementById('delete-confirm-modal');
+                const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+                const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+                const deleteAffectedList = document.getElementById('delete-affected-list');
+
+                let toolsData = [];
+                let allTags = new Set();
+                let tagToDelete = null;
+                
+                const showToast = (message) => { toast.textContent = message; toast.classList.add('show'); setTimeout(() => { toast.classList.remove('show'); }, 3000); };
+                const updateAllTags = () => { allTags.clear(); toolsData.forEach(tool => { if (tool.tags) tool.tags.forEach(tag => allTags.add(tag)); }); };
+                const renderAll = (filter = '') => { updateAllTags(); renderToolsList(filter); renderTagManager(); };
+
+                const loadTools = async () => {
+                    try {
+                        const response = await fetch('tools.json?cachebust=' + new Date().getTime());
+                        toolsData = response.ok ? await response.json() : [];
+                    } catch (error) { showToast('Error loading tools.json.'); toolsData = []; }
+                    renderAll();
+                };
+
+                const renderToolsList = (filter = '') => {
+                    const searchTerm = filter.toLowerCase();
+                    const filteredData = toolsData.filter(tool => tool.name.toLowerCase().includes(searchTerm) || (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))));
+                    if (filteredData.length === 0) { toolsListContainer.innerHTML = `<div class="empty-state">No tools found.</div>`; return; }
+                    toolsListContainer.innerHTML = '';
+                    filteredData.forEach((tool) => {
+                        const toolItem = document.createElement('div');
+                        toolItem.className = 'admin-tool-item';
+                        const tagsHTML = (tool.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('');
+                        toolItem.innerHTML = `<div class="tool-info"><span class="tool-name" title="${tool.name}">${tool.name}</span></div><div class="tool-tags-and-actions"><div class="tool-tags" title="${(tool.tags || []).join(', ')}">${tagsHTML}</div><div class="tool-actions"><button class="action-btn edit-btn" data-name="${tool.name}" title="Edit">✏️</button><button class="action-btn delete-btn" data-name="${tool.name}" title="Delete">🗑️</button></div></div>`;
+                        toolsListContainer.appendChild(toolItem);
+                    });
+                };
+                const renderTagManager = () => {
+                    if (allTags.size === 0) { tagList.parentElement.innerHTML = `<div class="empty-state">No tags created yet.</div>`; return; }
+                    tagList.innerHTML = '';
+                    Array.from(allTags).sort().forEach(tag => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="tag-name" title="${tag}">${tag}</span><button class="tag-action-btn rename-tag-btn" data-tag="${tag}" title="Rename">✏️</button><button class="tag-action-btn delete-tag-btn" data-tag="${tag}" title="Delete">🗑️</button>`;
+                        tagList.appendChild(li);
+                    });
+                };
+
+                const showModal = (tool = null) => {
+                    const originalIndex = tool ? toolsData.findIndex(t => t.name === tool.name) : -1;
+                    toolForm.reset();
+                    toolIdInput.value = originalIndex;
+                    modalTitle.textContent = tool ? 'Edit Tool' : 'Add New Tool';
+                    toolNameInput.value = tool ? tool.name : '';
+                    toolHrefInput.value = tool ? tool.href : '';
+                    modalTagsContainer.innerHTML = '';
+                    Array.from(allTags).sort().forEach(tag => {
+                        const isChecked = tool && tool.tags && tool.tags.includes(tag);
+                        modalTagsContainer.insertAdjacentHTML('beforeend', `<label class="tag-checkbox-label"><input type="checkbox" name="tags" value="${tag}" ${isChecked ? 'checked' : ''}> ${tag}</label>`);
+                    });
+                    modal.style.display = 'block';
+                };
+                const hideModal = () => modal.style.display = 'none';
+                
+                toolForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const id = parseInt(toolIdInput.value, 10);
+                    const selectedTags = Array.from(document.querySelectorAll('#modal-tags-container input:checked')).map(cb => cb.value);
+                    const toolEntry = { name: toolNameInput.value.trim(), href: toolHrefInput.value.trim(), tags: selectedTags };
+                    if (id === -1) { toolsData.push(toolEntry); } else { toolsData[id] = toolEntry; }
+                    toolsData.sort((a, b) => a.name.localeCompare(b.name));
+                    renderAll(searchBar.value);
+                    hideModal();
+                    showToast(id === -1 ? 'Tool added successfully.' : 'Tool updated successfully.');
+                });
+
+                searchBar.addEventListener('input', (e) => renderToolsList(e.target.value));
+                toolsListContainer.addEventListener('click', (e) => {
+                    const button = e.target.closest('.action-btn');
+                    if (!button) return;
+                    const toolName = button.dataset.name;
+                    const tool = toolsData.find(t => t.name === toolName);
+                    if (button.classList.contains('edit-btn')) showModal(tool);
+                    else if (button.classList.contains('delete-btn')) {
+                        if (confirm(`Delete "${tool.name}"?`)) { const index = toolsData.findIndex(t => t.name === tool.name); toolsData.splice(index, 1); renderAll(searchBar.value); showToast('Tool deleted.'); }
+                    }
+                });
+                addTagForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const newTagName = document.getElementById('new-tag-name').value.trim().toUpperCase();
+                    if (newTagName && !allTags.has(newTagName)) { allTags.add(newTagName); renderTagManager(); showToast(`Tag "${newTagName}" created.`);}
+                    addTagForm.reset();
+                });
+                tagList.addEventListener('click', e => {
+                    const button = e.target.closest('.tag-action-btn');
+                    if (!button) return;
+                    const oldTag = button.dataset.tag;
+                    if (button.classList.contains('rename-tag-btn')) {
+                        const newTag = prompt(`Rename tag "${oldTag}" to:`, oldTag);
+                        const finalNewTag = newTag ? newTag.trim().toUpperCase() : null;
+                        if (finalNewTag && finalNewTag !== oldTag) {
+                            toolsData.forEach(tool => { if (tool.tags) { const i = tool.tags.indexOf(oldTag); if (i > -1) tool.tags[i] = finalNewTag; } });
+                            renderAll(searchBar.value);
+                            showToast(`Tag renamed to "${finalNewTag}".`);
+                        }
+                    } else if (button.classList.contains('delete-btn')) {
+                        tagToDelete = oldTag;
+                        const affectedTools = toolsData.filter(tool => tool.tags && tool.tags.includes(tagToDelete));
+                        if (affectedTools.length === 0) { allTags.delete(tagToDelete); renderTagManager(); showToast(`Tag "${tagToDelete}" deleted.`); return; }
+                        deleteAffectedList.innerHTML = affectedTools.map(t => `<li>${t.name}</li>`).join('');
+                        deleteConfirmModal.style.display = 'block';
+                    }
+                });
+                confirmDeleteBtn.addEventListener('click', () => {
+                    if (tagToDelete) {
+                        toolsData.forEach(tool => { if (tool.tags) { const i = tool.tags.indexOf(tagToDelete); if (i > -1) tool.tags.splice(i, 1); } });
+                        renderAll(searchBar.value);
+                        showToast(`Tag "${tagToDelete}" deleted.`);
+                    }
+                    deleteConfirmModal.style.display = 'none';
+                    tagToDelete = null;
+                });
+                
+                saveJsonBtn.addEventListener('click', () => {
+                    const jsonString = JSON.stringify(toolsData, null, 4);
+                    const blob = new Blob([jsonString], { type: 'application/json' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'tools.json';
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                    showToast('tools.json downloaded successfully!');
+                });
+
+                navTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const view = tab.dataset.view;
+                        document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+                        toolsContainer.style.display = view === 'tools' ? 'flex' : 'none';
+                        tagsContainer.style.display = view === 'tags' ? 'flex' : 'none';
+                    });
+                });
+                
+                addToolBtn.addEventListener('click', () => showModal());
+                closeModalBtn.addEventListener('click', hideModal);
+                cancelEditBtn.addEventListener('click', hideModal);
+                cancelDeleteBtn.addEventListener('click', () => deleteConfirmModal.style.display = 'none');
+                window.addEventListener('click', (e) => { 
+                    if (e.target === modal) hideModal();
+                    if (e.target === deleteConfirmModal) deleteConfirmModal.style.display = 'none';
+                });
+
+                loadTools();
+            };
+        });
+    </script>
+</body>
+</html>

@@ -8,8 +8,6 @@
     },
     "keywords": [],
     "author": "Glickko",
-    "license": "ISC",
-    "dependencies": {
-      "@google/generative-ai": "^0.14.1"
+
     }
-  }
+  
