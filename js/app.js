@@ -74,6 +74,59 @@ const manageFloatingAssets = async (path) => {
     }
 };
 
+const initializePerCharacterGlitch = () => {
+    const glitchButton = document.querySelector('.glitch-button');
+    if (!glitchButton) return;
+
+    const textContainer = glitchButton.querySelector('.text');
+    const text = glitchButton.dataset.text;
+    
+    const fonts = ["'Orbitron', sans-serif", "'Rajdhani', sans-serif", "'Audiowide', sans-serif", "'Bruno Ace SC', sans-serif"];
+    const glitchChars = ['█', '▓', '▒', '░', '§', '¶', '•', '·', '▼', '▲', '◆', '▰', '▱', '▚', '▞', '▙', '▟', '▜', '▝', '▘', '▗', '▖', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
+
+    if (textContainer && text) {
+        textContainer.innerHTML = ''; // Clear existing text
+        text.split('').forEach((char, index) => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = char;
+            charSpan.style.setProperty('--i', index);
+            charSpan.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+            
+            if (char.trim() !== '') {
+                setInterval(() => {
+                    if (Math.random() > 0.95) { // 5% chance to glitch each interval
+                        const originalChar = char;
+                        charSpan.textContent = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        setTimeout(() => {
+                            charSpan.textContent = originalChar;
+                        }, 100);
+                    }
+                }, 200);
+            } else {
+                 charSpan.style.width = '0.5em';
+            }
+
+            textContainer.appendChild(charSpan);
+        });
+    }
+    
+    // Destroy effect on click/touch
+    const startDestroy = (e) => {
+        e.preventDefault();
+        glitchButton.classList.add('destroying');
+    };
+    
+    const endDestroy = () => {
+        glitchButton.classList.remove('destroying');
+    };
+
+    glitchButton.addEventListener('mousedown', startDestroy);
+    glitchButton.addEventListener('touchstart', startDestroy, { passive: true });
+    glitchButton.addEventListener('mouseup', endDestroy);
+    glitchButton.addEventListener('mouseleave', endDestroy);
+    glitchButton.addEventListener('touchend', endDestroy);
+};
+
 const loadGuideStylesheet = () => {
     if (!document.head.querySelector('link[href="css/guide.css"]')) {
         const link = document.createElement('link');
@@ -419,6 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
+                initializePerCharacterGlitch(); // Initialize for newly loaded content
             }, 400);
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
@@ -460,4 +514,5 @@ document.addEventListener('DOMContentLoaded', () => {
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
+    initializePerCharacterGlitch(); // Initial load
 });
