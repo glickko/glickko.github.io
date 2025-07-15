@@ -1,49 +1,49 @@
 [
     {
-        "name": ".NET 10.0",
+        "name": ".NET Desktop Runtime 10.0",
         "href": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
         "tags": [
             "DEVELOPMENT"
         ]
     },
     {
-        "name": ".NET 9.0",
-        "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
-        "tags": [
-            "DEVELOPMENT"
-        ]
-    },
-    {
-        "name": ".NET Desktop Runtime 6.0.31",
-        "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
-        "tags": [
-            "DEVELOPMENT"
-        ]
-    },
-    {
-        "name": ".NET Desktop Runtime 7.0.2",
-        "href": "https://www.mediafire.com/file/q9wv88iymxcohlh/dotnet-windowsdesktop-runtime-7.0.2-win-x64.exe/file",
-        "tags": [
-            "DEVELOPMENT"
-        ]
-    },
-    {
-        "name": ".NET Desktop Runtime 8.0.6",
-        "href": "https://www.mediafire.com/file/9qlqw4jmu6mi0xf/dotnet-windowsdesktop-runtime-8.0.6-win-x64.exe/file",
-        "tags": [
-            "DEVELOPMENT"
-        ]
-    },
-    {
-        "name": ".NET Framework 4.8",
+        "name": ".NET Desktop Runtime 4.8",
         "href": "https://krakenfiles.com/view/54bde13d34/file.html",
         "tags": [
             "DEVELOPMENT"
         ]
     },
     {
-        "name": ".NET SDK 5.0.408",
+        "name": ".NET Desktop Runtime 5.0",
         "href": "https://www.mediafire.com/file/3aqifzzjathixke/dotnet-sdk-5.0.408-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 6.0",
+        "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 7.0",
+        "href": "https://www.mediafire.com/file/q9wv88iymxcohlh/dotnet-windowsdesktop-runtime-7.0.2-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 8.0",
+        "href": "https://www.mediafire.com/file/9qlqw4jmu6mi0xf/dotnet-windowsdesktop-runtime-8.0.6-win-x64.exe/file",
+        "tags": [
+            "DEVELOPMENT"
+        ]
+    },
+    {
+        "name": ".NET Desktop Runtime 9.0",
+        "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
         "tags": [
             "DEVELOPMENT"
         ]
