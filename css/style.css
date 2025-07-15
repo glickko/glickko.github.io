@@ -10,8 +10,36 @@ body {
     overflow: hidden;
 }
 
+/* --- CRT Background Effect --- */
+@keyframes crt-scan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+    );
+    background-size: 100% 3px; /* Harder Scanlines */
+    animation: crt-scan 0.1s linear infinite;
+    opacity: 0.4; /* Increased visibility */
+    z-index: 2; /* Position above floating assets */
+    pointer-events: none;
+    box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.5); /* Vignette Effect */
+}
+
+
 /* --- Background & Effects --- */
-.bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; /* Lower z-index */ }
 .bg-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/glickko/glickko.github.io/main/background.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0.3; animation: ringRotation 30s ease-in-out infinite; }
 .pulse-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 .pulse { position: absolute; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%); animation: pulse-corner 6s ease-in-out infinite alternate; }
@@ -88,6 +116,70 @@ body {
 @keyframes modal-content-appear { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes item-fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
+/* --- Per-Character Cyberpunk Glitch Effect --- */
+@keyframes char-glitch {
+  0%, 100% { transform: translate(0, 0); opacity: 1; }
+  25% { transform: translate(2px, -2px); opacity: 0.8; }
+  50% { transform: translate(-2px, 2px); opacity: 1; }
+  75% { transform: translate(2px, 2px); opacity: 0.8; }
+}
+
+@keyframes char-glitch-2 {
+  0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  10% { clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); }
+  30% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); }
+  50% { clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%); }
+  70% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); }
+  90% { clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%); }
+}
+
+.menu-item.glitch-button {
+    animation: none;
+    border: none;
+    background: transparent;
+    padding: clamp(0.9rem, 2.5vh, 1.2rem) 0;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.menu-item.glitch-button .text {
+    display: inline-flex; /* Changed to allow spans to sit side-by-side */
+}
+
+.menu-item.glitch-button .text > span {
+    position: relative;
+    display: inline-block;
+    animation: char-glitch 4s infinite;
+    animation-delay: calc(var(--i) * 100ms);
+}
+
+.menu-item.glitch-button .text > span::before,
+.menu-item.glitch-button .text > span::after {
+    content: attr(data-char);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: char-glitch-2 3s infinite;
+    animation-timing-function: steps(1, end);
+}
+
+.menu-item.glitch-button .text > span::before {
+    color: #ff00ff;
+    animation-delay: calc(var(--i) * 120ms);
+    text-shadow: -1px 0 #ff00ff;
+}
+
+.menu-item.glitch-button .text > span::after {
+    color: #00ffff;
+    animation-delay: calc(var(--i) * 80ms);
+    text-shadow: 1px 0 #00ffff;
+}
+
+.menu-item.glitch-button:active .text > span {
+    animation: char-glitch 0.2s infinite; /* Faster on click */
+}
+
+
 /* --- Header --- */
 header { flex-shrink: 0; z-index: 10; padding: 1.5rem 1rem; text-align: center; position: relative; }
 .home-link-icon { position: absolute; top: clamp(1.5rem, 2.5vw, 2rem); right: clamp(1.5rem, 2.5vw, 2rem); display: block; line-height: 0; transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.2s ease; opacity: 0.7; will-change: transform, opacity; }
@@ -113,9 +205,7 @@ main.fade-in { opacity: 1; }
 
 /* --- Menu & Generic Page Styles --- */
 .menu-item { display: flex; align-items: center; justify-content: center; font-size: clamp(1rem, 3.5vw, 1.3rem); font-weight: bold; color: #ccc; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 10px; background: rgba(10, 10, 10, 0.6); transition: transform 0.2s ease, color 0.3s ease, border-color 0.3s; position: relative; overflow: hidden; cursor: pointer; text-align: center; width: clamp(260px, 65vw, 300px); padding: clamp(0.9rem, 2.5vh, 1.2rem) 1.5rem; animation: sorted-flicker 4.5s ease-in-out infinite; }
-#home .menu-item:nth-child(1) { animation-delay: 0s; }
-#home .menu-item:nth-child(2) { animation-delay: 1.5s; }
-#home .menu-item:nth-child(3) { animation-delay: 3s; }
+#home .menu-item { animation-delay: 0s; }
 .menu-item:active { transform: translateY(1px) scale(0.98); }
 .menu-item .text { position: relative; z-index: 2; }
 .content-box { color: #ccc; text-align: center; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 15px; padding: clamp(2rem, 5vw, 3rem); width: 100%; max-width: 600px; margin: auto; display: flex; flex-direction: column; align-items: center; }
@@ -244,7 +334,8 @@ footer { flex-shrink: 0; z-index: 10; text-align: center; padding: 1rem; backgro
 /* --- Hover-Specific Styles for Mouse Users --- */
 @media (hover: hover) and (pointer: fine) {
     .social-links a:hover { transform: scale(1.2); }
-    .menu-item:hover { transform: translateY(-8px) scale(1.05); color: #fff; }
+    .menu-item:not(.glitch-button):hover { transform: translateY(-8px) scale(1.05); color: #fff; }
+    .menu-item.glitch-button:hover { transform: none; } /* Disable hover transform for glitch button */
     .tool-item:hover { background-color: rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
     .overlay-text {
