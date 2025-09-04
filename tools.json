@@ -49,6 +49,14 @@
         ]
     },
     {
+        "name": "(AIO) Red Giant.2025.5.0.7z",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Maxon.Red.Giant.2025.5.0.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
         "name": "7-Zip",
         "href": "https://www.7-zip.org/",
         "tags": [
@@ -88,6 +96,14 @@
         "href": "https://www.mediafire.com/file/6mtrsj1znv364vp/add_end_task_taskbar.reg/file",
         "tags": [
             "REGISTRY"
+        ]
+    },
+    {
+        "name": "Adobe After Effects (Low-End PC)",
+        "href": "https://www.mediafire.com/file/p7n701q8p70balk",
+        "tags": [
+            "LOW-END",
+            "VFX"
         ]
     },
     {
@@ -135,11 +151,11 @@
         ]
     },
     {
-        "name": "Adobe Premiere (Low-End PC)",
+        "name": "Adobe Premiere Pro (Low-End PC)",
         "href": "https://www.mediafire.com/file/g2typnpiw3il2a8",
         "tags": [
-            "VIDEO",
-            "LOW-END"
+            "LOW-END",
+            "VIDEO"
         ]
     },
     {
@@ -150,15 +166,135 @@
         ]
     },
     {
-        "name": "After Effects (Low-End PC)",
-        "href": "https://www.mediafire.com/file/p7n701q8p70balk",
+        "name": "AEScripts - Auto Lip-Sync v1.12",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Auto%20Lip-Sync%20v1.12.000%20%26%20v1.11.000.7z",
         "tags": [
-            "VFX",
-            "LOW-END"
+            "PLUGIN",
+            "VFX"
         ]
     },
     {
-        "name": "AHKdel Discord Script",
+        "name": "AEScripts - Autosway",
+        "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - BeatEdit Bundle v2.2",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/BeatEdit%20Bundle%20v2.2.zip",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Captioneer v1.3.0 for Premiere",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Captioneer%20v1.3.0%20for%20Premiere.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Chromatic Aberration Fast (AE)",
+        "href": "https://www.mediafire.com/file/zcha6cjqfkh2dx7/ChromaticAberration_Fast_%2528AE%2529.zip/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Deekay Tool v1.1.8",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Deekay%20Tool%20v1.1.8.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Deep Glow (old)",
+        "href": "https://www.mediafire.com/file/jmb1vibzfyzrd8l/Deep_Glow.aex/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - FsPlugins Pack (2024-04-14)",
+        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270198907640479837/FsPlugins20240414.rar?ex=685568aa&is=6854172a&hm=a3db1b005550e1f82c63c5488a28b28391931ef81ce5b75605ca773961795a8c&",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - OLM",
+        "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - ReTrack v2.1.3.7z",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/ReTrack%20v2.1.3.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Silence Remover v1.2",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Aescripts%20-%20Silence%20Remover%20v1.2.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Subtitle Pro v2.9.7",
+        "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
+        "tags": [
+            "PLUGIN",
+            "VIDEO"
+        ]
+    },
+    {
+        "name": "AEScripts - Swift Slides v1.0",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/ReTrack%20v2.1.3.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - TextEvo 2",
+        "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - Transmitter for Premiere Pro v1.3.1",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Transmitter%20for%20Premiere%20Pro%20v1.3.1.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AEScripts - YY_Ramp+",
+        "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "AHK del chat Discord Script",
         "href": "https://www.mediafire.com/file/p83qizz58yxjl74/AHK%252Bdel_discord_script.zip/file",
         "tags": [
             "SCRIPT"
@@ -216,9 +352,10 @@
         ]
     },
     {
-        "name": "Autosway (AE Script)",
-        "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
+        "name": "Autokroma bundle 2025.5 CE",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Autokroma%20bundle%202025.5%20CE.7z",
         "tags": [
+            "PLUGIN",
             "VFX"
         ]
     },
@@ -272,6 +409,22 @@
         ]
     },
     {
+        "name": "BorisFX Continuum 2025.5 Adobe v18.5.0 CE",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/BorisFX%20Continuum%202025.5%20Adobe%20v18.5.0%20CE.exe",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "BorisFX Sapphire AE 2025.51",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/BorisFX%20Sapphire%20AE%202025.51.exe",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
         "name": "CapCut 14.5.0",
         "href": "https://www.mediafire.com/file/3t9m051ln8qcs8a/CapCut_14.5.0_%255BMod%255D.apk/file",
         "tags": [
@@ -292,21 +445,6 @@
         "tags": [
             "LOW-END",
             "VIDEO"
-        ]
-    },
-    {
-        "name": "Captioneer v1.3.0",
-        "href": "https://www.mediafire.com/file/d5c1w2slbke0wkk/Captioneer_v1.3.0.rar/file",
-        "tags": [
-            "VIDEO",
-            "UTILITY"
-        ]
-    },
-    {
-        "name": "Chromatic Aberration Fast (AE)",
-        "href": "https://www.mediafire.com/file/zcha6cjqfkh2dx7/ChromaticAberration_Fast_%2528AE%2529.zip/file",
-        "tags": [
-            "VFX"
         ]
     },
     {
@@ -337,14 +475,6 @@
             "VIDEO",
             "AUDIO",
             "VFX"
-        ]
-    },
-    {
-        "name": "Deep Glow (AE)",
-        "href": "https://www.mediafire.com/file/jmb1vibzfyzrd8l/Deep_Glow.aex/file",
-        "tags": [
-            "VFX",
-            "PLUGIN"
         ]
     },
     {
@@ -456,9 +586,10 @@
         ]
     },
     {
-        "name": "Film Impact Effects v25.0.6",
-        "href": "https://www.mediafire.com/file/mq4jiilo72q5gku/Film_Impact_Premium_Video_Effects_v25.0.6_CE_maxeffect.ir.exe/file",
+        "name": "Film Impact Premium Video Effects v25.2.5 CE",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Film%20Impact%20Premium%20Video%20Effects%20v25.2.5%20CE.7z",
         "tags": [
+            "PLUGIN",
             "VFX"
         ]
     },
@@ -491,16 +622,10 @@
         ]
     },
     {
-        "name": "FsPlugins Pack (2024-04-14)",
-        "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270198907640479837/FsPlugins20240414.rar?ex=685568aa&is=6854172a&hm=a3db1b005550e1f82c63c5488a28b28391931ef81ce5b75605ca773961795a8c&",
+        "name": "FXHOME Ignite Pro AE v4.0.8528 CE",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/FXHOME%20Ignite%20Pro%20AE%20v4.0.8528%20CE.7z",
         "tags": [
-            "VFX"
-        ]
-    },
-    {
-        "name": "FXConsole 1.0.5",
-        "href": "https://drive.google.com/file/d/1lCD_jEN8yrcUvNtipWA_eLNRn4F1vZ-r/view?usp=drive_link",
-        "tags": [
+            "PLUGIN",
             "VFX"
         ]
     },
@@ -715,6 +840,14 @@
         ]
     },
     {
+        "name": "NewBlue TotalFX 360",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/NewBlue%20TotalFX%20360%20b250207.exe",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
         "name": "Node.js 22.16.0",
         "href": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-x64.msi",
         "tags": [
@@ -765,13 +898,6 @@
         "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
         "tags": [
             "REGISTRY"
-        ]
-    },
-    {
-        "name": "OLM (AE Script)",
-        "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
-        "tags": [
-            "VFX"
         ]
     },
     {
@@ -998,14 +1124,6 @@
         ]
     },
     {
-        "name": "Subtitle Pro v2.9.7",
-        "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
-        "tags": [
-            "VIDEO",
-            "PLUGIN"
-        ]
-    },
-    {
         "name": "SumatraPDF",
         "href": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
         "tags": [
@@ -1025,13 +1143,6 @@
         "href": "https://www.mediafire.com/file/a6e4tn48p4sk35n/termux-app_v0.118.3%252Bgithub-debug_universal.apk/file",
         "tags": [
             "APK"
-        ]
-    },
-    {
-        "name": "TextEvo 2 (AE Script)",
-        "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
-        "tags": [
-            "VFX"
         ]
     },
     {
@@ -1140,6 +1251,38 @@
         "tags": [
             "APK",
             "UTILITY"
+        ]
+    },
+    {
+        "name": "Video Copilot - FX Console v1.0.5",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20FX%20Console%20v1.0.5.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "Video Copilot - Optical Flares 1.3.8",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20Optical%20Flares%201.3.8%20(170).7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "Video Copilot - ORB v1.0.3",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20ORB%20v1.0.3.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
+        ]
+    },
+    {
+        "name": "Video Copilot - Saber v1.0.40",
+        "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20Saber%20v1.0.40.7z",
+        "tags": [
+            "PLUGIN",
+            "VFX"
         ]
     },
     {
@@ -1263,13 +1406,6 @@
         "href": "https://www.mediafire.com/file/o1k42g10e4dfz1i/yt-dlp-gui-installer.ps1/file",
         "tags": [
             "DOWNLOADER"
-        ]
-    },
-    {
-        "name": "YY_Ramp+",
-        "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
-        "tags": [
-            "VFX"
         ]
     }
 ]
