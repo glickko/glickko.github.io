@@ -50,6 +50,9 @@
         .admin-btn.save { background: rgba(46, 204, 113, 0.2); border-color: rgba(46, 204, 113, 0.5); }
         .admin-btn.danger { background: rgba(231, 76, 60, 0.2); border-color: rgba(231, 76, 60, 0.5); }
         .admin-btn.secondary { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); }
+        .timestamp-container { margin-bottom: 1rem; }
+        .timestamp-container label { display: block; margin-bottom: 0.5rem; color: #aaa; font-size: var(--btn-size); }
+        #last-updated-input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff; padding: 10px; font-size: var(--btn-size); }
 
         .list-container { flex-grow: 1; overflow-y: auto; padding-right: 10px; min-height: 0; }
         .list-container::-webkit-scrollbar { width: 8px; }
@@ -162,6 +165,10 @@
                             </div>
                         </div>
                         <input type="search" id="search-bar" placeholder="Search by name or tag...">
+                        <div class="timestamp-container">
+                            <label for="last-updated-input">Last Updated Timestamp</label>
+                            <input type="text" id="last-updated-input" placeholder="e.g., 3 Sept 2025 - 03.00 PM">
+                        </div>
                         <div class="toolbar"><button id="add-tool-btn" class="admin-btn">Add New Tool</button><button id="save-json-btn" class="admin-btn save">Save & Download JSON</button></div>
                         <div id="tools-list-container" class="list-container"><div class="loading-state">Loading...</div></div>
                     </div>
@@ -211,6 +218,7 @@
                 const toolsContainer = document.getElementById('tools-container');
                 const tagsContainer = document.getElementById('tags-container');
                 const searchBar = document.getElementById('search-bar');
+                const lastUpdatedInput = document.getElementById('last-updated-input');
                 const toolsListContainer = document.getElementById('tools-list-container');
                 const saveJsonBtn = document.getElementById('save-json-btn');
                 const addToolBtn = document.getElementById('add-tool-btn');
@@ -242,7 +250,9 @@
                 const loadTools = async () => {
                     try {
                         const response = await fetch('tools.json?cachebust=' + new Date().getTime());
-                        toolsData = response.ok ? await response.json() : [];
+                        const data = response.ok ? await response.json() : { lastUpdated: '', tools: [] };
+                        toolsData = data.tools || [];
+                        lastUpdatedInput.value = data.lastUpdated || '';
                     } catch (error) { showToast('Error loading tools.json.'); toolsData = []; }
                     renderAll();
                 };
@@ -346,7 +356,11 @@
                 });
                 
                 saveJsonBtn.addEventListener('click', () => {
-                    const jsonString = JSON.stringify(toolsData, null, 4);
+                    const dataToSave = {
+                        lastUpdated: lastUpdatedInput.value,
+                        tools: toolsData
+                    };
+                    const jsonString = JSON.stringify(dataToSave, null, 4);
                     const blob = new Blob([jsonString], { type: 'application/json' });
                     const a = document.createElement('a');
                     a.href = URL.createObjectURL(blob);
