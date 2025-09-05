@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "3 Sept 2025 - 03.00 PM",
+    "lastUpdated": "5 Sept 2025 - 5:20 PM",
     "tools": [
         {
             "name": ".NET Desktop Runtime 10.0",
@@ -888,6 +888,13 @@
             ]
         },
         {
+            "name": "NewPipe (Old YT Vanced)",
+            "href": "https://www.mediafire.com/file/d74afpz2py8wbkh/NewPipe_v0.27.7.apk/file",
+            "tags": [
+                "APK"
+            ]
+        },
+        {
             "name": "Node 7.5.1",
             "href": "https://www.mediafire.com/file/o9bpj0ht1n20sgp/Node_Video_-_After_Effects_Mobile_v7.5.1_%255BMOD%255D.apk/file",
             "tags": [
@@ -1475,6 +1482,13 @@
             "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
             "tags": [
                 "MEDIA"
+            ]
+        },
+        {
+            "name": "YT Vanced Lite (No MicroG)",
+            "href": "https://www.mediafire.com/file/ubyd1e8cbtki7s4/vanced-tube-5-4-80-311.apk/file",
+            "tags": [
+                "APK"
             ]
         },
         {
