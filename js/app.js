@@ -38,12 +38,10 @@ const manageFloatingAssets = async (path) => {
                 const cell = gridCells[index % gridCells.length];
                 const randomTop = Math.random() * (cell.top[1] - cell.top[0]) + cell.top[0];
                 const randomLeft = Math.random() * (cell.left[1] - cell.left[0]) + cell.left[0];
-                const randomDuration = Math.random() * 15 + 15;
-                const randomDelay = Math.random() * 5;
                 return `
                     <div class="floating-asset-wrapper" 
                          data-filename="${filename}" 
-                         style="top: ${randomTop}%; left: ${randomLeft}%; animation-duration: ${randomDuration}s; animation-delay: ${randomDelay}s;">
+                         style="top: ${randomTop}%; left: ${randomLeft}%;">
                         <img src="${src}" class="floating-asset-image" alt="Floating Asset" style="--glow-color: ${glowColor};">
                         <span class="asset-label"></span>
                     </div>
@@ -51,6 +49,7 @@ const manageFloatingAssets = async (path) => {
             }).join('');
             const floatingAssetContainerHTML = `<div class="floating-asset-container">${floatingAssetsHTML}</div>`;
             document.body.insertAdjacentHTML('afterbegin', floatingAssetContainerHTML);
+            
             const assetWrappers = document.querySelectorAll('.floating-asset-wrapper');
             const dialogTrackers = {};
             assetWrappers.forEach(wrapper => {
@@ -58,7 +57,7 @@ const manageFloatingAssets = async (path) => {
                 const filename = wrapper.dataset.filename;
                 const dialogList = dialogsByFile[filename];
                 if (!label || !dialogList || dialogList.length === 0) return;
-                dialogTrackers[filename] = { currentIndex: 0 };
+                dialogTrackers[filename] = { currentIndex: 0, intervalId: null };
                 const updateLabelSequentially = () => {
                     const tracker = dialogTrackers[filename];
                     const dialogText = dialogList[tracker.currentIndex];
@@ -66,8 +65,23 @@ const manageFloatingAssets = async (path) => {
                     tracker.currentIndex = (tracker.currentIndex + 1) % dialogList.length;
                 };
                 updateLabelSequentially();
-                setInterval(updateLabelSequentially, Math.random() * 2000 + 3000);
+                dialogTrackers[filename].intervalId = setInterval(updateLabelSequentially, 4000);
             });
+
+            let currentAssetIndex = 0;
+            const showNextAsset = () => {
+                assetWrappers.forEach(wrapper => wrapper.classList.remove('active'));
+                if (assetWrappers.length > 0) {
+                    assetWrappers[currentAssetIndex].classList.add('active');
+                    currentAssetIndex = (currentAssetIndex + 1) % assetWrappers.length;
+                }
+            };
+
+            if (assetWrappers.length > 0) {
+                showNextAsset();
+                setInterval(showNextAsset, 5000); 
+            }
+
         } catch (error) {
             console.error("Error setting up floating assets:", error);
         }
