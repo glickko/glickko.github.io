@@ -298,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
+        const lastUpdatedContainer = document.getElementById('last-updated-container');
         if (!toolsList) return;
 
         // Add loading message
@@ -306,8 +307,13 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
-            const toolsData = await response.json();
+            const data = await response.json();
+            const toolsData = data.tools;
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
+
+            if (lastUpdatedContainer && data.lastUpdated) {
+                lastUpdatedContainer.textContent = `Glickko Last Recycle AT ${data.lastUpdated}`;
+            }
 
             const toolItemsHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
