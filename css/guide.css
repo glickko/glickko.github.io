@@ -88,7 +88,7 @@
 }
 
 .guide-dialog-text {
-    font-size: 13px;
+    font-size: 9px;
     line-height: 1.5;
     color: #eee;
     margin: 0;
@@ -117,6 +117,6 @@
     }
 
     .guide-dialog-text {
-        font-size: 12px;
+        font-size: 9px;
     }
 }
