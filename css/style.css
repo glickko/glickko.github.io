@@ -192,7 +192,7 @@ nav { display: inline-flex; flex-direction: column; justify-content: center; ali
 .social-links a { font-size: 1.2rem; color: #ccc; text-decoration: none; transition: all 0.3s ease; margin: 0 10px; }
 .social-links a:active { transform: scale(0.95); }
 .subheader-text { margin-top: 0.75rem; color: rgba(255, 255, 255, 0.5); font-weight: bold; text-transform: uppercase; white-space: nowrap; letter-spacing: 2px; font-size: clamp(0.6rem, 2.5vw, 0.9rem); }
-#last-updated-container { margin-top: 0.1rem; color: rgba(255, 255, 255, 0.4); font-size: clamp(0.4rem, 1.5vw, 0.5rem); font-weight: italic; letter-spacing: 0.1px; }
+#last-updated-container { margin-top: 0.4rem; color: rgba(255, 255, 255, 0.4); font-size: clamp(0.4rem, 1.5vw, 0.5rem); font-weight: bold; letter-spacing: 2px; }
 
 /* --- Main Content (STABLE & FLEXIBLE LAYOUT) --- */
 main { flex-grow: 1; z-index: 10; transition: opacity 0.4s ease-in-out; width: 100%; display: flex; align-items: center; justify-content: center; padding: 0rem 0.5rem; position: relative; overflow: hidden; }
@@ -218,7 +218,7 @@ main.fade-in { opacity: 1; }
 .tool-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; background-color: rgba(255, 255, 255, 0.05); border-radius: 8px; text-decoration: none; color: #ccc; transition: all 0.3s ease; }
 .tool-item.hidden { display: none; }
 .tool-item:active { transform: translateY(1px); }
-.tool-item .tool-name { font-size: 0.6rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 1rem; }
+.tool-item .tool-name { font-size: 0.7rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 1rem; }
 .tool-tag, .tool-tags-container { font-size: 0.3rem; background-color: rgba(255, 255, 255, 0.15); color: #fff; padding: 0.1rem 0.3rem; border-radius: 5px; font-weight: bold; letter-spacing: 0.5px; flex-shrink: 0; }
 .tool-tags-container { display: flex; gap: 0.3rem; background: none; padding: 0; }
 .tools-list::-webkit-scrollbar { width: 8px; } .tools-list::-webkit-scrollbar-track { background: transparent; } .tools-list::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.2); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; } .tools-list::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.4); }
