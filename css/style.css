@@ -56,10 +56,17 @@ body::after {
 .floating-asset-wrapper {
     position: absolute;
     opacity: 0;
+    transition: opacity 1s ease-in-out;
     animation-name: ambient-bobbing;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    animation-duration: 20s;
 }
+
+.floating-asset-wrapper.active {
+    opacity: 0.9;
+}
+
 .floating-asset-image {
     width: 100%;
     height: auto;
@@ -83,13 +90,11 @@ body::after {
 }
 
 @keyframes ambient-bobbing {
-    0%   { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
-    10%  { opacity: 0.9; }
+    0%   { transform: translate(0, 0) rotate(-5deg); }
     25%  { transform: translate(2vw, 2vh) rotate(5deg); }
-    50%  { transform: translate(-2vw, -2vh) rotate(-8deg); opacity: 0.9; }
+    50%  { transform: translate(-2vw, -2vh) rotate(-8deg); }
     75%  { transform: translate(1vw, -1vh) rotate(3deg); }
-    90%  { opacity: 0; }
-    100% { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
+    100% { transform: translate(0, 0) rotate(-5deg); }
 }
 
 @keyframes pulse-glow {
@@ -98,14 +103,6 @@ body::after {
 }
 
 .floating-asset-wrapper { width: clamp(60px, 8vw, 120px); }
-.floating-asset-wrapper.asset-1 { top: 10%; left: 15%; animation-duration: 20s; animation-delay: 0s; }
-.floating-asset-wrapper.asset-2 { top: 20%; left: 80%; animation-duration: 25s; animation-delay: 3s; }
-.floating-asset-wrapper.asset-3 { top: 70%; left: 5%; animation-duration: 18s; animation-delay: 5s; }
-.floating-asset-wrapper.asset-4 { top: 80%; left: 90%; animation-duration: 22s; animation-delay: 8s; }
-.floating-asset-wrapper.asset-5 { top: 50%; left: 50%; animation-duration: 28s; animation-delay: 1s; }
-.floating-asset-wrapper.asset-6 { top: 5%; left: 45%; animation-duration: 16s; animation-delay: 10s; }
-.floating-asset-wrapper.asset-7 { top: 85%; left: 25%; animation-duration: 24s; animation-delay: 6s; }
-.floating-asset-wrapper.asset-8 { top: 60%; left: 75%; animation-duration: 21s; animation-delay: 4s; }
 
 .floating-asset-image { animation-delay: inherit; }
 
