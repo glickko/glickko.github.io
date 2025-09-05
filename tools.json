@@ -325,8 +325,15 @@
         ]
     },
     {
-        "name": "Alight Motion 5.0.272",
-        "href": "https://www.mediafire.com/file/9czj57yo7nhull2/Alight_Motion_5.0.272.1028383_%255BMod%255D.apk/file",
+        "name": "Alight Motion 5.0.272 RE",
+        "href": "https://www.mediafire.com/file/pbjgfogmi251g47/Alight_Motion_Premium_Support_5MB_5.0.272.10283_%255BMOD%255D.apk/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "Alight Motion 5.0.277 RE",
+        "href": "https://www.mediafire.com/file/p6aulwtvmoiyw8r/Alight_Motion_5.0.277_Premium_fix_force_update_disabled_av_%255BMOD%255D.apk/file",
         "tags": [
             "APK"
         ]
@@ -543,9 +550,17 @@
         ]
     },
     {
+        "name": "Discord Portable",
+        "href": "https://github.com/portapps/discord-portable/releases",
+        "tags": [
+            "SOCIAL"
+        ]
+    },
+    {
         "name": "DiscordBotClient",
         "href": "https://github.com/aiko-chan-ai/DiscordBotClient/releases/tag/v3.7.2",
         "tags": [
+            "SOCIAL",
             "UTILITY"
         ]
     },
@@ -841,13 +856,6 @@
         ]
     },
     {
-        "name": "Microsoft Store",
-        "href": "https://cdn.discordapp.com/attachments/1258829354700636160/1258832645572399155/Microsoft_Store.msix?ex=68559642&is=685444c2&hm=32a6a25c0761dedc6771187b18e52264dafbccdbd4bfd2cd956926b6898e620b&",
-        "tags": [
-            "SYSTEM"
-        ]
-    },
-    {
         "name": "MyPublicWiFi",
         "href": "https://www.mediafire.com/file/1t4vbz2x6l4vc90/MyPublicWiFi.exe/file",
         "tags": [
@@ -878,7 +886,7 @@
         ]
     },
     {
-        "name": "Node",
+        "name": "Node 7.5.1",
         "href": "https://www.mediafire.com/file/o9bpj0ht1n20sgp/Node_Video_-_After_Effects_Mobile_v7.5.1_%255BMOD%255D.apk/file",
         "tags": [
             "APK"
@@ -953,7 +961,14 @@
         ]
     },
     {
-        "name": "Picsart v27.9.5",
+        "name": "PicsArt 18.7.3 Lite",
+        "href": "https://www.mediafire.com/file/lapodajl6thrxyc/PicsArt_18.7.3_Lite_%255BMOD%255D.apk.7z/file",
+        "tags": [
+            "APK"
+        ]
+    },
+    {
+        "name": "PicsArt v27.9.5",
         "href": "https://www.mediafire.com/file/xqq3gyjx8w7wtu2/Picsart_AI_Photo_Video_Editor_v27.9.5_%255BMOD%255D.apk/file",
         "tags": [
             "APK"
@@ -979,13 +994,6 @@
         "tags": [
             "UTILITY",
             "SYSTEM"
-        ]
-    },
-    {
-        "name": "Psoft Anime (AE Script)",
-        "href": "https://www.mediafire.com/file/dslkf1vle1l2sgg/Psoft-anime_%2528AE%2529.rar/file",
-        "tags": [
-            "VFX"
         ]
     },
     {
@@ -1399,13 +1407,6 @@
         "href": "https://www.mediafire.com/file/sspk8acg8duqjui/VSCodium-Disable.reg/file",
         "tags": [
             "REGISTRY"
-        ]
-    },
-    {
-        "name": "WhatsApp Desktop 2.2518.3.0",
-        "href": "https://www.mediafire.com/file/gxm39rk8ohcttec/5319275A.WhatsAppDesktop_2.2518.3.0_neutral_%257E_cv1g1gvanyjgm.Msixbundle/file",
-        "tags": [
-            "MESSAGING"
         ]
     },
     {
