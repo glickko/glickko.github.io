@@ -1108,13 +1108,6 @@
             ]
         },
         {
-            "name": "RE:VisionFX Effections 23.08",
-            "href": "https://www.mediafire.com/file/xu9dv5swh8zbm39/RE-VisionFX_Effections_Plus_23.08_CE.exe/file",
-            "tags": [
-                "VFX"
-            ]
-        },
-        {
             "name": "Reactor Installer",
             "href": "https://www.mediafire.com/file/yzdhm9zvrplnywh/Reactor-Installer.lua/file",
             "tags": [
@@ -1170,6 +1163,22 @@
             "tags": [
                 "DRV PLUGIN",
                 "PLUGIN"
+            ]
+        },
+        {
+            "name": "Revision FX Effections 23.08",
+            "href": "https://www.mediafire.com/file/xu9dv5swh8zbm39/RE-VisionFX_Effections_Plus_23.08_CE.exe/file",
+            "tags": [
+                "PLUGIN",
+                "VFX"
+            ]
+        },
+        {
+            "name": "Revision FX Effections Plus 25.08",
+            "href": "https://huggingface.co/glickko/editof/resolve/main/RevisionFX%20Effections%20Plus%2025.08%20(x64).7z",
+            "tags": [
+                "PLUGIN",
+                "VFX"
             ]
         },
         {
