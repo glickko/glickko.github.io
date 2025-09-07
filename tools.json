@@ -66,6 +66,13 @@
             ]
         },
         {
+            "name": "[CONFIG] TOR Glickko",
+            "href": "http://simp.ly/p/9N3Hfn",
+            "tags": [
+                "NETWORK"
+            ]
+        },
+        {
             "name": "[PRESET] Glickko After Effect Presets",
             "href": "https://drive.google.com/file/d/1yK_nw9DKMQbv4cOzp7WuLwPNEr_W-LOF/view?usp=sharing",
             "tags": [
@@ -452,6 +459,13 @@
             ]
         },
         {
+            "name": "BlueStack MOD",
+            "href": "https://bstweaker.ru/",
+            "tags": [
+                "EMULATOR"
+            ]
+        },
+        {
             "name": "Boris FX Continuum 2025 (AE+Premiere)",
             "href": "https://seyarabata.com/67c4b8eaad7ec",
             "tags": [
@@ -772,6 +786,13 @@
             ]
         },
         {
+            "name": "Google Android Emulator",
+            "href": "https://developer.android.com/games/playgames/emulator",
+            "tags": [
+                "EMULATOR"
+            ]
+        },
+        {
             "name": "Hitomi Downloader",
             "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
             "tags": [
@@ -863,6 +884,13 @@
             "href": "https://www.mediafire.com/file/czz9mrt2t43pzo7/Laplink_PCmover_Professional_11.0_1004.0_x86_%255B2017%252C_Multi_%252B_RUS%255D.torrent/file",
             "tags": [
                 "UTILITY"
+            ]
+        },
+        {
+            "name": "LD Player MOD",
+            "href": "https://d8bb.blogspot.com/2023/11/blue-ldplayer.html",
+            "tags": [
+                "EMULATOR"
             ]
         },
         {
@@ -1011,6 +1039,13 @@
             ]
         },
         {
+            "name": "Nox Portable",
+            "href": "https://archive.org/download/bare-nox/BareNox.zip",
+            "tags": [
+                "EMULATOR"
+            ]
+        },
+        {
             "name": "NVIDIA Broadcast 1.4.0.39",
             "href": "https://international.download.nvidia.com/Windows/broadcast/1.4.0.39/NVIDIA_Broadcast_v1.4.0.39.exe",
             "tags": [
@@ -1047,6 +1082,13 @@
             "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
             "tags": [
                 "REGISTRY"
+            ]
+        },
+        {
+            "name": "Onion Fruits [TOR Server]",
+            "href": "https://github.com/dragonfruitnetwork/onionfruit/releases",
+            "tags": [
+                "NETWORK"
             ]
         },
         {
