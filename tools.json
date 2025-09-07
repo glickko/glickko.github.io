@@ -538,10 +538,18 @@
             ]
         },
         {
+            "name": "CapCut 15.5.0",
+            "href": "https://www.mediafire.com/file/bcriaqbfva7team/Capcut_15.5.0_%255BMOD%255D%252BENABLE_CREATOR_MODE%252BLOGIN_IN_EMAIL_MODE_FOR_AI_ASSETS.apk/file",
+            "tags": [
+                "APK"
+            ]
+        },
+        {
             "name": "CapCut 3.9 Lite",
             "href": "https://www.mediafire.com/file/o15cbpshwf61ucj/CapCut-V3.9.0_LITE-%255BMOD%255D_%252B_LOGIN_FOR_AI_ASSETS.apk/file",
             "tags": [
-                "APK"
+                "APK",
+                "LOW-END"
             ]
         },
         {
@@ -861,8 +869,7 @@
             "name": "Kreate",
             "href": "https://f-droid.org/repo/me.knighthat.kreate_102.apk",
             "tags": [
-                "APK",
-                "GRAPHICS"
+                "APK"
             ]
         },
         {
@@ -1011,6 +1018,13 @@
             ]
         },
         {
+            "name": "Node 6.56.1",
+            "href": "https://www.mediafire.com/file/8i7v9o04agoy071/NodeVideo_Pro_v6.56.1_537_Mod.apk/file",
+            "tags": [
+                "APK"
+            ]
+        },
+        {
             "name": "Node 7.5.1",
             "href": "https://www.mediafire.com/file/o9bpj0ht1n20sgp/Node_Video_-_After_Effects_Mobile_v7.5.1_%255BMOD%255D.apk/file",
             "tags": [
@@ -1114,7 +1128,7 @@
             ]
         },
         {
-            "name": "PicsArt v27.9.5",
+            "name": "PicsArt 27.9.5",
             "href": "https://www.mediafire.com/file/xqq3gyjx8w7wtu2/Picsart_AI_Photo_Video_Editor_v27.9.5_%255BMOD%255D.apk/file",
             "tags": [
                 "APK"
@@ -1147,6 +1161,13 @@
             "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
             "tags": [
                 "DEVELOPMENT"
+            ]
+        },
+        {
+            "name": "Rarevision Camcorder",
+            "href": "https://www.mediafire.com/file/fo5faf714jk4re3/Rarevision_VHS_-_Retro_80s_Cam_v1.6.8.apk/file",
+            "tags": [
+                "APK"
             ]
         },
         {
@@ -1243,6 +1264,13 @@
             "tags": [
                 "AI",
                 "VIDEO"
+            ]
+        },
+        {
+            "name": "Root Explorer",
+            "href": "https://www.mediafire.com/file/24a39o9p1z3de4t/RootExplorer.apk/file",
+            "tags": [
+                "APK"
             ]
         },
         {
