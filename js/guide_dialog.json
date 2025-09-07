@@ -26,11 +26,12 @@
       },
       {
         "char": "orange.png",
-        "text": "'.apk' files is android app just install it."
+        "text": "'.apk' files is android app just install it but ARM version will be random, glickko put it in random version."
       },
       {
         "char": "gray.png",
         "text": ".jsx or related vfx files, IYK-YK"
       }
     ]
+
   }
