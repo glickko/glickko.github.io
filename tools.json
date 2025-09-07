@@ -208,6 +208,14 @@
             ]
         },
         {
+            "name": "AEScripts - Color Vibrance",
+            "href": "https://huggingface.co/glickko/editof/resolve/main/Vibrance.aex",
+            "tags": [
+                "PLUGIN",
+                "VFX"
+            ]
+        },
+        {
             "name": "AEScripts - Deekay Tool v1.1.8",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Deekay%20Tool%20v1.1.8.7z",
             "tags": [
@@ -250,6 +258,14 @@
         {
             "name": "AEScripts - Projection 3D V5",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Aescripts%20Projection%203D%20V5%20%5BFileCR%5D.7z",
+            "tags": [
+                "PLUGIN",
+                "VFX"
+            ]
+        },
+        {
+            "name": "AEScripts - Quick Chromatic Abberation",
+            "href": "https://huggingface.co/glickko/editof/resolve/main/QCA_v3.2.zip",
             "tags": [
                 "PLUGIN",
                 "VFX"
@@ -321,7 +337,7 @@
         },
         {
             "name": "AEScripts - YY_Ramp+",
-            "href": "https://www.mediafire.com/file/tcyelblrhmp0xp1/YY_Ramp%252B.aex/file",
+            "href": "https://huggingface.co/glickko/editof/resolve/main/YY_Ramp%2B.aex",
             "tags": [
                 "PLUGIN",
                 "VFX"
