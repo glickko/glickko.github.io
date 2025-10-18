@@ -1,0 +1,163 @@
+/*
+ * [XYZ SYNERGY] - VERSI TOGGLE KECIL
+ * FILE: css/shoutbox.css
+ * DESKRIPSI: Widget floating kecil dengan tombol expand/collapse.
+*/
+
+/* Kontainer utama (tidak berubah) */
+#xyz-shoutbox-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px; /* Jarak dikurangi sedikit */
+    pointer-events: none;
+}
+
+/* Tombol Ikon Toggle (DIPERKECIL) */
+#xyz-shoutbox-toggle {
+    width: 40px;  /* <<< Ukuran diperkecil */
+    height: 40px; /* <<< Ukuran diperkecil */
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem; /* <<< Ikon diperkecil */
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Shadow disesuaikan */
+    pointer-events: all;
+    animation: xyz-shoutbox-fade-in 0.5s ease-out 1s forwards;
+    opacity: 0;
+}
+
+@keyframes xyz-shoutbox-fade-in {
+    from { opacity: 0; transform: translateY(15px); } /* Jarak fade disesuaikan */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#xyz-shoutbox-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Logika ikon (tidak berubah) */
+#xyz-shoutbox-toggle .icon-open { display: inline-block; }
+#xyz-shoutbox-toggle .icon-close { display: none; }
+#xyz-shoutbox-container.expanded #xyz-shoutbox-toggle .icon-open { display: none; }
+#xyz-shoutbox-container.expanded #xyz-shoutbox-toggle .icon-close { display: inline-block; }
+
+
+/* Box Chat (DIPERKECIL) */
+#xyz-shoutbox-widget {
+    width: 250px; /* <<< Lebar diperkecil */
+    max-width: 85vw; /* Disesuaikan untuk mobile */
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px; /* Radius disesuaikan */
+    padding: 0.8rem; /* Padding dikurangi */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Jarak internal dikurangi */
+    
+    /* Logika Sembunyi/Tampil (tidak berubah) */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    pointer-events: none;
+}
+
+#xyz-shoutbox-container.expanded #xyz-shoutbox-widget {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+
+/* --- Style Internal Box (Ukuran Font Disesuaikan) --- */
+
+#shoutbox-messages {
+    height: 180px; /* <<< Tinggi diperkecil */
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px; /* Radius disesuaikan */
+    padding: 8px; /* Padding dikurangi */
+    display: flex;
+    flex-direction: column-reverse;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+#shoutbox-messages::-webkit-scrollbar { width: 5px; } /* Scrollbar lebih tipis */
+#shoutbox-messages::-webkit-scrollbar-track { background: transparent; }
+#shoutbox-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Styling untuk teks pesan agar lebih kecil */
+#shoutbox-messages p {
+    font-size: 0.75rem; /* <<< Font pesan diperkecil */
+    line-height: 1.4;
+    color: #e0e0e0; 
+    margin: 0 0 6px 0; 
+    padding: 5px 8px; /* Padding disesuaikan */
+    background: rgba(255,255,255,0.05); 
+    border-radius: 4px; /* Radius disesuaikan */
+    word-wrap: break-word;
+}
+
+
+#shoutbox-loading {
+    color: #888;
+    text-align: center;
+    margin: auto;
+    font-style: italic;
+    font-size: 0.8rem; /* Font loading diperkecil */
+}
+
+#shoutbox-form { display: flex; gap: 6px; } /* Jarak dikurangi */
+
+#shoutbox-input {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 7px; /* Padding dikurangi */
+    border-radius: 6px; /* Radius disesuaikan */
+    font-size: 0.75rem; /* <<< Font input diperkecil */
+    transition: all 0.2s ease;
+}
+#shoutbox-input::placeholder { color: #777; }
+
+#shoutbox-send {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 0 0.8rem; /* Padding dikurangi */
+    border-radius: 6px; /* Radius disesuaikan */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75rem; /* <<< Font tombol diperkecil */
+    transition: background-color 0.2s ease;
+}
+
+#shoutbox-send:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#shoutbox-send:disabled,
+#shoutbox-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.1);
+}
