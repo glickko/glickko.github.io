@@ -5,16 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glickko Archives</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="stylesheet" href="css/shoutbox.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="e5e06a90-e70b-4872-86d5-ecebb3f0253b"></script>
-    
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-    
     <script src="js/layout.js" defer></script>
 </head>
 <body>
@@ -32,27 +24,7 @@
         <section id="home">
             <a href="tools.html" class="menu-item glitch-button" data-text="RECYCLE BIN"><span class="text"></span></a>
         </section>
-
     </main>
     <script src="js/app.js" defer></script>
-
-    <div id="xyz-shoutbox-container">
-        
-        <div id="xyz-shoutbox-widget">
-            <div id="shoutbox-messages">
-                <p id="shoutbox-loading">Connecting to XYZ Hub...</p>
-            </div>
-            <form id="shoutbox-form">
-                <input type="text" id="shoutbox-input" placeholder="Connecting..." maxlength="300" disabled>
-                <button type="submit" id="shoutbox-send" disabled>SEND</button>
-            </form>
-        </div>
-
-        <button id="xyz-shoutbox-toggle" aria-label="Toggle Shoutbox">
-            <i class="fa-solid fa-comments icon-open"></i>
-            <i class="fa-solid fa-xmark icon-close"></i>
-        </button>
-
-    </div>
-    </body>
+</body>
 </html>
