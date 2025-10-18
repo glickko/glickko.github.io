@@ -411,31 +411,31 @@ const initializeShoutbox = () => {
    // Di dalam initializeShoutbox()
 
 // Otentikasi Anonim (DENGAN LOGGING)
-const signIn = async () => {
-    console.log("XYZ Hub: Attempting anonymous sign-in..."); // LOG BARU
-    try {
-        // Coba sign in hanya jika belum ada user
-        if (!auth.currentUser) { 
-            console.log("XYZ Hub: No current user, calling signInAnonymously..."); // LOG BARU
-            await auth.signInAnonymously();
-            console.log('XYZ Hub: Signed in anonymously.', auth.currentUser.uid); // LOG LAMA
-        } else {
-             console.log('XYZ Hub: Already signed in.', auth.currentUser.uid); // LOG LAMA
+    const signIn = async () => {
+        console.log("XYZ Hub: Attempting anonymous sign-in..."); // LOG BARU
+        try {
+            // Coba sign in hanya jika belum ada user
+            if (!auth.currentUser) { 
+                console.log("XYZ Hub: No current user, calling signInAnonymously..."); // LOG BARU
+                await auth.signInAnonymously();
+                console.log('XYZ Hub: Signed in anonymously.', auth.currentUser.uid); // LOG LAMA
+            } else {
+                console.log('XYZ Hub: Already signed in.', auth.currentUser.uid); // LOG LAMA
+            }
+
+            // Jika sampai sini, login berhasil
+            console.log("XYZ Hub: Sign-in process successful."); // LOG BARU
+            messageInput.disabled = false;
+            sendButton.disabled = false;
+            messageInput.placeholder = "Type your anonymous message...";
+            listenForMessages();
+
+        } catch (error) {
+            // Jika gagal, ini akan berjalan
+            console.error("XYZ Hub: Anonymous sign-in failed inside CATCH block.", error); // LOG DIPERBARUI
+            if (loadingText) loadingText.textContent = "Error: Could not connect (check console)."; // Pesan diperbarui
         }
-
-        // Jika sampai sini, login berhasil
-        console.log("XYZ Hub: Sign-in process successful."); // LOG BARU
-        messageInput.disabled = false;
-        sendButton.disabled = false;
-        messageInput.placeholder = "Type your anonymous message...";
-        listenForMessages();
-
-    } catch (error) {
-        // Jika gagal, ini akan berjalan
-        console.error("XYZ Hub: Anonymous sign-in failed inside CATCH block.", error); // LOG DIPERBARUI
-        if (loadingText) loadingText.textContent = "Error: Could not connect (check console)."; // Pesan diperbarui
-    }
-};
+    };
 
     // Mengirim Pesan
     const sendMessage = async (e) => {
