@@ -1,4 +1,6 @@
 // js/app.js
+// [SALIN SEMUA INI, TIMPA FILE LAMA ANDA]
+// VERSI: Hanya tampil di Homepage
 
 const manageFloatingAssets = async (path) => {
     const existingContainer = document.querySelector('.floating-asset-container');
@@ -305,30 +307,191 @@ const managePortfolioConvo = async (path) => {
     }
 };
 
+// ▼▼▼ FUNGSI SHOUTBOX (DENGAN LOGIKA TOGGLE & CEK HOMEPAGE) ▼▼▼
+const initializeShoutbox = () => {
+
+    // ▼▼▼ KONDISI BARU: HANYA JALANKAN DI HOMEPAGE ▼▼▼
+    const currentPath = window.location.pathname;
+    const isHomepage = currentPath.endsWith('/') || currentPath.endsWith('index.html') || currentPath === '';
+    
+    if (!isHomepage) {
+        // Jika bukan homepage, jangan lakukan apa-apa
+        // Hapus juga elemen shoutbox jika ada (untuk SPA)
+        const existingContainer = document.getElementById('xyz-shoutbox-container');
+        if (existingContainer) existingContainer.remove();
+        return; 
+    }
+    // ▲▲▲ AKHIR KONDISI HOMEPAGE ▲▲▲
+
+    // Cek jika elemen sudah ada (mungkin karena SPA reload cepat)
+    if (document.getElementById('xyz-shoutbox-container')) {
+        // Kontainer sudah ada, ambil elemennya saja
+        const shoutboxContainer = document.getElementById('xyz-shoutbox-container');
+        const toggleButton = document.getElementById('xyz-shoutbox-toggle');
+
+        // Pastikan event listener toggle hanya ditambahkan sekali
+        if (toggleButton && !toggleButton.dataset.listenerAttached) {
+             toggleButton.addEventListener('click', () => {
+                shoutboxContainer.classList.toggle('expanded');
+             });
+             toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
+        }
+        // Jika sudah ada, jangan inisialisasi Firebase lagi
+        return; 
+    }
+
+    // --- Jika belum ada, buat elemen HTML dan inisialisasi Firebase ---
+    
+    // Buat HTML untuk widget shoutbox (jika belum ada)
+    const shoutboxHTML = `
+        <div id="xyz-shoutbox-container">
+            <div id="xyz-shoutbox-widget">
+                <div id="shoutbox-messages">
+                    <p id="shoutbox-loading">Connecting to XYZ Hub...</p>
+                </div>
+                <form id="shoutbox-form">
+                    <input type="text" id="shoutbox-input" placeholder="Connecting..." maxlength="300" disabled>
+                    <button type="submit" id="shoutbox-send" disabled>SEND</button>
+                </form>
+            </div>
+            <button id="xyz-shoutbox-toggle" aria-label="Toggle Shoutbox">
+                <i class="fa-solid fa-comments icon-open"></i>
+                <i class="fa-solid fa-xmark icon-close"></i>
+            </button>
+        </div>
+    `;
+    // Tambahkan HTML ke body
+    document.body.insertAdjacentHTML('beforeend', shoutboxHTML);
+
+    // --- Ambil elemen yang baru ditambahkan ---
+    const shoutboxContainer = document.getElementById('xyz-shoutbox-container');
+    const toggleButton = document.getElementById('xyz-shoutbox-toggle');
+
+    // KONFIGURASI FIREBASE ANDA
+    const firebaseConfig = {
+        apiKey: "AIzaSyDTSNHTgMOF3Mt1ANdX0zHWmtFWxf2Hg",
+        authDomain: "glickko-shoutbox.firebaseapp.com",
+        databaseURL: "https://glickko-shoutbox-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "glickko-shoutbox",
+        storageBucket: "glickko-shoutbox.appspot.com",
+        messagingSenderId: "705260113061",
+        appId: "1:705260113061:web:2d7f614916bc45e974114c",
+        measurementId: "G-S1GR3TGC87"
+    };
+
+    // Inisialisasi Aplikasi Firebase
+    let app;
+    // Cek lagi karena mungkin sudah diinisialisasi di load sebelumnya
+    if (!firebase.apps.length) { 
+        app = firebase.initializeApp(firebaseConfig);
+    } else {
+        app = firebase.app();
+    }
+    
+    const auth = firebase.auth();
+    const database = firebase.database();
+    const messagesRef = database.ref('messages');
+
+    // Ambil Elemen DOM Internal
+    const messagesBox = document.getElementById('shoutbox-messages');
+    const loadingText = document.getElementById('shoutbox-loading');
+    const messageForm = document.getElementById('shoutbox-form');
+    const messageInput = document.getElementById('shoutbox-input');
+    const sendButton = document.getElementById('shoutbox-send');
+
+    // ▼▼▼ LOGIKA TOGGLE BARU ▼▼▼
+    if (toggleButton && !toggleButton.dataset.listenerAttached) {
+        toggleButton.addEventListener('click', () => {
+            shoutboxContainer.classList.toggle('expanded');
+        });
+        toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
+    }
+
+    // Otentikasi Anonim
+    const signIn = async () => {
+        try {
+            // Coba sign in hanya jika belum ada user
+            if (!auth.currentUser) { 
+                await auth.signInAnonymously();
+                console.log('XYZ Hub: Signed in anonymously.', auth.currentUser.uid);
+            } else {
+                 console.log('XYZ Hub: Already signed in.', auth.currentUser.uid);
+            }
+            messageInput.disabled = false;
+            sendButton.disabled = false;
+            messageInput.placeholder = "Type your anonymous message...";
+            listenForMessages();
+        } catch (error) {
+            console.error("XYZ Hub: Anonymous sign-in failed.", error);
+            if (loadingText) loadingText.textContent = "Error: Could not connect to chat hub.";
+        }
+    };
+
+    // Mengirim Pesan
+    const sendMessage = async (e) => {
+        e.preventDefault();
+        const content = messageInput.value.trim();
+        
+        if (content.length > 0 && auth.currentUser) {
+            const message = {
+                content: content,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            };
+            try {
+                await messagesRef.push(message);
+                messageInput.value = '';
+            } catch (error) {
+                console.error("XYZ Hub: Failed to send message.", error);
+            }
+        }
+    };
+
+    // Mendengarkan Pesan (Real-time)
+    const listenForMessages = () => {
+        // Hapus listener lama jika ada (penting untuk SPA)
+        messagesRef.limitToLast(100).off(); 
+        
+        messagesRef.limitToLast(100).on('child_added', (snapshot) => {
+            if (loadingText && loadingText.style.display !== 'none') {
+                loadingText.style.display = 'none';
+            }
+            const message = snapshot.val();
+            if (message && message.content) {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = message.content;
+                messageElement.style.cssText = "color: #e0e0e0; margin: 0 0 8px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 6px; word-wrap: break-word;";
+                messagesBox.prepend(messageElement);
+            }
+        });
+    };
+
+    // Jalankan Modul
+    messageForm.addEventListener('submit', sendMessage);
+    signIn();
+};
+// ▲▲▲ AKHIR FUNGSI SHOUTBOX ▲▲▲
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
     
     const initializeToolsPage = async () => {
+        // ... (kode initializeToolsPage tidak berubah) ...
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         const lastUpdatedContainer = document.getElementById('last-updated-container');
         if (!toolsList) return;
-
-        // Add loading message
         toolsList.innerHTML = `<p class="loading-text">Loading Tools...</p>`;
-
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
             const data = await response.json();
             const toolsData = data.tools;
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
-
             if (lastUpdatedContainer && data.lastUpdated) {
                 lastUpdatedContainer.textContent = `Glickko Last Recycle AT ${data.lastUpdated}`;
             }
-
             const toolItemsHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 return `
@@ -338,10 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 `;
             }).join('');
-            
-            // Replace loading message with content
             toolsList.innerHTML = toolItemsHTML;
-
             const toolItems = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
@@ -366,13 +526,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initializePortfolioPage = async () => {
+        // ... (kode initializePortfolioPage tidak berubah) ...
         const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
         if (!portfolioGrid) return;
-
-        // Add loading message
         portfolioGrid.innerHTML = `<p class="loading-text">Loading Portfolio...</p>`;
-
         try {
             const response = await fetch('portfolio.json');
             if (!response.ok) throw new Error('Network response was not ok for portfolio.json');
@@ -410,11 +568,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             });
-
-            // Replace loading message with content
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
-            
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const modals = document.querySelectorAll('.modal');
@@ -439,19 +594,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
-
             modals.forEach(modal => {
                 const handleClose = () => {
                     modal.style.display = 'none';
                     body.style.overflow = 'auto';
                     managePortfolioConvo(window.location.pathname);
                 };
-
                 const closeBtn = modal.querySelector('.modal-close');
                 if (closeBtn) {
                     closeBtn.addEventListener('click', handleClose);
                 }
-
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal && !e.target.closest('.modal-content')) {
                         handleClose();
@@ -468,6 +620,14 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             cleanupToolsGuide();
             cleanupPortfolioConvo();
+            
+            // ▼▼▼ HAPUS SHOUTBOX LAMA SEBELUM LOAD ▼▼▼
+            const shoutboxWidget = document.getElementById('xyz-shoutbox-container');
+            if (shoutboxWidget && !(url.endsWith('/') || url.endsWith('index.html'))) {
+                 shoutboxWidget.remove();
+            }
+            // ▲▲▲ AKHIR PENGHAPUSAN ▲▲▲
+
             mainContainer.classList.add('fade-out');
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok.');
@@ -492,7 +652,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
-                initializePerCharacterGlitch(); // Initialize for newly loaded content
+                
+                // ▼▼▼ INISIALISASI ULANG SHOUTBOX HANYA JIKA HOMEPAGE ▼▼▼
+                const currentPathAfterLoad = window.location.pathname;
+                 const isHomepageAfterLoad = currentPathAfterLoad.endsWith('/') || currentPathAfterLoad.endsWith('index.html') || currentPathAfterLoad === '';
+                 if (isHomepageAfterLoad) {
+                     initializeShoutbox(); 
+                 }
+                // ▲▲▲ AKHIR INISIALISASI ULANG ▲▲▲
+
+                initializePerCharacterGlitch();
             }, 400);
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
@@ -534,5 +703,8 @@ document.addEventListener('DOMContentLoaded', () => {
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
+    
+    // ▼▼▼ PEMANGGILAN UNTUK PEMUATAN AWAL (SEKALI SAJA) ▼▼▼
     initializePerCharacterGlitch(); // Initial load
+    initializeShoutbox(); // Initial load (akan cek jika homepage)
 });
