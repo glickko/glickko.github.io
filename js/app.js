@@ -1,4 +1,8 @@
-console.log("DEBUG: app.js loaded.");
+console.log("DEBUG: app.js loaded."); // <-- DEBUG LOG PALING AWAL
+
+// js/app.js
+// VERSI: Hanya tampil di Homepage + Debug Log
+
 const manageFloatingAssets = async (path) => {
     const existingContainer = document.querySelector('.floating-asset-container');
     if (existingContainer) {
@@ -38,8 +42,8 @@ const manageFloatingAssets = async (path) => {
                 const randomTop = Math.random() * (cell.top[1] - cell.top[0]) + cell.top[0];
                 const randomLeft = Math.random() * (cell.left[1] - cell.left[0]) + cell.left[0];
                 return `
-                    <div class="floating-asset-wrapper" 
-                         data-filename="${filename}" 
+                    <div class="floating-asset-wrapper"
+                         data-filename="${filename}"
                          style="top: ${randomTop}%; left: ${randomLeft}%;">
                         <img src="${src}" class="floating-asset-image" alt="Floating Asset" style="--glow-color: ${glowColor};">
                         <span class="asset-label"></span>
@@ -48,7 +52,7 @@ const manageFloatingAssets = async (path) => {
             }).join('');
             const floatingAssetContainerHTML = `<div class="floating-asset-container">${floatingAssetsHTML}</div>`;
             document.body.insertAdjacentHTML('afterbegin', floatingAssetContainerHTML);
-            
+
             const assetWrappers = document.querySelectorAll('.floating-asset-wrapper');
             const dialogTrackers = {};
             assetWrappers.forEach(wrapper => {
@@ -78,7 +82,7 @@ const manageFloatingAssets = async (path) => {
 
             if (assetWrappers.length > 0) {
                 showNextAsset();
-                setInterval(showNextAsset, 5000); 
+                setInterval(showNextAsset, 5000);
             }
 
         } catch (error) {
@@ -93,7 +97,7 @@ const initializePerCharacterGlitch = () => {
 
     const textContainer = glitchButton.querySelector('.text');
     const text = glitchButton.dataset.text;
-    
+
     const fonts = ["'Orbitron', sans-serif", "'Rajdhani', sans-serif", "'Audiowide', sans-serif", "'Bruno Ace SC', sans-serif"];
     const glitchChars = ['█', '▓', '▒', '░', '§', '¶', '•', '·', '▼', '▲', '◆', '▰', '▱', '▚', '▞', '▙', '▟', '▜', '▝', '▘', '▗', '▖', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
 
@@ -104,7 +108,7 @@ const initializePerCharacterGlitch = () => {
             charSpan.textContent = char;
             charSpan.style.setProperty('--i', index);
             charSpan.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-            
+
             if (char.trim() !== '') {
                 setInterval(() => {
                     if (Math.random() > 0.95) { // 5% chance to glitch each interval
@@ -122,13 +126,13 @@ const initializePerCharacterGlitch = () => {
             textContainer.appendChild(charSpan);
         });
     }
-    
+
     // Destroy effect on click/touch
     const startDestroy = (e) => {
         e.preventDefault();
         glitchButton.classList.add('destroying');
     };
-    
+
     const endDestroy = () => {
         glitchButton.classList.remove('destroying');
     };
@@ -194,7 +198,7 @@ const manageToolsGuide = async (path) => {
             const charImg = widget.querySelector('.guide-character');
             const textEl = widget.querySelector('.guide-dialog-text');
             const bubbleEl = widget.querySelector('.guide-dialog-box');
-            
+
             let currentTurn = -1;
             const showTurn = () => {
                 charImg.classList.remove('active');
@@ -203,11 +207,11 @@ const manageToolsGuide = async (path) => {
                 setTimeout(() => {
                     currentTurn = (currentTurn + 1) % conversation.length;
                     const turnData = conversation[currentTurn];
-                    
+
                     charImg.src = `float/${turnData.char}`;
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
-                    
+
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);
@@ -275,7 +279,7 @@ const managePortfolioConvo = async (path) => {
             const charImg = widget.querySelector('.convo-character');
             const textEl = widget.querySelector('.convo-text');
             const bubbleEl = widget.querySelector('.convo-bubble');
-            
+
             let currentTurn = -1;
             const showTurn = () => {
                 charImg.classList.remove('active');
@@ -284,16 +288,16 @@ const managePortfolioConvo = async (path) => {
                 setTimeout(() => {
                     currentTurn = (currentTurn + 1) % conversation.length;
                     const turnData = conversation[currentTurn];
-                    
+
                     charImg.src = `float/${turnData.char}`;
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
-                    
+
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);
             };
-            
+
             showTurn();
             const intervalId = setInterval(showTurn, 5000);
             widget.dataset.intervalId = intervalId;
@@ -304,41 +308,45 @@ const managePortfolioConvo = async (path) => {
     }
 };
 
-// ▼▼▼ FUNGSI SHOUTBOX (DENGAN LOGIKA TOGGLE & CEK HOMEPAGE) ▼▼▼
+// ▼▼▼ FUNGSI SHOUTBOX (DENGAN LOGIKA TOGGLE & CEK HOMEPAGE + DEBUG LOGS) ▼▼▼
 const initializeShoutbox = () => {
+    console.log("DEBUG: initializeShoutbox function entered."); // <-- Log Baru 3
 
     // ▼▼▼ KONDISI BARU: HANYA JALANKAN DI HOMEPAGE ▼▼▼
     const currentPath = window.location.pathname;
     const isHomepage = currentPath.endsWith('/') || currentPath.endsWith('index.html') || currentPath === '';
-    
+
     if (!isHomepage) {
         // Jika bukan homepage, jangan lakukan apa-apa
-        // Hapus juga elemen shoutbox jika ada (untuk SPA)
+        console.log("DEBUG: Not homepage, skipping shoutbox init."); // <-- Log Baru
         const existingContainer = document.getElementById('xyz-shoutbox-container');
         if (existingContainer) existingContainer.remove();
-        return; 
+        return;
     }
     // ▲▲▲ AKHIR KONDISI HOMEPAGE ▲▲▲
 
+    console.log("DEBUG: Is homepage, proceeding with shoutbox init."); // <-- Log Baru
+
     // Cek jika elemen sudah ada (mungkin karena SPA reload cepat)
     if (document.getElementById('xyz-shoutbox-container')) {
-        // Kontainer sudah ada, ambil elemennya saja
+        console.log("DEBUG: Shoutbox container already exists."); // <-- Log Baru
         const shoutboxContainer = document.getElementById('xyz-shoutbox-container');
         const toggleButton = document.getElementById('xyz-shoutbox-toggle');
 
         // Pastikan event listener toggle hanya ditambahkan sekali
         if (toggleButton && !toggleButton.dataset.listenerAttached) {
+             console.log("DEBUG: Attaching toggle listener."); // <-- Log Baru
              toggleButton.addEventListener('click', () => {
                 shoutboxContainer.classList.toggle('expanded');
              });
              toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
         }
         // Jika sudah ada, jangan inisialisasi Firebase lagi
-        return; 
+        return;
     }
 
     // --- Jika belum ada, buat elemen HTML dan inisialisasi Firebase ---
-    
+    console.log("DEBUG: Creating shoutbox HTML elements."); // <-- Log Baru
     // Buat HTML untuk widget shoutbox (jika belum ada)
     const shoutboxHTML = `
         <div id="xyz-shoutbox-container">
@@ -378,13 +386,15 @@ const initializeShoutbox = () => {
 
     // Inisialisasi Aplikasi Firebase
     let app;
-    // Cek lagi karena mungkin sudah diinisialisasi di load sebelumnya
-    if (!firebase.apps.length) { 
+    console.log("DEBUG: Initializing Firebase app..."); // <-- Log Baru
+    if (!firebase.apps.length) {
         app = firebase.initializeApp(firebaseConfig);
+         console.log("DEBUG: Firebase initialized."); // <-- Log Baru
     } else {
         app = firebase.app();
+        console.log("DEBUG: Using existing Firebase app."); // <-- Log Baru
     }
-    
+
     const auth = firebase.auth();
     const database = firebase.database();
     const messagesRef = database.ref('messages');
@@ -398,26 +408,24 @@ const initializeShoutbox = () => {
 
     // ▼▼▼ LOGIKA TOGGLE BARU ▼▼▼
     if (toggleButton && !toggleButton.dataset.listenerAttached) {
+        console.log("DEBUG: Attaching toggle listener (after element creation)."); // <-- Log Baru
         toggleButton.addEventListener('click', () => {
             shoutboxContainer.classList.toggle('expanded');
         });
         toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
     }
 
-    // Otentikasi Anonim
-   // Di dalam initializeShoutbox()
-
-// Otentikasi Anonim (DENGAN LOGGING)
+    // Otentikasi Anonim (DENGAN LOGGING)
     const signIn = async () => {
         console.log("XYZ Hub: Attempting anonymous sign-in..."); // LOG BARU
         try {
             // Coba sign in hanya jika belum ada user
-            if (!auth.currentUser) { 
+            if (!auth.currentUser) {
                 console.log("XYZ Hub: No current user, calling signInAnonymously..."); // LOG BARU
                 await auth.signInAnonymously();
                 console.log('XYZ Hub: Signed in anonymously.', auth.currentUser.uid); // LOG LAMA
             } else {
-                console.log('XYZ Hub: Already signed in.', auth.currentUser.uid); // LOG LAMA
+                 console.log('XYZ Hub: Already signed in.', auth.currentUser.uid); // LOG LAMA
             }
 
             // Jika sampai sini, login berhasil
@@ -434,11 +442,12 @@ const initializeShoutbox = () => {
         }
     };
 
+
     // Mengirim Pesan
     const sendMessage = async (e) => {
         e.preventDefault();
         const content = messageInput.value.trim();
-        
+
         if (content.length > 0 && auth.currentUser) {
             const message = {
                 content: content,
@@ -455,10 +464,12 @@ const initializeShoutbox = () => {
 
     // Mendengarkan Pesan (Real-time)
     const listenForMessages = () => {
+        console.log("XYZ Hub: Setting up message listener..."); // <-- Log Baru
         // Hapus listener lama jika ada (penting untuk SPA)
-        messagesRef.limitToLast(100).off(); 
-        
+        messagesRef.limitToLast(100).off();
+
         messagesRef.limitToLast(100).on('child_added', (snapshot) => {
+            // console.log("XYZ Hub: Received new message."); // Opsional: log setiap pesan masuk
             if (loadingText && loadingText.style.display !== 'none') {
                 loadingText.style.display = 'none';
             }
@@ -469,6 +480,9 @@ const initializeShoutbox = () => {
                 messageElement.style.cssText = "color: #e0e0e0; margin: 0 0 8px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 6px; word-wrap: break-word;";
                 messagesBox.prepend(messageElement);
             }
+        }, (error) => { // Tambahkan error handling untuk listener
+            console.error("XYZ Hub: Error listening for messages.", error);
+            if (loadingText) loadingText.textContent = "Error fetching messages.";
         });
     };
 
@@ -480,9 +494,10 @@ const initializeShoutbox = () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DEBUG: DOMContentLoaded fired."); // <-- DEBUG LOG
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
-    
+
     const initializeToolsPage = async () => {
         // ... (kode initializeToolsPage tidak berubah) ...
         const toolsList = document.querySelector('.tools-list');
@@ -627,10 +642,11 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             cleanupToolsGuide();
             cleanupPortfolioConvo();
-            
+
             // ▼▼▼ HAPUS SHOUTBOX LAMA SEBELUM LOAD ▼▼▼
             const shoutboxWidget = document.getElementById('xyz-shoutbox-container');
             if (shoutboxWidget && !(url.endsWith('/') || url.endsWith('index.html'))) {
+                 console.log("DEBUG: Removing shoutbox for non-homepage navigation."); // <-- Log Baru
                  shoutboxWidget.remove();
             }
             // ▲▲▲ AKHIR PENGHAPUSAN ▲▲▲
@@ -659,12 +675,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
-                
+
                 // ▼▼▼ INISIALISASI ULANG SHOUTBOX HANYA JIKA HOMEPAGE ▼▼▼
                 const currentPathAfterLoad = window.location.pathname;
                  const isHomepageAfterLoad = currentPathAfterLoad.endsWith('/') || currentPathAfterLoad.endsWith('index.html') || currentPathAfterLoad === '';
                  if (isHomepageAfterLoad) {
-                     initializeShoutbox(); 
+                     console.log("DEBUG: Re-initializing shoutbox after loading homepage content."); // <-- Log Baru
+                     initializeShoutbox();
+                 } else {
+                     console.log("DEBUG: Not re-initializing shoutbox, not homepage."); // <-- Log Baru
                  }
                 // ▲▲▲ AKHIR INISIALISASI ULANG ▲▲▲
 
@@ -710,9 +729,10 @@ document.addEventListener('DOMContentLoaded', () => {
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
-    
+
     // ▼▼▼ PEMANGGILAN UNTUK PEMUATAN AWAL (SEKALI SAJA) ▼▼▼
     initializePerCharacterGlitch(); // Initial load
-    initializeShoutbox(); // Initial load (akan cek jika homepage)
 
+    console.log("DEBUG: Calling initializeShoutbox..."); // <-- DEBUG LOG
+    initializeShoutbox(); // Initial load (akan cek jika homepage)
 });
