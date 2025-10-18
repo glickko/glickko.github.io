@@ -1,7 +1,4 @@
-// js/app.js
-// [SALIN SEMUA INI, TIMPA FILE LAMA ANDA]
-// VERSI: Hanya tampil di Homepage
-
+console.log("DEBUG: app.js loaded.");
 const manageFloatingAssets = async (path) => {
     const existingContainer = document.querySelector('.floating-asset-container');
     if (existingContainer) {
@@ -717,4 +714,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // ▼▼▼ PEMANGGILAN UNTUK PEMUATAN AWAL (SEKALI SAJA) ▼▼▼
     initializePerCharacterGlitch(); // Initial load
     initializeShoutbox(); // Initial load (akan cek jika homepage)
+
 });
