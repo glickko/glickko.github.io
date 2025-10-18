@@ -1,7 +1,4 @@
-console.log("DEBUG: app.js loaded."); // <-- DEBUG LOG PALING AWAL
-
 // js/app.js
-// VERSI: Hanya tampil di Homepage + Debug Log
 
 const manageFloatingAssets = async (path) => {
     const existingContainer = document.querySelector('.floating-asset-container');
@@ -42,8 +39,8 @@ const manageFloatingAssets = async (path) => {
                 const randomTop = Math.random() * (cell.top[1] - cell.top[0]) + cell.top[0];
                 const randomLeft = Math.random() * (cell.left[1] - cell.left[0]) + cell.left[0];
                 return `
-                    <div class="floating-asset-wrapper"
-                         data-filename="${filename}"
+                    <div class="floating-asset-wrapper" 
+                         data-filename="${filename}" 
                          style="top: ${randomTop}%; left: ${randomLeft}%;">
                         <img src="${src}" class="floating-asset-image" alt="Floating Asset" style="--glow-color: ${glowColor};">
                         <span class="asset-label"></span>
@@ -52,7 +49,7 @@ const manageFloatingAssets = async (path) => {
             }).join('');
             const floatingAssetContainerHTML = `<div class="floating-asset-container">${floatingAssetsHTML}</div>`;
             document.body.insertAdjacentHTML('afterbegin', floatingAssetContainerHTML);
-
+            
             const assetWrappers = document.querySelectorAll('.floating-asset-wrapper');
             const dialogTrackers = {};
             assetWrappers.forEach(wrapper => {
@@ -82,7 +79,7 @@ const manageFloatingAssets = async (path) => {
 
             if (assetWrappers.length > 0) {
                 showNextAsset();
-                setInterval(showNextAsset, 5000);
+                setInterval(showNextAsset, 5000); 
             }
 
         } catch (error) {
@@ -97,7 +94,7 @@ const initializePerCharacterGlitch = () => {
 
     const textContainer = glitchButton.querySelector('.text');
     const text = glitchButton.dataset.text;
-
+    
     const fonts = ["'Orbitron', sans-serif", "'Rajdhani', sans-serif", "'Audiowide', sans-serif", "'Bruno Ace SC', sans-serif"];
     const glitchChars = ['█', '▓', '▒', '░', '§', '¶', '•', '·', '▼', '▲', '◆', '▰', '▱', '▚', '▞', '▙', '▟', '▜', '▝', '▘', '▗', '▖', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
 
@@ -108,7 +105,7 @@ const initializePerCharacterGlitch = () => {
             charSpan.textContent = char;
             charSpan.style.setProperty('--i', index);
             charSpan.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-
+            
             if (char.trim() !== '') {
                 setInterval(() => {
                     if (Math.random() > 0.95) { // 5% chance to glitch each interval
@@ -126,13 +123,13 @@ const initializePerCharacterGlitch = () => {
             textContainer.appendChild(charSpan);
         });
     }
-
+    
     // Destroy effect on click/touch
     const startDestroy = (e) => {
         e.preventDefault();
         glitchButton.classList.add('destroying');
     };
-
+    
     const endDestroy = () => {
         glitchButton.classList.remove('destroying');
     };
@@ -198,7 +195,7 @@ const manageToolsGuide = async (path) => {
             const charImg = widget.querySelector('.guide-character');
             const textEl = widget.querySelector('.guide-dialog-text');
             const bubbleEl = widget.querySelector('.guide-dialog-box');
-
+            
             let currentTurn = -1;
             const showTurn = () => {
                 charImg.classList.remove('active');
@@ -207,11 +204,11 @@ const manageToolsGuide = async (path) => {
                 setTimeout(() => {
                     currentTurn = (currentTurn + 1) % conversation.length;
                     const turnData = conversation[currentTurn];
-
+                    
                     charImg.src = `float/${turnData.char}`;
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
-
+                    
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);
@@ -279,7 +276,7 @@ const managePortfolioConvo = async (path) => {
             const charImg = widget.querySelector('.convo-character');
             const textEl = widget.querySelector('.convo-text');
             const bubbleEl = widget.querySelector('.convo-bubble');
-
+            
             let currentTurn = -1;
             const showTurn = () => {
                 charImg.classList.remove('active');
@@ -288,16 +285,16 @@ const managePortfolioConvo = async (path) => {
                 setTimeout(() => {
                     currentTurn = (currentTurn + 1) % conversation.length;
                     const turnData = conversation[currentTurn];
-
+                    
                     charImg.src = `float/${turnData.char}`;
                     charImg.style.setProperty('--glow-color', glowColorMap[turnData.char] || '#fff');
                     textEl.textContent = turnData.text;
-
+                    
                     charImg.classList.add('active');
                     bubbleEl.classList.add('active');
                 }, 400);
             };
-
+            
             showTurn();
             const intervalId = setInterval(showTurn, 5000);
             widget.dataset.intervalId = intervalId;
@@ -308,212 +305,30 @@ const managePortfolioConvo = async (path) => {
     }
 };
 
-// ▼▼▼ FUNGSI SHOUTBOX (DENGAN LOGIKA TOGGLE & CEK HOMEPAGE + DEBUG LOGS) ▼▼▼
-const initializeShoutbox = () => {
-    console.log("DEBUG: initializeShoutbox function entered."); // <-- Log Baru 3
-
-    // ▼▼▼ KONDISI BARU: HANYA JALANKAN DI HOMEPAGE ▼▼▼
-    const currentPath = window.location.pathname;
-    const isHomepage = currentPath.endsWith('/') || currentPath.endsWith('index.html') || currentPath === '';
-
-    if (!isHomepage) {
-        // Jika bukan homepage, jangan lakukan apa-apa
-        console.log("DEBUG: Not homepage, skipping shoutbox init."); // <-- Log Baru
-        const existingContainer = document.getElementById('xyz-shoutbox-container');
-        if (existingContainer) existingContainer.remove();
-        return;
-    }
-    // ▲▲▲ AKHIR KONDISI HOMEPAGE ▲▲▲
-
-    console.log("DEBUG: Is homepage, proceeding with shoutbox init."); // <-- Log Baru
-
-    // Cek jika elemen sudah ada (mungkin karena SPA reload cepat)
-    if (document.getElementById('xyz-shoutbox-container')) {
-        console.log("DEBUG: Shoutbox container already exists."); // <-- Log Baru
-        const shoutboxContainer = document.getElementById('xyz-shoutbox-container');
-        const toggleButton = document.getElementById('xyz-shoutbox-toggle');
-
-        // Pastikan event listener toggle hanya ditambahkan sekali
-        if (toggleButton && !toggleButton.dataset.listenerAttached) {
-             console.log("DEBUG: Attaching toggle listener."); // <-- Log Baru
-             toggleButton.addEventListener('click', () => {
-                shoutboxContainer.classList.toggle('expanded');
-             });
-             toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
-        }
-        // Jika sudah ada, jangan inisialisasi Firebase lagi
-        return;
-    }
-
-    // --- Jika belum ada, buat elemen HTML dan inisialisasi Firebase ---
-    console.log("DEBUG: Creating shoutbox HTML elements."); // <-- Log Baru
-    // Buat HTML untuk widget shoutbox (jika belum ada)
-    const shoutboxHTML = `
-        <div id="xyz-shoutbox-container">
-            <div id="xyz-shoutbox-widget">
-                <div id="shoutbox-messages">
-                    <p id="shoutbox-loading">Connecting to XYZ Hub...</p>
-                </div>
-                <form id="shoutbox-form">
-                    <input type="text" id="shoutbox-input" placeholder="Connecting..." maxlength="300" disabled>
-                    <button type="submit" id="shoutbox-send" disabled>SEND</button>
-                </form>
-            </div>
-            <button id="xyz-shoutbox-toggle" aria-label="Toggle Shoutbox">
-                <i class="fa-solid fa-comments icon-open"></i>
-                <i class="fa-solid fa-xmark icon-close"></i>
-            </button>
-        </div>
-    `;
-    // Tambahkan HTML ke body
-    document.body.insertAdjacentHTML('beforeend', shoutboxHTML);
-
-    // --- Ambil elemen yang baru ditambahkan ---
-    const shoutboxContainer = document.getElementById('xyz-shoutbox-container');
-    const toggleButton = document.getElementById('xyz-shoutbox-toggle');
-
-    // KONFIGURASI FIREBASE ANDA
-    const firebaseConfig = {
-        apiKey: "AIzaSyDTSNHTgMOF3Mt1ANdX0zHWmtFWxf2Hg",
-        authDomain: "glickko-shoutbox.firebaseapp.com",
-        databaseURL: "https://glickko-shoutbox-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "glickko-shoutbox",
-        storageBucket: "glickko-shoutbox.appspot.com",
-        messagingSenderId: "705260113061",
-        appId: "1:705260113061:web:2d7f614916bc45e974114c",
-        measurementId: "G-S1GR3TGC87"
-    };
-
-    // Inisialisasi Aplikasi Firebase
-    let app;
-    console.log("DEBUG: Initializing Firebase app..."); // <-- Log Baru
-    if (!firebase.apps.length) {
-        app = firebase.initializeApp(firebaseConfig);
-         console.log("DEBUG: Firebase initialized."); // <-- Log Baru
-    } else {
-        app = firebase.app();
-        console.log("DEBUG: Using existing Firebase app."); // <-- Log Baru
-    }
-
-    const auth = firebase.auth();
-    const database = firebase.database();
-    const messagesRef = database.ref('messages');
-
-    // Ambil Elemen DOM Internal
-    const messagesBox = document.getElementById('shoutbox-messages');
-    const loadingText = document.getElementById('shoutbox-loading');
-    const messageForm = document.getElementById('shoutbox-form');
-    const messageInput = document.getElementById('shoutbox-input');
-    const sendButton = document.getElementById('shoutbox-send');
-
-    // ▼▼▼ LOGIKA TOGGLE BARU ▼▼▼
-    if (toggleButton && !toggleButton.dataset.listenerAttached) {
-        console.log("DEBUG: Attaching toggle listener (after element creation)."); // <-- Log Baru
-        toggleButton.addEventListener('click', () => {
-            shoutboxContainer.classList.toggle('expanded');
-        });
-        toggleButton.dataset.listenerAttached = 'true'; // Tandai sudah ada listener
-    }
-
-    // Otentikasi Anonim (DENGAN LOGGING)
-    const signIn = async () => {
-        console.log("XYZ Hub: Attempting anonymous sign-in..."); // LOG BARU
-        try {
-            // Coba sign in hanya jika belum ada user
-            if (!auth.currentUser) {
-                console.log("XYZ Hub: No current user, calling signInAnonymously..."); // LOG BARU
-                await auth.signInAnonymously();
-                console.log('XYZ Hub: Signed in anonymously.', auth.currentUser.uid); // LOG LAMA
-            } else {
-                 console.log('XYZ Hub: Already signed in.', auth.currentUser.uid); // LOG LAMA
-            }
-
-            // Jika sampai sini, login berhasil
-            console.log("XYZ Hub: Sign-in process successful."); // LOG BARU
-            messageInput.disabled = false;
-            sendButton.disabled = false;
-            messageInput.placeholder = "Type your anonymous message...";
-            listenForMessages();
-
-        } catch (error) {
-            // Jika gagal, ini akan berjalan
-            console.error("XYZ Hub: Anonymous sign-in failed inside CATCH block.", error); // LOG DIPERBARUI
-            if (loadingText) loadingText.textContent = "Error: Could not connect (check console)."; // Pesan diperbarui
-        }
-    };
-
-
-    // Mengirim Pesan
-    const sendMessage = async (e) => {
-        e.preventDefault();
-        const content = messageInput.value.trim();
-
-        if (content.length > 0 && auth.currentUser) {
-            const message = {
-                content: content,
-                timestamp: firebase.database.ServerValue.TIMESTAMP
-            };
-            try {
-                await messagesRef.push(message);
-                messageInput.value = '';
-            } catch (error) {
-                console.error("XYZ Hub: Failed to send message.", error);
-            }
-        }
-    };
-
-    // Mendengarkan Pesan (Real-time)
-    const listenForMessages = () => {
-        console.log("XYZ Hub: Setting up message listener..."); // <-- Log Baru
-        // Hapus listener lama jika ada (penting untuk SPA)
-        messagesRef.limitToLast(100).off();
-
-        messagesRef.limitToLast(100).on('child_added', (snapshot) => {
-            // console.log("XYZ Hub: Received new message."); // Opsional: log setiap pesan masuk
-            if (loadingText && loadingText.style.display !== 'none') {
-                loadingText.style.display = 'none';
-            }
-            const message = snapshot.val();
-            if (message && message.content) {
-                const messageElement = document.createElement('p');
-                messageElement.textContent = message.content;
-                messageElement.style.cssText = "color: #e0e0e0; margin: 0 0 8px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 6px; word-wrap: break-word;";
-                messagesBox.prepend(messageElement);
-            }
-        }, (error) => { // Tambahkan error handling untuk listener
-            console.error("XYZ Hub: Error listening for messages.", error);
-            if (loadingText) loadingText.textContent = "Error fetching messages.";
-        });
-    };
-
-    // Jalankan Modul
-    messageForm.addEventListener('submit', sendMessage);
-    signIn();
-};
-// ▲▲▲ AKHIR FUNGSI SHOUTBOX ▲▲▲
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DEBUG: DOMContentLoaded fired."); // <-- DEBUG LOG
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
-
+    
     const initializeToolsPage = async () => {
-        // ... (kode initializeToolsPage tidak berubah) ...
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         const lastUpdatedContainer = document.getElementById('last-updated-container');
         if (!toolsList) return;
+
+        // Add loading message
         toolsList.innerHTML = `<p class="loading-text">Loading Tools...</p>`;
+
         try {
             const response = await fetch('tools.json');
             if (!response.ok) throw new Error('Network response was not ok.');
             const data = await response.json();
             const toolsData = data.tools;
             toolsData.sort((a, b) => a.name.localeCompare(b.name));
+
             if (lastUpdatedContainer && data.lastUpdated) {
                 lastUpdatedContainer.textContent = `Glickko Last Recycle AT ${data.lastUpdated}`;
             }
+
             const toolItemsHTML = toolsData.map(tool => {
                 const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 return `
@@ -523,7 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 `;
             }).join('');
+            
+            // Replace loading message with content
             toolsList.innerHTML = toolItemsHTML;
+
             const toolItems = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
@@ -548,11 +366,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initializePortfolioPage = async () => {
-        // ... (kode initializePortfolioPage tidak berubah) ...
         const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
         if (!portfolioGrid) return;
+
+        // Add loading message
         portfolioGrid.innerHTML = `<p class="loading-text">Loading Portfolio...</p>`;
+
         try {
             const response = await fetch('portfolio.json');
             if (!response.ok) throw new Error('Network response was not ok for portfolio.json');
@@ -590,8 +410,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             });
+
+            // Replace loading message with content
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
+            
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const modals = document.querySelectorAll('.modal');
@@ -616,16 +439,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+
             modals.forEach(modal => {
                 const handleClose = () => {
                     modal.style.display = 'none';
                     body.style.overflow = 'auto';
                     managePortfolioConvo(window.location.pathname);
                 };
+
                 const closeBtn = modal.querySelector('.modal-close');
                 if (closeBtn) {
                     closeBtn.addEventListener('click', handleClose);
                 }
+
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal && !e.target.closest('.modal-content')) {
                         handleClose();
@@ -642,15 +468,6 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             cleanupToolsGuide();
             cleanupPortfolioConvo();
-
-            // ▼▼▼ HAPUS SHOUTBOX LAMA SEBELUM LOAD ▼▼▼
-            const shoutboxWidget = document.getElementById('xyz-shoutbox-container');
-            if (shoutboxWidget && !(url.endsWith('/') || url.endsWith('index.html'))) {
-                 console.log("DEBUG: Removing shoutbox for non-homepage navigation."); // <-- Log Baru
-                 shoutboxWidget.remove();
-            }
-            // ▲▲▲ AKHIR PENGHAPUSAN ▲▲▲
-
             mainContainer.classList.add('fade-out');
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok.');
@@ -675,19 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
-
-                // ▼▼▼ INISIALISASI ULANG SHOUTBOX HANYA JIKA HOMEPAGE ▼▼▼
-                const currentPathAfterLoad = window.location.pathname;
-                 const isHomepageAfterLoad = currentPathAfterLoad.endsWith('/') || currentPathAfterLoad.endsWith('index.html') || currentPathAfterLoad === '';
-                 if (isHomepageAfterLoad) {
-                     console.log("DEBUG: Re-initializing shoutbox after loading homepage content."); // <-- Log Baru
-                     initializeShoutbox();
-                 } else {
-                     console.log("DEBUG: Not re-initializing shoutbox, not homepage."); // <-- Log Baru
-                 }
-                // ▲▲▲ AKHIR INISIALISASI ULANG ▲▲▲
-
-                initializePerCharacterGlitch();
+                initializePerCharacterGlitch(); // Initialize for newly loaded content
             }, 400);
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
@@ -729,10 +534,5 @@ document.addEventListener('DOMContentLoaded', () => {
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
-
-    // ▼▼▼ PEMANGGILAN UNTUK PEMUATAN AWAL (SEKALI SAJA) ▼▼▼
     initializePerCharacterGlitch(); // Initial load
-
-    console.log("DEBUG: Calling initializeShoutbox..."); // <-- DEBUG LOG
-    initializeShoutbox(); // Initial load (akan cek jika homepage)
 });
