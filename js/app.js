@@ -309,59 +309,124 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
     
+    // fungsi buat load tools, hybrid json + hf
+    // biar link lama di json ga ilang, tp yg baru otomatis masuk dr hf
     const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         const lastUpdatedContainer = document.getElementById('last-updated-container');
+        
+        // cek dlu elemennya ada kaga, klo ga ada ya skip aja
         if (!toolsList) return;
 
-        // Add loading message
-        toolsList.innerHTML = `<p class="loading-text">Loading Tools...</p>`;
+        // kasih tulisan loading 
+        toolsList.innerHTML = `<p class="loading-text">sebentar, lg ngumpulin data dari json + gudang hf...</p>`;
 
+        // repo gw jir 
+        const HF_USER = 'glickko'; 
+        const HF_REPO = '1412x'; 
+        
         try {
-            const response = await fetch('tools.json');
-            if (!response.ok) throw new Error('Network response was not ok.');
-            const data = await response.json();
-            const toolsData = data.tools;
-            toolsData.sort((a, b) => a.name.localeCompare(b.name));
-
-            if (lastUpdatedContainer && data.lastUpdated) {
-                lastUpdatedContainer.textContent = `Glickko Last Recycle AT ${data.lastUpdated}`;
+            // REQUEST 1: ambil data lama dari tools.json
+            // biar link mediafire/drive yg lama kaga ilang
+            let dataLama = [];
+            try {
+                const responJson = await fetch('tools.json');
+                if (responJson.ok) {
+                    const jsonMentah = await responJson.json();
+                    dataLama = jsonMentah.tools || [];
+                }
+            } catch (errJson) {
+                // yaudah klo gagal baca json, lanjut aja ke hf
+                console.log('gagal baca json lama, skip dlu', errJson);
             }
 
-            const toolItemsHTML = toolsData.map(tool => {
-                const tagsHTML = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+            // REQUEST 2: ambil data baru dari hugging face
+            // auto update, nembak api lgsg
+            let dataBaru = [];
+            try {
+                const responHf = await fetch(`https://huggingface.co/api/datasets/${HF_USER}/${HF_REPO}/tree/main`);
+                if (responHf.ok) {
+                    const hfMentah = await responHf.json();
+                    
+                    // saring dlu, ambil file arsip doang
+                    // buang .gitattributes 
+                    dataBaru = hfMentah
+                        .filter(file => file.path.match(/\.(rar|zip|7z|exe|apk)$/i))
+                        .map(file => {
+                            return {
+                                name: file.path, 
+                                // link direct download, pake param download=true biar lgsg sedot
+                                href: `https://huggingface.co/datasets/${HF_USER}/${HF_REPO}/resolve/main/${file.path}?download=true`,
+                                tags: ["HF-ARCHIVE"] // kasih tag beda biar gw tau ini dr hf
+                            };
+                        });
+                }
+            } catch (errHf) {
+                console.log('waduh gagal konek hf, servernya turu kali', errHf);
+            }
+
+            // GABUNGIN KEDUANYA
+            // data hf gw taruh di atas biar yg baru update nongol duluan
+            const semuaAlat = [...dataBaru, ...dataLama];
+
+            // update jam real-time biar keliatan canggih
+            if (lastUpdatedContainer) {
+                const skrg = new Date();
+                lastUpdatedContainer.textContent = `Sync Total: ${semuaAlat.length} Items (Last Check: ${skrg.toLocaleTimeString()})`;
+            }
+
+            // render ke html
+            // klo kosong dua-duanya, kasih notis error bjir
+            if (semuaAlat.length === 0) {
+                toolsList.innerHTML = `<p class="empty-state">yah kosong bos, json & hf ga kebaca semua.</p>`;
+                return;
+            }
+
+            const renderHtml = semuaAlat.map(tool => {
+                // handle klo tags nya kosong biar ga error di console
+                const tagsList = tool.tags || [];
+                const tagsHtml = tagsList.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+                
                 return `
                     <a href="${tool.href}" target="_blank" rel="noopener noreferrer" class="tool-item">
                         <span class="tool-name">${tool.name}</span>
-                        <div class="tool-tags-container">${tagsHTML}</div>
+                        <div class="tool-tags-container">${tagsHtml}</div>
                     </a>
                 `;
             }).join('');
             
-            // Replace loading message with content
-            toolsList.innerHTML = toolItemsHTML;
+            // masukin ke dom
+            toolsList.innerHTML = renderHtml;
 
-            const toolItems = toolsList.querySelectorAll('.tool-item');
+            // LOGIC SEARCH FULL
+            // fitur search nih, biar user gampang nyari barang
+            const listBarang = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
-                    const searchTerm = e.target.value.toLowerCase();
-                    toolItems.forEach(item => {
-                        const name = item.querySelector('.tool-name').textContent.toLowerCase();
-                        const tags = Array.from(item.querySelectorAll('.tool-tag')).map(t => t.textContent.toLowerCase());
-                        const isMatch = searchTerm === '' || name.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
-                        if (isMatch) {
+                    const ketikan = e.target.value.toLowerCase();
+                    
+                    listBarang.forEach(item => {
+                        const namaTool = item.querySelector('.tool-name').textContent.toLowerCase();
+                        // cari juga di dalem tags, kali aja user nyari tag "archive"
+                        const tagsText = item.querySelector('.tool-tags-container').textContent.toLowerCase();
+                        
+                        const ketemu = ketikan === '' || namaTool.includes(ketikan) || tagsText.includes(ketikan);
+                        
+                        // mainin class hidden buat show/hide
+                        if (ketemu) {
                             item.classList.remove('hidden');
                         } else {
                             item.classList.add('hidden');
                         }
                     });
-                    toolsList.scrollTop = 0;
                 });
             }
-        } catch (error) {
-            console.error('Failed to load tools data:', error);
-            toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">Error: Could not load tools list.</p>`;
+
+        } catch (masalahUtama) {
+            // error handling terakhir klo ada yg crash parah
+            console.log('error parah ni bos:', masalahUtama);
+            toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">sistem crash, coba cek console deh.</p>`;
         }
     };
 
