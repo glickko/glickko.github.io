@@ -309,26 +309,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContainer = document.getElementById('main-container');
     const navContainer = document.querySelector('nav');
     
-    // fungsi buat load tools, hybrid json + hf
-    // biar link lama di json ga ilang, tp yg baru otomatis masuk dr hf
+    
     const initializeToolsPage = async () => {
         const toolsList = document.querySelector('.tools-list');
         const searchBar = document.getElementById('tool-search-bar');
         const lastUpdatedContainer = document.getElementById('last-updated-container');
-        
-        // cek dlu elemennya ada kaga, klo ga ada ya skip aja
+        const descModal = document.getElementById('desc-modal');
+        const descTitle = document.getElementById('desc-title');
+        const descText = document.getElementById('desc-text');
+        const descBtn = document.getElementById('desc-download-btn');
+        const descClose = document.getElementById('desc-close');
+    
         if (!toolsList) return;
-
-        // kasih tulisan loading 
-        toolsList.innerHTML = `<p class="loading-text">sebentar, lg ngumpulin data dari json + gudang hf...</p>`;
-
-        // repo gw jir 
+    
+        toolsList.innerHTML = `<p class="loading-text">checking archives...</p>`;
+    
         const HF_USER = 'glickko'; 
         const HF_REPO = '1412x'; 
-        
+    
         try {
-            // REQUEST 1: ambil data lama dari tools.json
-            // biar link mediafire/drive yg lama kaga ilang
             let dataLama = [];
             try {
                 const responJson = await fetch('tools.json');
@@ -337,99 +336,89 @@ document.addEventListener('DOMContentLoaded', () => {
                     dataLama = jsonMentah.tools || [];
                 }
             } catch (errJson) {
-                // yaudah klo gagal baca json, lanjut aja ke hf
-                console.log('gagal baca json lama, skip dlu', errJson);
+                console.log(errJson);
             }
-
-            // REQUEST 2: ambil data baru dari hugging face
-            // auto update, nembak api lgsg
+    
             let dataBaru = [];
             try {
                 const responHf = await fetch(`https://huggingface.co/api/datasets/${HF_USER}/${HF_REPO}/tree/main`);
                 if (responHf.ok) {
                     const hfMentah = await responHf.json();
-                    
-                    // saring dlu, ambil file arsip doang
-                    // buang .gitattributes 
                     dataBaru = hfMentah
                         .filter(file => file.path.match(/\.(rar|zip|7z|exe|apk)$/i))
                         .map(file => {
                             return {
                                 name: file.path, 
-                                // link direct download, pake param download=true biar lgsg sedot
                                 href: `https://huggingface.co/datasets/${HF_USER}/${HF_REPO}/resolve/main/${file.path}?download=true`,
-                                tags: ["HF-ARCHIVE"] // kasih tag beda biar gw tau ini dr hf
+                                tags: ["HF-ARCHIVE"],
+                                description: "just a raw archived file from my repo. use it wisely."
                             };
                         });
                 }
             } catch (errHf) {
-                console.log('waduh gagal konek hf, servernya turu kali', errHf);
+                console.log(errHf);
             }
-
-            // GABUNGIN KEDUANYA
-            // data hf gw taruh di atas biar yg baru update nongol duluan
+    
             const semuaAlat = [...dataBaru, ...dataLama];
-
-            // update jam real-time biar keliatan canggih
+    
             if (lastUpdatedContainer) {
                 const skrg = new Date();
                 lastUpdatedContainer.textContent = `Sync Total: ${semuaAlat.length} Items (Last Check: ${skrg.toLocaleTimeString()})`;
             }
-
-            // render ke html
-            // klo kosong dua-duanya, kasih notis error bjir
+    
             if (semuaAlat.length === 0) {
-                toolsList.innerHTML = `<p class="empty-state">yah kosong bos, json & hf ga kebaca semua.</p>`;
+                toolsList.innerHTML = `<p class="empty-state">nothing found.</p>`;
                 return;
             }
-
-            const renderHtml = semuaAlat.map(tool => {
-                // handle klo tags nya kosong biar ga error di console
+    
+            toolsList.innerHTML = '';
+            semuaAlat.forEach(tool => {
+                const item = document.createElement('div');
+                item.className = 'tool-item';
+                
                 const tagsList = tool.tags || [];
                 const tagsHtml = tagsList.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
                 
-                return `
-                    <a href="${tool.href}" target="_blank" rel="noopener noreferrer" class="tool-item">
-                        <span class="tool-name">${tool.name}</span>
-                        <div class="tool-tags-container">${tagsHtml}</div>
-                    </a>
+                item.innerHTML = `
+                    <span class="tool-name">${tool.name}</span>
+                    <div class="tool-tags-container">${tagsHtml}</div>
                 `;
-            }).join('');
-            
-            // masukin ke dom
-            toolsList.innerHTML = renderHtml;
-
-            // LOGIC SEARCH FULL
-            // fitur search nih, biar user gampang nyari barang
+    
+                item.addEventListener('click', () => {
+                    descTitle.textContent = tool.name.toLowerCase();
+                    descText.textContent = (tool.description || "no description available, but it works.").toLowerCase();
+                    descBtn.href = tool.href;
+                    descModal.style.display = 'flex';
+                });
+    
+                toolsList.appendChild(item);
+            });
+    
+            if (descClose) {
+                descClose.onclick = () => descModal.style.display = 'none';
+            }
+            window.onclick = (e) => {
+                if (e.target == descModal) descModal.style.display = 'none';
+            }
+    
             const listBarang = toolsList.querySelectorAll('.tool-item');
             if (searchBar) {
                 searchBar.addEventListener('input', (e) => {
                     const ketikan = e.target.value.toLowerCase();
-                    
                     listBarang.forEach(item => {
                         const namaTool = item.querySelector('.tool-name').textContent.toLowerCase();
-                        // cari juga di dalem tags, kali aja user nyari tag "archive"
                         const tagsText = item.querySelector('.tool-tags-container').textContent.toLowerCase();
-                        
                         const ketemu = ketikan === '' || namaTool.includes(ketikan) || tagsText.includes(ketikan);
-                        
-                        // mainin class hidden buat show/hide
-                        if (ketemu) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
+                        item.classList.toggle('hidden', !ketemu);
                     });
                 });
             }
-
+    
         } catch (masalahUtama) {
-            // error handling terakhir klo ada yg crash parah
-            console.log('error parah ni bos:', masalahUtama);
-            toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">sistem crash, coba cek console deh.</p>`;
+            console.log(masalahUtama);
+            toolsList.innerHTML = `<p style="text-align:center; color: #ff5555;">system error.</p>`;
         }
     };
-
     const initializePortfolioPage = async () => {
         const portfolioGrid = document.querySelector('.portfolio-grid');
         const body = document.body;
