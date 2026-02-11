@@ -192,6 +192,7 @@
                                 <input type="hidden" id="tool-id">
                                 <div class="form-group"><label for="tool-name">Name</label><input type="text" id="tool-name" required></div>
                                 <div class="form-group"><label for="tool-href">URL (href)</label><input type="url" id="tool-href" required></div>
+                                <div class="form-group"><label for="tool-desc">Description</label><textarea id="tool-desc" rows="3" placeholder="description..."></textarea></div>
                                 <div class="form-group"><label>Tags</label><div id="modal-tags-container"></div></div>
                                 <div class="modal-actions">
                                     <button type="button" id="cancel-edit-btn" class="admin-btn secondary">Cancel</button>
@@ -230,6 +231,7 @@
                 const toolIdInput = document.getElementById('tool-id');
                 const toolNameInput = document.getElementById('tool-name');
                 const toolHrefInput = document.getElementById('tool-href');
+                const toolDescInput = document.getElementById('tool-desc');
                 const modalTagsContainer = document.getElementById('modal-tags-container');
                 const tagList = document.getElementById('tag-list');
                 const addTagForm = document.getElementById('add-tag-form');
@@ -287,6 +289,8 @@
                     modalTitle.textContent = tool ? 'Edit Tool' : 'Add New Tool';
                     toolNameInput.value = tool ? tool.name : '';
                     toolHrefInput.value = tool ? tool.href : '';
+                    toolDescInput.value = tool ? (tool.description || '') : ''; 
+                    
                     modalTagsContainer.innerHTML = '';
                     Array.from(allTags).sort().forEach(tag => {
                         const isChecked = tool && tool.tags && tool.tags.includes(tag);
@@ -300,7 +304,12 @@
                     e.preventDefault();
                     const id = parseInt(toolIdInput.value, 10);
                     const selectedTags = Array.from(document.querySelectorAll('#modal-tags-container input:checked')).map(cb => cb.value);
-                    const toolEntry = { name: toolNameInput.value.trim(), href: toolHrefInput.value.trim(), tags: selectedTags };
+                    const toolEntry = { 
+                        name: toolNameInput.value.trim(), 
+                        href: toolHrefInput.value.trim(), 
+                        description: toolDescInput.value.trim(),
+                        tags: selectedTags 
+                    };
                     if (id === -1) { toolsData.push(toolEntry); } else { toolsData[id] = toolEntry; }
                     toolsData.sort((a, b) => a.name.localeCompare(b.name));
                     renderAll(searchBar.value);
