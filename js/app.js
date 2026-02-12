@@ -1,5 +1,3 @@
-// js/app.js
-
 const manageFloatingAssets = async (path) => {
     const existingContainer = document.querySelector('.floating-asset-container');
     if (existingContainer) {
@@ -99,7 +97,7 @@ const initializePerCharacterGlitch = () => {
     const glitchChars = ['█', '▓', '▒', '░', '§', '¶', '•', '·', '▼', '▲', '◆', '▰', '▱', '▚', '▞', '▙', '▟', '▜', '▝', '▘', '▗', '▖', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
 
     if (textContainer && text) {
-        textContainer.innerHTML = ''; // Clear existing text
+        textContainer.innerHTML = '';
         text.split('').forEach((char, index) => {
             const charSpan = document.createElement('span');
             charSpan.textContent = char;
@@ -108,7 +106,7 @@ const initializePerCharacterGlitch = () => {
             
             if (char.trim() !== '') {
                 setInterval(() => {
-                    if (Math.random() > 0.95) { // 5% chance to glitch each interval
+                    if (Math.random() > 0.95) {
                         const originalChar = char;
                         charSpan.textContent = glitchChars[Math.floor(Math.random() * glitchChars.length)];
                         setTimeout(() => {
@@ -124,7 +122,6 @@ const initializePerCharacterGlitch = () => {
         });
     }
     
-    // Destroy effect on click/touch
     const startDestroy = (e) => {
         e.preventDefault();
         glitchButton.classList.add('destroying');
@@ -360,21 +357,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     
             const semuaAlat = [...dataBaru, ...dataLama];
-    
+
+            semuaAlat.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
             if (lastUpdatedContainer) {
-                const skrg = new Date();
-                lastUpdatedContainer.textContent = `Sync Total: ${semuaAlat.length} Items (Last Check: ${skrg.toLocaleTimeString()})`;
+                let timestampDisplay = "Checking...";
+                
+                try {
+                    const metaResponse = await fetch(`https://huggingface.co/api/datasets/${HF_USER}/${HF_REPO}`);
+                    
+                    if (metaResponse.ok) {
+                        const metaData = await metaResponse.json();
+                        const lastModDate = new Date(metaData.lastModified);
+                        
+                        const options = { 
+                            day: 'numeric', 
+                            month: 'short', 
+                            year: 'numeric', 
+                            hour: '2-digit', 
+                            minute: '2-digit',
+                            hour12: false 
+                        };
+                        timestampDisplay = lastModDate.toLocaleDateString('en-GB', options).replace(',', ' •');
+                    } else {
+                        throw new Error("Meta fetch failed");
+                    }
+                } catch (errTime) {
+                    const now = new Date();
+                    timestampDisplay = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                }
+    
+                lastUpdatedContainer.innerHTML = `CLOUD SYNC: ${timestampDisplay} &nbsp;|&nbsp; ASSETS: ${semuaAlat.length}`;
             }
     
             if (semuaAlat.length === 0) {
                 toolsList.innerHTML = `<p class="empty-state">nothing found.</p>`;
                 return;
             }
-    
             toolsList.innerHTML = '';
             semuaAlat.forEach(tool => {
                 const item = document.createElement('div');
                 item.className = 'tool-item';
+                
+                item._toolData = tool;
                 
                 const tagsList = tool.tags || [];
                 const tagsHtml = tagsList.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
@@ -383,16 +408,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="tool-name">${tool.name}</span>
                     <div class="tool-tags-container">${tagsHtml}</div>
                 `;
-    
-                item.addEventListener('click', () => {
+                toolsList.appendChild(item);
+            });
+
+            const handleToolClick = (e) => {
+                const item = e.target.closest('.tool-item');
+                if (item && item._toolData) {
+                    const tool = item._toolData;
                     descTitle.textContent = tool.name.toLowerCase();
                     descText.textContent = (tool.description || "no description available, but it works.").toLowerCase();
                     descBtn.href = tool.href;
                     descModal.style.display = 'flex';
-                });
-    
-                toolsList.appendChild(item);
-            });
+                }
+            };
+            
+            toolsList.removeEventListener('click', handleToolClick);
+            toolsList.addEventListener('click', handleToolClick);
     
             if (descClose) {
                 descClose.onclick = () => descModal.style.display = 'none';
@@ -424,7 +455,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const body = document.body;
         if (!portfolioGrid) return;
 
-        // Add loading message
         portfolioGrid.innerHTML = `<p class="loading-text">Loading Portfolio...</p>`;
 
         try {
@@ -465,7 +495,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             });
 
-            // Replace loading message with content
             portfolioGrid.innerHTML = portfolioItemsHTML;
             body.insertAdjacentHTML('beforeend', modalsHTML);
             
@@ -546,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 manageFloatingAssets(url);
                 manageToolsGuide(url);
                 managePortfolioConvo(url);
-                initializePerCharacterGlitch(); // Initialize for newly loaded content
+                initializePerCharacterGlitch();
             }, 400);
             if (pushState) {
                 history.pushState({ path: url }, newTitle, url);
@@ -588,5 +617,5 @@ document.addEventListener('DOMContentLoaded', () => {
     manageFloatingAssets(initialPath);
     manageToolsGuide(initialPath);
     managePortfolioConvo(initialPath);
-    initializePerCharacterGlitch(); // Initial load
+    initializePerCharacterGlitch();
 });
