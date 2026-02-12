@@ -1,4 +1,3 @@
-/* /css/portfolio_convo.css */
 #convo-widget {
     position: fixed;
     bottom: 20px;
@@ -91,7 +90,6 @@
     line-height: 1.5;
     color: #eee;
     margin: 0;
-    /* MODIFIED: min-height removed to eliminate gaps */
 }
 
 @keyframes convo-pulse-glow {
@@ -103,7 +101,6 @@
     }
 }
 
-/* --- Mobile Responsive Styles --- */
 @media (max-width: 600px) {
     #convo-widget {
         max-width: calc(100vw - 30px);
@@ -123,6 +120,5 @@
 
     .convo-text {
         font-size: 12px;
-        /* MODIFIED: min-height removed here as well */
     }
 }

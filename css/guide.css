@@ -1,4 +1,3 @@
-/* css/guide.css */
 .ai-guide-container {
     position: fixed;
     bottom: 20px;
@@ -69,7 +68,6 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-
 .guide-dialog-box.active {
     opacity: 1;
     transform: scale(1);
@@ -119,5 +117,4 @@
     .guide-dialog-text {
         font-size: 11px;
     }
-
 }
