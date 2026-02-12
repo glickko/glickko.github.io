@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>reply::for::haneen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /*core main uWu*/
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --glass-bg: rgba(20, 20, 25, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        /*for bg layer*/
+        .bg-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background-image: url('../../background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            filter: blur(4px);
+            transition: opacity 1s ease;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0,
+                rgba(0, 0, 0, 0.5) 2px,
+                transparent 4px
+            );
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /*bianglalalalal spinning anim*/
+        #orbit-system {
+            position: fixed; top: 50%; left: 50%; width: 0; height: 0;
+            z-index: 5; pointer-events: none;
+        }
+        .orbit-arm {
+            position: absolute; top: 0; left: 0; width: 0; height: 0;
+            display: flex; align-items: center; justify-content: flex-end;
+            transform-origin: center center; will-change: transform;
+        }
+        .mascot-wrapper {
+            position: absolute; width: 65px; height: 65px; right: -32.5px;
+            opacity: 0; transform: scale(0);
+        }
+        .mascot-img {
+            width: 100%; height: 100%; object-fit: contain;
+            animation: counter-rotate 20s linear infinite; 
+        }
+
+        /*ini terminaaaaaaalllll box*/
+        .terminal-window {
+            width: 90%; max-width: 600px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            padding: 2rem; position: relative;
+            z-index: 10;
+            transform: scale(0.95) translateY(10px); opacity: 0;
+            animation: window-open 1.2s var(--ease-smooth) forwards 0.3s;
+            transition: filter 1s ease, opacity 1s ease; /* For fading out later */
+        }
+        .terminal-window.dimmed {
+            filter: blur(5px) brightness(0.5);
+            opacity: 0.5;
+        }
+
+        .terminal-header {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        .title { margin-left: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+        .content-area {
+            min-height: 150px; display: flex; flex-direction: column; justify-content: center;
+        }
+        #code-display { font-size: 0.9rem; line-height: 1.6; color: #d4d4d4; }
+
+        .keyword { color: #c586c0; font-weight: bold; } .string { color: #ce9178; }
+        .function { color: #dcdcaa; } .comment { color: #6a9955; font-style: italic; }
+        .cursor {
+            display: inline-block; width: 8px; height: 15px; background: var(--neon-blue);
+            animation: blink 1s infinite; vertical-align: middle;
+        }
+
+        .run-btn {
+            margin-top: 20px; padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--neon-blue);
+            color: var(--neon-blue); font-family: 'JetBrains Mono', monospace;
+            cursor: pointer; transition: all 0.3s ease;
+            border-radius: 4px; text-transform: lowercase; width: 100%;
+            opacity: 0; transform: translateY(10px);
+            animation: fade-in-up 1s var(--ease-smooth) forwards 1.8s;
+        }
+        .run-btn:hover {
+            background: var(--neon-blue); color: #000; box-shadow: 0 0 25px var(--neon-blue); transform: translateY(-2px);
+        }
+        .run-btn.active {
+            border-color: #27c93f; color: #27c93f; background: rgba(39, 201, 63, 0.05);
+            pointer-events: none; letter-spacing: 1px;
+        }
+        /*color countdown frommmmm jsssss*/
+        .run-btn.countdown-mode {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /*DAZAAAAAAAAAAIIIIIIII LOVEEEE FOR HANEEEN LOLLLLLLLLLKWOKWOKWOWK*/
+        #dazai-stage {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 50; /* Top Layer */
+            pointer-events: none;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; /* Starts hidden */
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        #dazai-img {
+            max-height: 85vh; /*ini biar non dim still alive img */
+            width: auto;
+            max-width: 90vw;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(255, 100, 255, 0.3)); /*soft aura pinkyy awkwaoawk*/
+            transform: scale(0.9);
+            /*animation float fetch dari classssssss*/
+        }
+
+        /*class dazaiiiiii popup lol >_<*/
+        .dazai-enter {
+            animation: dazai-pop-in 2s var(--ease-smooth) forwards,
+                       dazai-float 4s ease-in-out infinite alternate 2s;
+        }
+
+        .heart-particle {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            animation: heart-rise 3s ease-out forwards;
+        }
+
+        /*animation classs*/
+        @keyframes window-open { to { transform: scale(1) translateY(0); opacity: 1; } }
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes fade-in-up { to { opacity: 1; transform: translateY(0); } }
+        @keyframes expand-orbit { 0% { transform: rotate(var(--angle)) translateX(0px); } 100% { transform: rotate(var(--angle)) translateX(300px); } }
+        @keyframes pop-in { 0% { transform: scale(0); opacity: 0; } 70% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes counter-rotate { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        @keyframes implode-orbit { 0% { transform: rotate(var(--current-angle)) translateX(300px); opacity: 1; } 100% { transform: rotate(var(--current-angle)) translateX(0px); opacity: 0; } }
+        
+        /*dazai animmmmmm*/
+        @keyframes dazai-pop-in {
+            0% { transform: scale(0.8) translateY(20px); opacity: 0; filter: blur(10px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 25px rgba(255, 100, 255, 0.5)); }
+        }
+        @keyframes dazai-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
+        @keyframes heart-rise {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+            20% { opacity: 1; transform: translate(var(--tx), -20px) scale(1.2); }
+            100% { transform: translate(var(--tx), -100px) scale(1); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .terminal-window { width: 95%; padding: 1.5rem; }
+            #code-display { font-size: 0.8rem; }
+            @keyframes expand-orbit { 100% { transform: rotate(var(--angle)) translateX(160px); } }
+            @keyframes implode-orbit { 0% { transform: rotate(var(--current-angle)) translateX(160px); opacity: 1; } 100% { transform: rotate(var(--current-angle)) translateX(0px); opacity: 0; } }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer"></div>
+    <div class="scanlines"></div>
+
+    <div id="orbit-system"></div>
+
+    <div class="terminal-window" id="main-window">
+        <div class="terminal-header">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+            <span class="title">haneen.cpp — iga_msg</span>
+        </div>
+        <div class="content-area">
+            <div id="code-display">
+                <span class="comment">// waiting haneen-chan interaction...</span><br>
+                <span class="keyword">loading</span> connection...<span class="cursor"></span>
+            </div>
+            <button class="run-btn" id="compile-btn"><i class="fa-solid fa-play"></i> compile & run</button>
+        </div>
+    </div>
+
+    <div id="dazai-stage">
+        <img src="dazai.png" id="dazai-img" alt="Dazai">
+        <div id="heart-system"></div>
+    </div>
+
+    <script>
+        const assetsData = [
+            { src: '../../float/pink.png', color: '#ff66b2' }, { src: '../../float/blue.png', color: '#00ccff' },
+            { src: '../../float/red.png', color: '#ff4444' }, { src: '../../float/yellow.png', color: '#ffcc00' },
+            { src: '../../float/green.png', color: '#00ff66' }, { src: '../../float/purple.png', color: '#cc33ff' },
+            { src: '../../float/orange.png', color: '#ff9933' }
+        ];
+
+        const codeLines = [
+            { text: "#include <iostream>", class: "keyword" }, { text: "using namespace std;", class: "" },
+            { text: "", class: "" }, { text: "int main() {", class: "keyword" },
+            { text: '    cout << "hello haneen-chan 🤩" << endl;', class: "string" },
+            { text: '    cout << "nice to meet ya 😁" << endl;', class: "string" },
+            { text: '    cout << "i gift you something 😝" << endl;', class: "string" },
+            { text: "    return 0;", class: "keyword" }, { text: "}", class: "keyword" }
+        ];
+
+        const btn = document.getElementById('compile-btn');
+        const display = document.getElementById('code-display');
+        const orbitSystem = document.getElementById('orbit-system');
+        const dazaiStage = document.getElementById('dazai-stage');
+        const dazaiImg = document.getElementById('dazai-img');
+        const terminalWindow = document.querySelector('.terminal-window');
+
+        let currentRotation = 0;
+        let spinAnimationId;
+
+        const typeCode = async () => {
+            display.innerHTML = ''; 
+            for (let line of codeLines) {
+                const lineDiv = document.createElement('div'); display.appendChild(lineDiv);
+                let indent = line.text.startsWith('    ') ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '';
+                let cleanText = line.text.trim();
+                let htmlContent = indent;
+                
+                if (line.text.includes('#include')) htmlContent += `<span class="keyword">${cleanText.replace('<','&lt;').replace('>','&gt;')}</span>`;
+                else if (line.text.includes('cout')) { let parts = cleanText.split('<<'); htmlContent += `    <span class="function">std::cout</span> &lt;&lt; <span class="string">${parts[1]}</span> &lt;&lt; <span class="function">std::endl</span>;`; }
+                else if (cleanText === 'int main() {') htmlContent += `<span class="keyword">int</span> <span class="function">main</span>() {`;
+                else if (cleanText === 'return 0;') htmlContent += `    <span class="keyword">return</span> <span class="string">0</span>;`;
+                else htmlContent += `<span class="${line.class}">${cleanText}</span>`;
+                
+                lineDiv.innerHTML = htmlContent;
+                await new Promise(r => setTimeout(r, 150)); 
+            }
+            const cursor = document.createElement('span'); cursor.className = 'cursor'; display.appendChild(cursor);
+            
+            //ini buat countdown start nya njirrr
+            startCountdown();
+        };
+
+        const startCountdown = () => {
+            btn.innerHTML = "EXECUTION COMPLETE";
+            btn.classList.add('active');
+
+            //color change ini kayak discoooooo 
+            const colors = [
+                { border: '#ff00ff', bg: 'rgba(255, 0, 255, 0.1)', shadow: 'rgba(255, 0, 255, 0.4)' }, //pink
+                { border: '#00f3ff', bg: 'rgba(0, 243, 255, 0.1)', shadow: 'rgba(0, 243, 255, 0.4)' }, //blue
+                { border: '#00ff66', bg: 'rgba(0, 255, 102, 0.1)', shadow: 'rgba(0, 255, 102, 0.4)' }, //green
+                { border: '#ff9933', bg: 'rgba(255, 153, 51, 0.1)', shadow: 'rgba(255, 153, 51, 0.4)' }, //oren
+                { border: '#cc33ff', bg: 'rgba(204, 51, 255, 0.1)', shadow: 'rgba(204, 51, 255, 0.4)' }  //prplee
+            ];
+
+            let count = 5;
+            setTimeout(() => {
+                btn.classList.remove('active');
+                btn.classList.add('countdown-mode'); 
+                
+                const countdownInterval = setInterval(() => {
+                    //update text countttttt
+                    btn.innerHTML = `[ OPENING THE UI IN ${count} ]`;
+                    
+                    //ganti color randooommm
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    btn.style.borderColor = color.border;
+                    btn.style.color = color.border;
+                    btn.style.backgroundColor = color.bg;
+                    btn.style.boxShadow = `0 0 15px ${color.shadow}`;
+                    
+                    if (count === 0) {
+                        clearInterval(countdownInterval);
+                        //reset stylllee buat final msgggg
+                        btn.style.borderColor = '#ffb6c1'; //pinkkkkkk
+                        btn.style.color = '#ffb6c1';
+                        btn.style.backgroundColor = 'rgba(255, 182, 193, 0.1)';
+                        btn.style.boxShadow = 'none';
+                        
+                        //final texttt buat dazaii awkokwaokaw
+                        btn.innerHTML = `[ loading the ui >_<... ]`; 
+                        
+                        setTimeout(summonDazai, 1000); 
+                    }
+                    count--;
+                }, 1000);
+            }, 1000);
+        };
+
+        const summonDazai = () => {
+            //dimmm untuk dazai awkkawakw
+            terminalWindow.classList.add('dimmed');
+
+            //ini container dazaii keluarrrrrrrrrr
+            dazaiStage.style.opacity = '1';
+            
+            //call dazai anim ini akwoawko
+            dazaiImg.classList.add('dazai-enter');
+
+            //anim emoji love kiraa kiraaaaaa desuuu
+            setInterval(spawnHeart, 250); // ini heartnya per ms
+        };
+
+        const spawnHeart = () => {
+            const hearts = ['❤️', '💖', '💗', '💓', '💕', '🌸', '✨'];
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+            
+            //make anim randommm
+            const randomX = (Math.random() - 0.5) * 60; //widthhhh
+            const randomY = (Math.random() - 0.5) * 60; //heightttth
+            
+            const tx = (Math.random() - 0.5) * 50 + 'px';
+            heart.style.setProperty('--tx', tx);
+
+            heart.style.left = `calc(50% + ${randomX}vw)`;
+            heart.style.top = `calc(50% + ${randomY}vh)`;
+            
+            heart.style.fontSize = (1 + Math.random()) + 'rem';
+
+            dazaiStage.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 3000);
+        };
+
+        const spawnOrbit = () => {
+            orbitSystem.innerHTML = '';
+            const angleStep = 360 / assetsData.length;
+            assetsData.forEach((item, index) => {
+                const angle = index * angleStep;
+                const arm = document.createElement('div'); arm.className = 'orbit-arm'; arm.style.setProperty('--angle', `${angle}deg`);
+                const wrapper = document.createElement('div'); wrapper.className = 'mascot-wrapper';
+                const img = document.createElement('img'); img.src = item.src; img.className = 'mascot-img'; img.style.filter = `drop-shadow(0 0 15px ${item.color})`;
+                wrapper.appendChild(img); arm.appendChild(wrapper); orbitSystem.appendChild(arm);
+                arm.style.animation = `expand-orbit 2s cubic-bezier(0.19, 1, 0.22, 1) forwards`;
+                wrapper.style.animation = `pop-in 0.8s ease-out forwards ${index * 0.1}s`;
+            });
+            const spin = () => { currentRotation += 0.05; orbitSystem.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`; spinAnimationId = requestAnimationFrame(spin); };
+            spin();
+            setTimeout(() => { triggerImplode(); }, 6500);
+        };
+
+        const triggerImplode = () => {
+            cancelAnimationFrame(spinAnimationId); orbitSystem.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+            const arms = document.querySelectorAll('.orbit-arm');
+            arms.forEach(arm => {
+                const baseAngle = arm.style.getPropertyValue('--angle'); arm.style.setProperty('--current-angle', baseAngle);
+                arm.style.animation = `implode-orbit 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards`;
+                const wrapper = arm.querySelector('.mascot-wrapper'); if(wrapper) { wrapper.style.transition = 'opacity 1s ease'; wrapper.style.opacity = '0'; }
+            });
+            setTimeout(() => { orbitSystem.innerHTML = ''; }, 2000);
+        };
+
+        btn.addEventListener('click', () => {
+            if(btn.innerText.includes("EXECUTION") || btn.innerText.includes("OPENING")) return; 
+            btn.innerHTML = '<i class="fa-solid fa-gear fa-spin"></i> compiling...'; btn.style.transform = 'translateY(2px)'; 
+            spawnOrbit(); setTimeout(() => { typeCode(); }, 800); 
+        });
+    </script>
+</body>
+</html>
