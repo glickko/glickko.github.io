@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "18 Feb 2026 - 7:17 PM",
+    "lastUpdated": "18 Feb 2026 - 7:35 PM",
     "tools": [
         {
             "name": ".NET Desktop Runtime 10.0",
@@ -427,6 +427,14 @@
             "tags": [
                 "AUDIO"
             ]
+        },
+        {
+            "name": "AudioCapture.7z",
+            "href": "https://huggingface.co/datasets/glickko/1412x/resolve/main/AudioCapture.7z?download=true",
+            "tags": [
+                "HF-ARCHIVE"
+            ],
+            "description": "simple audio recorder, but powerfull. it can record windows selected audio only and game capture audio. lowkey obs mode😎👌"
         },
         {
             "name": "AutoHotkey 2.0.19",
