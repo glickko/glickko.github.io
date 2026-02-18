@@ -35,7 +35,6 @@
         .login-input:focus { border-color: var(--neon-accent); outline: none; }
         .login-error { color: #ff5555; min-height: 1.2em; font-size: 0.9em; margin-bottom: 10px; }
         
-        
         .remember-me-container { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: #aaa; font-size: 0.85rem; }
         .remember-me-container input { accent-color: var(--neon-accent); cursor: pointer; }
 
@@ -107,7 +106,7 @@
 <body>
     <div id="login-overlay">
         <div class="login-box">
-            <h2 style="color: var(--neon-accent); margin-bottom: 5px;">GLICKKO ADMIN PROTOCOL</h2>
+            <h2 style="color: var(--neon-accent); margin-bottom: 5px;">CIEL ADMIN PROTOCOL</h2>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Direct GitHub Injection Mode</p>
             <p id="login-error" class="login-error"></p>
             
@@ -204,7 +203,6 @@
             const modalTagsContainer = document.getElementById('modal-tags-container');
             const logoutBtn = document.getElementById('logout-btn');
             
-            
             const utf8_to_b64 = (str) => window.btoa(unescape(encodeURIComponent(str)));
             const b64_to_utf8 = (str) => decodeURIComponent(escape(window.atob(str)));
 
@@ -218,10 +216,7 @@
 
             const updateStatus = (msg) => document.getElementById('last-action').textContent = msg;
 
-            
-            
             const saveCredentials = (user, repo, token) => {
-                
                 const payload = JSON.stringify({ u: user, r: repo, t: token });
                 const securePayload = utf8_to_b64(payload); 
                 localStorage.setItem(STORAGE_KEY, securePayload);
@@ -236,7 +231,6 @@
                         document.getElementById('repo-input').value = decoded.r;
                         document.getElementById('token-input').value = decoded.t;
                         document.getElementById('remember-me').checked = true;
-                        
                         
                         setTimeout(() => {
                             document.getElementById('login-button').click();
@@ -254,8 +248,6 @@
             };
 
             logoutBtn.addEventListener('click', clearCredentials);
-
-            
 
             const fetchFromGitHub = async () => {
                 updateStatus('Fetching tools.json from GitHub...');
@@ -308,21 +300,39 @@
             };
 
             const syncAllData = async () => {
-                await fetchFromGitHub();
-                const hfRaw = await fetchFromHF();
+                toolsData = []; 
                 
-                const toolsMap = new Map(toolsData.map(item => [item.name, item]));
-                const hfProcessed = hfRaw.filter(hfItem => !toolsMap.has(hfItem.name));
+                await fetchFromGitHub(); 
+                const hfRaw = await fetchFromHF(); 
 
-                combinedData = [...toolsData, ...hfProcessed];
+                const masterMap = new Map();
+
+                hfRaw.forEach(hfItem => {
+                    masterMap.set(hfItem.name, hfItem);
+                });
+
+                toolsData.forEach(savedItem => {
+                    if (masterMap.has(savedItem.name)) {
+                        masterMap.set(savedItem.name, { 
+                            ...savedItem, 
+                            isHf: true, 
+                            isSaved: true 
+                        });
+                    } else {
+                        masterMap.set(savedItem.name, { 
+                            ...savedItem, 
+                            isSaved: true 
+                        });
+                    }
+                });
+
+                combinedData = Array.from(masterMap.values());
                 combinedData.sort((a, b) => a.name.localeCompare(b.name));
                 
                 renderTools();
-                updateStatus('All systems synchronized.');
+                updateStatus('Merged & De-duplicated.');
                 showToast('Connected & Loaded!');
             };
-
-            
 
             const pushToGitHub = async () => {
                 const btn = document.getElementById('push-github-btn');
@@ -372,8 +382,6 @@
                 }
             };
 
-           
-
             const renderTools = (filter = '') => {
                 toolsListContainer.innerHTML = '';
                 const term = filter.toLowerCase();
@@ -388,7 +396,7 @@
                     
                     let rowClass = 'admin-tool-item';
                     if (isHfRaw) rowClass += ' hf-item';
-                    else if (tool.isSaved) rowClass += ' hf-saved'; 
+                    else if (tool.isSaved && tool.isHf) rowClass += ' hf-saved'; 
                     
                     const tagsHtml = (tool.tags || []).map(tag => `<span class="tag ${tag === 'HF-ARCHIVE' ? 'hf-tag' : ''}">${tag}</span>`).join('');
                     
@@ -409,7 +417,16 @@
                     el.querySelector('.delete-btn').onclick = () => {
                         if(confirm(`Delete "${tool.name}"?\nIf this is an HF file, it will reset to default on next reload.`)) {
                             toolsData = toolsData.filter(t => t.name !== tool.name);
-                            combinedData = combinedData.filter(t => t !== tool);
+                            
+                            const idx = combinedData.findIndex(t => t.name === tool.name);
+                            if (idx > -1) {
+                                if (combinedData[idx].isHf) {
+                                    combinedData[idx].isSaved = false;
+                                    combinedData[idx].description = "Synced from Hugging Face.";
+                                } else {
+                                    combinedData.splice(idx, 1);
+                                }
+                            }
                             renderTools(searchBar.value);
                             showToast('Item removed locally. Push to save.');
                         }
@@ -444,8 +461,6 @@
 
                 modal.style.display = 'block';
             };
-
-            
 
             document.getElementById('login-button').addEventListener('click', () => {
                 const token = document.getElementById('token-input').value.trim();
@@ -489,7 +504,6 @@
 
                 const newTool = { name, href, tags: checkedTags, description: desc };
 
-                
                 const existingIndex = toolsData.findIndex(t => t.name === (originalName === "NEW_ENTRY" ? name : originalName));
                 if (existingIndex > -1) {
                     toolsData[existingIndex] = newTool;
@@ -497,10 +511,9 @@
                     toolsData.push(newTool);
                 }
                 
-                
                 checkedTags.forEach(t => globalTags.add(t));
-                const combinedIndex = combinedData.findIndex(t => t.name === (originalName === "NEW_ENTRY" ? name : originalName));
                 
+                const combinedIndex = combinedData.findIndex(t => t.name === (originalName === "NEW_ENTRY" ? name : originalName));
                 
                 const isOriginallyHf = combinedData[combinedIndex]?.isHf;
                 
@@ -531,7 +544,6 @@
 
             searchBar.addEventListener('input', (e) => renderTools(e.target.value));
 
-            
             loadCredentials();
         });
     </script>
