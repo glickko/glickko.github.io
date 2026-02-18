@@ -356,18 +356,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(errHf);
             }
     
-            // --- FIX START: Mencegah duplikasi data dari HF jika sudah ada di tools.json ---
-            
-            // 1. Buat Set berisi URL dari tools.json (dataLama) untuk lookup cepat
+    
             const existingUrls = new Set(dataLama.map(item => item.href.trim().toLowerCase()));
 
-            // 2. Filter data HF: Hanya ambil jika URL-nya BELUM ada di tools.json
+ 
             const uniqueHfData = dataBaru.filter(hfItem => !existingUrls.has(hfItem.href.trim().toLowerCase()));
 
-            // 3. Gabungkan: (Data HF Unik) + (Data Lama yang sudah di-custom)
+          
             const semuaAlat = [...uniqueHfData, ...dataLama];
 
-            // --- FIX END ---
+           
 
             semuaAlat.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
