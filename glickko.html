@@ -106,7 +106,7 @@
 <body>
     <div id="login-overlay">
         <div class="login-box">
-            <h2 style="color: var(--neon-accent); margin-bottom: 5px;">CIEL ADMIN PROTOCOL</h2>
+            <h2 style="color: var(--neon-accent); margin-bottom: 5px;">GLICKKO ADMIN PROTOCOL</h2>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Direct GitHub Injection Mode</p>
             <p id="login-error" class="login-error"></p>
             
@@ -116,13 +116,13 @@
             
             <div class="remember-me-container">
                 <input type="checkbox" id="remember-me">
-                <label for="remember-me">Keep me signed in on this browser</label>
+                <label for="remember-me">store token into local browser</label>
             </div>
 
             <button id="login-button" class="admin-btn save" style="margin-top: 20px;">INITIALIZE CONNECTION</button>
             
             <div class="config-details">
-                <strong>Secured:</strong> Credentials stored locally in browser vault. Obfuscated for privacy.
+                <strong>Secured:</strong> hello bro, fuck you.. go away shit, this is my field!!.
             </div>
         </div>
     </div>
@@ -206,6 +206,20 @@
             const utf8_to_b64 = (str) => window.btoa(unescape(encodeURIComponent(str)));
             const b64_to_utf8 = (str) => decodeURIComponent(escape(window.atob(str)));
 
+            const generateKey = (itemOrString) => {
+                let url = "";
+                if (typeof itemOrString === 'string') {
+                    if (itemOrString.includes('http') || itemOrString.includes('/')) {
+                        url = itemOrString;
+                    } else {
+                        return itemOrString.trim().toLowerCase();
+                    }
+                } else {
+                    url = itemOrString.href || itemOrString.name || "";
+                }
+                return url.trim().toLowerCase();
+            };
+
             const showToast = (msg, isError = false) => {
                 toast.textContent = msg;
                 toast.style.backgroundColor = isError ? '#ff5555' : 'var(--neon-accent)';
@@ -218,8 +232,7 @@
 
             const saveCredentials = (user, repo, token) => {
                 const payload = JSON.stringify({ u: user, r: repo, t: token });
-                const securePayload = utf8_to_b64(payload); 
-                localStorage.setItem(STORAGE_KEY, securePayload);
+                localStorage.setItem(STORAGE_KEY, utf8_to_b64(payload));
             };
 
             const loadCredentials = () => {
@@ -231,12 +244,8 @@
                         document.getElementById('repo-input').value = decoded.r;
                         document.getElementById('token-input').value = decoded.t;
                         document.getElementById('remember-me').checked = true;
-                        
-                        setTimeout(() => {
-                            document.getElementById('login-button').click();
-                        }, 500); 
+                        setTimeout(() => document.getElementById('login-button').click(), 500); 
                     } catch (e) {
-                        console.error("Credential parse error", e);
                         localStorage.removeItem(STORAGE_KEY);
                     }
                 }
@@ -250,34 +259,28 @@
             logoutBtn.addEventListener('click', clearCredentials);
 
             const fetchFromGitHub = async () => {
-                updateStatus('Fetching tools.json from GitHub...');
+                updateStatus('Fetching tools.json...');
                 try {
                     const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
-                    const response = await fetch(url, {
-                        headers: { 'Authorization': `token ${GITHUB_TOKEN}` }
-                    });
-
-                    if (!response.ok) throw new Error(`GitHub API Error: ${response.status}`);
+                    const response = await fetch(url, { headers: { 'Authorization': `token ${GITHUB_TOKEN}` } });
+                    if (!response.ok) throw new Error(`GitHub API: ${response.status}`);
 
                     const data = await response.json();
                     currentSHA = data.sha; 
-                    
                     const content = b64_to_utf8(data.content);
-                    const jsonContent = JSON.parse(content);
-                    
-                    toolsData = jsonContent.tools || [];
+                    toolsData = JSON.parse(content).tools || [];
                     
                     globalTags.clear();
                     toolsData.forEach(t => (t.tags || []).forEach(tag => globalTags.add(tag)));
                 } catch (error) {
                     console.error(error);
-                    showToast('Failed to fetch tools.json: ' + error.message, true);
+                    showToast('GitHub Fetch Error: ' + error.message, true);
                     toolsData = [];
                 }
             };
 
             const fetchFromHF = async () => {
-                updateStatus('Fetching HF Archives...');
+                updateStatus('Scanning Hugging Face...');
                 try {
                     const response = await fetch(`https://huggingface.co/api/datasets/${HF_USER}/${HF_REPO}/tree/main`);
                     if (response.ok) {
@@ -285,7 +288,7 @@
                         return files
                             .filter(file => file.path.match(/\.(rar|zip|7z|exe|apk)$/i))
                             .map(file => ({
-                                name: file.path,
+                                name: file.path, 
                                 href: `https://huggingface.co/datasets/${HF_USER}/${HF_REPO}/resolve/main/${file.path}?download=true`,
                                 tags: ["HF-ARCHIVE"],
                                 description: "Synced from Hugging Face.",
@@ -308,20 +311,24 @@
                 const masterMap = new Map();
 
                 hfRaw.forEach(hfItem => {
-                    masterMap.set(hfItem.name, hfItem);
+                    const key = generateKey(hfItem.href);
+                    masterMap.set(key, hfItem);
                 });
 
                 toolsData.forEach(savedItem => {
-                    if (masterMap.has(savedItem.name)) {
-                        masterMap.set(savedItem.name, { 
-                            ...savedItem, 
-                            isHf: true, 
-                            isSaved: true 
+                    const key = generateKey(savedItem.href);
+                    
+                    if (masterMap.has(key)) {
+                        masterMap.set(key, { 
+                            ...savedItem,       
+                            isHf: true,         
+                            isSaved: true       
                         });
                     } else {
-                        masterMap.set(savedItem.name, { 
+                        masterMap.set(key, { 
                             ...savedItem, 
-                            isSaved: true 
+                            isSaved: true,
+                            isHf: false
                         });
                     }
                 });
@@ -330,8 +337,8 @@
                 combinedData.sort((a, b) => a.name.localeCompare(b.name));
                 
                 renderTools();
-                updateStatus('Merged & De-duplicated.');
-                showToast('Connected & Loaded!');
+                updateStatus(`Synced: ${combinedData.length} items loaded.`);
+                showToast('Database Synchronized via Link Verification!');
             };
 
             const pushToGitHub = async () => {
@@ -341,13 +348,20 @@
                 btn.disabled = true;
 
                 try {
+                    const dataToSave = combinedData.filter(item => item.isSaved !== false);
+
                     const now = new Date();
                     const timestamp = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) + 
                                      ' - ' + now.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
                     const newContent = {
                         lastUpdated: timestamp,
-                        tools: toolsData.sort((a, b) => a.name.localeCompare(b.name))
+                        tools: dataToSave.map(item => ({
+                            name: item.name,
+                            href: item.href,
+                            tags: item.tags || [],
+                            description: item.description || ""
+                        }))
                     };
 
                     const jsonString = JSON.stringify(newContent, null, 4);
@@ -372,8 +386,8 @@
                     const result = await response.json();
                     currentSHA = result.content.sha; 
                     
-                    showToast('SUCCESS! Site Updating...');
-                    alert(`Update Pushed Successfully!\n\nGitHub Pages will take 30-60 seconds to rebuild.\nWait a minute before refreshing the main site.`);
+                    showToast('SUCCESS! GitHub Updated.');
+                    setTimeout(syncAllData, 2000); 
                 } catch (error) {
                     showToast('Push Failed: ' + error.message, true);
                 } finally {
@@ -384,7 +398,8 @@
 
             const renderTools = (filter = '') => {
                 toolsListContainer.innerHTML = '';
-                const term = filter.toLowerCase();
+                const term = filter.trim().toLowerCase();
+                
                 const filtered = combinedData.filter(t => 
                     t.name.toLowerCase().includes(term) || 
                     (t.tags && t.tags.some(tag => tag.toLowerCase().includes(term)))
@@ -392,43 +407,40 @@
 
                 filtered.forEach(tool => {
                     const el = document.createElement('div');
-                    const isHfRaw = tool.isHf && !tool.isSaved; 
+                    const isNewHf = tool.isHf && !tool.isSaved;
                     
                     let rowClass = 'admin-tool-item';
-                    if (isHfRaw) rowClass += ' hf-item';
-                    else if (tool.isSaved && tool.isHf) rowClass += ' hf-saved'; 
+                    if (isNewHf) rowClass += ' hf-item';
+                    else if (tool.isHf && tool.isSaved) rowClass += ' hf-saved';
                     
                     const tagsHtml = (tool.tags || []).map(tag => `<span class="tag ${tag === 'HF-ARCHIVE' ? 'hf-tag' : ''}">${tag}</span>`).join('');
                     
                     el.className = rowClass;
                     el.innerHTML = `
                         <div class="tool-info">
-                            <div class="tool-name">${tool.name} ${isHfRaw ? '<span style="font-size:0.7em; color:var(--hf-accent);">[NEW HF]</span>' : ''}</div>
+                            <div class="tool-name">${tool.name} ${isNewHf ? '<span style="font-size:0.7em; color:var(--hf-accent);">[NEW]</span>' : ''}</div>
                             <div style="font-size: 0.75rem; color:#666; margin-top:2px;">${tool.href.substring(0, 40)}...</div>
                         </div>
                         <div class="tool-tags-and-actions">
                             <div class="tool-tags">${tagsHtml}</div>
                             <button class="action-btn edit-btn" title="Edit Metadata"><i class="fa-solid fa-pen"></i> ✎</button>
-                            <button class="action-btn delete-btn" title="Delete/Reset"><i class="fa-solid fa-trash"></i> ✖</button>
+                            <button class="action-btn delete-btn" title="${isNewHf ? 'Hide this session' : 'Delete (Resets to HF Raw)'}"><i class="fa-solid fa-trash"></i> ✖</button>
                         </div>
                     `;
                     
                     el.querySelector('.edit-btn').onclick = () => openModal(tool);
                     el.querySelector('.delete-btn').onclick = () => {
-                        if(confirm(`Delete "${tool.name}"?\nIf this is an HF file, it will reset to default on next reload.`)) {
-                            toolsData = toolsData.filter(t => t.name !== tool.name);
+                        const msg = tool.isSaved 
+                            ? `Reset "${tool.name}"?\nThis will remove custom data and revert to the raw Hugging Face file.` 
+                            : `Hide "${tool.name}" from this session?`;
                             
-                            const idx = combinedData.findIndex(t => t.name === tool.name);
-                            if (idx > -1) {
-                                if (combinedData[idx].isHf) {
-                                    combinedData[idx].isSaved = false;
-                                    combinedData[idx].description = "Synced from Hugging Face.";
-                                } else {
-                                    combinedData.splice(idx, 1);
-                                }
-                            }
+                        if(confirm(msg)) {
+                            const key = generateKey(tool.href);
+                            combinedData = combinedData.filter(t => generateKey(t.href) !== key);
+                            toolsData = toolsData.filter(t => generateKey(t.href) !== key);
+                            
                             renderTools(searchBar.value);
-                            showToast('Item removed locally. Push to save.');
+                            showToast('Item reset/removed. Push to apply.');
                         }
                     };
                     toolsListContainer.appendChild(el);
@@ -440,7 +452,7 @@
                 form.reset();
                 document.getElementById('modal-title').textContent = tool ? 'Edit Tool' : 'Add New Tool';
                 
-                document.getElementById('tool-id').value = tool ? tool.name : "NEW_ENTRY";
+                document.getElementById('tool-id').value = tool ? tool.href : "NEW_ENTRY";
                 
                 if (tool) {
                     document.getElementById('tool-name').value = tool.name;
@@ -458,7 +470,6 @@
                     label.innerHTML = `<input type="checkbox" value="${tag}" ${isChecked ? 'checked' : ''}> ${tag}`;
                     modalTagsContainer.appendChild(label);
                 });
-
                 modal.style.display = 'block';
             };
 
@@ -469,22 +480,17 @@
                 const remember = document.getElementById('remember-me').checked;
 
                 if (!token.startsWith('ghp_') && !token.startsWith('github_pat_')) {
-                    document.getElementById('login-error').textContent = "Invalid Token Format. Must start with ghp_ or github_pat_";
+                    document.getElementById('login-error').textContent = "Invalid Token Format.";
                     return;
                 }
+                GITHUB_TOKEN = token; GITHUB_USER = user; GITHUB_REPO = repo;
 
-                GITHUB_TOKEN = token;
-                GITHUB_USER = user;
-                GITHUB_REPO = repo;
-
-                if (remember) {
-                    saveCredentials(user, repo, token);
-                }
+                if (remember) saveCredentials(user, repo, token);
 
                 loginOverlay.classList.add('hidden');
                 mainContent.style.display = 'flex';
-                document.querySelector('header').style.display = 'flex'; 
-                logoutBtn.style.display = 'block'; 
+                document.querySelector('header').style.display = 'flex';
+                logoutBtn.style.display = 'block';
                 document.getElementById('connection-status').textContent = `Connected: ${user}/${repo}`;
                 
                 syncAllData();
@@ -496,32 +502,32 @@
             
             document.getElementById('tool-form').addEventListener('submit', (e) => {
                 e.preventDefault();
-                const originalName = document.getElementById('tool-id').value;
+                const originalUrlKey = generateKey(document.getElementById('tool-id').value);
+                const isNewEntry = document.getElementById('tool-id').value === "NEW_ENTRY";
+                
                 const name = document.getElementById('tool-name').value;
                 const href = document.getElementById('tool-href').value;
                 const desc = document.getElementById('tool-desc').value;
                 const checkedTags = Array.from(document.querySelectorAll('#modal-tags-container input:checked')).map(cb => cb.value);
 
-                const newTool = { name, href, tags: checkedTags, description: desc };
+                const newTool = { 
+                    name, 
+                    href, 
+                    tags: checkedTags, 
+                    description: desc,
+                    isSaved: true 
+                };
+                
+                const newKey = generateKey(href);
+                const existingIndex = combinedData.findIndex(t => generateKey(t.href) === (isNewEntry ? newKey : originalUrlKey));
 
-                const existingIndex = toolsData.findIndex(t => t.name === (originalName === "NEW_ENTRY" ? name : originalName));
                 if (existingIndex > -1) {
-                    toolsData[existingIndex] = newTool;
+                    combinedData[existingIndex] = { ...combinedData[existingIndex], ...newTool };
                 } else {
-                    toolsData.push(newTool);
+                    combinedData.push({ ...newTool, isHf: false }); 
                 }
                 
                 checkedTags.forEach(t => globalTags.add(t));
-                
-                const combinedIndex = combinedData.findIndex(t => t.name === (originalName === "NEW_ENTRY" ? name : originalName));
-                
-                const isOriginallyHf = combinedData[combinedIndex]?.isHf;
-                
-                if (combinedIndex > -1) {
-                    combinedData[combinedIndex] = { ...newTool, isSaved: true, isHf: isOriginallyHf };
-                } else {
-                    combinedData.push({ ...newTool, isSaved: true });
-                }
                 combinedData.sort((a, b) => a.name.localeCompare(b.name));
 
                 modal.style.display = 'none';
@@ -543,7 +549,7 @@
             });
 
             searchBar.addEventListener('input', (e) => renderTools(e.target.value));
-
+            
             loadCredentials();
         });
     </script>
