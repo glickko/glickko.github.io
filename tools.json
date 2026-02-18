@@ -429,14 +429,6 @@
             ]
         },
         {
-            "name": "AudioCapture.7z",
-            "href": "https://huggingface.co/datasets/glickko/1412x/resolve/main/AudioCapture.7z?download=true",
-            "tags": [
-                "HF-ARCHIVE"
-            ],
-            "description": "simple audio recorder, but powerfull. it can record windows selected audio only and game capture audio. lowkey obs mode😎👌"
-        },
-        {
             "name": "AutoHotkey 2.0.19",
             "href": "https://www.mediafire.com/file/vc8k21ep30fvxgw/AutoHotkey_2.0.19_setup.exe/file",
             "tags": [
