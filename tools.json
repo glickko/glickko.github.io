@@ -1,1936 +1,1397 @@
 {
-    "lastUpdated": "18 Feb 2026 - 7:51 PM",
+    "lastUpdated": "19 Feb 2026 - 12:00 AM",
     "tools": [
         {
             "name": ".NET Desktop Runtime 10.0",
             "href": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "just install it. your apps won't run without this dependency."
         },
         {
             "name": ".NET Desktop Runtime 4.8",
             "href": "https://krakenfiles.com/view/54bde13d34/file.html",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "legacy stuff. needed for older apps to function properly."
         },
         {
             "name": ".NET Desktop Runtime 5.0",
             "href": "https://www.mediafire.com/file/3aqifzzjathixke/dotnet-sdk-5.0.408-win-x64.exe/file",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "middle child of the dot net family. grab it if prompted."
         },
         {
             "name": ".NET Desktop Runtime 6.0",
             "href": "https://www.mediafire.com/file/iw1c5qtn0uf8ps5/dotnet-windowsdesktop-runtime-6.0.31-win-x64.exe/file",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "long term support version. essential for modern apps."
         },
         {
             "name": ".NET Desktop Runtime 7.0",
             "href": "https://www.mediafire.com/file/q9wv88iymxcohlh/dotnet-windowsdesktop-runtime-7.0.2-win-x64.exe/file",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "bridging the gap. keeping your system compatibility high."
         },
         {
             "name": ".NET Desktop Runtime 8.0",
             "href": "https://www.mediafire.com/file/9qlqw4jmu6mi0xf/dotnet-windowsdesktop-runtime-8.0.6-win-x64.exe/file",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "the new standard. lots of apps are moving here."
         },
         {
             "name": ".NET Desktop Runtime 9.0",
             "href": "https://dotnet.microsoft.com/en-us/download/dotnet/9.0",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "bleeding edge runtime. for the latest tech."
         },
         {
             "name": "(AIO) Red Giant.2025.5.0.7z",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Maxon.Red.Giant.2025.5.0.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "massive pack. heavy hitters for vfx. trapcode, magic bullet, universe, all in one."
         },
         {
             "name": "[BOOKMARKS] Glickko HTML Bookmarks [7 Sept 2025]",
             "href": "https://drive.google.com/file/d/1m1qrYYgLR6MIoM6SZNlu2ofrE0yTTjLW/view?usp=drive_link",
-            "tags": [
-                "PERSONAL ARCHIVE"
-            ],
-            "description": ""
+            "tags": ["PERSONAL ARCHIVE"],
+            "description": "my personal curated internet corners. import at your own risk."
         },
         {
             "name": "[CONFIG] TOR Glickko",
             "href": "http://simp.ly/p/9N3Hfn",
-            "tags": [
-                "NETWORK"
-            ],
-            "description": ""
+            "tags": ["NETWORK"],
+            "description": "tor config for bypassing censorship. stay hidden."
         },
         {
             "name": "[PRESET] Glickko Davinci Resolve Presets",
             "href": "https://drive.google.com/file/d/1KdO3vVTZlbUvm1YzWGCR0FCONwGDucIL/view?usp=sharing",
-            "tags": [
-                "PERSONAL ARCHIVE"
-            ],
-            "description": ""
+            "tags": ["PERSONAL ARCHIVE"],
+            "description": "my color grades and fusion nodes. drag and drop magic."
         },
         {
             "name": "[PRESET] Glickko Premiere Pro Presets",
             "href": "https://drive.google.com/file/d/1yK_nw9DKMQbv4cOzp7WuLwPNEr_W-LOF/view?usp=sharing",
-            "tags": [
-                "PERSONAL ARCHIVE"
-            ],
-            "description": ""
+            "tags": ["PERSONAL ARCHIVE"],
+            "description": "make your timeline look professional instantly. my secret sauce."
         },
         {
             "name": "7-Zip",
             "href": "https://drive.google.com/file/d/1ZbA6VBnQBlO8lpqOMMfgNgmApLAzPL-7/view?usp=drive_link",
-            "tags": [
-                "ARCHIVER"
-            ],
-            "description": ""
+            "tags": ["ARCHIVER"],
+            "description": "better than winrar. open source, no nagging windows. essential."
         },
         {
             "name": "Activate Office",
             "href": "https://www.mediafire.com/file/jz6qs50cdob8x17/Activate_Office.cmd/file",
-            "tags": [
-                "ACTIVATOR"
-            ],
-            "description": ""
+            "tags": ["ACTIVATOR"],
+            "description": "cmd script to handle office licensing. shh."
         },
         {
             "name": "Activate Windows",
             "href": "https://www.mediafire.com/file/jxy0r9mj3m6eet7/Activate_Windows.cmd/file",
-            "tags": [
-                "ACTIVATOR"
-            ],
-            "description": ""
+            "tags": ["ACTIVATOR"],
+            "description": "remove that watermark. easy cmd activation."
         },
         {
             "name": "Add \"New .bat\" to Context Menu",
             "href": "https://www.mediafire.com/file/a1amnw9vwhndwqp/add_new_bat_context.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "right click > new bat file. for the script kiddies."
         },
         {
             "name": "Add \"New .txt\" to Context Menu",
             "href": "https://www.mediafire.com/file/dnv7mnrl3j7x3ix/add_new_txt_file.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "restores the text document option if windows killed it."
         },
         {
             "name": "Add End Task to Taskbar",
             "href": "https://www.mediafire.com/file/6mtrsj1znv364vp/add_end_task_taskbar.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "kill frozen apps directly from the taskbar. lifesaver."
         },
         {
             "name": "Adobe After Effects (Low-End PC)",
             "href": "https://www.mediafire.com/file/p7n701q8p70balk",
-            "tags": [
-                "LOW-END",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["LOW-END", "VFX"],
+            "description": "stripped down version for potato pcs. motion graphics on a budget."
         },
         {
             "name": "Adobe After Effects 2025 25.2.2.2",
             "href": "https://www.mediafire.com/file/nqoe6novvjj4p0u/Adobe_After_Effects_2025_25.2.2.2_RePack_by_KpoJIuK.exe.torrent/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "industry standard compositor. latest build. heavy but powerful."
         },
         {
             "name": "Adobe Fireworks 2016",
             "href": "https://www.mediafire.com/file/i6dhx6tz4bs8njf/Adobe_Fireworks_2016_Portable.torrent/file",
-            "tags": [
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS"],
+            "description": "ancient tech for rapid prototyping. discontinued but loved."
         },
         {
             "name": "Adobe Illustrator (Low-End PC)",
             "href": "https://www.mediafire.com/file/a2ikqgafj51ki2x",
-            "tags": [
-                "GRAPHICS",
-                "LOW-END"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS", "LOW-END"],
+            "description": "vector art for weak machines. lightweight build."
         },
         {
             "name": "Adobe Illustrator 2025 29.6.0.207",
             "href": "https://www.mediafire.com/file/g7cdwp6qw6imz6g/Adobe_Illustrator_2025_29.6.0.207_RePack_by_KpoJIuK.exe%25281%2529.torrent/file",
-            "tags": [
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS"],
+            "description": "vectors, logos, branding. standard toolset updated."
         },
         {
             "name": "Adobe Photoshop (Low-End PC)",
             "href": "https://www.mediafire.com/file/wpysvclp68cq6p3",
-            "tags": [
-                "GRAPHICS",
-                "LOW-END"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS", "LOW-END"],
+            "description": "pixels for potatoes. runs on almost anything."
         },
         {
             "name": "Adobe Photoshop 2020 21.2.0.225",
             "href": "https://www.mediafire.com/file/c2yjxot9etv2b15/Adobe_Photoshop_2020_21.2.0.225_Portable_by_XpucT_%255B2020%252C_Ru_En%255D.torrent/file",
-            "tags": [
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS"],
+            "description": "portable version. no install needed. carry it on a usb."
         },
         {
             "name": "Adobe Premiere Pro (Low-End PC)",
             "href": "https://www.mediafire.com/file/g2typnpiw3il2a8",
-            "tags": [
-                "LOW-END",
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["LOW-END", "VIDEO"],
+            "description": "edit videos without melting your cpu. optimized older version."
         },
         {
             "name": "Adobe Premiere Pro 2025 25.2.3.4",
             "href": "https://www.mediafire.com/file/vc70og3w4j9qer0/Adobe_Premiere_Pro_2025_25.2.3.4_RePack_by_KpoJIuK.exe.torrent/file",
-            "tags": [
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["VIDEO"],
+            "description": "top tier nle. requires good hardware. latest features."
         },
         {
             "name": "AEScripts - Auto Lip-Sync v1.12",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Auto%20Lip-Sync%20v1.12.000%20%26%20v1.11.000.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "saves hours of keyframing mouths. automates the tedious stuff."
         },
         {
             "name": "AEScripts - Autosway",
             "href": "https://www.mediafire.com/file/7kwsx15r9jpp167/autosway.rar/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "make things wiggle in the wind. instant puppet animation."
         },
         {
             "name": "AEScripts - BeatEdit Bundle v2.2",
             "href": "https://huggingface.co/glickko/editof/resolve/main/BeatEdit%20Bundle%20v2.2.zip",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "sync your cuts to the beat. essential for amv editors."
         },
         {
             "name": "AEScripts - Captioneer v1.3.0 for Premiere",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Captioneer%20v1.3.0%20for%20Premiere.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "better captions in premiere. automated workflow enhancer."
         },
         {
             "name": "AEScripts - Chromatic Aberration Fast (AE)",
             "href": "https://www.mediafire.com/file/zcha6cjqfkh2dx7/ChromaticAberration_Fast_%2528AE%2529.zip/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "adds rgb split distortion. quick and dirty glitch look."
         },
         {
             "name": "AEScripts - Color Vibrance",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Vibrance.aex",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "video copilot classic. adds intense color to matte elements."
         },
         {
             "name": "AEScripts - Deekay Tool v1.1.8",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Deekay%20Tool%20v1.1.8.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "character rigging made stupid simple. one click limbs."
         },
         {
             "name": "AEScripts - Deep Glow (old)",
             "href": "https://www.mediafire.com/file/jmb1vibzfyzrd8l/Deep_Glow.aex/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "better than ae default glow. physically accurate falloff."
         },
         {
             "name": "AEScripts - Deep Glow 2 v1.1.0",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Aescripts%20-%20Deep%20Glow%202%20v1.1.0%20%5BFileCR%5D.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "updated version. faster, prettier, gpu accelerated glow."
         },
         {
             "name": "AEScripts - FsPlugins Pack (2024-04-14)",
             "href": "https://cdn.discordapp.com/attachments/1268171257355174033/1270198907640479837/FsPlugins20240414.rar?ex=685568aa&is=6854172a&hm=a3db1b005550e1f82c63c5488a28b28391931ef81ce5b75605ca773961795a8c&",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "big bundle of essential scripts. workflow speedrun."
         },
         {
             "name": "AEScripts - OLM",
             "href": "https://www.mediafire.com/file/zslfp13ut14z74f/OLM_%2528AE%2529.rar/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "anime compositing tools. specifically for handling openlines."
         },
         {
             "name": "AEScripts - Projection 3D V5",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Aescripts%20Projection%203D%20V5%20%5BFileCR%5D.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "camera mapping wizardry. turn 2d photos into 3d scenes."
         },
         {
             "name": "AEScripts - Quick Chromatic Abberation",
             "href": "https://huggingface.co/glickko/editof/resolve/main/QCA_v3.2.zip",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "lightweight CA plugin. simple controls, good results."
         },
         {
             "name": "AEScripts - Silence Remover v1.2",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Aescripts%20-%20Silence%20Remover%20v1.2.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "automatically cuts dead air. indispensable for talking heads."
         },
         {
             "name": "AEScripts - Snap! v1.0",
             "href": "https://www.mediafire.com/file/qt4437pkcafm9oe/Snap%2521_v1.0.jsx/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "take snapshots of your comp. simple utility script."
         },
         {
             "name": "AEScripts - Subtitle Pro v2.9.7",
             "href": "https://www.mediafire.com/file/djflzglzyf9bi4y/Subtitle_Pro_v2.9.7.rar/file",
-            "tags": [
-                "PLUGIN",
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VIDEO"],
+            "description": "professional subtitling within ae and premiere. supports srt."
         },
         {
             "name": "AEScripts - Swift Slides v1.0",
             "href": "https://huggingface.co/glickko/editof/resolve/main/ReTrack%20v2.1.3.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "rapid slideshow creator. drag, drop, done."
         },
         {
             "name": "AEScripts - TextEvo 2",
             "href": "https://www.mediafire.com/file/szgwmdhfsc8d6lk/TextEvo2.rar/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "text animator on steroids. delay, bounce, overshoot easily."
         },
         {
             "name": "AEScripts - Transmitter for Premiere Pro v1.3.1",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Transmitter%20for%20Premiere%20Pro%20v1.3.1.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "send layers from premiere to ae instantly. dynamic link killer."
         },
         {
             "name": "AEScripts - UnMult 64",
             "href": "https://www.mediafire.com/file/uuk7glrj2uldlu2/UnMult_64.aex/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "removes black backgrounds from footage. instant alpha channel."
         },
         {
             "name": "AEScripts - YY_Ramp+",
             "href": "https://huggingface.co/glickko/editof/resolve/main/YY_Ramp%2B.aex",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "gradient ramps with better controls. smoother blending."
         },
         {
             "name": "AHK del chat Discord Script",
             "href": "https://www.mediafire.com/file/p83qizz58yxjl74/AHK%252Bdel_discord_script.zip/file",
-            "tags": [
-                "SCRIPT"
-            ],
-            "description": ""
+            "tags": ["SCRIPT"],
+            "description": "nuke your discord history. auto message deleter script."
         },
         {
             "name": "AIDA64 Extreme 7.30.7900",
             "href": "https://www.mediafire.com/file/r8xd57nos8a356m/AIDA64_Extreme_7.30.7900_x86_x64_%255B2024%252C_Multi_%252B_RUS%255D_Portable_by_vesh2.torrent/file",
-            "tags": [
-                "UTILITY",
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "SYSTEM"],
+            "description": "deep system diagnostics. know everything about your hardware."
         },
         {
             "name": "Alight Motion 5.0.272 RE",
             "href": "https://www.mediafire.com/file/pbjgfogmi251g47/Alight_Motion_Premium_Support_5MB_5.0.272.10283_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "motion graphics on android. pro unlocked. slightly older ver."
         },
         {
             "name": "Alight Motion 5.0.277 RE",
             "href": "https://www.mediafire.com/file/p6aulwtvmoiyw8r/Alight_Motion_5.0.277_Premium_fix_force_update_disabled_av_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "updated am pro. force update fixed. edit on the go."
         },
         {
             "name": "Aliucord 1.2.0",
             "href": "https://github.com/Aliucord/Aliucord/releases/tag/1.2.0",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "better discord for android. plugins, themes, no tracking."
         },
         {
             "name": "AndroGoat",
             "href": "https://www.mediafire.com/file/ycdz4bmslkglrxm/AndroGoat.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "vulnerable android app for security testing. learn pentesting."
         },
         {
             "name": "Audacity",
             "href": "https://www.audacityteam.org/download/",
-            "tags": [
-                "AUDIO"
-            ],
-            "description": ""
+            "tags": ["AUDIO"],
+            "description": "open source audio editor. ugly but reliable. classic."
         },
         {
             "name": "AudioCapture.7z",
             "href": "https://huggingface.co/datasets/glickko/1412x/resolve/main/AudioCapture.7z?download=true",
-            "tags": [
-                "HF-ARCHIVE"
-            ],
-            "description": "simple audio recorder, but powerfull. it can record windows selected audio only and game capture audio. lowkey obs mode😎👌"
+            "tags": ["HF-ARCHIVE"],
+            "description": "grab audio from specific windows. clean recording tool."
         },
         {
             "name": "AutoHotkey 2.0.19",
             "href": "https://www.mediafire.com/file/vc8k21ep30fvxgw/AutoHotkey_2.0.19_setup.exe/file",
-            "tags": [
-                "SCRIPT",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["SCRIPT", "UTILITY"],
+            "description": "automate everything. macro scripting language. powerful."
         },
         {
             "name": "Autokroma Bundle 2024.10",
             "href": "https://www.mediafire.com/file/cx5og8v3qws58zm/Autokroma_bundle_2024.10_CE_Maxeffect.iR.exe/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "aftercodecs and braw studio. render faster, handle raw files."
         },
         {
             "name": "Autokroma bundle 2025.5 CE",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Autokroma%20bundle%202025.5%20CE.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "latest exporters. better compression, less file size."
         },
         {
             "name": "BleachBit",
             "href": "https://www.bleachbit.org/",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "ccleaner but actually good. wipes junk and logs."
         },
         {
             "name": "BlueStack MOD",
             "href": "https://bstweaker.ru/",
-            "tags": [
-                "EMULATOR"
-            ],
-            "description": ""
+            "tags": ["EMULATOR"],
+            "description": "rooted android emulator. tweaked for performance."
         },
         {
             "name": "Boris FX Continuum 2025 (AE+Premiere)",
             "href": "https://seyarabata.com/67c4b8eaad7ec",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "huge swiss army knife for vfx. restoration, lights, keys."
         },
         {
             "name": "Boris FX Continuum 2025 (OFX)",
             "href": "https://seyarabata.com/67c4b8f63d2ef",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "continuum for davinci/vegas. ofx version."
         },
         {
             "name": "Boris FX Mocha Pro 2025 (AE+Premiere)",
             "href": "https://www.mediafire.com/file/csnsurqi7frohf5/BorisFXMochaPro2025v12.5.0Adobex64.7z/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "planar tracking king. track screens, remove objects. essential."
         },
         {
             "name": "Boris FX Mocha Pro 2025 (OFX)",
             "href": "https://www.mediafire.com/file/5x22c9vyg5k9h6s/BorisFXMochaPro2025v12.5.0OFXx64.7z/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "planar tracking for ofx hosts. davinci resolve ready."
         },
         {
             "name": "Boris FX Particle Illusion 2024.5",
             "href": "https://www.mediafire.com/file/5idlshqp0u889re/BorisFXParticleIllusionPro2024.5v17.5.1.698x64.7z/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "fast particle generator. sparkles, smoke, magic stuff."
         },
         {
             "name": "Boris FX Sapphire (Photoshop)",
             "href": "https://ranoz.gg/file/frjCg8fj",
-            "tags": [
-                "PLUGIN"
-            ],
-            "description": ""
+            "tags": ["PLUGIN"],
+            "description": "sapphire effects for still images. make your thumbnails glow."
         },
         {
             "name": "Boris FX Sapphire 2025.51 (AE+Premiere)",
             "href": "https://ranoz.gg/file/y1KWlU8w",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "the legendary plugin set. glows, distortions, lens flares."
         },
         {
             "name": "BorisFX Continuum 2025.5 Adobe v18.5.0 CE",
             "href": "https://huggingface.co/glickko/editof/resolve/main/BorisFX%20Continuum%202025.5%20Adobe%20v18.5.0%20CE.exe",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "latest continuum update. more tools, more stability."
         },
         {
             "name": "BorisFX Sapphire AE 2025.51",
             "href": "https://huggingface.co/glickko/editof/resolve/main/BorisFX%20Sapphire%20AE%202025.51.exe",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "latest sapphire build. s_glow and s_shake all day."
         },
         {
             "name": "CapCut 14.5.0",
             "href": "https://www.mediafire.com/file/3t9m051ln8qcs8a/CapCut_14.5.0_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "tiktok editor. modded. older stable build."
         },
         {
             "name": "CapCut 15.5.0",
             "href": "https://www.mediafire.com/file/bcriaqbfva7team/Capcut_15.5.0_%255BMOD%255D%252BENABLE_CREATOR_MODE%252BLOGIN_IN_EMAIL_MODE_FOR_AI_ASSETS.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "newer capcut. creator mode enabled. ai stuff included."
         },
         {
             "name": "CapCut 3.9 Lite",
             "href": "https://www.mediafire.com/file/o15cbpshwf61ucj/CapCut-V3.9.0_LITE-%255BMOD%255D_%252B_LOGIN_FOR_AI_ASSETS.apk/file",
-            "tags": [
-                "APK",
-                "LOW-END"
-            ],
-            "description": ""
+            "tags": ["APK", "LOW-END"],
+            "description": "lightweight version. runs on toaster phones."
         },
         {
             "name": "CapCut 5.1 Lite",
             "href": "https://www.mediafire.com/file/pjfay8x1kn69w9c/CapCut_Lite_5.1.0_Lite_%2528MOD%2529.apk/file",
-            "tags": [
-                "APK",
-                "LOW-END"
-            ],
-            "description": ""
+            "tags": ["APK", "LOW-END"],
+            "description": "updated lite version. basic editing, less bloat."
         },
         {
             "name": "CapCut Desktop 3.8 + GK_Launcher",
             "href": "https://www.mediafire.com/file/ac3dof30efoay6h/CapCut3.8_GKlauncher.7z/file",
-            "tags": [
-                "LOW-END",
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["LOW-END", "VIDEO"],
+            "description": "pc version with a custom launcher. smooth experience."
         },
         {
             "name": "Clip Studio Paint EX 4.0.2",
             "href": "https://www.mediafire.com/file/nctqzkmp7guxcuz/Clip_Studio_Paint_EX_4.0.2_x64_%255B2025%252C_Multi%252C_NO_RUS%255D_%255Brutracker-6669479%255D.torrent/file",
-            "tags": [
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS"],
+            "description": "best tool for digital art. manga, illustration, animation."
         },
         {
             "name": "CompactGUI v4.0.0-beta.5",
             "href": "https://github.com/IridiumIO/CompactGUI/releases/tag/v4.0.0-beta.5",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "transparently compress game folders. save huge space."
         },
         {
             "name": "CyberLink PowerDirector 23.5.1811.0",
             "href": "https://www.mediafire.com/file/d3ejezidcyhonwb/CyberLinkPowerDirector2025v23.5.1811.0Ultimatex64.7z/file",
-            "tags": [
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["VIDEO"],
+            "description": "easy video editor. lots of built in effects. boomer friendly."
         },
         {
             "name": "DaVinci Resolve Studio 20.0",
             "href": "https://www.mediafire.com/file/ugmg95mgxs9ubc8/DaVinci_Resolve_Studio_20.0_Build_49_RePack_by_KpoJIuK.torrent/file",
-            "tags": [
-                "VIDEO",
-                "AUDIO",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VIDEO", "AUDIO", "VFX"],
+            "description": "hollywood grade color grading and editing. studio version unlocked."
         },
         {
             "name": "DesignDoll 5.7.0.1",
             "href": "https://www.mediafire.com/file/oweh8i0zg1meql4/DesignDoll_5.7.0.1.zip/file",
-            "tags": [
-                "3D"
-            ],
-            "description": ""
+            "tags": ["3D"],
+            "description": "pose reference tool. drag 3d dolls around for drawing refs."
         },
         {
             "name": "DirectX 11",
             "href": "https://www.mediafire.com/file/e37jxog409ymb2v/DirectX_11.7z/file",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "graphics api libraries. fix those missing dll errors."
         },
         {
             "name": "DirectX 9.0c",
             "href": "https://www.mediafire.com/file/olkemket1no76an/DirectX_9c.7z/file",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "legacy directx. needed for old games and emulators."
         },
         {
             "name": "Disable Background Apps",
             "href": "https://www.mediafire.com/file/ilyqq5q25xmod6o/W10-11_Disable_Background_Apps.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "save ram. stop apps running secretly."
         },
         {
             "name": "Disable Power Throttling",
             "href": "https://www.mediafire.com/file/mgb0db6oicyssf7/disablepowerthrottle.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "force max performance. stop windows from slowing down tasks."
         },
         {
             "name": "Disable Win+Shift+S",
             "href": "https://www.mediafire.com/file/9squceka5ytwlt6/disable_win_shift_s.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "turn off the snipping tool shortcut. if you prefer lightshot."
         },
         {
             "name": "Discord Portable",
             "href": "https://github.com/portapps/discord-portable/releases",
-            "tags": [
-                "SOCIAL"
-            ],
-            "description": ""
+            "tags": ["SOCIAL"],
+            "description": "discord on a stick. keep your login on usb."
         },
         {
             "name": "DiscordBotClient",
             "href": "https://github.com/aiko-chan-ai/DiscordBotClient/releases/tag/v3.7.2",
-            "tags": [
-                "SOCIAL",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["SOCIAL", "UTILITY"],
+            "description": "control your bot like a user. dashboard wrapper."
         },
         {
             "name": "Drawpile 2.2.2",
             "href": "https://github.com/drawpile/Drawpile/releases/tag/2.2.2",
-            "tags": [
-                "APK",
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["APK", "GRAPHICS"],
+            "description": "draw with friends together. collaborative canvas."
         },
         {
             "name": "Enable Background Apps",
             "href": "https://www.mediafire.com/file/gzk61k97tyub8q6/W10-11_Enable_Background_Apps.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "revert the disable registry. let apps run wild."
         },
         {
             "name": "Extension Filter Mover",
             "href": "https://www.mediafire.com/file/8638dytoqio5fq3/file_mover.bat/file",
-            "tags": [
-                "SCRIPT"
-            ],
-            "description": ""
+            "tags": ["SCRIPT"],
+            "description": "organize files by extension. cleans up download folders."
         },
         {
             "name": "Extreme Injector v3",
             "href": "https://www.mediafire.com/file/jqz02z8gw66smzz/Extreme_Injector_v3_pass-11111.rar/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "dll injector. mostly for game hacking. use responsibly."
         },
         {
             "name": "F-Droid",
             "href": "https://f-droid.org/F-Droid.apk",
-            "tags": [
-                "APK",
-                "STORE"
-            ],
-            "description": ""
+            "tags": ["APK", "STORE"],
+            "description": "open source app store. no tracking, clean apks."
         },
         {
             "name": "FDM Add-On (Elephant)",
             "href": "https://www.mediafire.com/file/2l3vyfst714sseb/elephant.fda/file",
-            "tags": [
-                "ADD-ON"
-            ],
-            "description": ""
+            "tags": ["ADD-ON"],
+            "description": "plugin for fdm. adds functionality."
         },
         {
             "name": "Fennec F-Droid",
             "href": "https://f-droid.org/repo/org.mozilla.fennec_fdroid_1390410.apk",
-            "tags": [
-                "APK",
-                "BROWSER"
-            ],
-            "description": ""
+            "tags": ["APK", "BROWSER"],
+            "description": "firefox fork. stripped of telemetry. privacy focused."
         },
         {
             "name": "FFmpeg (Full)",
             "href": "https://www.mediafire.com/file/dtfj8rzf2rpfffd/FFmpeg_Full.msi/file",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "command line media swiss army knife. converts anything."
         },
         {
             "name": "FFmpeg for Audacity 5.0.0",
             "href": "https://www.mediafire.com/file/0cv8vcx1zzdvm78/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe/file",
-            "tags": [
-                "PLUGIN"
-            ],
-            "description": ""
+            "tags": ["PLUGIN"],
+            "description": "library to let audacity import/export more formats."
         },
         {
             "name": "Film Impact Premium Video Effects v25.2.5 CE",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Film%20Impact%20Premium%20Video%20Effects%20v25.2.5%20CE.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "smooth transitions and effects. makes cuts seamless."
         },
         {
             "name": "Filmora",
             "href": "https://www.mediafire.com/file/0f79auaadazsbiv/Filmora_%255B13.9.79%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "easy video editor for mobile. unlocked features."
         },
         {
             "name": "FlexASIO",
             "href": "https://www.mediafire.com/file/g9fa7fsmsr7mbsw/FlexASIO.rar/file",
-            "tags": [
-                "VIRTUAL MIC"
-            ],
-            "description": ""
+            "tags": ["VIRTUAL MIC"],
+            "description": "low latency audio driver. alternative to asio4all."
         },
         {
             "name": "Floorp Browser",
             "href": "https://floorp.app/en-US/download",
-            "tags": [
-                "BROWSER"
-            ],
-            "description": ""
+            "tags": ["BROWSER"],
+            "description": "firefox based. highly customizable. japanese engineering."
         },
         {
             "name": "Free Download Manager (FDM)",
             "href": "https://files2.freedownloadmanager.org/6/latest/fdm_x64_setup.exe",
-            "tags": [
-                "DOWNLOADER"
-            ],
-            "description": ""
+            "tags": ["DOWNLOADER"],
+            "description": "accelerates downloads. pauses and resumes. idm alternative."
         },
         {
             "name": "FXHOME Ignite Pro AE v4.0.8528 CE",
             "href": "https://huggingface.co/glickko/editof/resolve/main/FXHOME%20Ignite%20Pro%20AE%20v4.0.8528%20CE.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "particle and vfx toolkit. adds hitfilm tech to after effects."
         },
         {
             "name": "G'MIC",
             "href": "https://gmic.eu/download.html",
-            "tags": [
-                "PLUGIN"
-            ],
-            "description": ""
+            "tags": ["PLUGIN"],
+            "description": "open source image processing framework. tons of filters."
         },
         {
             "name": "Gallery - QuickPic",
             "href": "https://www.mediafire.com/file/sv6wcrm5a00q9a6/Gallery_-_QuickPic.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "classic fast gallery. modded to remove cheetah mobile junk."
         },
         {
             "name": "Genarts Sapphire AE 11.0",
             "href": "https://cdn.discordapp.com/attachments/1273046409968484392/1273046975092359250/Genarts_sapphire_AE_11.0_CE_RePack_by_Team_V.R_x642017_ENG_rutracker-5473981.torrent?ex=68553922&is=6853e7a2&hm=612f4e1b3a858a2ba67c4d95c5a1b0469bdbbf9d912a60b0b2b2258e9f4d54d4&",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "legacy sapphire. works on older ae versions. classic fx."
         },
         {
             "name": "GetContact",
             "href": "https://www.mediafire.com/file/u09qxbz6x4sykj0/Getcontact_8.8.0_MOD.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "see who's calling. modded to remove ads."
         },
         {
             "name": "Google Android Emulator",
             "href": "https://developer.android.com/games/playgames/emulator",
-            "tags": [
-                "EMULATOR"
-            ],
-            "description": ""
+            "tags": ["EMULATOR"],
+            "description": "official emulator. good for dev work."
         },
         {
             "name": "Hitomi Downloader",
             "href": "https://github.com/KurtBestor/Hitomi-Downloader/releases",
-            "tags": [
-                "DOWNLOADER"
-            ],
-            "description": ""
+            "tags": ["DOWNLOADER"],
+            "description": "downloads images/videos from everywhere. clean ui."
         },
         {
             "name": "HiTV 3.5.3",
             "href": "https://www.mediafire.com/file/hq59cd59oipwajs/HiTV_3.5.3_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "drama streaming app. unlocked. watch your kdrama."
         },
         {
             "name": "Ibis Paint",
             "href": "https://www.mediafire.com/file/qb1uj11hf9i6xe8/ibis.msixbundle/file",
-            "tags": [
-                "GRAPHICS",
-                "APPX"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS", "APPX"],
+            "description": "mobile drawing app ported to windows. intuitive interface."
         },
         {
             "name": "Image Paster Outside (AE)",
             "href": "https://www.mediafire.com/file/22g1rbnxxe4dzj8/imgpasteroutside_%2528AE%2529.rar/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "paste images from clipboard directly into ae as files."
         },
         {
             "name": "Instant Temp Mail 7.0.4",
             "href": "https://www.mediafire.com/file/zomwjco3pxd6a75/Instant_Mail_7.0.4_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "disposable emails. avoid spam. premium unlocked."
         },
         {
             "name": "InstaPro Clone",
             "href": "https://www.mediafire.com/file/zbozggr9tod7l7e/InstaPro2_%25E2%2599%259A_%255B336.0.0.35.90%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "modded instagram. download media, view stories anonymously."
         },
         {
             "name": "Internet Download Manager 6.42",
             "href": "https://www.mediafire.com/file/18lczj22lzg2oyj/InternetDownloadManager6.42B41Auto.7z/file",
-            "tags": [
-                "DOWNLOADER"
-            ],
-            "description": ""
+            "tags": ["DOWNLOADER"],
+            "description": "the goat downloader. max speed. auto activated."
         },
         {
             "name": "ISOCreator",
             "href": "https://www.mediafire.com/file/qqgo6aie9cmkyua/isocreator_setup.exe/file",
-            "tags": [
-                "UTILITY",
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "SYSTEM"],
+            "description": "make iso files from folders. simple tool."
         },
         {
             "name": "KineMaster 7.6.17",
             "href": "https://www.mediafire.com/file/xly4plsm0hjqu3d/KineMaster_7.6.17.34693.GP_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "powerful mobile editor. watermark removed. pro features."
         },
         {
             "name": "Kreate",
             "href": "https://f-droid.org/repo/me.knighthat.kreate_102.apk",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "open source design tool. quick graphics."
         },
         {
             "name": "Krita",
             "href": "https://krita.org/en/download/",
-            "tags": [
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["GRAPHICS"],
+            "description": "free painting software. amazing brush engine."
         },
         {
             "name": "Lanthanum EN",
             "href": "https://www.mediafire.com/file/ayfbgwfjpxv19q6/Lanthanum.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "mobile game. english version. niche stuff."
         },
         {
             "name": "Laplink PCmover 11.0",
             "href": "https://www.mediafire.com/file/czz9mrt2t43pzo7/Laplink_PCmover_Professional_11.0_1004.0_x86_%255B2017%252C_Multi_%252B_RUS%255D.torrent/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "move data between pcs. automated migration."
         },
         {
             "name": "LD Player MOD",
             "href": "https://d8bb.blogspot.com/2023/11/blue-ldplayer.html",
-            "tags": [
-                "EMULATOR"
-            ],
-            "description": ""
+            "tags": ["EMULATOR"],
+            "description": "lightweight android emulator. modded for better performance."
         },
         {
             "name": "LibreWolf",
             "href": "https://librewolf.net/",
-            "tags": [
-                "BROWSER"
-            ],
-            "description": ""
+            "tags": ["BROWSER"],
+            "description": "hardened firefox. privacy focused out of the box."
         },
         {
             "name": "Lightroom 10.4.1",
             "href": "https://www.mediafire.com/file/7atpk184yvyud5p/Lightroom_10.4.1_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "photo editing on mobile. premium filters unlocked."
         },
         {
             "name": "Live2D Cubism Editor 5.0",
             "href": "https://www.mediafire.com/file/0wbdxll95nok1hw/Live2D_Cubism_Editor_5.0.0.rar/file",
-            "tags": [
-                "ANIMATION"
-            ],
-            "description": ""
+            "tags": ["ANIMATION"],
+            "description": "animate 2d characters. vtuber creation tool."
         },
         {
             "name": "LosslessCut 3.64.0",
             "href": "https://github.com/mifi/lossless-cut/releases/download/v3.64.0/LosslessCut-win-x64.7z",
-            "tags": [
-                "VIDEO",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["VIDEO", "UTILITY"],
+            "description": "trim video without re-encoding. instant cuts."
         },
         {
             "name": "MacroGamer 2.7.5",
             "href": "https://www.mediafire.com/file/fmprex1f05iyom3/MacroGamer_v275_Setup.msi/file",
-            "tags": [
-                "UTILITY",
-                "GAMING"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "GAMING"],
+            "description": "record and play macros. cheat a little in games."
         },
         {
             "name": "Magic Eraser 2.21.9",
             "href": "https://www.mediafire.com/file/abttzwf4vdjpion/Magic_Eraser_2.21.9_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "remove unwanted objects from photos. ai powered."
         },
         {
             "name": "Magisk Kitsune",
             "href": "https://www.mediafire.com/file/qs5qpwehmjsybim/MagiskKitsune.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "magisk fork. hide root better. for advanced android users."
         },
         {
             "name": "MAGIX Vegas Pro 22.0.0.239",
             "href": "https://www.mediafire.com/file/j5f6xlcitz9v3lb/MAGIX_Vegas_Pro_22.0.0.239_%2528x64%2529_%255B03.2025%252C_Multi%252C_NO_RUS%255D_%2528R2R%2529_%255Brutracker-6667346%255D.torrent/file",
-            "tags": [
-                "VIDEO",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VIDEO", "VFX"],
+            "description": "fast editing workflow. classic nle. updated version."
         },
         {
             "name": "Mailbird 3.0.39.0",
             "href": "https://www.mediafire.com/file/c7ym5cdmly5z8lt/mailbird_3.0.39.0.zip/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "clean email client. better than outlook."
         },
         {
             "name": "Mica Effect (Win11)",
             "href": "https://www.mediafire.com/file/eu5jcvu4tz30j6e/Mica_Effect-win11.rar/file",
-            "tags": [
-                "THEME"
-            ],
-            "description": ""
+            "tags": ["THEME"],
+            "description": "restore the mica material look. aesthetics fix."
         },
         {
             "name": "MyPublicWiFi",
             "href": "https://www.mediafire.com/file/1t4vbz2x6l4vc90/MyPublicWiFi.exe/file",
-            "tags": [
-                "NETWORK"
-            ],
-            "description": ""
+            "tags": ["NETWORK"],
+            "description": "turn your pc into a hotspot. share connection easily."
         },
         {
             "name": "Netflix Mirror 3.0",
             "href": "https://www.mediafire.com/file/lmnh8c9jqrtvcl6/NetFlix_Mirror_%255B3.0%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "cloned netflix. streaming alternative."
         },
         {
             "name": "NetShare",
             "href": "https://www.mediafire.com/file/sjii2rq7wzqen49/NetShare-v2.44-MOD.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "create wifi hotspot without root. share vpn connection."
         },
         {
             "name": "NetStalker",
             "href": "https://www.mediafire.com/file/qvo1jtdzo0a1rod/NetStalkerInstaller.exe/file",
-            "tags": [
-                "NETWORK",
-                "SECURITY"
-            ],
-            "description": ""
+            "tags": ["NETWORK", "SECURITY"],
+            "description": "monitor network traffic. catch apps calling home."
         },
         {
             "name": "NewBlue TotalFX 360",
             "href": "https://huggingface.co/glickko/editof/resolve/main/NewBlue%20TotalFX%20360%20b250207.exe",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "complete titling and fx suite. broadcast quality."
         },
         {
             "name": "NewPipe (Old YT Vanced)",
             "href": "https://www.mediafire.com/file/d74afpz2py8wbkh/NewPipe_v0.27.7.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "lightweight youtube client. no ads, background play."
         },
         {
             "name": "Node 6.56.1",
             "href": "https://www.mediafire.com/file/8i7v9o04agoy071/NodeVideo_Pro_v6.56.1_537_Mod.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "node based editing on mobile. complex but powerful."
         },
         {
             "name": "Node 7.5.1",
             "href": "https://www.mediafire.com/file/o9bpj0ht1n20sgp/Node_Video_-_After_Effects_Mobile_v7.5.1_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "newer node video. pro unlocked. mobile after effects."
         },
         {
             "name": "Node.js 22.16.0",
             "href": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-x64.msi",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "javascript runtime. backend stuff. npm included."
         },
         {
             "name": "Nomacs Image Viewer 3.16.224",
             "href": "https://github.com/nomacs/nomacs/releases/tag/3.16.224",
-            "tags": [
-                "MEDIA"
-            ],
-            "description": ""
+            "tags": ["MEDIA"],
+            "description": "fast image viewer. lightweight, handles raw files well."
         },
         {
             "name": "NouTube YT AIO Mode",
             "href": "https://www.mediafire.com/file/eljmfq4svf7l351/NouTube_v0.3.9_%255BMOD%255D_AIO_Youtube_Mode_Music%252C_Video%252C_Kids.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "all in one youtube mod. clean experience."
         },
         {
             "name": "Nox Portable",
             "href": "https://archive.org/download/bare-nox/BareNox.zip",
-            "tags": [
-                "EMULATOR"
-            ],
-            "description": ""
+            "tags": ["EMULATOR"],
+            "description": "portable nox emulator. no install. keeps registry clean."
         },
         {
             "name": "NVIDIA Broadcast 1.4.0.39",
             "href": "https://international.download.nvidia.com/Windows/broadcast/1.4.0.39/NVIDIA_Broadcast_v1.4.0.39.exe",
-            "tags": [
-                "STREAMING",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["STREAMING", "UTILITY"],
+            "description": "ai noise removal. background blur. rtx required."
         },
         {
             "name": "NVIDIA Profile Inspector",
             "href": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases",
-            "tags": [
-                "UTILITY",
-                "GPU"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "GPU"],
+            "description": "tweak hidden gpu settings. unlock limits."
         },
         {
             "name": "OBS (Low-End PC)",
             "href": "https://www.mediafire.com/file/q5e3fh2rhsfp5de",
-            "tags": [
-                "STREAMING",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["STREAMING", "UTILITY"],
+            "description": "configured for weak hardware. record without lagging."
         },
         {
             "name": "OBS Studio",
             "href": "https://obsproject.com/download",
-            "tags": [
-                "STREAMING",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["STREAMING", "UTILITY"],
+            "description": "standard streaming software. open source king."
         },
         {
             "name": "Old Alt-Tab",
             "href": "https://www.mediafire.com/file/4wrw8s2befr2dj3/oldalttab.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "restore classic alt-tab style. simpler look."
         },
         {
             "name": "Onion Fruits [TOR Server]",
             "href": "https://github.com/dragonfruitnetwork/onionfruit/releases",
-            "tags": [
-                "NETWORK"
-            ],
-            "description": ""
+            "tags": ["NETWORK"],
+            "description": "connect to tor network easily. anonymous browsing."
         },
         {
             "name": "Optical Flares 1.3.8",
             "href": "https://www.mediafire.com/file/3a7ksx9buqd3f56/Optical_Flares_1.3.8_%2528170%2529.zip/file",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "lens flare generator. jj abrams starter pack."
         },
         {
             "name": "PdaNetA5232b",
             "href": "https://www.mediafire.com/file/qfbxf3xd24v9kl0/PdaNetA5232b.exe/file",
-            "tags": [
-                "NETWORK",
-                "MOBILE"
-            ],
-            "description": ""
+            "tags": ["NETWORK", "MOBILE"],
+            "description": "tether android internet via usb. bypass hotspot limits."
         },
         {
             "name": "PicsArt 18.7.3 Lite",
             "href": "https://www.mediafire.com/file/lapodajl6thrxyc/PicsArt_18.7.3_Lite_%255BMOD%255D.apk.7z/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "photo editor lite. fast edits on mobile."
         },
         {
             "name": "PicsArt 27.9.5",
             "href": "https://www.mediafire.com/file/xqq3gyjx8w7wtu2/Picsart_AI_Photo_Video_Editor_v27.9.5_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "full picsart experience. gold unlocked. ai tools."
         },
         {
             "name": "PicSay Pro 1.8.0.5",
             "href": "https://www.mediafire.com/file/akmxwsdif55rhjh/PicSay_Pro_1.8.0.5_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "classic meme maker. simple text on images."
         },
         {
             "name": "PotPlayer",
             "href": "https://www.mediafire.com/file/bblw4vo6tiz5n3h/potPLAYER%252BSVP%252BYTDLP_1.7.21595.x64_13.01.22.exe/file",
-            "tags": [
-                "MEDIA"
-            ],
-            "description": ""
+            "tags": ["MEDIA"],
+            "description": "best video player. plays any codec. highly customizable."
         },
         {
             "name": "Process Hacker 2.39",
             "href": "https://www.mediafire.com/file/e1e3cabh9266a0c/processhacker-2.39-setup.exe/file",
-            "tags": [
-                "UTILITY",
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "SYSTEM"],
+            "description": "task manager on steroids. inspect everything."
         },
         {
             "name": "Python 3.10.11",
             "href": "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "python interpreter. stable version. coding essential."
         },
         {
             "name": "Rarevision Camcorder",
             "href": "https://www.mediafire.com/file/fo5faf714jk4re3/Rarevision_VHS_-_Retro_80s_Cam_v1.6.8.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "vhs effect camera. retro vibes instantly."
         },
         {
             "name": "rclone v1.70.1",
             "href": "https://github.com/rclone/rclone/releases/tag/v1.70.1",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "rsync for cloud storage. command line file sync."
         },
         {
             "name": "Reactor Installer",
             "href": "https://www.mediafire.com/file/yzdhm9zvrplnywh/Reactor-Installer.lua/file",
-            "tags": [
-                "DRV PLUGIN",
-                "PLUGIN"
-            ],
-            "description": ""
+            "tags": ["DRV PLUGIN", "PLUGIN"],
+            "description": "package manager for davinci resolve fusion scripts."
         },
         {
             "name": "Red Giant Magic Bullet Suite 2025.0",
             "href": "https://seyarabata.com/6727b867ba43c",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "color correction tools. looks, colorista, denoiser."
         },
         {
             "name": "Red Giant Trapcode Suite 2025.0",
             "href": "https://seyarabata.com/67179e90b46b4",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "industry standard particles. particular, form, mir."
         },
         {
             "name": "Red Giant Universe 2025.3",
             "href": "https://pixeldrain.com/u/k6uKK6Yd",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "transitions and stylized effects. fast gpu rendering."
         },
         {
             "name": "Red Giant VFX Suite 2025.0",
             "href": "https://seyarabata.com/6798ebae9eb0f",
-            "tags": [
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["VFX"],
+            "description": "compositing toolkit. keying, tracking, lights."
         },
         {
             "name": "ReLens",
             "href": "https://www.mediafire.com/file/2omqsfzhualhbe2/ReLens_%255B4.1.3%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "dslr blur simulator. realistic bokeh on mobile."
         },
         {
             "name": "Remini 3.7.977",
             "href": "https://www.mediafire.com/file/5ujm1azecan9eqb/Remini_3.7.977_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "ai photo enhancer. unblur old photos."
         },
         {
             "name": "Resolve Script 2.6.0",
             "href": "https://github.com/nakano000/Resolve_Script/releases/tag/2.6.0",
-            "tags": [
-                "DRV PLUGIN",
-                "PLUGIN"
-            ],
-            "description": ""
+            "tags": ["DRV PLUGIN", "PLUGIN"],
+            "description": "automation scripts for davinci resolve. workflow booster."
         },
         {
             "name": "Revision FX Effections 23.08",
             "href": "https://www.mediafire.com/file/xu9dv5swh8zbm39/RE-VisionFX_Effections_Plus_23.08_CE.exe/file",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "twixtor, rsmb. slow motion and motion blur gods."
         },
         {
             "name": "Revision FX Effections Plus 25.08",
             "href": "https://huggingface.co/glickko/editof/resolve/main/RevisionFX%20Effections%20Plus%2025.08%20(x64).7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "latest version. essential for smooth slo-mo."
         },
         {
             "name": "Revo Uninstaller Pro 5.4.0",
             "href": "https://www.mediafire.com/file/mjamylbeewy1q9o/RevoUninstallerPro5.4.0.7z/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "uninstall stubborn programs. cleans leftover registry keys."
         },
         {
             "name": "RIFE-App 3.33",
             "href": "https://drive.google.com/file/d/1xLiZiJk5yMXEZm3cVjLgMsGPvjYbOPCF/view?usp=drive_link",
-            "tags": [
-                "AI",
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["AI", "VIDEO"],
+            "description": "ai frame interpolation. smooth video out. gui version."
         },
         {
             "name": "Root Explorer",
             "href": "https://www.mediafire.com/file/24a39o9p1z3de4t/RootExplorer.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "file manager for root users. touch system files."
         },
         {
             "name": "RootBeer Sample 0.9",
             "href": "https://www.mediafire.com/file/2zgr86sewbx5dbt/RootBeer_Sample_0.9_APKPure.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "check if your phone is properly rooted. root detection test."
         },
         {
             "name": "ShotCut",
             "href": "https://www.mediafire.com/file/xa6zcmbyczd77fh/ShotCut_%255B2.18.0%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "simple video editor for android. no watermark."
         },
         {
             "name": "Shutter Encoder",
             "href": "https://www.shutterencoder.com/",
-            "tags": [
-                "ENCODER"
-            ],
-            "description": ""
+            "tags": ["ENCODER"],
+            "description": "best free transcoder. ffmpeg gui. professional features."
         },
         {
             "name": "Snap Bar OFF",
             "href": "https://www.mediafire.com/file/le2hmy8nb0m5641/Snap_Bar_OFF.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "disable the snap layout bar at top of screen."
         },
         {
             "name": "Snap Bar ON",
             "href": "https://www.mediafire.com/file/23pvwqx2hyz9sp2/Snap_Bar_ON.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "re-enable snap layout bar."
         },
         {
             "name": "Snap Layouts OFF",
             "href": "https://www.mediafire.com/file/15w67qztfkcuvlo/Snap_Layouts_OFF.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "disable windows 11 snap layouts completely."
         },
         {
             "name": "Snap Layouts ON",
             "href": "https://www.mediafire.com/file/nqp4uukw5j4oeb0/Snap_Layouts_ON.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "turn snap layouts back on."
         },
         {
             "name": "SnapEdit 7.3.5",
             "href": "https://www.mediafire.com/file/idkqr6k7btazwis/SnapEdit_7.3.5_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "ai object remover. simple and effective."
         },
         {
             "name": "Snipping Tool (W10/W11)",
             "href": "https://pixeldrain.com/u/D4Tg6nZh",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "legacy installer if you broke your snipping tool."
         },
         {
             "name": "SoftEther VPN Gate Client",
             "href": "https://www.mediafire.com/file/1x02ru4lj276o57/Soft_Ether_vpngate-client-2025.05.30-build-9807.161906.rar/file",
-            "tags": [
-                "NETWORK"
-            ],
-            "description": ""
+            "tags": ["NETWORK"],
+            "description": "free vpn relay. access blocked sites. open source."
         },
         {
             "name": "Spotify",
             "href": "https://www.mediafire.com/file/ku3we2rwai5l8re/Spotify_v9.0.76.1126_%255BMOD%255D_%252B_LOGIN_VIA_EMAIL_MODE.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "music streaming. no ads. unlimited skips."
         },
         {
             "name": "Spring",
             "href": "https://www.mediafire.com/file/6ucsfqrswzvgboi/Spring_%255B1.4.3.35362%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "body editor. stretch height, slimming. mobile app."
         },
         {
             "name": "SSTap-beta 1.0.9.7",
             "href": "https://www.mediafire.com/file/3dvbbma4w0uqqcb/SSTap-beta-setup-1.0.9.7.exe/file",
-            "tags": [
-                "NETWORK",
-                "VPN"
-            ],
-            "description": ""
+            "tags": ["NETWORK", "VPN"],
+            "description": "gaming vpn accelerator. route game traffic."
         },
         {
             "name": "Stardew Valley",
             "href": "https://www.mediafire.com/file/68u5mgta4d0lgr5/Stardew_Valley_Paid.apk/file",
-            "tags": [
-                "APK",
-                "GAMING"
-            ],
-            "description": ""
+            "tags": ["APK", "GAMING"],
+            "description": "farming sim. full game. relaxing vibes."
         },
         {
             "name": "Stardock Fences 5.5.3.2",
             "href": "https://www.mediafire.com/file/ninmiqcatphmuxp/Stardock_Fences_v5.5.3.2_RePack.zip/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "organize desktop icons into shaded areas. clean desktop."
         },
         {
             "name": "StartAllBack 3.9.0.5220",
             "href": "https://www.mediafire.com/file/0gn0vqddlkuyem9/StartAllBack_3.9.0.5220.rar/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "fix windows 11 taskbar. restore classic start menu."
         },
         {
             "name": "SumatraPDF",
             "href": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
-            "tags": [
-                "UTILITY",
-                "READER"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "READER"],
+            "description": "lightweight pdf reader. minimalist. insanely fast."
         },
         {
             "name": "Suno",
             "href": "https://www.mediafire.com/file/iiiyttx1t9pqhic/Suno_AI_Music_n_Songs_1.23.1_Premium_Unlocked_HN_%2528SFILE.MOBI%2529.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "ai music generator. create songs from prompts."
         },
         {
             "name": "SuperVPN 3.0.1",
             "href": "https://www.mediafire.com/file/qp40hv1yszsfv6f/SuperVPN_3.0.1_%255BMod%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "simple vpn for android. unblock stuff quick."
         },
         {
             "name": "Termux v0.118.3",
             "href": "https://www.mediafire.com/file/a6e4tn48p4sk35n/termux-app_v0.118.3%252Bgithub-debug_universal.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "linux terminal environment for android. hacker pocket knife."
         },
         {
             "name": "Thorium Browser",
             "href": "https://thorium.rocks/",
-            "tags": [
-                "BROWSER"
-            ],
-            "description": ""
+            "tags": ["BROWSER"],
+            "description": "fastest chromium browser. optimized instructions."
         },
         {
             "name": "TikTok (YTTA)",
             "href": "https://www.mediafire.com/folder/j1joai0kqxix5/TikTok+(kalau+gatau+mending+jangan+drpd+nangis)",
-            "tags": [
-                "APK",
-                "WARNING"
-            ],
-            "description": ""
+            "tags": ["APK", "WARNING"],
+            "description": "tiktok mod. region change. dangerous if misused."
         },
         {
             "name": "Tiktok Revanced",
             "href": "https://www.mediafire.com/file/zgomucqeyllz4ur/TikTok_Revanced.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "ad-free tiktok. background playback. clean feed."
         },
         {
             "name": "Topaz Gigapixel AI 8.4.2",
             "href": "https://www.mediafire.com/file/vshbik02i4valvj/TopazGigapixelAI8.4.2x64.exe/file",
-            "tags": [
-                "AI",
-                "GRAPHICS"
-            ],
-            "description": ""
+            "tags": ["AI", "GRAPHICS"],
+            "description": "upscale images without losing quality. ai magic."
         },
         {
             "name": "Topaz Video AI 7.0.2",
             "href": "https://www.mediafire.com/file/9uqs91epab0tjv4/TopazVideoAI7.0.2x64.exe/file",
-            "tags": [
-                "AI",
-                "VIDEO"
-            ],
-            "description": ""
+            "tags": ["AI", "VIDEO"],
+            "description": "upscale video to 4k. deinterlace. frame interpolation."
         },
         {
             "name": "Total Commander 3.41d Final",
             "href": "https://www.mediafire.com/file/y06z4iilmnycod5/Total_Commander_v3.41d_Final_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "old school file manager. dual pane. power user tool."
         },
         {
             "name": "TrafficMonitor v1.85.1",
             "href": "https://github.com/zhongyang219/TrafficMonitor/releases/tag/V1.85.1",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "display internet speed on taskbar. simple overlay."
         },
         {
             "name": "UAC OFF",
             "href": "https://www.mediafire.com/file/17dyjxo4etmicx4/UAC_OFF.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "disable user account control. stop those annoying popups."
         },
         {
             "name": "UAC ON (Fix Xbox Sign-In)",
             "href": "https://www.mediafire.com/file/r6db1bont1dzbrf/UAC_ON_%2528Fix_Xbox_Sign_In%2529.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "re-enable uac. needed for some microsoft apps to login."
         },
         {
             "name": "Ubuntu IconPack V2",
             "href": "https://www.mediafire.com/file/v33dmwuhr8wbhrq/IconPack_Ubuntu_V2.exe/file",
-            "tags": [
-                "THEME"
-            ],
-            "description": ""
+            "tags": ["THEME"],
+            "description": "change windows icons to linux style. fresh look."
         },
         {
             "name": "Uninstall Tools",
             "href": "https://www.mediafire.com/file/679krw7am5x9rw8/Uninstall_Tool_3.7.4.5725.7z/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "force remove apps. clean uninstall trace."
         },
         {
             "name": "Upscayl",
             "href": "https://upscayl.org/download",
-            "tags": [
-                "AI"
-            ],
-            "description": ""
+            "tags": ["AI"],
+            "description": "free open source image upscaler. uses real-esrgan."
         },
         {
             "name": "uTorrent",
             "href": "https://www.mediafire.com/file/fitzhk3ujph0l64/utorrent_HE_edition_with_universal_very_usable_settings.7z/file",
-            "tags": [
-                "DOWNLOADER"
-            ],
-            "description": ""
+            "tags": ["DOWNLOADER"],
+            "description": "classic torrent client. stripped down version."
         },
         {
             "name": "V5",
             "href": "http://simp.ly/p/C2WPy1",
-            "tags": [
-                "NOTE"
-            ],
-            "description": ""
+            "tags": ["NOTE"],
+            "description": "personal notes. ignore this unless you know."
         },
         {
             "name": "VAC Tool",
             "href": "https://www.mediafire.com/file/15u798ajzqq8zy6/vac470full.rar/file",
-            "tags": [
-                "VIRTUAL MIC"
-            ],
-            "description": ""
+            "tags": ["VIRTUAL MIC"],
+            "description": "virtual audio cable. route audio between apps."
         },
         {
             "name": "VB-CABLE Driver",
             "href": "https://www.mediafire.com/file/7qxbpbfubdfjws7/VBCABLE_Driver_Pack45_2.zip/file",
-            "tags": [
-                "VIRTUAL MIC"
-            ],
-            "description": ""
+            "tags": ["VIRTUAL MIC"],
+            "description": "virtual audio driver. simple input/output routing."
         },
         {
             "name": "Vencord",
             "href": "https://vencord.dev/",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "discord client mod. privacy, plugins, themes."
         },
         {
             "name": "Vendroid 1.0.6",
             "href": "https://github.com/Vencord/Vendroid/releases/download/v1.0.6/Vencord-v1.0.6.apk",
-            "tags": [
-                "APK",
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["APK", "UTILITY"],
+            "description": "vencord for android. discord mobile but better."
         },
         {
             "name": "Video Copilot - FX Console v1.0.5",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20FX%20Console%20v1.0.5.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "workflow accelerator for ae. console search for effects."
         },
         {
             "name": "Video Copilot - Optical Flares 1.3.8",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20Optical%20Flares%201.3.8%20(170).7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "pro lens flares. design your own lights."
         },
         {
             "name": "Video Copilot - ORB v1.0.3",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20ORB%20v1.0.3.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "3d planet generator. realistic earth and space scenes."
         },
         {
             "name": "Video Copilot - Saber v1.0.40",
             "href": "https://huggingface.co/glickko/editof/resolve/main/Video%20Copilot%20-%20Saber%20v1.0.40.7z",
-            "tags": [
-                "PLUGIN",
-                "VFX"
-            ],
-            "description": ""
+            "tags": ["PLUGIN", "VFX"],
+            "description": "energy beams. lightsabers. neon text. electric vibes."
         },
         {
             "name": "Visual C++ Redistributable AIO",
             "href": "https://www.mediafire.com/file/kbca83zy9eivhxh/VisualCppRedist_AIO_x86_x64.zip/file",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "all runtimes in one installer. fixes missing dlls."
         },
         {
             "name": "Visual Studio Code",
             "href": "https://code.visualstudio.com/docs/setup/windows",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "best code editor. extensions for everything."
         },
         {
             "name": "VMware Workstation 17.6.3",
             "href": "https://www.mediafire.com/file/u3m84gmipaqsacg/VMwareWorkstationPro17.6.3Build24583834x64.exe/file",
-            "tags": [
-                "VIRTUALIZATION"
-            ],
-            "description": ""
+            "tags": ["VIRTUALIZATION"],
+            "description": "run virtual machines. test os safely."
         },
         {
             "name": "Voicemeeter",
             "href": "https://www.mediafire.com/file/oym8hzerq5d785b/Voicemeeter8Setup_v3119.zip/file",
-            "tags": [
-                "VIRTUAL MIC",
-                "AUDIO"
-            ],
-            "description": ""
+            "tags": ["VIRTUAL MIC", "AUDIO"],
+            "description": "audio mixer for windows. route anything anywhere."
         },
         {
             "name": "VSCodium (Portable)",
             "href": "https://portapps.io/app/vscodium-portable/",
-            "tags": [
-                "DEVELOPMENT"
-            ],
-            "description": ""
+            "tags": ["DEVELOPMENT"],
+            "description": "vscode without microsoft tracking. clean build."
         },
         {
             "name": "VSCodium Context Menu",
             "href": "https://www.mediafire.com/file/h9kl2a0bbtawh9t/VSCodium.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "add 'open with vscodium' to right click menu."
         },
         {
             "name": "VSCodium Context Menu (Disable)",
             "href": "https://www.mediafire.com/file/sspk8acg8duqjui/VSCodium-Disable.reg/file",
-            "tags": [
-                "REGISTRY"
-            ],
-            "description": ""
+            "tags": ["REGISTRY"],
+            "description": "remove vscodium context menu entry."
         },
         {
             "name": "Win11 Rounded Corners Toggle",
             "href": "https://www.mediafire.com/file/4t6w6lz0mr9sydt/Win11DisableOrRestoreRoundedCorners.exe/file",
-            "tags": [
-                "UTILITY"
-            ],
-            "description": ""
+            "tags": ["UTILITY"],
+            "description": "square corners for windows 11. classic look."
         },
         {
             "name": "WinAero Tweaker",
             "href": "https://www.mediafire.com/file/e328z5y38nmoaqp",
-            "tags": [
-                "UTILITY",
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["UTILITY", "SYSTEM"],
+            "description": "ultimate windows customization tool. tweak hidden settings."
         },
         {
             "name": "Windows 11 X-Lite (25231.1000)",
             "href": "https://www.mediafire.com/file/mp301fm47orfz3p/Windows_11_X-Lite_%252825231.1000%2529_%2527Quantum_Leap%2527_By_FBConan_%255BTeamOS%255D.torrent/file",
-            "tags": [
-                "OS",
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["OS", "SYSTEM"],
+            "description": "debloated windows 11 iso. super fast. no spying."
         },
         {
             "name": "Windows Alarms",
             "href": "https://pixeldrain.com/u/j8jAxroy",
-            "tags": [
-                "SYSTEM"
-            ],
-            "description": ""
+            "tags": ["SYSTEM"],
+            "description": "stock alarm app installer. just in case you deleted it."
         },
         {
             "name": "WinRAR 7.01",
             "href": "https://www.mediafire.com/file/1m6yzxhd6ec88kp/WinRAR7.01x64.exe/file",
-            "tags": [
-                "ARCHIVER"
-            ],
-            "description": ""
+            "tags": ["ARCHIVER"],
+            "description": "legendary archiver. pay for it? nah. endless trial."
         },
         {
             "name": "WPS Office 18.18.2",
             "href": "https://www.mediafire.com/file/fzk79stz9zq5vk4/WPS+Office-Premium-v18.18.2_build_1537-Mod.apk/file",
-            "tags": [
-                "APK",
-                "OFFICE"
-            ],
-            "description": ""
+            "tags": ["APK", "OFFICE"],
+            "description": "mobile office suite. pdf editor. ad free."
         },
         {
             "name": "X-plore 4.35.15",
             "href": "https://www.mediafire.com/file/z56y37lxy8lnayu/X-plore-Donate-v4.35.15_build_43515-Mod.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "dual pane file manager for android. root access. old version."
         },
         {
             "name": "X-plore 4.44.04",
             "href": "https://www.mediafire.com/file/xela9gz7398uy44/X-plore_File_Manager_v4.44.04_%255BMOD%255D.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "updated x-plore. best file manager hands down."
         },
         {
             "name": "YouTube Music Desktop v3.9.0",
             "href": "https://github.com/th-ch/youtube-music/releases/tag/v3.9.0",
-            "tags": [
-                "MEDIA"
-            ],
-            "description": ""
+            "tags": ["MEDIA"],
+            "description": "standalone yt music player. plugins support. no browser needed."
         },
         {
             "name": "YT Vanced Lite (No MicroG)",
             "href": "https://www.mediafire.com/file/ubyd1e8cbtki7s4/vanced-tube-5-4-80-311.apk/file",
-            "tags": [
-                "APK"
-            ],
-            "description": ""
+            "tags": ["APK"],
+            "description": "super lite youtube. no login needed. simple player."
         },
         {
             "name": "yt-dlp-gui Installer",
             "href": "https://www.mediafire.com/file/o1k42g10e4dfz1i/yt-dlp-gui-installer.ps1/file",
-            "tags": [
-                "DOWNLOADER"
-            ],
-            "description": ""
+            "tags": ["DOWNLOADER"],
+            "description": "gui for yt-dlp. download video/audio easily. powershell script."
         }
     ]
 }
