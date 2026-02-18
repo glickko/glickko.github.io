@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "18 Feb 2026 - 6:58 PM",
+    "lastUpdated": "18 Feb 2026 - 6:59 PM",
     "tools": [
         {
             "name": ".NET Desktop Runtime 10.0",
@@ -427,14 +427,6 @@
             "tags": [
                 "AUDIO"
             ]
-        },
-        {
-            "name": "AudioCapture.7z",
-            "href": "https://huggingface.co/datasets/glickko/1412x/resolve/main/AudioCapture.7z?download=true",
-            "tags": [
-                "HF-ARCHIVE"
-            ],
-            "description": "simple and powerfull audio recorder, record all window selected sound and other 😎"
         },
         {
             "name": "AutoHotkey 2.0.19",
